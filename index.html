@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>SimpleHoops - Apps for Youth Basketball Teams and Leagues.</title>
+    <title>SimpleHoops - Apps (that don't suck) for Teams and Leagues.</title>
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
@@ -260,7 +260,7 @@
 
       .checkbox-options label:not(:has(input:disabled)):hover {
         border-color: #000;
-        background: rgba(0,0,0,0.03);
+        background: rgba(0, 0, 0, 0.03);
       }
 
       .checkbox-options input[type="checkbox"] {
@@ -279,7 +279,7 @@
       .checkbox-options input[type="checkbox"]:focus {
         outline: none;
         border-color: #666;
-        box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
       }
 
       .checkbox-options input[type="checkbox"]:checked {
@@ -487,8 +487,10 @@
           id="leadForm"
           name="early-access"
           method="POST"
+          action="/"
           data-netlify="true"
           netlify-honeypot="bot-field"
+          data-netlify-success=".success-message"
         >
           <input
             type="hidden"
@@ -613,6 +615,10 @@
             REQUEST EARLY ACCESS
           </button>
         </form>
+
+        <div class="success-message" style="display: none; opacity: 0; transition: opacity 0.3s ease;">
+          <p style="font-size: 1.2rem; font-weight: 600; padding: 2rem;">GOT YOU. WE'LL BE IN TOUCH.</p>
+        </div>
       </div>
     </section>
 
@@ -643,19 +649,23 @@
       });
 
       // Handle "Everything" checkbox
-      const everythingCheckbox = document.querySelector('input[value="everything"]');
-      const otherCheckboxes = document.querySelectorAll('input[type="checkbox"]:not([value="everything"])');
+      const everythingCheckbox = document.querySelector(
+        'input[value="everything"]'
+      );
+      const otherCheckboxes = document.querySelectorAll(
+        'input[type="checkbox"]:not([value="everything"])'
+      );
 
-      everythingCheckbox.addEventListener('change', function() {
-        const label = this.closest('label');
-        label.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-        
+      everythingCheckbox.addEventListener("change", function () {
+        const label = this.closest("label");
+        label.style.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
+
         if (this.checked) {
-          label.style.backgroundColor = 'rgba(0,0,0,0.05)';
-          label.style.borderColor = '#000';
+          label.style.backgroundColor = "rgba(0,0,0,0.05)";
+          label.style.borderColor = "#000";
         } else {
-          label.style.backgroundColor = '';
-          label.style.borderColor = 'transparent';
+          label.style.backgroundColor = "";
+          label.style.borderColor = "transparent";
         }
 
         otherCheckboxes.forEach((checkbox, index) => {
@@ -673,25 +683,6 @@
           everythingCheckbox.checked = allOthersChecked;
         });
       });
-
-      // Form submission success handling
-      document
-        .getElementById("leadForm")
-        .addEventListener("submit", function (e) {
-          // Let Netlify handle the form submission
-          const form = e.target;
-          
-          // Show success message after a brief delay
-          setTimeout(() => {
-            form.style.transition = 'opacity 0.3s ease';
-            form.style.opacity = '0';
-            
-            setTimeout(() => {
-              form.innerHTML = '<p style="font-size: 1.2rem; font-weight: 600; padding: 2rem;">GOT YOU. WE\'LL BE IN TOUCH.</p>';
-              form.style.opacity = '1';
-            }, 300);
-          }, 500);
-        });
     </script>
   </body>
 </html>
