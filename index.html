@@ -25,8 +25,14 @@
 
       .container {
         max-width: 1200px;
+        min-height: 100vh;
+        height: max(100vh, max-content);
         margin: 0 auto;
         padding: 0 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
 
       /* Hero Section */
@@ -363,7 +369,11 @@
           data-netlify="true"
           netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="form-name" value="early-access" />
+          <input
+            type="hidden"
+            name="form-name"
+            value="early-access"
+          />
           <p class="hidden">
             <label>
               Don't fill this out if you're human: <input name="bot-field" />
@@ -448,7 +458,7 @@
           // Let Netlify handle the submission
           // We just need to handle the success message
           const form = e.target;
-          
+
           setTimeout(() => {
             form.innerHTML =
               "<p style=\"font-size: 1.2rem; font-weight: 600; padding: 2rem;\">YOU'RE IN. WE'LL BE IN TOUCH.</p>";
