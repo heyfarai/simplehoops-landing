@@ -258,7 +258,7 @@
         transition: all 0.2s ease;
       }
 
-      .checkbox-options label:hover {
+      .checkbox-options label:not(:has(input:disabled)):hover {
         border-color: #000;
         background: rgba(0,0,0,0.03);
       }
