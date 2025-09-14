@@ -506,7 +506,7 @@
               <label>
                 <input
                   type="checkbox"
-                  name="pain_points[]"
+                  name="pain_points"
                   value="teamsnap"
                 />
                 <span>TeamSnap</span>
@@ -514,7 +514,7 @@
               <label>
                 <input
                   type="checkbox"
-                  name="pain_points[]"
+                  name="pain_points"
                   value="whatsapp"
                 />
                 <span>WhatsApp</span>
@@ -522,7 +522,7 @@
               <label>
                 <input
                   type="checkbox"
-                  name="pain_points[]"
+                  name="pain_points"
                   value="spreadsheets"
                 />
                 <span>Spreadsheets</span>
@@ -530,7 +530,7 @@
               <label>
                 <input
                   type="checkbox"
-                  name="pain_points[]"
+                  name="pain_points"
                   value="sportsengine"
                 />
                 <span>SportsEngine</span>
@@ -538,7 +538,7 @@
               <label>
                 <input
                   type="checkbox"
-                  name="pain_points[]"
+                  name="pain_points"
                   value="goalline"
                 />
                 <span>Goalline</span>
@@ -546,7 +546,7 @@
               <label>
                 <input
                   type="checkbox"
-                  name="pain_points[]"
+                  name="pain_points"
                   value="teamlinkt"
                 />
                 <span>Teamlinkt</span>
@@ -554,7 +554,7 @@
               <label>
                 <input
                   type="checkbox"
-                  name="pain_points[]"
+                  name="pain_points"
                   value="wix"
                 />
                 <span>Wix</span>
@@ -562,7 +562,7 @@
               <label>
                 <input
                   type="checkbox"
-                  name="pain_points[]"
+                  name="pain_points"
                   value="everything"
                 />
                 <span>Everything</span>
@@ -678,14 +678,19 @@
       document
         .getElementById("leadForm")
         .addEventListener("submit", function (e) {
-          // Let Netlify handle the submission
-          // We just need to handle the success message
+          // Let Netlify handle the form submission
           const form = e.target;
-
+          
+          // Show success message after a brief delay
           setTimeout(() => {
-            form.innerHTML =
-              '<p style="font-size: 1.2rem; font-weight: 600; padding: 2rem;">GOT YOU. WE\'LL BE IN TOUCH.</p>';
-          }, 1000);
+            form.style.transition = 'opacity 0.3s ease';
+            form.style.opacity = '0';
+            
+            setTimeout(() => {
+              form.innerHTML = '<p style="font-size: 1.2rem; font-weight: 600; padding: 2rem;">GOT YOU. WE\'LL BE IN TOUCH.</p>';
+              form.style.opacity = '1';
+            }, 300);
+          }, 500);
         });
     </script>
   </body>
