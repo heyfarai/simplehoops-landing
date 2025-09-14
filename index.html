@@ -286,6 +286,16 @@
         background: #000;
       }
 
+      .checkbox-options input[type="checkbox"]:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .checkbox-options input[type="checkbox"]:disabled + span {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
       .checkbox-options input[type="checkbox"]:checked::after {
         content: "";
         position: absolute;
@@ -496,7 +506,7 @@
                   name="pain_points[]"
                   value="teamsnap"
                 />
-                TeamSnap
+                <span>TeamSnap</span>
               </label>
               <label>
                 <input
@@ -504,7 +514,7 @@
                   name="pain_points[]"
                   value="whatsapp"
                 />
-                WhatsApp
+                <span>WhatsApp</span>
               </label>
               <label>
                 <input
@@ -512,7 +522,7 @@
                   name="pain_points[]"
                   value="spreadsheets"
                 />
-                Spreadsheets
+                <span>Spreadsheets</span>
               </label>
               <label>
                 <input
@@ -520,7 +530,7 @@
                   name="pain_points[]"
                   value="sportsengine"
                 />
-                SportsEngine
+                <span>SportsEngine</span>
               </label>
               <label>
                 <input
@@ -528,7 +538,7 @@
                   name="pain_points[]"
                   value="goalline"
                 />
-                Goalline
+                <span>Goalline</span>
               </label>
               <label>
                 <input
@@ -536,7 +546,7 @@
                   name="pain_points[]"
                   value="teamlinkt"
                 />
-                Teamlinkt
+                <span>Teamlinkt</span>
               </label>
               <label>
                 <input
@@ -544,7 +554,7 @@
                   name="pain_points[]"
                   value="wix"
                 />
-                Wix
+                <span>Wix</span>
               </label>
               <label>
                 <input
@@ -552,7 +562,7 @@
                   name="pain_points[]"
                   value="everything"
                 />
-                Everything
+                <span>Everything</span>
               </label>
             </div>
           </fieldset>
@@ -627,6 +637,25 @@
 
       document.querySelectorAll(".fade-in").forEach((el) => {
         observer.observe(el);
+      });
+
+      // Handle "Everything" checkbox
+      const everythingCheckbox = document.querySelector('input[value="everything"]');
+      const otherCheckboxes = document.querySelectorAll('input[type="checkbox"]:not([value="everything"])');
+
+      everythingCheckbox.addEventListener('change', function() {
+        otherCheckboxes.forEach(checkbox => {
+          checkbox.checked = this.checked;
+          checkbox.disabled = this.checked;
+        });
+      });
+
+      // Update "Everything" if all others are checked
+      otherCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+          const allOthersChecked = Array.from(otherCheckboxes).every(cb => cb.checked);
+          everythingCheckbox.checked = allOthersChecked;
+        });
       });
 
       // Form submission success handling
