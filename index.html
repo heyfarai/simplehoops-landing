@@ -273,7 +273,7 @@
         appearance: none;
         position: relative;
         margin: 0;
-        transition: all 0.2s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .checkbox-options input[type="checkbox"]:focus {
@@ -287,13 +287,16 @@
       }
 
       .checkbox-options input[type="checkbox"]:disabled {
-        opacity: 0.5;
+        opacity: 0.6;
         cursor: not-allowed;
+        transform: scale(0.95);
       }
 
       .checkbox-options input[type="checkbox"]:disabled + span {
-        opacity: 0.5;
+        opacity: 0.6;
         cursor: not-allowed;
+        text-decoration: line-through;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .checkbox-options input[type="checkbox"]:checked::after {
@@ -644,9 +647,22 @@
       const otherCheckboxes = document.querySelectorAll('input[type="checkbox"]:not([value="everything"])');
 
       everythingCheckbox.addEventListener('change', function() {
-        otherCheckboxes.forEach(checkbox => {
-          checkbox.checked = this.checked;
-          checkbox.disabled = this.checked;
+        const label = this.closest('label');
+        label.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        
+        if (this.checked) {
+          label.style.backgroundColor = 'rgba(0,0,0,0.05)';
+          label.style.borderColor = '#000';
+        } else {
+          label.style.backgroundColor = '';
+          label.style.borderColor = 'transparent';
+        }
+
+        otherCheckboxes.forEach((checkbox, index) => {
+          setTimeout(() => {
+            checkbox.checked = this.checked;
+            checkbox.disabled = this.checked;
+          }, index * 50); // Stagger the animation
         });
       });
 
