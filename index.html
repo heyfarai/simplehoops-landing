@@ -38,7 +38,6 @@
       .container {
         max-width: 1200px;
         min-height: 100vh;
-        height: max(100vh, max-content);
         margin: 0 auto;
         padding: 0 24px;
         display: flex;
@@ -57,7 +56,7 @@
       }
 
       .hero h1 {
-        font-size: clamp(3rem, 8vw, 8rem);
+        font-size: clamp(3rem, 8vw, 12rem);
         font-weight: 900;
         letter-spacing: -0.05em;
         margin-bottom: 2rem;
@@ -184,7 +183,6 @@
       /* CTA Section */
       .final-cta {
         min-height: 100vh;
-        height: max(100vh, max-content);
         padding: 8rem 0;
         text-align: center;
         display: flex;
@@ -288,8 +286,10 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        <h1>STOP THE<br />MADNESS</h1>
-        <p class="subtitle">Youth sports apps that actually work</p>
+        <h1>Stop the madness</h1>
+        <p class="subtitle">
+          Start using team apps that don't waste your time.
+        </p>
         <button
           class="cta-button"
           onclick="document.getElementById('signup').scrollIntoView({behavior: 'smooth'})"
@@ -302,7 +302,7 @@
     <!-- Problem Section -->
     <section class="problem">
       <div class="container">
-        <h2>YOU'RE FED UP</h2>
+        <h2>You're Fed Up</h2>
         <div class="problem-list fade-in">
           <div class="problem-item">
             <strong>TeamSnap</strong> is cluttered with ads and useless fluff
@@ -315,7 +315,7 @@
             questions
           </div>
           <div class="problem-item">
-            <strong>GameChanger</strong> crashes when you need it most
+            <strong>SportsEngine</strong> is too expensive for what you get
           </div>
         </div>
       </div>
@@ -324,7 +324,7 @@
     <!-- Solution Section -->
     <section class="solution">
       <div class="container">
-        <h2>JUST WHAT<br />YOU NEED</h2>
+        <h2>Just What You Need</h2>
         <div class="apps-grid fade-in">
           <div class="app-item">
             <h3>HoopChat</h3>
@@ -355,10 +355,12 @@
     <!-- Positioning Section -->
     <section class="positioning">
       <div class="container">
-        <h2>NOTHING ELSE</h2>
+        <h2>No. Fluff</h2>
         <p class="fade-in">
-          No ads. No clutter. No BS. Just the tools you need to run youth
-          basketball the right way.
+          No ads.<br />
+          No clutter.<br />
+          No BS.<br />
+          Just the tools you need to run your team.
         </p>
       </div>
     </section>
@@ -369,8 +371,8 @@
       id="signup"
     >
       <div class="container">
-        <h2>GET IN. FIRST.</h2>
-        <p>Join coaches who are done with broken apps</p>
+        <h2>Get In. First.</h2>
+        <p>Join coaches and teams who are done with broken apps</p>
 
         <form
           class="lead-form fade-in"
@@ -430,7 +432,7 @@
             type="submit"
             class="cta-button"
           >
-            CLAIM EARLY ACCESS
+            REQUEST EARLY ACCESS
           </button>
         </form>
       </div>
@@ -472,7 +474,7 @@
 
           setTimeout(() => {
             form.innerHTML =
-              "<p style=\"font-size: 1.2rem; font-weight: 600; padding: 2rem;\">YOU'RE IN. WE'LL BE IN TOUCH.</p>";
+              '<p style="font-size: 1.2rem; font-weight: 600; padding: 2rem;">GOT YOU. WE\'LL BE IN TOUCH.</p>';
           }, 1000);
         });
     </script>
