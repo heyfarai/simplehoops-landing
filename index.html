@@ -228,36 +228,66 @@
 
       .checkbox-group {
         border: none;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
         padding: 0;
       }
 
       .checkbox-group legend {
-        font-size: 1rem;
+        font-size: 1.1rem;
         font-weight: 600;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
         text-align: left;
+        color: #666;
       }
 
       .checkbox-options {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+        gap: 1.2rem;
         text-align: left;
       }
 
       .checkbox-options label {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.8rem;
         font-size: 1rem;
         cursor: pointer;
+        padding: 0.5rem;
+        border: 2px solid transparent;
+        transition: all 0.2s ease;
+      }
+
+      .checkbox-options label:hover {
+        border-color: #000;
       }
 
       .checkbox-options input[type="checkbox"] {
-        width: 1.2rem;
-        height: 1.2rem;
+        width: 1.4rem;
+        height: 1.4rem;
         cursor: pointer;
+        border: 2px solid #000;
+        border-radius: 0;
+        -webkit-appearance: none;
+        appearance: none;
+        position: relative;
+        margin: 0;
+      }
+
+      .checkbox-options input[type="checkbox"]:checked {
+        background: #000;
+      }
+
+      .checkbox-options input[type="checkbox"]:checked::after {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 2px;
+        width: 4px;
+        height: 8px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
       }
 
       .form-input {
