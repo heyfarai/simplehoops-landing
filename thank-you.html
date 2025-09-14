@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanks! - SimpleHoops</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Schibsted Grotesk", Arial, sans-serif;
+        line-height: 1.1;
+        color: #000;
+        background: #fff;
+        font-weight: 400;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 600px;
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        font-weight: 900;
+        margin-bottom: 2rem;
+        letter-spacing: -0.03em;
+      }
+
+      p {
+        font-size: 1.3rem;
+        color: #666;
+        margin-bottom: 3rem;
+        font-weight: 300;
+      }
+
+      .back {
+        display: inline-block;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        padding: 24px 48px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transition: all 0.2s ease;
+      }
+
+      .back:hover {
+        background: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Got You.</h1>
+      <p>We'll be in touch soon with early access.</p>
+      <a href="/" class="back">Back to Home</a>
+    </div>
+  </body>
+</html>

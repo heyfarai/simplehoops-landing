@@ -2,5 +2,12 @@
 publish = "."
 command = ""
 
-[forms.early-access]
-name = "early-access"
+[[redirects]]
+  from = "/thank-you"
+  to = "/thank-you.html"
+  status = 200
+
+[forms]
+  [forms.early-access]
+    name = "early-access"
+    success_url = "/thank-you"

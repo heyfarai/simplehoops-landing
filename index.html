@@ -487,10 +487,9 @@
           id="leadForm"
           name="early-access"
           method="POST"
-          action="/"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          data-netlify-success=".success-message"
+          action="/thank-you"
         >
           <input
             type="hidden"
@@ -616,9 +615,6 @@
           </button>
         </form>
 
-        <div class="success-message" style="display: none; opacity: 0; transition: opacity 0.3s ease;">
-          <p style="font-size: 1.2rem; font-weight: 600; padding: 2rem;">GOT YOU. WE'LL BE IN TOUCH.</p>
-        </div>
       </div>
     </section>
 
@@ -683,6 +679,7 @@
           everythingCheckbox.checked = allOthersChecked;
         });
       });
+
     </script>
   </body>
 </html>
