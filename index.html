@@ -226,6 +226,40 @@
         gap: 1rem;
       }
 
+      .checkbox-group {
+        border: none;
+        margin-bottom: 2rem;
+        padding: 0;
+      }
+
+      .checkbox-group legend {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        text-align: left;
+      }
+
+      .checkbox-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        text-align: left;
+      }
+
+      .checkbox-options label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+
+      .checkbox-options input[type="checkbox"] {
+        width: 1.2rem;
+        height: 1.2rem;
+        cursor: pointer;
+      }
+
       .form-input {
         padding: 20px;
         border: 2px solid #000;
@@ -251,10 +285,14 @@
 
       /* Footer */
       .footer {
+        min-height: 100vh;
         padding: 4rem 0;
         background: #000;
         color: #fff;
         text-align: center;
+        scroll-snap-align: start;
+        display: flex;
+        align-items: center;
       }
 
       .footer p {
@@ -281,6 +319,10 @@
         .cta-button {
           padding: 20px 40px;
           font-size: 1.1rem;
+        }
+
+        .checkbox-options {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -407,6 +449,33 @@
               Don't fill this out if you're human: <input name="bot-field" />
             </label>
           </p>
+          <fieldset class="checkbox-group">
+            <legend>I'm fed up with:</legend>
+            <div class="checkbox-options">
+              <label>
+                <input type="checkbox" name="pain_points[]" value="teamsnap"> TeamSnap
+              </label>
+              <label>
+                <input type="checkbox" name="pain_points[]" value="whatsapp"> WhatsApp
+              </label>
+              <label>
+                <input type="checkbox" name="pain_points[]" value="spreadsheets"> Spreadsheets
+              </label>
+              <label>
+                <input type="checkbox" name="pain_points[]" value="sportsengine"> SportsEngine
+              </label>
+              <label>
+                <input type="checkbox" name="pain_points[]" value="goalline"> Goalline
+              </label>
+              <label>
+                <input type="checkbox" name="pain_points[]" value="teamlinkt"> Teamlinkt
+              </label>
+              <label>
+                <input type="checkbox" name="pain_points[]" value="everything"> Everything
+              </label>
+            </div>
+          </fieldset>
+
           <input
             type="text"
             class="form-input"
