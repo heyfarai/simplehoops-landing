@@ -27,12 +27,19 @@
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: "Schibsted Grotesk", Arial, sans-serif;
         line-height: 1.1;
         color: #000;
         background: #fff;
         font-weight: 400;
+        height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
       }
 
       .container {
@@ -53,6 +60,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+        scroll-snap-align: start;
       }
 
       .hero h1 {
@@ -90,9 +98,11 @@
 
       /* Problem Section */
       .problem {
+        min-height: 100vh;
         padding: 8rem 0;
         background: #000;
         color: #fff;
+        scroll-snap-align: start;
       }
 
       .problem h2 {
@@ -124,7 +134,9 @@
 
       /* Solution Section */
       .solution {
+        min-height: 100vh;
         padding: 8rem 0;
+        scroll-snap-align: start;
       }
 
       .solution h2 {
@@ -160,10 +172,12 @@
 
       /* Positioning Section */
       .positioning {
+        min-height: 100vh;
         padding: 8rem 0;
         background: #000;
         color: #fff;
         text-align: center;
+        scroll-snap-align: start;
       }
 
       .positioning h2 {
@@ -187,6 +201,7 @@
         text-align: center;
         display: flex;
         align-items: center;
+        scroll-snap-align: start;
       }
 
       .final-cta h2 {
