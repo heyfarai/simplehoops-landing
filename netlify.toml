@@ -1,0 +1,6 @@
+[build]
+publish = "."
+command = ""
+
+[forms.early-access]
+name = "early-access"
