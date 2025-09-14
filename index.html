@@ -272,6 +272,13 @@
         appearance: none;
         position: relative;
         margin: 0;
+        transition: all 0.2s ease;
+      }
+
+      .checkbox-options input[type="checkbox"]:focus {
+        outline: none;
+        border-color: #666;
+        box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
       }
 
       .checkbox-options input[type="checkbox"]:checked {
@@ -483,25 +490,68 @@
             <legend>I'm fed up with:</legend>
             <div class="checkbox-options">
               <label>
-                <input type="checkbox" name="pain_points[]" value="teamsnap"> TeamSnap
+                <input
+                  type="checkbox"
+                  name="pain_points[]"
+                  value="teamsnap"
+                />
+                TeamSnap
               </label>
               <label>
-                <input type="checkbox" name="pain_points[]" value="whatsapp"> WhatsApp
+                <input
+                  type="checkbox"
+                  name="pain_points[]"
+                  value="whatsapp"
+                />
+                WhatsApp
               </label>
               <label>
-                <input type="checkbox" name="pain_points[]" value="spreadsheets"> Spreadsheets
+                <input
+                  type="checkbox"
+                  name="pain_points[]"
+                  value="spreadsheets"
+                />
+                Spreadsheets
               </label>
               <label>
-                <input type="checkbox" name="pain_points[]" value="sportsengine"> SportsEngine
+                <input
+                  type="checkbox"
+                  name="pain_points[]"
+                  value="sportsengine"
+                />
+                SportsEngine
               </label>
               <label>
-                <input type="checkbox" name="pain_points[]" value="goalline"> Goalline
+                <input
+                  type="checkbox"
+                  name="pain_points[]"
+                  value="goalline"
+                />
+                Goalline
               </label>
               <label>
-                <input type="checkbox" name="pain_points[]" value="teamlinkt"> Teamlinkt
+                <input
+                  type="checkbox"
+                  name="pain_points[]"
+                  value="teamlinkt"
+                />
+                Teamlinkt
               </label>
               <label>
-                <input type="checkbox" name="pain_points[]" value="everything"> Everything
+                <input
+                  type="checkbox"
+                  name="pain_points[]"
+                  value="wix"
+                />
+                Wix
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="pain_points[]"
+                  value="everything"
+                />
+                Everything
               </label>
             </div>
           </fieldset>
