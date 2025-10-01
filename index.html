@@ -389,6 +389,10 @@
         transform: translateY(0);
       }
     </style>
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
     <!-- Hero Section -->
@@ -487,15 +491,8 @@
           id="leadForm"
           name="early-access"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          action="/thank-you"
+          action="https://formspree.io/f/xdkwznnp"
         >
-          <input
-            type="hidden"
-            name="form-name"
-            value="early-access"
-          />
           <p class="hidden">
             <label>
               Don't fill this out if you're human: <input name="bot-field" />
@@ -607,6 +604,11 @@
             <option value="16-30">16-30 teams</option>
             <option value="30+">30+ teams</option>
           </select>
+          <input
+            type="hidden"
+            name="_next"
+            value="/thank-you"
+          />
           <button
             type="submit"
             class="cta-button"
@@ -614,7 +616,6 @@
             REQUEST EARLY ACCESS
           </button>
         </form>
-
       </div>
     </section>
 
@@ -673,13 +674,14 @@
       });
 
       // Update "Everything" if all others are checked
-      otherCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-          const allOthersChecked = Array.from(otherCheckboxes).every(cb => cb.checked);
+      otherCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+          const allOthersChecked = Array.from(otherCheckboxes).every(
+            (cb) => cb.checked
+          );
           everythingCheckbox.checked = allOthersChecked;
         });
       });
-
     </script>
   </body>
 </html>
