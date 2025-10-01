@@ -71,7 +71,7 @@
         line-height: 0.9;
       }
 
-      .hero .subtitle {
+      .subtitle {
         font-size: clamp(1.2rem, 3vw, 2.5rem);
         font-weight: 300;
         margin-bottom: 4rem;
@@ -143,7 +143,7 @@
         font-size: clamp(2.5rem, 6vw, 6rem);
         font-weight: 900;
         text-align: center;
-        margin-bottom: 4rem;
+        margin-bottom: 1rem;
         letter-spacing: -0.03em;
       }
 
@@ -334,6 +334,47 @@
         cursor: pointer;
       }
 
+      /* Navigation */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 3rem;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-logo {
+        font-size: 1.5rem;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        color: #000;
+        text-decoration: none;
+      }
+
+      .nav-cta {
+        background: #000;
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 0;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .nav-cta:hover {
+        background: #333;
+      }
+
       /* Footer */
       .footer {
         min-height: 100vh;
@@ -375,6 +416,19 @@
         .checkbox-options {
           grid-template-columns: 1fr;
         }
+
+        .nav {
+          padding: 1rem 1.5rem;
+        }
+
+        .nav-logo {
+          font-size: 1.2rem;
+        }
+
+        .nav-cta {
+          padding: 10px 20px;
+          font-size: 0.8rem;
+        }
       }
 
       /* Scroll Animations */
@@ -402,22 +456,28 @@
     ></script>
   </head>
   <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <a
+        href="#"
+        class="nav-logo"
+        >HoopChat</a
+      >
+      <button
+        class="nav-cta"
+        onclick="document.getElementById('signup').scrollIntoView({behavior: 'smooth'})"
+      >
+        GET EARLY ACCESS
+      </button>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        <h1>Stop the madness</h1>
+        <h1>Stop the <span id="rotating-text">madness</span></h1>
         <p class="subtitle">
-          Stop wasting your time with complicated team apps.
+          Start using team apps that don't waste your time.
         </p>
-        <p class="subtitle">
-          Start using simple team apps that don't waste your time.
-        </p>
-        <button
-          class="cta-button"
-          onclick="document.getElementById('signup').scrollIntoView({behavior: 'smooth'})"
-        >
-          GET EARLY ACCESS
-        </button>
       </div>
     </section>
 
@@ -447,17 +507,30 @@
 
     <!-- Solution Section -->
     <section class="solution">
-      <div class="container">
-        <h2>Just What You Need</h2>
+      <div class="container fade-in">
+        <div style="text-align: center; margin-bottom: 4rem">
+          <img
+            src="img/Home.png"
+            alt="HoopChat App"
+            style="
+              max-width: 400px;
+              width: 100%;
+              height: auto;
+              border-radius: 8px;
+            "
+          />
+        </div>
+        <h2 class="fade-in">Just What You Need</h2>
+        <p class="fade-in subtitle">Nothing more. Simple.</p>
         <div class="apps-grid fade-in">
-          <div class="app-item">
+          <!-- <div class="app-item">
             <h3>HoopChat</h3>
             <p>
               Team communication without the noise. Parents, players, coaches.
               Done.
             </p>
-          </div>
-          <div class="app-item">
+          </div> -->
+          <!-- <div class="app-item">
             <h3>HoopLeague</h3>
             <p>
               League management that doesn't break your brain. Schedules.
@@ -471,7 +544,7 @@
           <div class="app-item">
             <h3>HoopStats</h3>
             <p>Live scoring and stats. Real-time. Real easy.</p>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -479,7 +552,7 @@
     <!-- Positioning Section -->
     <section class="positioning">
       <div class="container">
-        <h2>No. Fluff</h2>
+        <h2>No Fluff.</h2>
         <p class="fade-in">
           No ads.<br />
           No clutter.<br />
@@ -495,7 +568,7 @@
       id="signup"
     >
       <div class="container">
-        <h2>Get In. First.</h2>
+        <h2>Get in First.</h2>
         <p>Join coaches and teams who are done with broken apps</p>
 
         <form
@@ -694,6 +767,54 @@
           everythingCheckbox.checked = allOthersChecked;
         });
       });
+
+      // Rotating text animation
+      const rotatingWords = [
+        "madness",
+        "noise",
+        "frustration",
+        "chaos",
+        "headaches",
+      ];
+
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const rotatingTextElement = document.getElementById("rotating-text");
+      const typingSpeed = 100;
+      const deletingSpeed = 50;
+      const pauseBeforeDelete = 2000;
+      const pauseBeforeType = 500;
+
+      function typeEffect() {
+        const currentWord = rotatingWords[wordIndex];
+
+        if (isDeleting) {
+          charIndex--;
+          rotatingTextElement.textContent = currentWord.substring(0, charIndex);
+
+          if (charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % rotatingWords.length;
+            setTimeout(typeEffect, pauseBeforeType);
+            return;
+          }
+          setTimeout(typeEffect, deletingSpeed);
+        } else {
+          charIndex++;
+          rotatingTextElement.textContent = currentWord.substring(0, charIndex);
+
+          if (charIndex === currentWord.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, pauseBeforeDelete);
+            return;
+          }
+          setTimeout(typeEffect, typingSpeed);
+        }
+      }
+
+      // Start the animation after a brief delay
+      setTimeout(typeEffect, 1000);
     </script>
   </body>
 </html>
