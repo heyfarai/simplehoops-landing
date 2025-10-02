@@ -442,6 +442,226 @@
         opacity: 1;
         transform: translateY(0);
       }
+
+      /* Lead Widget */
+      .lead-widget {
+        position: fixed;
+        bottom: 24px;
+        right: 48px;
+        z-index: 2000;
+        font-family: "Schibsted Grotesk", Arial, sans-serif;
+      }
+
+      .widget-button {
+        background: #000;
+        color: #fff;
+        border: none;
+        padding: 16px 24px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 50px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .widget-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+      }
+
+      .widget-card {
+        position: absolute;
+        bottom: 80px;
+        right: 0;
+        width: 380px;
+        max-width: calc(100vw - 48px);
+        background: #fff;
+        border: 2px solid #000;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        display: none;
+        flex-direction: column;
+      }
+
+      .widget-card.active {
+        display: flex;
+        animation: slideUp 0.3s ease;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .widget-header {
+        background: #000;
+        color: #fff;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .widget-header h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .widget-close {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.2s;
+      }
+
+      .widget-close:hover {
+        opacity: 0.7;
+      }
+
+      .widget-body {
+        padding: 24px;
+        max-height: 500px;
+        overflow-y: auto;
+      }
+
+      .widget-question {
+        margin-bottom: 20px;
+      }
+
+      .widget-question label {
+        display: block;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #000;
+      }
+
+      .widget-options {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .widget-option {
+        background: #fff;
+        border: 2px solid #e0e0e0;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: left;
+      }
+
+      .widget-option:hover {
+        border-color: #000;
+        background: rgba(0, 0, 0, 0.02);
+      }
+
+      .widget-option.selected {
+        border-color: #000;
+        background: #000;
+        color: #fff;
+      }
+
+      .widget-input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid #e0e0e0;
+        background: #fff;
+        font-size: 0.95rem;
+        outline: none;
+        transition: border-color 0.2s;
+        font-family: inherit;
+      }
+
+      .widget-input:focus {
+        border-color: #000;
+      }
+
+      .widget-next {
+        background: #000;
+        color: #fff;
+        border: none;
+        padding: 14px 24px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 16px;
+        transition: background 0.2s;
+        font-family: inherit;
+      }
+
+      .widget-next:hover:not(:disabled) {
+        background: #333;
+      }
+
+      .widget-next:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .widget-step {
+        display: none;
+      }
+
+      .widget-step.active {
+        display: block;
+        animation: fadeInStep 0.3s ease;
+      }
+
+      @keyframes fadeInStep {
+        from {
+          opacity: 0;
+          transform: translateX(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .widget-progress {
+        height: 4px;
+        background: #e0e0e0;
+        margin-bottom: 20px;
+      }
+
+      .widget-progress-bar {
+        height: 100%;
+        background: #000;
+        transition: width 0.3s ease;
+      }
+
+      @media (max-width: 768px) {
+        .lead-widget {
+          bottom: 16px;
+          right: 16px;
+        }
+
+        .widget-card {
+          width: calc(100vw - 32px);
+          bottom: 70px;
+        }
+      }
     </style>
     <script>
       window.va =
@@ -495,6 +715,7 @@
           <div class="problem-item">
             47 people asking the <strong>same questions</strong> via text?
           </div>
+          <div class="problem-item">WhatsApp <strong>blown up</strong>?</div>
           <div class="problem-item">
             <strong>SportsEngine</strong> is too expensive for what you get
           </div>
@@ -576,7 +797,7 @@
           id="leadForm"
           name="early-access"
           method="POST"
-          action="https://formspree.io/f/xdkwznnp"
+          action="https://formspree.io/f/xgvnyaan"
         >
           <p class="hidden">
             <label>
@@ -711,6 +932,284 @@
       </div>
     </footer>
 
+    <!-- Lead Segmentation Widget -->
+    <div
+      class="lead-widget"
+      id="leadWidget"
+    >
+      <button
+        class="widget-button"
+        id="widgetToggle"
+      >
+        <span>Quick question...</span>
+        <span>💬</span>
+      </button>
+
+      <div
+        class="widget-card"
+        id="widgetCard"
+      >
+        <div class="widget-header">
+          <h3>Let's see if we can help</h3>
+          <button
+            class="widget-close"
+            id="widgetClose"
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="widget-body">
+          <div class="widget-progress">
+            <div
+              class="widget-progress-bar"
+              id="widgetProgress"
+              style="width: 20%"
+            ></div>
+          </div>
+
+          <!-- Step 1: Role Discovery -->
+          <div
+            class="widget-step active"
+            data-step="1"
+          >
+            <div class="widget-question">
+              <label>What brings you to HoopChat?</label>
+              <div class="widget-options">
+                <button
+                  class="widget-option"
+                  data-value="coach"
+                >
+                  I coach a basketball team
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="manager"
+                >
+                  I manage team operations
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="parent"
+                >
+                  I'm organizing as a parent
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="league"
+                >
+                  I run a league or club
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="exploring"
+                >
+                  Just checking it out
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Current State -->
+          <div
+            class="widget-step"
+            data-step="2"
+          >
+            <div class="widget-question">
+              <label>How are you managing things now?</label>
+              <div class="widget-options">
+                <button
+                  class="widget-option"
+                  data-value="groupchats"
+                >
+                  Drowning in group chats and texts
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="teamsnap"
+                >
+                  Paying for TeamSnap or similar (but it's bloated)
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="spreadsheets"
+                >
+                  Juggling spreadsheets and apps
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="freetools"
+                >
+                  Using free tools that aren't cutting it
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="fresh"
+                >
+                  Starting fresh with a new team
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="fine"
+                >
+                  It's working fine (just exploring)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: The Real Pain -->
+          <div
+            class="widget-step"
+            data-step="3"
+          >
+            <div class="widget-question">
+              <label>What's your biggest headache?</label>
+              <div class="widget-options">
+                <button
+                  class="widget-option"
+                  data-value="repeating"
+                >
+                  Parents asking the same questions over and over
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="updates"
+                >
+                  Kids not seeing important updates
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="schedule"
+                >
+                  Schedule changes turning into chaos
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="coordination"
+                >
+                  No one knows who's bringing what
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="tracking"
+                >
+                  Losing track of who paid/who's coming
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="scattered"
+                >
+                  Everything's scattered across too many places
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="admin"
+                >
+                  I spend too much time on admin stuff
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Decision Power -->
+          <div
+            class="widget-step"
+            data-step="4"
+          >
+            <div class="widget-question">
+              <label>Who picks the tools your team uses?</label>
+              <div class="widget-options">
+                <button
+                  class="widget-option"
+                  data-value="decide"
+                >
+                  I make the call
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="recommend"
+                >
+                  I recommend, others decide
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="group"
+                >
+                  It's a group decision
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="info"
+                >
+                  Just gathering info for now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5: Urgency + Capture -->
+          <div
+            class="widget-step"
+            data-step="5"
+          >
+            <div class="widget-question">
+              <label>When do you need this solved?</label>
+              <div
+                class="widget-options"
+                style="margin-bottom: 20px"
+              >
+                <button
+                  class="widget-option"
+                  data-value="thisweek"
+                >
+                  This week (season's already started!)
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="thismonth"
+                >
+                  This month (getting organized)
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="nextseason"
+                >
+                  Next season (planning ahead)
+                </button>
+                <button
+                  class="widget-option"
+                  data-value="norush"
+                >
+                  No rush, just exploring
+                </button>
+              </div>
+              <input
+                type="text"
+                class="widget-input"
+                id="widgetName"
+                placeholder="First Name"
+                style="margin-bottom: 12px"
+              />
+              <input
+                type="email"
+                class="widget-input"
+                id="widgetEmail"
+                placeholder="Email"
+              />
+              <button
+                class="widget-next"
+                id="widgetSubmit"
+                disabled
+              >
+                Book My Call (15 min)
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
       // Fade in animation on scroll
       const observerOptions = {
@@ -815,6 +1314,296 @@
 
       // Start the animation after a brief delay
       setTimeout(typeEffect, 1000);
+
+      // Lead Widget Logic - Load from localStorage if available
+      const savedData = localStorage.getItem("hoopChatWidgetData");
+      const widgetData = savedData
+        ? JSON.parse(savedData)
+        : {
+            role: null,
+            currentState: null,
+            painPoint: null,
+            decisionPower: null,
+            urgency: null,
+            name: null,
+            email: null,
+          };
+
+      const savedStep = localStorage.getItem("hoopChatWidgetStep");
+      let currentStep = savedStep ? parseInt(savedStep) : 1;
+      const totalSteps = 5;
+      let urgencySelected = widgetData.urgency !== null;
+
+      const widgetToggle = document.getElementById("widgetToggle");
+      const widgetCard = document.getElementById("widgetCard");
+      const widgetClose = document.getElementById("widgetClose");
+      const widgetProgress = document.getElementById("widgetProgress");
+      const widgetName = document.getElementById("widgetName");
+      const widgetEmail = document.getElementById("widgetEmail");
+      const widgetSubmit = document.getElementById("widgetSubmit");
+
+      // Restore saved state on load
+      function restoreWidgetState() {
+        // Restore current step
+        goToStep(currentStep);
+
+        // Restore selected options
+        document.querySelectorAll(".widget-option").forEach((option) => {
+          const step = option.closest(".widget-step");
+          const stepNumber = parseInt(step.dataset.step);
+          const value = option.dataset.value;
+
+          let savedValue = null;
+          switch (stepNumber) {
+            case 1:
+              savedValue = widgetData.role;
+              break;
+            case 2:
+              savedValue = widgetData.currentState;
+              break;
+            case 3:
+              savedValue = widgetData.painPoint;
+              break;
+            case 4:
+              savedValue = widgetData.decisionPower;
+              break;
+            case 5:
+              savedValue = widgetData.urgency;
+              break;
+          }
+
+          if (value === savedValue) {
+            option.classList.add("selected");
+          }
+        });
+
+        // Restore contact form values
+        if (widgetData.name) widgetName.value = widgetData.name;
+        if (widgetData.email) widgetEmail.value = widgetData.email;
+
+        // Validate form if on step 5
+        if (currentStep === 5) {
+          validateContactForm();
+        }
+      }
+
+      // Save widget state to localStorage
+      function saveWidgetState() {
+        localStorage.setItem("hoopChatWidgetData", JSON.stringify(widgetData));
+        localStorage.setItem("hoopChatWidgetStep", currentStep.toString());
+      }
+
+      // Show widget on first scroll
+      let hasScrolled = false;
+      let hasAutoExpanded = false;
+
+      window.addEventListener("scroll", () => {
+        if (!hasScrolled && window.scrollY > 100) {
+          hasScrolled = true;
+          widgetToggle.style.animation = "slideUp 0.5s ease";
+        }
+
+        // Auto-expand when scrolling to solution section
+        if (!hasAutoExpanded && hasScrolled) {
+          const solutionSection = document.querySelector(".solution");
+          if (solutionSection) {
+            const solutionRect = solutionSection.getBoundingClientRect();
+            const isInView =
+              solutionRect.top < window.innerHeight * 0.5 &&
+              solutionRect.bottom > 0;
+
+            if (isInView && !widgetCard.classList.contains("active")) {
+              hasAutoExpanded = true;
+              widgetCard.classList.add("active");
+            }
+          }
+        }
+      });
+
+      // Toggle widget
+      widgetToggle.addEventListener("click", () => {
+        widgetCard.classList.toggle("active");
+      });
+
+      widgetClose.addEventListener("click", () => {
+        widgetCard.classList.remove("active");
+      });
+
+      // Handle option selection
+      document.querySelectorAll(".widget-option").forEach((option) => {
+        option.addEventListener("click", function () {
+          const step = this.closest(".widget-step");
+          const stepNumber = parseInt(step.dataset.step);
+          const value = this.dataset.value;
+
+          // Store the selection
+          switch (stepNumber) {
+            case 1:
+              widgetData.role = value;
+              break;
+            case 2:
+              widgetData.currentState = value;
+              break;
+            case 3:
+              widgetData.painPoint = value;
+              break;
+            case 4:
+              widgetData.decisionPower = value;
+              break;
+            case 5:
+              widgetData.urgency = value;
+              urgencySelected = true;
+              validateContactForm();
+              break;
+          }
+
+          // Visual feedback
+          step.querySelectorAll(".widget-option").forEach((opt) => {
+            opt.classList.remove("selected");
+          });
+          this.classList.add("selected");
+
+          // Save state after each selection
+          saveWidgetState();
+
+          // Move to next step after a short delay (except for step 5)
+          if (stepNumber < 5) {
+            setTimeout(() => {
+              goToStep(stepNumber + 1);
+            }, 300);
+          }
+        });
+      });
+
+      // Handle contact form inputs
+      widgetName.addEventListener("input", () => {
+        widgetData.name = widgetName.value.trim();
+        saveWidgetState();
+        validateContactForm();
+      });
+
+      widgetEmail.addEventListener("input", () => {
+        widgetData.email = widgetEmail.value.trim();
+        saveWidgetState();
+        validateContactForm();
+      });
+
+      function validateContactForm() {
+        const nameValid = widgetName.value.trim().length > 0;
+        const emailValid =
+          widgetEmail.value.trim().length > 0 &&
+          widgetEmail.value.includes("@");
+        widgetSubmit.disabled = !(nameValid && emailValid && urgencySelected);
+      }
+
+      // Handle form submission
+      widgetSubmit.addEventListener("click", async () => {
+        widgetData.name = widgetName.value.trim();
+        widgetData.email = widgetEmail.value.trim();
+
+        // Calculate lead score
+        const leadScore = calculateLeadScore(widgetData);
+
+        console.log("Widget Data:", widgetData);
+        console.log("Lead Score:", leadScore);
+
+        // Here you would typically send this data to your backend or calendar booking tool
+        // For now, we'll redirect to a calendar booking page or show a success message
+
+        // Example: Send to your backend
+        try {
+          const response = await fetch("/api/widget-lead", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ...widgetData, leadScore }),
+          });
+
+          if (response.ok) {
+            // Clear localStorage after successful submission
+            localStorage.removeItem("hoopChatWidgetData");
+            localStorage.removeItem("hoopChatWidgetStep");
+
+            // Redirect to calendar booking (replace with your actual calendar link)
+            window.location.href =
+              "https://calendly.com/your-calendar-link?prefill_name=" +
+              encodeURIComponent(widgetData.name) +
+              "&prefill_email=" +
+              encodeURIComponent(widgetData.email);
+          }
+        } catch (error) {
+          // Clear localStorage before redirect
+          localStorage.removeItem("hoopChatWidgetData");
+          localStorage.removeItem("hoopChatWidgetStep");
+
+          // Fallback: just redirect to calendar
+          window.location.href =
+            "https://calendly.com/your-calendar-link?prefill_name=" +
+            encodeURIComponent(widgetData.name) +
+            "&prefill_email=" +
+            encodeURIComponent(widgetData.email);
+        }
+      });
+
+      function goToStep(stepNumber) {
+        if (stepNumber > totalSteps) return;
+
+        currentStep = stepNumber;
+
+        // Update progress bar
+        const progress = (currentStep / totalSteps) * 100;
+        widgetProgress.style.width = progress + "%";
+
+        // Show/hide steps
+        document.querySelectorAll(".widget-step").forEach((step) => {
+          step.classList.remove("active");
+        });
+
+        const targetStep = document.querySelector(
+          `.widget-step[data-step="${stepNumber}"]`
+        );
+        if (targetStep) {
+          targetStep.classList.add("active");
+        }
+
+        // Save current step
+        saveWidgetState();
+      }
+
+      // Restore widget state on page load
+      restoreWidgetState();
+
+      function calculateLeadScore(data) {
+        // Hot Lead: coach/manager/league + paying for competitor + decision maker + urgent
+        const isHotRole =
+          data.role === "coach" ||
+          data.role === "manager" ||
+          data.role === "league";
+        const isPayingCompetitor = data.currentState === "teamsnap";
+        const isDecisionMaker =
+          data.decisionPower === "decide" || data.decisionPower === "recommend";
+        const isUrgent =
+          data.urgency === "thisweek" || data.urgency === "thismonth";
+
+        if (isHotRole && isPayingCompetitor && isDecisionMaker && isUrgent) {
+          return "hot";
+        }
+
+        // Warm Lead: key role + decision power + medium urgency OR drowning in current solution
+        const isDrowning =
+          data.currentState === "groupchats" ||
+          data.currentState === "spreadsheets";
+        const hasPlanningTime = data.urgency === "nextseason";
+
+        if (
+          (isHotRole && isDecisionMaker && hasPlanningTime) ||
+          (isDrowning && isDecisionMaker && isUrgent)
+        ) {
+          return "warm";
+        }
+
+        // Everyone else is nurture
+        return "nurture";
+      }
     </script>
   </body>
 </html>
