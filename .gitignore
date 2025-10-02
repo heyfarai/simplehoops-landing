@@ -19,3 +19,4 @@ npm-debug.log*
 
 # Netlify
 .netlify/
+.CLAUDE.md
