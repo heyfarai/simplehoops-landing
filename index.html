@@ -1,1676 +1,1714 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>HoopChat - Simple Team Communication for Basketball Teams | No Ads, No Clutter</title>
-    <meta
-      name="description"
-      content="Stop drowning in group chats. HoopChat is the simple basketball team communication app that replaces TeamSnap's bloat with just what you need. For coaches, managers, and parents."
-    />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hoopchat.app/" />
-    <meta property="og:title" content="HoopChat - Simple Team Communication for Basketball Teams" />
-    <meta
-      property="og:description"
-      content="Stop drowning in group chats. HoopChat is the simple basketball team communication app that replaces TeamSnap's bloat with just what you need."
-    />
-    <meta property="og:image" content="https://hoopchat.app/img/Home.png" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://hoopchat.app/" />
-    <meta property="twitter:title" content="HoopChat - Simple Team Communication for Basketball Teams" />
-    <meta
-      property="twitter:description"
-      content="Stop drowning in group chats. HoopChat is the simple basketball team communication app that replaces TeamSnap's bloat with just what you need."
-    />
-    <meta property="twitter:image" content="https://hoopchat.app/img/Home.png" />
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://hoopchat.app/" />
-
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;900&display=swap"
-      rel="stylesheet"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleHoops - Run Your League. Stream Like the Pros.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: "Schibsted Grotesk", Arial, sans-serif;
-        line-height: 1.2;
-        color: #000;
-        background: #fff;
-        font-weight: 400;
-        height: 100vh;
-        overflow-y: scroll;
-        scroll-snap-type: y mandatory;
-      }
-
-      .container {
-        max-width: 1200px;
-        min-height: 100vh;
-        margin: 0 auto;
-        padding: 0 24px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      /* Hero Section */
-      .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        scroll-snap-align: start;
-      }
-
-      .hero h1 {
-        font-size: clamp(3rem, 8vw, 12rem);
-        font-weight: 900;
-        letter-spacing: -0.05em;
-        margin-bottom: 2rem;
-        line-height: 0.9;
-      }
-
-      .subtitle {
-        font-size: clamp(1.2rem, 3vw, 2.5rem);
-        font-weight: 300;
-        margin-bottom: 4rem;
-        color: #666;
-      }
-
-      .cta-button {
-        background: #000;
-        color: #fff;
-        border: none;
-        padding: 24px 48px;
-        font-size: 1.2rem;
-        font-weight: 600;
-        border-radius: 0;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-      }
-
-      .cta-button:hover {
-        background: #333;
-      }
-
-      /* Problem Section */
-      .problem {
-        min-height: 100vh;
-        padding: 8rem 0;
-        background: #000;
-        color: #fff;
-        scroll-snap-align: start;
-      }
-
-      .problem h2 {
-        font-size: clamp(2.5rem, 6vw, 6rem);
-        font-weight: 900;
-        text-align: center;
-        margin-bottom: 4rem;
-        letter-spacing: -0.03em;
-      }
-
-      .problem-list {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .problem-item {
-        font-size: clamp(1.2rem, 2.5vw, 2rem);
-        font-weight: 300;
-        line-height: 1.3;
-        text-align: center;
-      }
-
-      .problem-item strong {
-        font-weight: 700;
-      }
-
-      /* Solution Section */
-      .solution {
-        min-height: 100vh;
-        padding: 8rem 0;
-        scroll-snap-align: start;
-      }
-
-      .solution h2 {
-        font-size: clamp(2.5rem, 6vw, 6rem);
-        font-weight: 900;
-        text-align: center;
-        margin-bottom: 1rem;
-        letter-spacing: -0.03em;
-      }
-
-      .apps-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 4rem;
-        margin-bottom: 6rem;
-      }
-
-      .app-item {
-        text-align: center;
-      }
-
-      .app-item h3 {
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-      }
-
-      .app-item p {
-        font-size: 1.1rem;
-        color: #666;
-        font-weight: 300;
-      }
-
-      /* Positioning Section */
-      .positioning {
-        min-height: 100vh;
-        padding: 8rem 0;
-        background: #000;
-        color: #fff;
-        text-align: center;
-        scroll-snap-align: start;
-      }
-
-      .positioning h2 {
-        font-size: clamp(2rem, 5vw, 4rem);
-        font-weight: 900;
-        margin-bottom: 2rem;
-        letter-spacing: -0.02em;
-      }
-
-      .positioning p {
-        font-size: clamp(1.2rem, 2.5vw, 2rem);
-        font-weight: 300;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      /* CTA Section */
-      .final-cta {
-        min-height: 100vh;
-        padding: 8rem 0;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        scroll-snap-align: start;
-      }
-
-      .final-cta h2 {
-        font-size: clamp(2.5rem, 6vw, 5rem);
-        font-weight: 900;
-        margin-bottom: 2rem;
-        letter-spacing: -0.03em;
-      }
-
-      .final-cta p {
-        font-size: 1.3rem;
-        color: #666;
-        margin-bottom: 3rem;
-        font-weight: 300;
-      }
-
-      /* Form Styles */
-      .lead-form {
-        max-width: 400px;
-        margin: 3rem auto 0;
-        display: grid;
-        gap: 1rem;
-      }
-
-      .checkbox-group {
-        border: none;
-        margin-bottom: 2.5rem;
-        padding: 0;
-      }
-
-      .checkbox-group legend {
-        font-size: 1.1rem;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-        text-align: left;
-        color: #666;
-      }
-
-      .checkbox-options {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.2rem;
-        text-align: left;
-      }
-
-      .checkbox-options label {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        font-size: 1rem;
-        cursor: pointer;
-        padding: 0.5rem;
-        border: 2px solid transparent;
-        transition: all 0.2s ease;
-      }
-
-      .checkbox-options label:not(:has(input:disabled)):hover {
-        border-color: #000;
-        background: rgba(0, 0, 0, 0.03);
-      }
-
-      .checkbox-options input[type="checkbox"] {
-        width: 1.4rem;
-        height: 1.4rem;
-        cursor: pointer;
-        border: 2px solid #000;
-        border-radius: 0;
-        -webkit-appearance: none;
-        appearance: none;
-        position: relative;
-        margin: 0;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .checkbox-options input[type="checkbox"]:focus {
-        outline: none;
-        border-color: #666;
-        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-      }
-
-      .checkbox-options input[type="checkbox"]:checked {
-        background: #000;
-      }
-
-      .checkbox-options input[type="checkbox"]:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-        transform: scale(0.95);
-      }
-
-      .checkbox-options input[type="checkbox"]:disabled + span {
-        opacity: 0.6;
-        cursor: not-allowed;
-        text-decoration: line-through;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .checkbox-options input[type="checkbox"]:checked::after {
-        content: "";
-        position: absolute;
-        left: 6px;
-        top: 2px;
-        width: 4px;
-        height: 8px;
-        border: solid white;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-      }
-
-      .form-input {
-        padding: 20px;
-        border: 2px solid #000;
-        background: #fff;
-        font-size: 1rem;
-        border-radius: 0;
-        outline: none;
-      }
-
-      .form-input:focus {
-        border-color: #666;
-      }
-
-      .form-select {
-        padding: 20px;
-        border: 2px solid #000;
-        background: #fff;
-        font-size: 1rem;
-        border-radius: 0;
-        outline: none;
-        cursor: pointer;
-      }
-
-      /* Navigation */
-      .nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.5rem 3rem;
-        z-index: 1000;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-      }
-
-      .nav-logo {
-        font-size: 1.5rem;
-        font-weight: 900;
-        letter-spacing: -0.02em;
-        color: #000;
-        text-decoration: none;
-      }
-
-      .nav-cta {
-        background: #000;
-        color: #fff;
-        border: none;
-        padding: 12px 24px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        border-radius: 0;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-      }
-
-      .nav-cta:hover {
-        background: #333;
-      }
-
-      /* Footer */
-      .footer {
-        min-height: 100vh;
-        padding: 4rem 0;
-        background: #000;
-        color: #fff;
-        text-align: center;
-        scroll-snap-align: start;
-        display: flex;
-        align-items: center;
-      }
-
-      .footer p {
-        font-size: 0.9rem;
-        font-weight: 300;
-      }
-
-      /* Hide honeypot field */
-      .hidden {
-        display: none;
-      }
-
-      /* Mobile Adjustments */
-      @media (max-width: 768px) {
-        .container {
-          padding: 0 20px;
+        :root {
+            --primary: #FF6B2C;
+            --primary-dark: #E85A1F;
+            --bg: #FFFFFF;
+            --bg-elevated: #F5F5F5;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --accent-blue: #3B82F6;
+            --accent-green: #10B981;
+            --border: rgba(0, 0, 0, 0.1);
         }
 
-        .apps-grid {
-          grid-template-columns: 1fr;
-          gap: 3rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .cta-button {
-          padding: 20px 40px;
-          font-size: 1.1rem;
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .checkbox-options {
-          grid-template-columns: 1fr;
+        /* Typography - Apple-style responsive type ramp */
+        h1, h2, h3 {
+            font-family: 'Schibsted Grotesk', -apple-system, sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.08;
         }
 
-        .nav {
-          padding: 1rem 1.5rem;
+        /* Display - 96px → 48px */
+        h1 { font-size: clamp(48px, 7vw, 96px); }
+        /* Headline - 64px → 40px */
+        h2 { font-size: clamp(40px, 5vw, 64px); }
+        /* Title - 48px → 28px */
+        h3 { font-size: clamp(28px, 3.5vw, 48px); }
+
+        /* Navigation - Floating pill style */
+        nav {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
         }
 
-        .nav-logo {
-          font-size: 1.2rem;
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            padding: 0.5rem .5rem;
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(20px);
+            border-radius: 100px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
         }
 
-        .nav-cta {
-          padding: 10px 20px;
-          font-size: 0.8rem;
-        }
-      }
-
-      /* Scroll Animations */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease;
-      }
-
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Lead Widget */
-      .lead-widget {
-        position: fixed;
-        bottom: 24px;
-        right: 48px;
-        z-index: 2000;
-        font-family: "Schibsted Grotesk", Arial, sans-serif;
-      }
-
-      .widget-button {
-        background: #000;
-        color: #fff;
-        border: none;
-        padding: 16px 24px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        border-radius: 50px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .widget-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-      }
-
-      .widget-card {
-        position: absolute;
-        bottom: 80px;
-        right: 0;
-        width: 380px;
-        max-width: calc(100vw - 48px);
-        background: #fff;
-        border: 2px solid #000;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        display: none;
-        flex-direction: column;
-      }
-
-      .widget-card.active {
-        display: flex;
-        animation: slideUp 0.3s ease;
-      }
-
-      @keyframes slideUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .widget-header {
-        background: #000;
-        color: #fff;
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .widget-header h3 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin: 0;
-      }
-
-      .widget-close {
-        background: none;
-        border: none;
-        color: #fff;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0;
-        width: 24px;
-        height: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: opacity 0.2s;
-      }
-
-      .widget-close:hover {
-        opacity: 0.7;
-      }
-
-      .widget-body {
-        padding: 24px;
-        max-height: 500px;
-        overflow-y: auto;
-      }
-
-      .widget-question {
-        margin-bottom: 20px;
-      }
-
-      .widget-question label {
-        display: block;
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 12px;
-        color: #000;
-      }
-
-      .widget-options {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .widget-option {
-        background: #fff;
-        border: 2px solid #e0e0e0;
-        padding: 12px 16px;
-        font-size: 0.95rem;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        text-align: left;
-      }
-
-      .widget-option:hover {
-        border-color: #000;
-        background: rgba(0, 0, 0, 0.02);
-      }
-
-      .widget-option.selected {
-        border-color: #000;
-        background: #000;
-        color: #fff;
-      }
-
-      .widget-input {
-        width: 100%;
-        padding: 12px 16px;
-        border: 2px solid #e0e0e0;
-        background: #fff;
-        font-size: 0.95rem;
-        outline: none;
-        transition: border-color 0.2s;
-        font-family: inherit;
-      }
-
-      .widget-input:focus {
-        border-color: #000;
-      }
-
-      .widget-next {
-        background: #000;
-        color: #fff;
-        border: none;
-        padding: 14px 24px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        width: 100%;
-        margin-top: 16px;
-        transition: background 0.2s;
-        font-family: inherit;
-      }
-
-      .widget-next:hover:not(:disabled) {
-        background: #333;
-      }
-
-      .widget-next:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-
-      .widget-step {
-        display: none;
-      }
-
-      .widget-step.active {
-        display: block;
-        animation: fadeInStep 0.3s ease;
-      }
-
-      @keyframes fadeInStep {
-        from {
-          opacity: 0;
-          transform: translateX(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      .widget-progress {
-        height: 4px;
-        background: #e0e0e0;
-        margin-bottom: 20px;
-      }
-
-      .widget-progress-bar {
-        height: 100%;
-        background: #000;
-        transition: width 0.3s ease;
-      }
-
-      @media (max-width: 768px) {
-        .lead-widget {
-          bottom: 16px;
-          right: 16px;
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
         }
 
-        .widget-card {
-          width: calc(100vw - 32px);
-          bottom: 70px;
+        .logo img {
+            height: 32px;
+            width: auto;
         }
-      }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links .btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            border-radius: 100px;
+            color: black;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 980px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-content {
+            margin-bottom: 4rem;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-content .subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 1s ease 0.5s backwards;
+        }
+
+        .hero-screenshot {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 12px;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.12);
+        }
+
+        .dashboard-mockup {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .mockup-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .mockup-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #DDD;
+        }
+
+        .mockup-content {
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            padding: 2rem;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .stat-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 107, 44, 0.08);
+            border-left: 3px solid var(--primary);
+            border-radius: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .stat-value {
+            font-family: 'Schibsted Grotesk', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-green);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 6rem 0;
+            background: var(--bg-elevated);
+        }
+
+        .products-header {
+            text-align: center;
+            margin-bottom: 8rem;
+            padding: 4rem 2rem;
+        }
+
+        .products-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .products-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        .product-section {
+            margin-bottom: 5rem;
+        }
+
+        .product-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .product-title {
+            max-width: 1400px;
+            margin: 0 auto 2rem;
+            padding: 0 0;
+        }
+
+        .product-title h3 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .product-title h3 span {
+            color: #b1b1b1;
+        }
+
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .product-icon.league { background: linear-gradient(135deg, #FF6B2C, #FF8F5C); }
+        .product-icon.score { background: linear-gradient(135deg, #3B82F6, #60A5FA); }
+        .product-icon.cast { background: linear-gradient(135deg, #10B981, #34D399); }
+
+        /* Card Carousel */
+        .carousel-wrapper {
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 1.25rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 0.5rem 0 2rem;
+            scroll-padding-left: 2rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        @media (min-width: 1400px) {
+            .carousel {
+                scroll-padding-left: calc((100vw - 1400px) / 2);
+            }
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel::before,
+        .carousel::after {
+            content: '';
+            flex: 0 0 2rem;
+        }
+
+        @media (min-width: 1400px) {
+            .carousel::before {
+                flex: 0 0 calc((100vw - 1400px) / 2);
+            }
+        }
+
+        .feature-card {
+            --card-width: 405px;
+            --card-height: 740px;
+            flex: 0 0 var(--card-width);
+            height: var(--card-height);
+            border-radius: 28px;
+            padding: 2.25rem;
+            display: flex;
+            flex-direction: column;
+            scroll-snap-align: start;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 1440px) {
+            .feature-card {
+                --card-width: 372px;
+                --card-height: 680px;
+            }
+        }
+
+        @media (max-width: 1068px) {
+            .feature-card {
+                --card-width: 344px;
+                --card-height: 628px;
+            }
+        }
+
+        @media (max-width: 734px) {
+            .feature-card {
+                --card-width: 304px;
+                --card-height: 562px;
+            }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Card color themes */
+        .feature-card.light {
+            background: linear-gradient(180deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+            color: var(--text-primary);
+        }
+
+        .feature-card.orange {
+            background: linear-gradient(145deg, #FF6B2C, #FF8F5C);
+            color: white;
+        }
+
+        .feature-card.blue {
+            background: linear-gradient(145deg, #3B82F6, #60A5FA);
+            color: white;
+        }
+
+        .feature-card.green {
+            background: linear-gradient(145deg, #10B981, #34D399);
+            color: white;
+        }
+
+        .feature-card.purple {
+            background: linear-gradient(145deg, #8B5CF6, #A78BFA);
+            color: white;
+        }
+
+        .feature-card.dark {
+            background: linear-gradient(145deg, #1F2937, #374151);
+            color: white;
+        }
+
+        .feature-card.coral {
+            background: linear-gradient(145deg, #F97316, #FB923C);
+            color: white;
+        }
+
+        .feature-card.teal {
+            background: linear-gradient(145deg, #14B8A6, #2DD4BF);
+            color: white;
+        }
+
+        .card-content {
+            flex: 0 0 auto;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card.light .card-description {
+            color: var(--text-secondary);
+        }
+
+        .card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            color: inherit;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .card-cta:hover {
+            opacity: 1;
+        }
+
+        .feature-card.light .card-cta {
+            color: var(--primary);
+        }
+
+        .card-visual {
+            flex: 1;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .card-visual-content {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .feature-card.light .card-visual-content {
+            /* background: rgba(0,0,0,0.05); */
+        }
+
+        /* Carousel Navigation */
+        .carousel-nav {
+            max-width: 1400px;
+            margin: 1rem auto 0;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.5rem;
+        }
+
+        .carousel-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: all 0.2s;
+        }
+
+        .carousel-btn:hover {
+            background: var(--bg-elevated);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Responsive carousel */
+        @media (max-width: 768px) {
+            .carousel {
+                padding: 0.5rem 1rem 2rem;
+                gap: 1rem;
+            }
+
+            .carousel-nav {
+                padding: 0 1rem;
+            }
+
+            .product-title {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Before/After Section */
+        .comparison {
+            padding: 6rem 2rem;
+            background: var(--bg);
+        }
+
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comparison h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .comparison-col {
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .comparison-col.old {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+        }
+
+        .comparison-col.new {
+            background: linear-gradient(135deg, rgba(255, 107, 44, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+            border: 1px solid rgba(255, 107, 44, 0.3);
+        }
+
+        .comparison-col h3 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .comparison-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .comparison-item:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-icon {
+            font-size: 1.25rem;
+        }
+
+        /* HoopCast Feature Section */
+        .hoopcast-feature {
+            padding: 8rem 2rem;
+            background: var(--bg-elevated);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hoopcast-feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 107, 44, 0.08) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .hoopcast-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hoopcast-content {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 107, 44, 0.2);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hoopcast-content h2 {
+            margin-bottom: 1rem;
+        }
+
+        .hoopcast-content .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .flow-diagram {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .flow-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -2rem;
+            top: 3rem;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .flow-step:last-child::after {
+            display: none;
+        }
+
+        .flow-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-card);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+
+        .flow-step h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .flow-step p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 4rem 2rem;
+            background: var(--bg);
+            text-align: center;
+        }
+
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-quote {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .testimonial-role {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Schibsted Grotesk', sans-serif;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        .stat-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 2rem;
+            background: var(--bg-elevated);
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, rgba(255, 107, 44, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .price {
+            font-family: 'Schibsted Grotesk', sans-serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-period {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 8rem 2rem;
+            background: var(--bg);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-meta {
+            margin-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-brand {
+            font-family: 'Schibsted Grotesk', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pillar-content {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .flow-diagram {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-step::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -2rem;
+                transform: translateX(50%);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 6rem;
+            }
+
+            .stats-row {
+                gap: 2rem;
+            }
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: var(--bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 480px;
+            position: relative;
+        }
+        .modal h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .modal p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .modal .btn { width: 100%; margin-top: 0.5rem; }
     </style>
-    <script>
-      window.va =
-        window.va ||
-        function () {
-          (window.vaq = window.vaq || []).push(arguments);
-        };
-    </script>
-    <script
-      defer
-      src="/_vercel/insights/script.js"
-    ></script>
-  </head>
-  <body>
+</head>
+<body>
     <!-- Navigation -->
-    <nav class="nav">
-      <a
-        href="#"
-        class="nav-logo"
-        >HoopChat</a
-      >
-      <button
-        class="nav-cta"
-        onclick="document.getElementById('signup').scrollIntoView({behavior: 'smooth'})"
-      >
-        GET EARLY ACCESS
-      </button>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="img/icon.png" alt="SimpleHoops" height="32"></a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#" onclick="openDemoModal(); return false;" class="btn btn-primary">Book a Demo</a>
+            </div>
+        </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-      <div class="container">
-        <h1>Stop the <span id="rotating-text">madness</span></h1>
-        <p class="subtitle">
-          Start using team apps that don't waste your time.
-        </p>
-      </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="problem">
-      <div class="container">
-        <h2>You're Fed Up</h2>
-        <div class="problem-list fade-in">
-          <div class="problem-item">
-            <strong>TeamSnap</strong> is cluttered with ads and useless fluff
-          </div>
-          <div class="problem-item">
-            <strong>Spreadsheets</strong> break when people "help" edit them
-          </div>
-          <div class="problem-item">
-            47 people asking the <strong>same questions</strong> via text?
-          </div>
-          <div class="problem-item">WhatsApp <strong>blown up</strong>?</div>
-          <div class="problem-item">
-            <strong>SportsEngine</strong> is too expensive for what you get
-          </div>
-          <div class="problem-item">
-            Teamlinkt is just <strong>a lot</strong>?
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="solution">
-      <div class="container fade-in">
-        <div style="text-align: center; margin-bottom: 4rem">
-          <img
-            src="img/Home.png"
-            alt="HoopChat App"
-            style="
-              max-width: 400px;
-              width: 100%;
-              height: auto;
-              border-radius: 8px;
-            "
-          />
-        </div>
-        <h2 class="fade-in">Just What You Need</h2>
-        <p class="fade-in subtitle">Nothing more. Simple.</p>
-        <div class="apps-grid fade-in">
-          <!-- <div class="app-item">
-            <h3>HoopChat</h3>
-            <p>
-              Team communication without the noise. Parents, players, coaches.
-              Done.
-            </p>
-          </div> -->
-          <!-- <div class="app-item">
-            <h3>HoopLeague</h3>
-            <p>
-              League management that doesn't break your brain. Schedules.
-              Standings. Simple.
-            </p>
-          </div>
-          <div class="app-item">
-            <h3>HoopTeam</h3>
-            <p>Team websites that work. Registration. Tryouts. No hassle.</p>
-          </div>
-          <div class="app-item">
-            <h3>HoopStats</h3>
-            <p>Live scoring and stats. Real-time. Real easy.</p>
-          </div> -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Positioning Section -->
-    <section class="positioning">
-      <div class="container">
-        <h2>No Fluff.</h2>
-        <p class="fade-in">
-          No ads.<br />
-          No clutter.<br />
-          No BS.<br /><br />
-          Just the tools you need <br />to run your team. <br /><br />Simple.
-        </p>
-      </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section
-      class="final-cta"
-      id="signup"
-    >
-      <div class="container">
-        <h2>Get in First.</h2>
-        <p>Join coaches and teams who are done with broken apps</p>
-
-        <form
-          class="lead-form fade-in"
-          id="leadForm"
-          name="early-access"
-          method="POST"
-          action="https://formspree.io/f/xgvnyaan"
-        >
-          <p class="hidden">
-            <label>
-              Don't fill this out if you're human: <input name="bot-field" />
-            </label>
-          </p>
-          <fieldset class="checkbox-group">
-            <legend>I'm fed up with:</legend>
-            <div class="checkbox-options">
-              <label>
-                <input
-                  type="checkbox"
-                  name="pain-points[]"
-                  value="teamsnap"
-                />
-                <span>TeamSnap</span>
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="pain-points[]"
-                  value="whatsapp"
-                />
-                <span>WhatsApp</span>
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="pain-points[]"
-                  value="spreadsheets"
-                />
-                <span>Spreadsheets</span>
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="pain-points[]"
-                  value="sportsengine"
-                />
-                <span>SportsEngine</span>
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="pain-points[]"
-                  value="goalline"
-                />
-                <span>Goalline</span>
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="pain-points[]"
-                  value="teamlinkt"
-                />
-                <span>Teamlinkt</span>
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="pain-points[]"
-                  value="wix"
-                />
-                <span>Wix</span>
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="pain-points[]"
-                  value="everything"
-                />
-                <span>Everything</span>
-              </label>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Run Your League.<br>Stats Like the Pros.</h1>
+                <p class="subtitle">Pro-level league website. Live broadcasts. All-in-one platform. Dead simple. For iOS and Android.</p>
+                <div class="hero-cta">
+                    <a href="#hoopcast" class="btn btn-primary">See HoopCast Demo</a>
+                    <a href="#features" class="btn btn-secondary">Explore Features</a>
+                </div>
             </div>
-          </fieldset>
+            <div class="hero-visual">
+                <img src="img/hoopscore-screenshot.png" alt="HoopScore App Screenshot" class="hero-screenshot">
+            </div>
+        </div>
+    </section>
 
-          <input
-            type="text"
-            class="form-input"
-            placeholder="Your Name"
-            name="name"
-            required
-          />
-          <input
-            type="email"
-            class="form-input"
-            placeholder="Email"
-            name="email"
-            required
-          />
-          <select
-            class="form-select"
-            name="role"
-            required
-          >
-            <option value="">Your Role</option>
-            <option value="league-director">League Director</option>
-            <option value="coach">Coach</option>
-            <option value="parent-coordinator">Parent/Coordinator</option>
-            <option value="other">Other</option>
-          </select>
-          <select
-            class="form-select"
-            name="teams"
-            required
-          >
-            <option value="">Teams You Manage</option>
-            <option value="1-5">1-5 teams</option>
-            <option value="6-15">6-15 teams</option>
-            <option value="16-30">16-30 teams</option>
-            <option value="30+">30+ teams</option>
-          </select>
-          <input
-            type="hidden"
-            name="_next"
-            value="/thank-you"
-          />
-          <button
-            type="submit"
-            class="cta-button"
-          >
-            REQUEST EARLY ACCESS
-          </button>
-        </form>
-      </div>
+    <!-- Products Section -->
+    <section class="products" id="features">
+        <div class="products-header">
+            <h2>Three Tools. One Ecosystem.</h2>
+        </div>
+
+        <!-- HoopLeague -->
+        <div class="product-section">
+            <div class="product-title">
+                <h3>
+                    <div class="product-icon league">🏆</div>
+                    HoopLeague. <span>Run your league like a pro.</span>
+                </h3>
+            </div>
+            <div class="carousel-wrapper">
+                <div class="carousel" id="carousel-league">
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">League Website</div>
+                            <div class="card-description">Professional site with live stats, streams, schedules, and standings. No coding required.</div>
+                            <button class="card-cta" onclick="openModal('website')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🌐</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Roster Collection</div>
+                            <div class="card-description">Stop chasing teams. Automated enrollment with integrated reminders and deadlines.</div>
+                            <button class="card-cta" onclick="openModal('roster')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">📋</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Smart Scheduling</div>
+                            <div class="card-description">AI-powered tournament generation. Hours of manual work done in minutes.</div>
+                            <button class="card-cta" onclick="openModal('scheduling')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🗓️</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Integrated Payments</div>
+                            <div class="card-description">Stripe-powered processing. Teams pay online, you get paid automatically.</div>
+                            <button class="card-cta" onclick="openModal('payments')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">💳</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Digital Ticketing</div>
+                            <div class="card-description">NFC tap or QR codes. Sell tickets, prevent fraud, track attendance in real-time.</div>
+                            <button class="card-cta" onclick="openModal('ticketing')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🎟️</div>
+                        </div>
+                    </div>
+                    <div class="feature-card dark">
+                        <div class="card-content">
+                            <div class="card-title">White-Label Apps</div>
+                            <div class="card-description">Your own branded iOS & Android apps. Your logo, your brand, in the app stores.</div>
+                            <button class="card-cta" onclick="openModal('apps')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">📱</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="scrollCarousel('carousel-league', -1)">‹</button>
+                    <button class="carousel-btn" onclick="scrollCarousel('carousel-league', 1)">›</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- HoopScore -->
+        <div class="product-section">
+            <div class="product-title">
+                <h3>
+                    <img src="img/hoopscore-icon.png" alt="HoopScore" class="product-icon">
+                    HoopScore. <span>Stats that sync everywhere.</span>
+                </h3>
+            </div>
+            <div class="carousel-wrapper">
+                <div class="carousel" id="carousel-score">
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Pro-Level Stats</div>
+                            <div class="card-description">Court zones, shot types, contested/open—capture it all with simple taps.</div>
+                            <button class="card-cta" onclick="openModal('stats')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🏀</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Live Sync</div>
+                            <div class="card-description">Stats sync to fans' phones, coaches' tablets, and HoopCast streams instantly.</div>
+                            <button class="card-cta" onclick="openModal('sync')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">⚡</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">AI Insights</div>
+                            <div class="card-description">Post-game analysis for coaches. Player trends, team patterns, actionable feedback.</div>
+                            <button class="card-cta" onclick="openModal('insights')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🧠</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Built for Speed</div>
+                            <div class="card-description">Large buttons, edge-positioned controls. Designed for high-pressure moments.</div>
+                            <button class="card-cta" onclick="openModal('speed')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🚀</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="scrollCarousel('carousel-score', -1)">‹</button>
+                    <button class="carousel-btn" onclick="scrollCarousel('carousel-score', 1)">›</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- HoopCast -->
+        <div class="product-section">
+            <div class="product-title">
+                <h3>
+                    <img src="img/hoopcast-icon.png" alt="HoopCast" class="product-icon">
+                    HoopCast. <span>Stream like the pros.</span>
+                </h3>
+            </div>
+            <div class="carousel-wrapper">
+                <div class="carousel" id="carousel-cast">
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">One-Click Broadcast</div>
+                            <div class="card-description">Score the game. Tap broadcast. You're live on YouTube in seconds.</div>
+                            <button class="card-cta" onclick="openModal('broadcast')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🎬</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Pro Overlays</div>
+                            <div class="card-description">Real-time scores, clocks, player stats. Looks like ESPN, not amateur hour.</div>
+                            <button class="card-cta" onclick="openModal('overlays')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🎨</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Full Integration</div>
+                            <div class="card-description">Stats from HoopScore flow automatically. No manual updates, no delays.</div>
+                            <button class="card-cta" onclick="openModal('integration')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🔗</div>
+                        </div>
+                    </div>
+                    <div class="feature-card dark">
+                        <div class="card-content">
+                            <div class="card-title">Built for Scale</div>
+                            <div class="card-description">Built to handle high-volume weekends. NCHC runs 40+ games—all from one platform.</div>
+                            <button class="card-cta" onclick="openModal('scale')">Learn more →</button>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">📈</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="scrollCarousel('carousel-cast', -1)">‹</button>
+                    <button class="carousel-btn" onclick="scrollCarousel('carousel-cast', 1)">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Comparison -->
+    <section class="comparison">
+        <div class="comparison-container">
+            <h2>The Old Way vs. SimpleHoops</h2>
+            <div class="comparison-grid">
+                <div class="comparison-col old">
+                    <h3>The Old Way</h3>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">📊</span>
+                        <span>Excel spreadsheets</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">📧</span>
+                        <span>Email roster collection</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">📝</span>
+                        <span>Manual payment tracking</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">🚫</span>
+                        <span>No streaming capability</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">📋</span>
+                        <span>Paper stats sheets</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">🌐</span>
+                        <span>Generic websites</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">✍️</span>
+                        <span>Manual content creation</span>
+                    </div>
+                </div>
+                <div class="comparison-col new">
+                    <h3>SimpleHoops</h3>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">🌐</span>
+                        <span><strong>Professional league website</strong></span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">🤖</span>
+                        <span>Smart auto-scheduling</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">📱</span>
+                        <span>In-app enrollment</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">💳</span>
+                        <span>Integrated Stripe payments</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">📹</span>
+                        <span><strong>One-click HoopCast streaming</strong></span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">📊</span>
+                        <span>Real-time digital stats</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-icon">✨</span>
+                        <span>AI-generated stories</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- League Website & Apps Feature -->
+    <section class="hoopcast-feature">
+        <div class="hoopcast-container">
+            <div class="hoopcast-content">
+                <h2>Your League. Your Brand. Your Apps.</h2>
+                <p class="subtitle">Every league gets a professional website. Enterprise leagues get their own branded iOS and Android apps in the app stores.</p>
+            </div>
+
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="flow-icon">🌐</div>
+                    <h4>League Website</h4>
+                    <p>Live stats, streams, schedules, standings—all in one place</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">📱</div>
+                    <h4>Fan Mobile Apps</h4>
+                    <p>iOS & Android apps for following games and teams</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">🎯</div>
+                    <h4>Real-Time Updates</h4>
+                    <p>Stats sync instantly from HoopScore to website and apps</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">🏆</div>
+                    <h4>White-Label (Enterprise)</h4>
+                    <p>Your logo, your brand, your app store presence</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 2rem; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text-primary);">What's Included in Your League Website</h3>
+                <div class="comparison-grid" style="margin-top: 2rem;">
+                    <div style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Live Game Center</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Watch HoopCast streams with live stats overlay, right on your league site</p>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Real-Time Standings</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Automatically updated from game results, no manual entry needed</p>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Player Stats & Leaders</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Points, rebounds, assists—all tracked and displayed beautifully</p>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Team Pages</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Each team gets their own page with roster, schedule, and stats</p>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Schedule & Registration</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Teams can view upcoming games and register directly from the site</p>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Custom Domain</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Use your own domain name (yourleague.com) for professional branding</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HoopCast Feature Deep Dive -->
+    <section class="hoopcast-feature" id="hoopcast">
+        <div class="hoopcast-container">
+            <div class="hoopcast-content">
+                <span class="badge">NEW FEATURE</span>
+                <h2>Game Day, Simplified</h2>
+                <p class="subtitle">You want to stream games. But coordinating equipment, overlays, stats, and streaming platforms turns game day into tech support day. Not anymore.</p>
+            </div>
+
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="flow-icon">📱</div>
+                    <h4>Score with HoopScore</h4>
+                    <p>Track the game like you normally would</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">🎬</div>
+                    <h4>Tap "Start Broadcast"</h4>
+                    <p>One button in HoopCast</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">📊</div>
+                    <h4>Stats Flow Automatically</h4>
+                    <p>Live overlays with scores, clocks, player stats</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">📺</div>
+                    <h4>Live on YouTube</h4>
+                    <p>Streaming in seconds</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="testimonial">
+            <p class="testimonial-quote">"We run 40+ games every weekend with one platform. Scoring, streaming, stats—it's all connected."</p>
+            <p class="testimonial-author">Drew</p>
+            <p class="testimonial-role">Commissioner, National Capital Hoops League</p>
+        </div>
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-number">40+</div>
+                <div class="stat-description">Games streamed weekly</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-description">Active teams</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1</div>
+                <div class="stat-description">Platform for everything</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="pricing-container">
+            <h2>Built to Scale With You</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <p class="pricing-description">For new leagues getting started</p>
+                    <div class="price">$99<span class="price-period">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Up to 15 teams</li>
+                        <li><strong>League website included</strong></li>
+                        <li>HoopLeague operations</li>
+                        <li>HoopScore tracking</li>
+                        <li>Basic statistics</li>
+                        <li>Mobile apps for fans</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-secondary" style="width: 100%;">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Broadcast</h3>
+                    <p class="pricing-description">For leagues ready to stream</p>
+                    <div class="price">$499<span class="price-period">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Up to 50 teams</li>
+                        <li><strong>Pro league website</strong></li>
+                        <li><strong>HoopCast streaming</strong></li>
+                        <li>Broadcast-quality overlays</li>
+                        <li>Advanced analytics</li>
+                        <li>AI content generation</li>
+                        <li>Payment processing</li>
+                        <li>Digital ticketing</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-primary" style="width: 100%;">Book a Demo</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <p class="pricing-description">For premier operations</p>
+                    <div class="price">Custom</div>
+                    <ul class="pricing-features">
+                        <li>Unlimited teams</li>
+                        <li><strong>White-label iOS & Android apps</strong></li>
+                        <li>Your brand, your app store presence</li>
+                        <li>Custom league website domain</li>
+                        <li>Multi-division support</li>
+                        <li>Custom integrations</li>
+                        <li>Dedicated account manager</li>
+                        <li>SLA guarantees</li>
+                        <li>24/7 phone support</li>
+                    </ul>
+                    <a href="#cta" class="btn btn-secondary" style="width: 100%;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta" id="cta">
+        <div class="cta-container">
+            <h2>Ready to Level Up Your League?</h2>
+            <p>Join NCHC and leagues that are already streaming like the pros.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem; display: none;">See HoopCast Demo</a>
+                <a href="#" onclick="openDemoModal(); return false;" class="btn btn-secondary" style="font-size: 1.125rem; padding: 1rem 2rem;">Book a Demo</a>
+            </div>
+            <p class="cta-meta">Used by NCHC • 50+ teams • All-in-one platform</p>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <p>
-          <a href="/privacy" style="color: #fff; margin: 0 1rem;">Privacy</a>
-          <a href="/terms" style="color: #fff; margin: 0 1rem;">Terms</a>
-          <a href="/support" style="color: #fff; margin: 0 1rem;">Support</a>
-        </p>
-        <p style="margin-top: 1rem;">&copy; 2025 SimpleHoops. Just what you need. Nothing else.</p>
-      </div>
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-brand"><img src="img/icon.png" alt="SimpleHoops" height="40"></div>
+                <p class="footer-description">The all-in-one platform for basketball league operations, professional websites, digital scorekeeping, and broadcast-quality streaming.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul class="footer-links">
+                    <li><a href="#features">HoopLeague</a></li>
+                    <li><a href="#features">HoopScore</a></li>
+                    <li><a href="#hoopcast">HoopCast</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="/support">Support</a></li>
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
 
-    <!-- JSON-LD Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "HoopChat",
-      "applicationCategory": "CommunicationApplication",
-      "operatingSystem": "iOS, Android",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "ratingCount": "1"
-      },
-      "description": "Simple basketball team communication app that replaces bloated tools like TeamSnap. Clean team management for coaches, managers, and parents.",
-      "url": "https://hoopchat.app",
-      "screenshot": "https://hoopchat.app/img/Home.png",
-      "featureList": [
-        "Team communication without ads or clutter",
-        "Schedule management",
-        "Parent and player notifications",
-        "Simple team coordination"
-      ],
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Basketball coaches, team managers, and parents"
-      }
-    }
-    </script>
-
-    <!-- Lead Segmentation Widget -->
-    <div
-      class="lead-widget"
-      id="leadWidget"
-    >
-      <button
-        class="widget-button"
-        id="widgetToggle"
-      >
-        <span>Quick question...</span>
-        <span>💬</span>
-      </button>
-
-      <div
-        class="widget-card"
-        id="widgetCard"
-      >
-        <div class="widget-header">
-          <h3>Let's see if we can help</h3>
-          <button
-            class="widget-close"
-            id="widgetClose"
-          >
-            ×
-          </button>
+    <!-- Demo Modal -->
+    <div class="modal-overlay" id="demoModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3>Book a Demo</h3>
+            <p>Tell us about your league and we'll show you how SimpleHoops can help.</p>
+            <form id="demoForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="league">League / Organization</label>
+                    <input type="text" id="league" name="league" required>
+                </div>
+                <div class="form-group">
+                    <label for="teams">Number of Teams</label>
+                    <select id="teams" name="teams">
+                        <option value="1-10">1-10 teams</option>
+                        <option value="11-25">11-25 teams</option>
+                        <option value="26-50">26-50 teams</option>
+                        <option value="50+">50+ teams</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
         </div>
-
-        <div class="widget-body">
-          <div class="widget-progress">
-            <div
-              class="widget-progress-bar"
-              id="widgetProgress"
-              style="width: 20%"
-            ></div>
-          </div>
-
-          <!-- Step 1: Role Discovery -->
-          <div
-            class="widget-step active"
-            data-step="1"
-          >
-            <div class="widget-question">
-              <label>What brings you to HoopChat?</label>
-              <div class="widget-options">
-                <button
-                  class="widget-option"
-                  data-value="coach"
-                >
-                  I coach a basketball team
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="manager"
-                >
-                  I manage team operations
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="parent"
-                >
-                  I'm organizing as a parent
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="league"
-                >
-                  I run a league or club
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="exploring"
-                >
-                  Just checking it out
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 2: Current State -->
-          <div
-            class="widget-step"
-            data-step="2"
-          >
-            <div class="widget-question">
-              <label>How are you managing things now?</label>
-              <div class="widget-options">
-                <button
-                  class="widget-option"
-                  data-value="groupchats"
-                >
-                  Drowning in group chats and texts
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="teamsnap"
-                >
-                  Paying for TeamSnap or similar (but it's bloated)
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="spreadsheets"
-                >
-                  Juggling spreadsheets and apps
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="freetools"
-                >
-                  Using free tools that aren't cutting it
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="fresh"
-                >
-                  Starting fresh with a new team
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="fine"
-                >
-                  It's working fine (just exploring)
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 3: The Real Pain -->
-          <div
-            class="widget-step"
-            data-step="3"
-          >
-            <div class="widget-question">
-              <label>What's your biggest headache?</label>
-              <div class="widget-options">
-                <button
-                  class="widget-option"
-                  data-value="repeating"
-                >
-                  Parents asking the same questions over and over
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="updates"
-                >
-                  Kids not seeing important updates
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="schedule"
-                >
-                  Schedule changes turning into chaos
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="coordination"
-                >
-                  No one knows who's bringing what
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="tracking"
-                >
-                  Losing track of who paid/who's coming
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="scattered"
-                >
-                  Everything's scattered across too many places
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="admin"
-                >
-                  I spend too much time on admin stuff
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 4: Decision Power -->
-          <div
-            class="widget-step"
-            data-step="4"
-          >
-            <div class="widget-question">
-              <label>Who picks the tools your team uses?</label>
-              <div class="widget-options">
-                <button
-                  class="widget-option"
-                  data-value="decide"
-                >
-                  I make the call
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="recommend"
-                >
-                  I recommend, others decide
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="group"
-                >
-                  It's a group decision
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="info"
-                >
-                  Just gathering info for now
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 5: Urgency + Capture -->
-          <div
-            class="widget-step"
-            data-step="5"
-          >
-            <div class="widget-question">
-              <label>When do you need this solved?</label>
-              <div
-                class="widget-options"
-                style="margin-bottom: 20px"
-              >
-                <button
-                  class="widget-option"
-                  data-value="thisweek"
-                >
-                  This week (season's already started!)
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="thismonth"
-                >
-                  This month (getting organized)
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="nextseason"
-                >
-                  Next season (planning ahead)
-                </button>
-                <button
-                  class="widget-option"
-                  data-value="norush"
-                >
-                  No rush, just exploring
-                </button>
-              </div>
-              <input
-                type="text"
-                class="widget-input"
-                id="widgetName"
-                placeholder="First Name"
-                style="margin-bottom: 12px"
-              />
-              <input
-                type="email"
-                class="widget-input"
-                id="widgetEmail"
-                placeholder="Email"
-              />
-              <button
-                class="widget-next"
-                id="widgetSubmit"
-                disabled
-              >
-                Book My Call (15 min)
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <script>
-      // Fade in animation on scroll
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll(".fade-in").forEach((el) => {
-        observer.observe(el);
-      });
-
-      // Handle "Everything" checkbox
-      const everythingCheckbox = document.querySelector(
-        'input[value="everything"]'
-      );
-      const otherCheckboxes = document.querySelectorAll(
-        'input[type="checkbox"]:not([value="everything"])'
-      );
-
-      everythingCheckbox.addEventListener("change", function () {
-        const label = this.closest("label");
-        label.style.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
-
-        if (this.checked) {
-          label.style.backgroundColor = "rgba(0,0,0,0.05)";
-          label.style.borderColor = "#000";
-        } else {
-          label.style.backgroundColor = "";
-          label.style.borderColor = "transparent";
+        // Carousel scroll function
+        function scrollCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const cardWidth = carousel.querySelector('.feature-card').offsetWidth + 20; // card + gap
+            carousel.scrollBy({
+                left: direction * cardWidth,
+                behavior: 'smooth'
+            });
         }
 
-        otherCheckboxes.forEach((checkbox, index) => {
-          setTimeout(() => {
-            checkbox.checked = this.checked;
-            checkbox.disabled = this.checked;
-          }, index * 50); // Stagger the animation
-        });
-      });
-
-      // Update "Everything" if all others are checked
-      otherCheckboxes.forEach((checkbox) => {
-        checkbox.addEventListener("change", function () {
-          const allOthersChecked = Array.from(otherCheckboxes).every(
-            (cb) => cb.checked
-          );
-          everythingCheckbox.checked = allOthersChecked;
-        });
-      });
-
-      // Rotating text animation
-      const rotatingWords = [
-        "madness",
-        "noise",
-        "frustration",
-        "chaos",
-        "headaches",
-      ];
-
-      let wordIndex = 0;
-      let charIndex = 0;
-      let isDeleting = false;
-      const rotatingTextElement = document.getElementById("rotating-text");
-      const typingSpeed = 100;
-      const deletingSpeed = 50;
-      const pauseBeforeDelete = 2000;
-      const pauseBeforeType = 500;
-
-      function typeEffect() {
-        const currentWord = rotatingWords[wordIndex];
-
-        if (isDeleting) {
-          charIndex--;
-          rotatingTextElement.textContent = currentWord.substring(0, charIndex);
-
-          if (charIndex === 0) {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % rotatingWords.length;
-            setTimeout(typeEffect, pauseBeforeType);
-            return;
-          }
-          setTimeout(typeEffect, deletingSpeed);
-        } else {
-          charIndex++;
-          rotatingTextElement.textContent = currentWord.substring(0, charIndex);
-
-          if (charIndex === currentWord.length) {
-            isDeleting = true;
-            setTimeout(typeEffect, pauseBeforeDelete);
-            return;
-          }
-          setTimeout(typeEffect, typingSpeed);
+        // Modal functions
+        function openDemoModal() {
+            document.getElementById('demoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
-      }
-
-      // Start the animation after a brief delay
-      setTimeout(typeEffect, 1000);
-
-      // Lead Widget Logic - Load from localStorage if available
-      const savedData = localStorage.getItem("hoopChatWidgetData");
-      const widgetData = savedData
-        ? JSON.parse(savedData)
-        : {
-            role: null,
-            currentState: null,
-            painPoint: null,
-            decisionPower: null,
-            urgency: null,
-            name: null,
-            email: null,
-          };
-
-      const savedStep = localStorage.getItem("hoopChatWidgetStep");
-      let currentStep = savedStep ? parseInt(savedStep) : 1;
-      const totalSteps = 5;
-      let urgencySelected = widgetData.urgency !== null;
-
-      const widgetToggle = document.getElementById("widgetToggle");
-      const widgetCard = document.getElementById("widgetCard");
-      const widgetClose = document.getElementById("widgetClose");
-      const widgetProgress = document.getElementById("widgetProgress");
-      const widgetName = document.getElementById("widgetName");
-      const widgetEmail = document.getElementById("widgetEmail");
-      const widgetSubmit = document.getElementById("widgetSubmit");
-
-      // Restore saved state on load
-      function restoreWidgetState() {
-        // Restore current step
-        goToStep(currentStep);
-
-        // Restore selected options
-        document.querySelectorAll(".widget-option").forEach((option) => {
-          const step = option.closest(".widget-step");
-          const stepNumber = parseInt(step.dataset.step);
-          const value = option.dataset.value;
-
-          let savedValue = null;
-          switch (stepNumber) {
-            case 1:
-              savedValue = widgetData.role;
-              break;
-            case 2:
-              savedValue = widgetData.currentState;
-              break;
-            case 3:
-              savedValue = widgetData.painPoint;
-              break;
-            case 4:
-              savedValue = widgetData.decisionPower;
-              break;
-            case 5:
-              savedValue = widgetData.urgency;
-              break;
-          }
-
-          if (value === savedValue) {
-            option.classList.add("selected");
-          }
+        function closeModal() {
+            document.getElementById('demoModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('demoModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        document.getElementById('demoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const league = document.getElementById('league').value;
+            const teams = document.getElementById('teams').value;
+            const subject = encodeURIComponent('Demo Request: ' + league);
+            const body = encodeURIComponent(
+                'Hi Farai,\n\n' +
+                'I\'ve been looking at what you\'re doing with SimpleHoops and I\'m curious to see if it might be the right fit for ' + league + '.\n\n' +
+                'We run ' + teams + ' and I\'d love to explore how the platform could work for us.\n\n' +
+                'When would be a good time to chat?\n\n' +
+                name + '\n' + email
+            );
+            window.location.href = 'mailto:farai@simplehoops.app?subject=' + subject + '&body=' + body;
+            closeModal();
         });
 
-        // Restore contact form values
-        if (widgetData.name) widgetName.value = widgetData.name;
-        if (widgetData.email) widgetEmail.value = widgetData.email;
-
-        // Validate form if on step 5
-        if (currentStep === 5) {
-          validateContactForm();
-        }
-      }
-
-      // Save widget state to localStorage
-      function saveWidgetState() {
-        localStorage.setItem("hoopChatWidgetData", JSON.stringify(widgetData));
-        localStorage.setItem("hoopChatWidgetStep", currentStep.toString());
-      }
-
-      // Show widget on first scroll
-      let hasScrolled = false;
-      let hasAutoExpanded = false;
-
-      window.addEventListener("scroll", () => {
-        if (!hasScrolled && window.scrollY > 100) {
-          hasScrolled = true;
-          widgetToggle.style.animation = "slideUp 0.5s ease";
-        }
-
-        // Auto-expand when scrolling to solution section
-        if (!hasAutoExpanded && hasScrolled) {
-          const solutionSection = document.querySelector(".solution");
-          if (solutionSection) {
-            const solutionRect = solutionSection.getBoundingClientRect();
-            const isInView =
-              solutionRect.top < window.innerHeight * 0.5 &&
-              solutionRect.bottom > 0;
-
-            if (isInView && !widgetCard.classList.contains("active")) {
-              hasAutoExpanded = true;
-              widgetCard.classList.add("active");
-            }
-          }
-        }
-      });
-
-      // Toggle widget
-      widgetToggle.addEventListener("click", () => {
-        widgetCard.classList.toggle("active");
-      });
-
-      widgetClose.addEventListener("click", () => {
-        widgetCard.classList.remove("active");
-      });
-
-      // Handle option selection
-      document.querySelectorAll(".widget-option").forEach((option) => {
-        option.addEventListener("click", function () {
-          const step = this.closest(".widget-step");
-          const stepNumber = parseInt(step.dataset.step);
-          const value = this.dataset.value;
-
-          // Store the selection
-          switch (stepNumber) {
-            case 1:
-              widgetData.role = value;
-              break;
-            case 2:
-              widgetData.currentState = value;
-              break;
-            case 3:
-              widgetData.painPoint = value;
-              break;
-            case 4:
-              widgetData.decisionPower = value;
-              break;
-            case 5:
-              widgetData.urgency = value;
-              urgencySelected = true;
-              validateContactForm();
-              break;
-          }
-
-          // Visual feedback
-          step.querySelectorAll(".widget-option").forEach((opt) => {
-            opt.classList.remove("selected");
-          });
-          this.classList.add("selected");
-
-          // Save state after each selection
-          saveWidgetState();
-
-          // Move to next step after a short delay (except for step 5)
-          if (stepNumber < 5) {
-            setTimeout(() => {
-              goToStep(stepNumber + 1);
-            }, 300);
-          }
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
-      });
-
-      // Handle contact form inputs
-      widgetName.addEventListener("input", () => {
-        widgetData.name = widgetName.value.trim();
-        saveWidgetState();
-        validateContactForm();
-      });
-
-      widgetEmail.addEventListener("input", () => {
-        widgetData.email = widgetEmail.value.trim();
-        saveWidgetState();
-        validateContactForm();
-      });
-
-      function validateContactForm() {
-        const nameValid = widgetName.value.trim().length > 0;
-        const emailValid =
-          widgetEmail.value.trim().length > 0 &&
-          widgetEmail.value.includes("@");
-        widgetSubmit.disabled = !(nameValid && emailValid && urgencySelected);
-      }
-
-      // Handle form submission
-      widgetSubmit.addEventListener("click", async () => {
-        widgetData.name = widgetName.value.trim();
-        widgetData.email = widgetEmail.value.trim();
-
-        // Calculate lead score
-        const leadScore = calculateLeadScore(widgetData);
-
-        console.log("Widget Data:", widgetData);
-        console.log("Lead Score:", leadScore);
-
-        // Here you would typically send this data to your backend or calendar booking tool
-        // For now, we'll redirect to a calendar booking page or show a success message
-
-        // Example: Send to your backend
-        try {
-          const response = await fetch("/api/widget-lead", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ ...widgetData, leadScore }),
-          });
-
-          if (response.ok) {
-            // Clear localStorage after successful submission
-            localStorage.removeItem("hoopChatWidgetData");
-            localStorage.removeItem("hoopChatWidgetStep");
-
-            // Redirect to calendar booking (replace with your actual calendar link)
-            window.location.href =
-              "https://calendly.com/your-calendar-link?prefill_name=" +
-              encodeURIComponent(widgetData.name) +
-              "&prefill_email=" +
-              encodeURIComponent(widgetData.email);
-          }
-        } catch (error) {
-          // Clear localStorage before redirect
-          localStorage.removeItem("hoopChatWidgetData");
-          localStorage.removeItem("hoopChatWidgetStep");
-
-          // Fallback: just redirect to calendar
-          window.location.href =
-            "https://calendly.com/your-calendar-link?prefill_name=" +
-            encodeURIComponent(widgetData.name) +
-            "&prefill_email=" +
-            encodeURIComponent(widgetData.email);
-        }
-      });
-
-      function goToStep(stepNumber) {
-        if (stepNumber > totalSteps) return;
-
-        currentStep = stepNumber;
-
-        // Update progress bar
-        const progress = (currentStep / totalSteps) * 100;
-        widgetProgress.style.width = progress + "%";
-
-        // Show/hide steps
-        document.querySelectorAll(".widget-step").forEach((step) => {
-          step.classList.remove("active");
-        });
-
-        const targetStep = document.querySelector(
-          `.widget-step[data-step="${stepNumber}"]`
-        );
-        if (targetStep) {
-          targetStep.classList.add("active");
-        }
-
-        // Save current step
-        saveWidgetState();
-      }
-
-      // Restore widget state on page load
-      restoreWidgetState();
-
-      function calculateLeadScore(data) {
-        // Hot Lead: coach/manager/league + paying for competitor + decision maker + urgent
-        const isHotRole =
-          data.role === "coach" ||
-          data.role === "manager" ||
-          data.role === "league";
-        const isPayingCompetitor = data.currentState === "teamsnap";
-        const isDecisionMaker =
-          data.decisionPower === "decide" || data.decisionPower === "recommend";
-        const isUrgent =
-          data.urgency === "thisweek" || data.urgency === "thismonth";
-
-        if (isHotRole && isPayingCompetitor && isDecisionMaker && isUrgent) {
-          return "hot";
-        }
-
-        // Warm Lead: key role + decision power + medium urgency OR drowning in current solution
-        const isDrowning =
-          data.currentState === "groupchats" ||
-          data.currentState === "spreadsheets";
-        const hasPlanningTime = data.urgency === "nextseason";
-
-        if (
-          (isHotRole && isDecisionMaker && hasPlanningTime) ||
-          (isDrowning && isDecisionMaker && isUrgent)
-        ) {
-          return "warm";
-        }
-
-        // Everyone else is nurture
-        return "nurture";
-      }
     </script>
-  </body>
+</body>
 </html>
