@@ -3,7 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SimpleHoops - Run Your League. Stream Like the Pros.</title>
+    <title>SimpleHoops - Basketball League Management Software</title>
+    <meta name="description" content="All-in-one platform for basketball leagues. Manage schedules, track stats, build your website, and stream games like the pros.">
+    <link rel="canonical" href="https://simplehoops.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://simplehoops.app/">
+    <meta property="og:title" content="SimpleHoops - Basketball League Management Software">
+    <meta property="og:description" content="All-in-one platform for basketball leagues. Manage schedules, track stats, build your website, and stream games like the pros.">
+    <meta property="og:image" content="https://simplehoops.app/img/hoopscore-screenshot.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SimpleHoops - Basketball League Management Software">
+    <meta name="twitter:description" content="All-in-one platform for basketball leagues. Manage schedules, track stats, build your website, and stream games like the pros.">
+    <meta name="twitter:image" content="https://simplehoops.app/img/hoopscore-screenshot.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/img/icon.png">
+    <link rel="apple-touch-icon" href="/img/icon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,11 +49,12 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Schibsted Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            font-weight: 400;
         }
 
         /* Typography - Apple-style responsive type ramp */
@@ -188,7 +209,7 @@
         .hero-screenshot {
             width: 100%;
             max-width: 900px;
-            border-radius: 12px;
+            border-radius: 32px;
             box-shadow: 0 30px 100px rgba(0, 0, 0, 0.12);
         }
 
@@ -408,7 +429,7 @@
 
         /* Card color themes */
         .feature-card.light {
-            background: linear-gradient(180deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+            background: linear-gradient(180deg, rgb(241, 244, 245) 0%, rgb(212, 213, 214) 100%);
             color: var(--text-primary);
         }
 
@@ -452,17 +473,18 @@
         }
 
         .card-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 1rem;
             line-height: 1.2;
         }
 
         .card-description {
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 1.3rem;
+            line-height: 1.5;
             opacity: 0.9;
             margin-bottom: 1.5rem;
+            font-weight: medium;
         }
 
         .feature-card.light .card-description {
@@ -470,7 +492,7 @@
         }
 
         .card-cta {
-            display: inline-flex;
+            display: none;
             align-items: center;
             gap: 0.25rem;
             font-size: 0.9rem;
@@ -1118,10 +1140,10 @@
             <div class="hero-content">
                 <h1>Run Your League.<br>Stats Like the Pros.</h1>
                 <p class="subtitle">Pro-level league website. Live broadcasts. All-in-one platform. Dead simple. For iOS and Android.</p>
-                <div class="hero-cta">
+                <!-- <div class="hero-cta">
                     <a href="#hoopcast" class="btn btn-primary">See HoopCast Demo</a>
                     <a href="#features" class="btn btn-secondary">Explore Features</a>
-                </div>
+                </div> -->
             </div>
             <div class="hero-visual">
                 <img src="img/hoopscore-screenshot.png" alt="HoopScore App Screenshot" class="hero-screenshot">
