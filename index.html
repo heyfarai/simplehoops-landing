@@ -1896,22 +1896,35 @@
         document.getElementById('demoModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
-        document.getElementById('demoForm').addEventListener('submit', function(e) {
+        document.getElementById('demoForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const league = document.getElementById('league').value;
-            const teams = document.getElementById('teams').value;
-            const subject = encodeURIComponent('Demo Request: ' + league);
-            const body = encodeURIComponent(
-                'Hi Farai,\n\n' +
-                'I\'ve been looking at what you\'re doing with SimpleHoops and I\'m curious to see if it might be the right fit for ' + league + '.\n\n' +
-                'We run ' + teams + ' and I\'d love to explore how the platform could work for us.\n\n' +
-                'When would be a good time to chat?\n\n' +
-                name + '\n' + email
-            );
-            window.location.href = 'mailto:farai@simplehoops.app?subject=' + subject + '&body=' + body;
-            closeModal();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            try {
+                const res = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        type: 'demo',
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        league: document.getElementById('league').value,
+                        teams: document.getElementById('teams').value
+                    })
+                });
+                if (res.ok) {
+                    window.location.href = '/thank-you';
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (err) {
+                alert('Something went wrong. Please try again.');
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
         });
 
         // Smooth scrolling for anchor links
@@ -1978,21 +1991,30 @@
         widgetName.addEventListener('input', validateWidget);
         widgetEmail.addEventListener('input', validateWidget);
 
-        widgetSubmit.addEventListener('click', function() {
+        widgetSubmit.addEventListener('click', async function() {
             widgetData.name = widgetName.value.trim();
             widgetData.email = widgetEmail.value.trim();
 
-            const subject = encodeURIComponent('SimpleHoops Interest: ' + widgetData.role);
-            const body = encodeURIComponent(
-                'Hi Farai,\n\n' +
-                'I came across SimpleHoops and wanted to learn more.\n\n' +
-                'Role: ' + widgetData.role + '\n' +
-                'Interest: ' + widgetData.interest + '\n' +
-                'Current setup: ' + widgetData.currentState + '\n\n' +
-                widgetData.name + '\n' + widgetData.email
-            );
-            window.location.href = 'mailto:farai@simplehoops.app?subject=' + subject + '&body=' + body;
-            widgetCard.classList.remove('active');
+            const originalText = this.textContent;
+            this.textContent = 'Sending...';
+            this.disabled = true;
+
+            try {
+                const res = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ type: 'widget', ...widgetData })
+                });
+                if (res.ok) {
+                    window.location.href = '/thank-you';
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (err) {
+                alert('Something went wrong. Please try again.');
+                this.textContent = originalText;
+                this.disabled = false;
+            }
         });
     </script>
 </body>

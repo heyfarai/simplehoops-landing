@@ -20,3 +20,8 @@ npm-debug.log*
 # Netlify
 .netlify/
 .CLAUDE.md
+
+# Node
+node_modules/
+.vercel
+.env*.local
