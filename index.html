@@ -1120,6 +1120,132 @@
             border-color: var(--primary);
         }
         .modal .btn { width: 100%; margin-top: 0.5rem; }
+
+        /* Lead Widget */
+        .lead-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 2000;
+        }
+        .widget-button {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 14px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .widget-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+        }
+        .widget-card {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 360px;
+            max-width: calc(100vw - 48px);
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .widget-card.active { display: flex; animation: widgetSlideUp 0.3s ease; }
+        @keyframes widgetSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .widget-header {
+            background: #000;
+            color: #fff;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .widget-header h3 { font-size: 1rem; font-weight: 700; margin: 0; }
+        .widget-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+        .widget-body { padding: 20px; }
+        .widget-progress {
+            height: 4px;
+            background: #eee;
+            border-radius: 2px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .widget-progress-bar {
+            height: 100%;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        .widget-step { display: none; }
+        .widget-step.active { display: block; }
+        .widget-question label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #000;
+        }
+        .widget-options { display: flex; flex-direction: column; gap: 8px; }
+        .widget-option {
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            padding: 12px 14px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            border-radius: 8px;
+        }
+        .widget-option:hover { border-color: #000; }
+        .widget-option.selected { border-color: #000; background: #000; color: #fff; }
+        .widget-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            margin-bottom: 10px;
+        }
+        .widget-input:focus { outline: none; border-color: #000; }
+        .widget-submit {
+            width: 100%;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .widget-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+        .widget-submit:not(:disabled):hover { opacity: 0.9; }
+        @media (max-width: 480px) {
+            .lead-widget { bottom: 16px; right: 16px; left: 16px; }
+            .widget-card { width: 100%; right: 0; }
+        }
     </style>
 </head>
 <body>
@@ -1678,6 +1804,75 @@
         </div>
     </div>
 
+    <!-- Lead Widget -->
+    <div class="lead-widget">
+        <button class="widget-button" id="widgetToggle">
+            <span>Quick question...</span>
+            <span>💬</span>
+        </button>
+        <div class="widget-card" id="widgetCard">
+            <div class="widget-header">
+                <h3>Let's find the right fit</h3>
+                <button class="widget-close" id="widgetClose">×</button>
+            </div>
+            <div class="widget-body">
+                <div class="widget-progress">
+                    <div class="widget-progress-bar" id="widgetProgress" style="width: 25%"></div>
+                </div>
+
+                <!-- Step 1: Role -->
+                <div class="widget-step active" data-step="1">
+                    <div class="widget-question">
+                        <label>What's your role?</label>
+                        <div class="widget-options">
+                            <button class="widget-option" data-value="league-admin">I run a league or tournament</button>
+                            <button class="widget-option" data-value="coach">I coach a team</button>
+                            <button class="widget-option" data-value="broadcaster">I handle game broadcasts</button>
+                            <button class="widget-option" data-value="multi">All of the above</button>
+                            <button class="widget-option" data-value="exploring">Just exploring</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Interest -->
+                <div class="widget-step" data-step="2">
+                    <div class="widget-question">
+                        <label>What interests you most?</label>
+                        <div class="widget-options">
+                            <button class="widget-option" data-value="league-ops">League management & scheduling</button>
+                            <button class="widget-option" data-value="stats">Live stats & scoring</button>
+                            <button class="widget-option" data-value="streaming">Game streaming & overlays</button>
+                            <button class="widget-option" data-value="everything">The full platform</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Current State -->
+                <div class="widget-step" data-step="3">
+                    <div class="widget-question">
+                        <label>How are you handling this now?</label>
+                        <div class="widget-options">
+                            <button class="widget-option" data-value="manual">Spreadsheets & manual work</button>
+                            <button class="widget-option" data-value="competitor">Using another platform</button>
+                            <button class="widget-option" data-value="nothing">Not doing it yet</button>
+                            <button class="widget-option" data-value="starting">Starting a new league</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Contact -->
+                <div class="widget-step" data-step="4">
+                    <div class="widget-question">
+                        <label>Where should we send info?</label>
+                        <input type="text" class="widget-input" id="widgetName" placeholder="Your name">
+                        <input type="email" class="widget-input" id="widgetEmail" placeholder="Email address">
+                        <button class="widget-submit" id="widgetSubmit" disabled>Get in Touch</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Carousel scroll function
         function scrollCarousel(carouselId, direction) {
@@ -1731,6 +1926,73 @@
                     });
                 }
             });
+        });
+
+        // Lead Widget
+        const widgetData = { role: null, interest: null, currentState: null, name: null, email: null };
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        const widgetToggle = document.getElementById('widgetToggle');
+        const widgetCard = document.getElementById('widgetCard');
+        const widgetClose = document.getElementById('widgetClose');
+        const widgetProgress = document.getElementById('widgetProgress');
+        const widgetName = document.getElementById('widgetName');
+        const widgetEmail = document.getElementById('widgetEmail');
+        const widgetSubmit = document.getElementById('widgetSubmit');
+
+        widgetToggle.addEventListener('click', () => widgetCard.classList.toggle('active'));
+        widgetClose.addEventListener('click', () => widgetCard.classList.remove('active'));
+
+        document.querySelectorAll('.widget-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const step = this.closest('.widget-step');
+                const stepNumber = parseInt(step.dataset.step);
+                const value = this.dataset.value;
+
+                if (stepNumber === 1) widgetData.role = value;
+                else if (stepNumber === 2) widgetData.interest = value;
+                else if (stepNumber === 3) widgetData.currentState = value;
+
+                step.querySelectorAll('.widget-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+
+                setTimeout(() => goToStep(stepNumber + 1), 250);
+            });
+        });
+
+        function goToStep(stepNumber) {
+            if (stepNumber > totalSteps) return;
+            currentStep = stepNumber;
+            widgetProgress.style.width = (currentStep / totalSteps) * 100 + '%';
+            document.querySelectorAll('.widget-step').forEach(s => s.classList.remove('active'));
+            document.querySelector(`.widget-step[data-step="${stepNumber}"]`).classList.add('active');
+        }
+
+        function validateWidget() {
+            const nameValid = widgetName.value.trim().length > 0;
+            const emailValid = widgetEmail.value.includes('@');
+            widgetSubmit.disabled = !(nameValid && emailValid);
+        }
+
+        widgetName.addEventListener('input', validateWidget);
+        widgetEmail.addEventListener('input', validateWidget);
+
+        widgetSubmit.addEventListener('click', function() {
+            widgetData.name = widgetName.value.trim();
+            widgetData.email = widgetEmail.value.trim();
+
+            const subject = encodeURIComponent('SimpleHoops Interest: ' + widgetData.role);
+            const body = encodeURIComponent(
+                'Hi Farai,\n\n' +
+                'I came across SimpleHoops and wanted to learn more.\n\n' +
+                'Role: ' + widgetData.role + '\n' +
+                'Interest: ' + widgetData.interest + '\n' +
+                'Current setup: ' + widgetData.currentState + '\n\n' +
+                widgetData.name + '\n' + widgetData.email
+            );
+            window.location.href = 'mailto:farai@simplehoops.app?subject=' + subject + '&body=' + body;
+            widgetCard.classList.remove('active');
         });
     </script>
 </body>
