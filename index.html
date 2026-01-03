@@ -534,9 +534,6 @@
             font-size: 4rem;
         }
 
-        .feature-card.light .card-visual-content {
-            /* background: rgba(0,0,0,0.05); */
-        }
 
         /* Carousel Navigation */
         .carousel-nav {
@@ -1046,9 +1043,128 @@
             }
         }
 
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            margin-right: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 18px;
+            height: 1.5px;
+            background: var(--text-primary);
+            margin: 2px 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            inset: 0;
+            background: rgba(251, 251, 253, 0.97);
+            backdrop-filter: blur(20px);
+            z-index: 1001;
+            flex-direction: column;
+            padding: 80px 32px 32px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .mobile-nav.closing {
+            display: flex;
+            visibility: visible;
+            opacity: 0;
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 28px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: rotate(-90deg);
+            transition: opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s, color 0.2s;
+        }
+
+        .mobile-nav.active .mobile-nav-close {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+        .mobile-nav-close:hover {
+            color: var(--text-primary);
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mobile-nav-links a {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 12px 0;
+            transition: color 0.2s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .mobile-nav.active .mobile-nav-links a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-nav.active .mobile-nav-links a:nth-child(1) { transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s, color 0.2s; }
+        .mobile-nav.active .mobile-nav-links a:nth-child(2) { transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s, color 0.2s; }
+        .mobile-nav.active .mobile-nav-links a:nth-child(3) { transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s, color 0.2s; }
+        .mobile-nav.active .mobile-nav-links a:nth-child(4) { transition: opacity 0.4s ease 0.25s, transform 0.4s ease 0.25s, color 0.2s; }
+        .mobile-nav.active .mobile-nav-links a:nth-child(5) { transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s, color 0.2s; }
+
+        .mobile-nav-links a:hover {
+            color: var(--text-secondary);
+        }
+
+        .mobile-nav-links .btn {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 17px;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+            }
+
+            .hamburger {
+                display: flex;
             }
 
             .hero {
@@ -1258,14 +1374,31 @@
                 <a href="#pricing">Pricing</a>
                 <a href="#" onclick="openDemoModal(); return false;" class="btn btn-primary">Book a Demo</a>
             </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">×</button>
+        <div class="mobile-nav-links">
+            <a href="#features">HoopLeague</a>
+            <a href="#features">HoopScore</a>
+            <a href="#hoopcast">HoopCast</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#" onclick="openDemoModal(); closeMobileNav(); return false;" class="btn btn-primary">Book a Demo</a>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Run Your League.<br>Stats Like the Pros.</h1>
+                <h1>Simple League Ops.<br>Stats Like the Pros.</h1>
                 <p class="subtitle">Pro-level league website. Live broadcasts. All-in-one platform. Dead simple. For iOS and Android.</p>
                 <!-- <div class="hero-cta">
                     <a href="#hoopcast" class="btn btn-primary">See HoopCast Demo</a>
@@ -1289,7 +1422,7 @@
             <div class="product-title">
                 <h3>
                     <div class="product-icon league">🏆</div>
-                    HoopLeague. <span>Run your league like a pro.</span>
+                    HoopLeague. 
                 </h3>
             </div>
             <div class="carousel-wrapper">
@@ -1367,14 +1500,14 @@
             <div class="product-title">
                 <h3>
                     <img src="img/hoopscore-icon.png" alt="HoopScore" class="product-icon">
-                    HoopScore. <span>Stats that sync everywhere.</span>
+                    HoopScore. 
                 </h3>
             </div>
             <div class="carousel-wrapper">
                 <div class="carousel" id="carousel-score">
                     <div class="feature-card light">
                         <div class="card-content">
-                            <div class="card-title">Pro-Level Stats</div>
+                            <div class="card-title">Capture realtime stats</div>
                             <p class="card-description">Court zones, shot types, contested/open—capture it all with simple taps.</p>
                             <button class="card-cta" onclick="openModal('stats')">Learn more →</button>
                         </div>
@@ -1426,14 +1559,14 @@
             <div class="product-title">
                 <h3>
                     <img src="img/hoopcast-icon.png" alt="HoopCast" class="product-icon">
-                    HoopCast. <span>Stream like the pros.</span>
+                    HoopCast. 
                 </h3>
             </div>
             <div class="carousel-wrapper">
                 <div class="carousel" id="carousel-cast">
                     <div class="feature-card light">
                         <div class="card-content">
-                            <div class="card-title">One-Click Broadcast</div>
+                            <div class="card-title">One-Click Live Game Broadcast</div>
                             <p class="card-description">Score the game. Tap broadcast. You're live on YouTube in seconds.</p>
                             <button class="card-cta" onclick="openModal('broadcast')">Learn more →</button>
                         </div>
@@ -1874,6 +2007,37 @@
     </div>
 
     <script>
+        // Mobile Nav
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+
+        function openMobileNav() {
+            mobileNav.style.display = 'flex';
+            requestAnimationFrame(() => {
+                mobileNav.classList.add('active');
+            });
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileNav() {
+            mobileNav.classList.add('closing');
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                mobileNav.classList.remove('closing');
+                mobileNav.style.display = '';
+            }, 400);
+        }
+
+        hamburger.addEventListener('click', openMobileNav);
+        mobileNavClose.addEventListener('click', closeMobileNav);
+
+        // Close mobile nav when clicking links
+        document.querySelectorAll('.mobile-nav-links a[href^="#"]').forEach(link => {
+            link.addEventListener('click', closeMobileNav);
+        });
+
         // Carousel scroll function
         function scrollCarousel(carouselId, direction) {
             const carousel = document.getElementById(carouselId);
