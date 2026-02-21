@@ -289,6 +289,101 @@
             border-radius: 50%;
         }
 
+        /* Real MVPs Section */
+        .real-mvps {
+            padding: 6rem 2rem;
+            background: var(--bg);
+            overflow: hidden;
+        }
+
+        .real-mvps-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .real-mvps-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .real-mvps-header h2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .letters-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .letters-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .letter-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem 3rem;
+            flex: 0 0 100%;
+            min-width: 0;
+        }
+
+        .letter-greeting {
+            font-family: 'Schibsted Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .letter-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .letter-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .letter-sign-off {
+            margin-top: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .letters-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .letters-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: none;
+            background: var(--border);
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .letters-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .letter-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+
         /* Products Section */
         .products {
             padding: 6rem 0;
@@ -1411,6 +1506,32 @@
         </div>
     </section>
 
+    <!-- Real MVPs Section -->
+    <section class="real-mvps">
+        <div class="real-mvps-container">
+            <div class="real-mvps-header">
+                <h2>We built this for the real MVPs</h2>
+            </div>
+
+            <div class="letters-carousel">
+                <div class="letters-track" id="lettersTrack">
+                    <div class="letter-card">
+                        <div class="letter-greeting">Dear Coach Nicky,</div>
+                        <p class="letter-body">
+                            You spend all the coaching fees we pay you on more training equipment for the team. You drove to 20 different gyms to find us a place to practice. The last thing you wanted was to try figure out how to use Canva to make a logo, or to try build a website with Wix. So you had to ask your buddy, who didn't finish it in the end.
+                            <br><br>
+                            <strong>We built juuk for you</strong>, so that you can have a website that matches your effort and your goals. Without having to become an IT guy.
+                        </p>
+                        <p class="letter-sign-off">Thanks for all you do for your players.</p>
+                    </div>
+                </div>
+                <div class="letters-dots" id="lettersDots">
+                    <button class="letters-dot active" data-index="0"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Products Section -->
     <section class="products" id="features">
         <div class="products-header">
@@ -2154,6 +2275,35 @@
 
         widgetName.addEventListener('input', validateWidget);
         widgetEmail.addEventListener('input', validateWidget);
+
+        // Letters Carousel
+        const lettersTrack = document.getElementById('lettersTrack');
+        const lettersDots = document.getElementById('lettersDots');
+        let currentLetter = 0;
+
+        function goToLetter(index) {
+            const total = lettersTrack.children.length;
+            if (index < 0 || index >= total) return;
+            currentLetter = index;
+            lettersTrack.style.transform = `translateX(-${index * 100}%)`;
+            lettersDots.querySelectorAll('.letters-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        lettersDots.addEventListener('click', function(e) {
+            if (e.target.classList.contains('letters-dot')) {
+                goToLetter(parseInt(e.target.dataset.index));
+            }
+        });
+
+        // Touch swipe for letters
+        let letterStartX = 0;
+        lettersTrack.addEventListener('touchstart', e => { letterStartX = e.touches[0].clientX; });
+        lettersTrack.addEventListener('touchend', e => {
+            const diff = letterStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) goToLetter(currentLetter + (diff > 0 ? 1 : -1));
+        });
 
         widgetSubmit.addEventListener('click', async function() {
             widgetData.name = widgetName.value.trim();
