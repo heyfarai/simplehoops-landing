@@ -39,8 +39,8 @@ Current Setup: ${data.currentState}`;
         return res.status(400).json({ error: 'Invalid form type' });
     }
 
-    const fromEmail = process.env.POSTMARK_FROM_EMAIL || process.env.EMAIL_FROM || 'do-not-reply@simplehoops.app';
-    const toEmail = 'farai@simplehoops.app';
+    const fromEmail = process.env.POSTMARK_FROM_EMAIL || process.env.EMAIL_FROM || 'do-not-reply@juuk.ca';
+    const toEmail = 'farai@juuk.ca';
 
     try {
         // Use Mailpit if USE_MAILPIT=true, otherwise Postmark

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thanks! - SimpleHoops</title>
+    <title>Thanks! - Juuk</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,6 +11,12 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --bg: #0d0d0d;
+        --text: #f5f5f5;
+        --text-muted: #a3a3a3;
+      }
+      html { color-scheme: dark; }
       * {
         margin: 0;
         padding: 0;
@@ -20,8 +26,8 @@
       body {
         font-family: "Schibsted Grotesk", Arial, sans-serif;
         line-height: 1.1;
-        color: #000;
-        background: #fff;
+        color: var(--text);
+        background: var(--bg);
         font-weight: 400;
         min-height: 100vh;
         display: flex;
@@ -52,19 +58,20 @@
         font-weight: 900;
         margin-bottom: 2rem;
         letter-spacing: -0.03em;
+        color: var(--text);
       }
 
       p {
         font-size: 1.3rem;
-        color: #666;
+        color: var(--text-muted);
         margin-bottom: 3rem;
         font-weight: 300;
       }
 
       .back {
         display: inline-block;
-        background: #000;
-        color: #fff;
+        background: var(--text);
+        color: var(--bg);
         text-decoration: none;
         padding: 24px 48px;
         font-size: 1.2rem;
@@ -75,7 +82,7 @@
       }
 
       .back:hover {
-        background: #333;
+        opacity: 0.9;
       }
     </style>
   </head>
@@ -85,9 +92,9 @@
       <p>We'll be in touch soon with early access.</p>
       <a href="/" class="back">Back to Home</a>
       <div style="margin-top: 3rem; font-size: 0.9rem;">
-        <a href="/privacy" style="color: #000; margin: 0 0.5rem;">Privacy</a> •
-        <a href="/terms" style="color: #000; margin: 0 0.5rem;">Terms</a> •
-        <a href="/support" style="color: #000; margin: 0 0.5rem;">Support</a>
+        <a href="/privacy" style="color: var(--text); margin: 0 0.5rem;">Privacy</a> •
+        <a href="/terms" style="color: var(--text); margin: 0 0.5rem;">Terms</a> •
+        <a href="/support" style="color: var(--text); margin: 0 0.5rem;">Support</a>
       </div>
     </div>
   </body>

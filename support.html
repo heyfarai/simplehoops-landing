@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Support | SimpleHoops</title>
+    <title>Support | Juuk</title>
     <meta
       name="description"
-      content="Get help with SimpleHoops basketball team management software. Contact support, FAQs, and troubleshooting."
+      content="Get help with Juuk basketball team management software. Contact support, FAQs, and troubleshooting."
     />
-    <link rel="canonical" href="https://hoopchat.app/support" />
+    <link rel="canonical" href="https://juuk.ca/support" />
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
@@ -23,6 +23,15 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --bg: #0d0d0d;
+        --text: #f5f5f5;
+        --text-muted: #a3a3a3;
+        --card: #1a1a1a;
+        --border: rgba(255, 255, 255, 0.1);
+        --nav-bg: rgba(22, 22, 22, 0.95);
+      }
+      html { color-scheme: dark; }
       * {
         margin: 0;
         padding: 0;
@@ -32,8 +41,8 @@
       body {
         font-family: "Schibsted Grotesk", Arial, sans-serif;
         line-height: 1.6;
-        color: #000;
-        background: #fff;
+        color: var(--text);
+        background: var(--bg);
       }
 
       .nav {
@@ -46,16 +55,16 @@
         align-items: center;
         padding: 1.5rem 3rem;
         z-index: 1000;
-        background: rgba(255, 255, 255, 0.95);
+        background: var(--nav-bg);
         backdrop-filter: blur(10px);
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid var(--border);
       }
 
       .nav-logo {
         font-size: 1.5rem;
         font-weight: 900;
         letter-spacing: -0.02em;
-        color: #000;
+        color: var(--text);
         text-decoration: none;
       }
 
@@ -70,11 +79,12 @@
         font-weight: 900;
         letter-spacing: -0.03em;
         margin-bottom: 1rem;
+        color: var(--text);
       }
 
       .subtitle {
         font-size: 1.2rem;
-        color: #666;
+        color: var(--text-muted);
         margin-bottom: 3rem;
       }
 
@@ -83,6 +93,7 @@
         font-weight: 700;
         margin-top: 3rem;
         margin-bottom: 1rem;
+        color: var(--text);
       }
 
       h3 {
@@ -90,11 +101,12 @@
         font-weight: 600;
         margin-top: 2rem;
         margin-bottom: 0.75rem;
+        color: var(--text);
       }
 
       p {
         margin-bottom: 1rem;
-        color: #333;
+        color: var(--text-muted);
       }
 
       ul {
@@ -104,7 +116,7 @@
 
       li {
         margin-bottom: 0.5rem;
-        color: #333;
+        color: var(--text-muted);
       }
 
       strong {
@@ -119,8 +131,8 @@
       }
 
       .contact-card {
-        background: #f9fafb;
-        border: 1px solid #e5e7eb;
+        background: var(--card);
+        border: 1px solid var(--border);
         padding: 2rem;
         text-align: center;
         border-radius: 12px;
@@ -137,7 +149,8 @@
         transition: background 0.2s;
         font-size: .9rem;
         font-weight: normal;
-        transition: all ;
+        transition: all 0.2s;
+        color: var(--text);
       }
 
       .contact-card a:hover {
@@ -145,8 +158,8 @@
       }
 
       .faq-item {
-        background: #f9fafb;
-        border: 1px solid #e5e7eb;
+        background: var(--card);
+        border: 1px solid var(--border);
         padding: 1.5rem;
         margin-bottom: 1rem;
         border-radius: 12px;
@@ -155,7 +168,7 @@
       .faq-item h3 {
         margin-top: 0;
         margin-bottom: 0.75rem;
-        color: #000;
+        color: var(--text);
       }
 
       .faq-item p {
@@ -163,39 +176,39 @@
       }
 
       .highlight-box {
-        background: #dbeafe;
-        border: 0px solid #3b82f6;
+        background: rgba(59, 130, 246, 0.12);
+        border: 1px solid rgba(59, 130, 246, 0.3);
         padding: 1.5rem;
         margin: 2rem 0;
         border-radius: 12px;
       }
 
-
       a {
-        color: #000;
+        color: var(--text);
         font-weight: 600;
         text-decoration: underline;
       }
 
       a:hover {
-        color: #333;
+        color: var(--text-muted);
       }
 
       .footer {
         padding: 4rem 0;
-        background: #000;
-        color: #fff;
+        background: var(--card);
+        color: var(--text);
         text-align: center;
         margin-top: 4rem;
+        border-top: 1px solid var(--border);
       }
 
       .footer p {
-        color: #fff;
+        color: var(--text);
         font-size: 0.9rem;
       }
 
       .footer a {
-        color: #fff;
+        color: var(--text);
         margin: 0 1rem;
       }
 
@@ -225,7 +238,7 @@
   <body>
     <!-- Navigation -->
     <nav class="nav">
-      <a href="/" class="nav-logo">SimpleHoops</a>
+      <a href="/" class="nav-logo">Juuk</a>
     </nav>
 
     <div class="container">
@@ -247,19 +260,19 @@
         <div class="contact-card">
           <h3>Email Support</h3>
           <p>For general questions, technical issues, or account help.</p>
-          <a href="mailto:support@simplehoops.app">support@simplehoops.app</a>
+          <a href="mailto:support@juuk.ca">support@juuk.ca</a>
         </div>
 
         <div class="contact-card">
           <h3>Privacy & Data</h3>
           <p>Questions about privacy, data deletion, or account information.</p>
-          <a href="mailto:privacy@simplehoops.app">privacy@simplehoops.app</a>
+          <a href="mailto:privacy@juuk.ca">privacy@juuk.ca</a>
         </div>
 
         <div class="contact-card">
           <h3>Bug Reports</h3>
           <p>Found a bug or experiencing technical difficulties?</p>
-          <a href="mailto:bugs@simplehoops.app">bugs@simplehoops.app</a>
+          <a href="mailto:bugs@juuk.ca">bugs@juuk.ca</a>
         </div>
       </div>
 
@@ -325,7 +338,7 @@
           Refund policies depend on how you subscribed. For subscriptions purchased through
           the Apple App Store or Google Play Store, refunds are handled by Apple or Google
           according to their policies. For web subscriptions through Stripe, contact us at
-          <a href="mailto:support@simplehoops.app">support@simplehoops.app</a> within 7 days
+          <a href="mailto:support@juuk.ca">support@juuk.ca</a> within 7 days
           of purchase.
         </p>
       </div>
@@ -344,7 +357,7 @@
         <p>
           To delete your account, go to Settings > Account > Delete Account. This will
           permanently remove your account and all associated data within 30 days. You can
-          also email <a href="mailto:privacy@simplehoops.app">privacy@simplehoops.app</a>
+          also email <a href="mailto:privacy@juuk.ca">privacy@juuk.ca</a>
           to request account deletion.
         </p>
       </div>
@@ -369,7 +382,7 @@
           <li>Check your internet connection</li>
         </ul>
         <p>
-          If the problem persists, email <a href="mailto:bugs@simplehoops.app">bugs@simplehoops.app</a>
+          If the problem persists, email <a href="mailto:bugs@juuk.ca">bugs@juuk.ca</a>
           with details about the issue, including your device type and what you were doing
           when the problem occurred.
         </p>
@@ -378,17 +391,17 @@
       <div class="faq-item">
         <h3>Do you support leagues and tournaments?</h3>
         <p>
-          Yes! SimpleHoops includes features for league administrators to manage multiple
+          Yes! Juuk includes features for league administrators to manage multiple
           teams, schedules, standings, and games. Contact us at
-          <a href="mailto:support@simplehoops.app">support@simplehoops.app</a> if you're
-          interested in using SimpleHoops for your league or tournament.
+          <a href="mailto:support@juuk.ca">support@juuk.ca</a> if you're
+          interested in using Juuk for your league or tournament.
         </p>
       </div>
 
       <div class="faq-item">
         <h3>What platforms do you support?</h3>
         <p>
-          SimpleHoops is available on:
+          Juuk is available on:
         </p>
         <ul>
           <li>iOS (iPhone and iPad) - iOS 15.0 and later</li>
@@ -401,7 +414,7 @@
       <div class="highlight-box">
         <p>
           <strong>Have an idea for a new feature?</strong> We'd love to hear it! Email your
-          suggestions to <a href="mailto:feedback@simplehoops.app">feedback@simplehoops.app</a>.
+          suggestions to <a href="mailto:feedback@juuk.ca">feedback@juuk.ca</a>.
           We review all feature requests and prioritize based on user needs.
         </p>
       </div>
@@ -409,12 +422,12 @@
       <h2>Report Abuse or Safety Concerns</h2>
       <div class="faq-item">
         <p>
-          SimpleHoops is designed for youth sports, and we take safety seriously. If you
+          Juuk is designed for youth sports, and we take safety seriously. If you
           encounter inappropriate behavior, content, or have safety concerns, please report
           it immediately:
         </p>
         <p>
-          <strong>Email:</strong> <a href="mailto:abuse@simplehoops.app">abuse@simplehoops.app</a>
+          <strong>Email:</strong> <a href="mailto:abuse@juuk.ca">abuse@juuk.ca</a>
         </p>
         <p>
           We investigate all reports promptly and take appropriate action, including account
@@ -425,15 +438,15 @@
       <h2>Additional Resources</h2>
       <ul>
         <li><a href="/privacy">Privacy Policy</a> - How we handle your information</li>
-        <li><a href="/terms">Terms of Service</a> - Rules for using SimpleHoops</li>
-        <li><a href="/">Home</a> - Learn more about SimpleHoops</li>
+        <li><a href="/terms">Terms of Service</a> - Rules for using Juuk</li>
+        <li><a href="/">Home</a> - Learn more about Juuk</li>
       </ul>
 
       <div class="response-box">
         <h3>Still Need Help?</h3>
         <p>
           Can't find what you're looking for? Send us an email at
-          <a href="mailto:support@simplehoops.app">support@simplehoops.app</a> and we'll
+          <a href="mailto:support@juuk.ca">support@juuk.ca</a> and we'll
           get back to you as soon as possible. Please include as much detail as you can
           about your question or issue.
         </p>
@@ -449,7 +462,7 @@
           <a href="/terms">Terms</a>
           <a href="/support">Support</a>
         </p>
-        <p style="margin-top: 1rem">&copy; 2025 SimpleHoops. Just what you need. Nothing else.</p>
+        <p style="margin-top: 1rem">&copy; 2025 Juuk. Just what you need. Nothing else.</p>
       </div>
     </footer>
   </body>

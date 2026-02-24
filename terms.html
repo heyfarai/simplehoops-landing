@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terms of Service | SimpleHoops</title>
+    <title>Terms of Service | Juuk</title>
     <meta
       name="description"
-      content="Terms of service for SimpleHoops basketball team management software."
+      content="Terms of service for Juuk basketball team management software."
     />
-    <link rel="canonical" href="https://hoopchat.app/terms" />
+    <link rel="canonical" href="https://juuk.ca/terms" />
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
@@ -23,6 +23,15 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --bg: #0d0d0d;
+        --text: #f5f5f5;
+        --text-muted: #a3a3a3;
+        --card: #1a1a1a;
+        --border: rgba(255, 255, 255, 0.1);
+        --nav-bg: rgba(22, 22, 22, 0.95);
+      }
+      html { color-scheme: dark; }
       * {
         margin: 0;
         padding: 0;
@@ -32,8 +41,8 @@
       body {
         font-family: "Schibsted Grotesk", Arial, sans-serif;
         line-height: 1.6;
-        color: #000;
-        background: #fff;
+        color: var(--text);
+        background: var(--bg);
       }
 
       .nav {
@@ -46,16 +55,16 @@
         align-items: center;
         padding: 1.5rem 3rem;
         z-index: 1000;
-        background: rgba(255, 255, 255, 0.95);
+        background: var(--nav-bg);
         backdrop-filter: blur(10px);
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid var(--border);
       }
 
       .nav-logo {
         font-size: 1.5rem;
         font-weight: 900;
         letter-spacing: -0.02em;
-        color: #000;
+        color: var(--text);
         text-decoration: none;
       }
 
@@ -70,11 +79,12 @@
         font-weight: 900;
         letter-spacing: -0.03em;
         margin-bottom: 1rem;
+        color: var(--text);
       }
 
       .last-updated {
         font-size: 1rem;
-        color: #666;
+        color: var(--text-muted);
         margin-bottom: 3rem;
       }
 
@@ -83,6 +93,7 @@
         font-weight: 700;
         margin-top: 3rem;
         margin-bottom: 1rem;
+        color: var(--text);
       }
 
       h3 {
@@ -90,11 +101,12 @@
         font-weight: 600;
         margin-top: 2rem;
         margin-bottom: 0.75rem;
+        color: var(--text);
       }
 
       p {
         margin-bottom: 1rem;
-        color: #333;
+        color: var(--text-muted);
       }
 
       ul, ol {
@@ -104,7 +116,7 @@
 
       li {
         margin-bottom: 0.5rem;
-        color: #333;
+        color: var(--text-muted);
       }
 
       strong {
@@ -112,44 +124,45 @@
       }
 
       .highlight-box {
-        background: #f5f5f5;
-        border-left: 4px solid #000;
+        background: var(--card);
+        border-left: 4px solid var(--text);
         padding: 1.5rem;
         margin: 2rem 0;
       }
 
       .important-box {
-        background: #fef3c7;
+        background: rgba(251, 191, 36, 0.15);
         border: 2px solid #fbbf24;
         padding: 1.5rem;
         margin: 2rem 0;
       }
 
       a {
-        color: #000;
+        color: var(--text);
         font-weight: 600;
         text-decoration: underline;
       }
 
       a:hover {
-        color: #333;
+        color: var(--text-muted);
       }
 
       .footer {
         padding: 4rem 0;
-        background: #000;
-        color: #fff;
+        background: var(--card);
+        color: var(--text);
         text-align: center;
         margin-top: 4rem;
+        border-top: 1px solid var(--border);
       }
 
       .footer p {
-        color: #fff;
+        color: var(--text);
         font-size: 0.9rem;
       }
 
       .footer a {
-        color: #fff;
+        color: var(--text);
         margin: 0 1rem;
       }
 
@@ -175,7 +188,7 @@
   <body>
     <!-- Navigation -->
     <nav class="nav">
-      <a href="/" class="nav-logo">SimpleHoops</a>
+      <a href="/" class="nav-logo">Juuk</a>
     </nav>
 
     <div class="container">
@@ -184,15 +197,15 @@
 
       <div class="highlight-box">
         <p>
-          <strong>Welcome to SimpleHoops.</strong> These terms govern your use of our apps
-          and services. By using SimpleHoops, you agree to these terms. If you don't agree,
+          <strong>Welcome to Juuk.</strong> These terms govern your use of our apps
+          and services. By using Juuk, you agree to these terms. If you don't agree,
           please don't use our services.
         </p>
       </div>
 
       <h2>1. Acceptance of Terms</h2>
       <p>
-        By accessing or using any SimpleHoops application, website, or service (collectively,
+        By accessing or using any Juuk application, website, or service (collectively,
         "Services"), you agree to be bound by these Terms of Service and our Privacy Policy.
         If you're using our Services on behalf of an organization, you agree to these terms
         on behalf of that organization.
@@ -200,7 +213,7 @@
 
       <h2>2. Description of Services</h2>
       <p>
-        SimpleHoops provides basketball team management and communication software, including:
+        Juuk provides basketball team management and communication software, including:
       </p>
       <ul>
         <li>Team communication tools</li>
@@ -237,7 +250,7 @@
 
       <h2>4. Acceptable Use</h2>
       <p>
-        When using SimpleHoops, you agree NOT to:
+        When using Juuk, you agree NOT to:
       </p>
       <ul>
         <li>Violate any laws or regulations</li>
@@ -255,7 +268,7 @@
       <div class="important-box">
         <h3>Zero Tolerance for Abuse</h3>
         <p>
-          SimpleHoops is designed for youth sports. We have zero tolerance for any behavior
+          Juuk is designed for youth sports. We have zero tolerance for any behavior
           that endangers children, including predatory behavior, bullying, or inappropriate
           content. Violations will result in immediate account termination and reporting to
           authorities where appropriate.
@@ -300,7 +313,7 @@
       <p>
         You retain ownership of any content you post, upload, or share through our Services
         (team names, player information, messages, etc.). By posting content, you grant
-        SimpleHoops a license to use, store, and display that content solely to provide our Services.
+        Juuk a license to use, store, and display that content solely to provide our Services.
       </p>
 
       <h3>Content Responsibilities</h3>
@@ -323,8 +336,8 @@
 
       <h3>Our Rights</h3>
       <p>
-        The SimpleHoops Services, including all software, designs, trademarks, and content
-        (excluding user content), are owned by SimpleHoops and protected by copyright,
+        The Juuk Services, including all software, designs, trademarks, and content
+        (excluding user content), are owned by Juuk and protected by copyright,
         trademark, and other intellectual property laws.
       </p>
 
@@ -393,7 +406,7 @@
 
       <h2>12. Limitation of Liability</h2>
       <p>
-        To the maximum extent permitted by law, SimpleHoops and its affiliates, officers,
+        To the maximum extent permitted by law, Juuk and its affiliates, officers,
         employees, and agents will not be liable for any indirect, incidental, special,
         consequential, or punitive damages, including loss of profits, data, or goodwill.
       </p>
@@ -408,7 +421,7 @@
 
       <h2>13. Indemnification</h2>
       <p>
-        You agree to indemnify and hold harmless SimpleHoops from any claims, losses, damages,
+        You agree to indemnify and hold harmless Juuk from any claims, losses, damages,
         liabilities, and expenses (including legal fees) arising from:
       </p>
       <ul>
@@ -423,12 +436,12 @@
       <h3>Governing Law</h3>
       <p>
         These terms are governed by the laws of the United States and the state where
-        SimpleHoops is registered, without regard to conflict of law principles.
+        Juuk is registered, without regard to conflict of law principles.
       </p>
 
       <h3>Informal Resolution</h3>
       <p>
-        If you have a dispute with us, please contact us first at <a href="mailto:support@simplehoops.app">support@simplehoops.app</a>
+        If you have a dispute with us, please contact us first at <a href="mailto:support@juuk.ca">support@juuk.ca</a>
         so we can try to resolve it informally.
       </p>
 
@@ -455,7 +468,7 @@
       <h3>Entire Agreement</h3>
       <p>
         These terms, together with our Privacy Policy, constitute the entire agreement
-        between you and SimpleHoops regarding our Services.
+        between you and Juuk regarding our Services.
       </p>
 
       <h3>Severability</h3>
@@ -481,7 +494,7 @@
         If you have questions about these terms, please contact us:
       </p>
       <ul>
-        <li><strong>Email:</strong> <a href="mailto:legal@simplehoops.app">legal@simplehoops.app</a></li>
+        <li><strong>Email:</strong> <a href="mailto:legal@juuk.ca">legal@juuk.ca</a></li>
         <li><strong>Support:</strong> <a href="/support">Visit our support page</a></li>
       </ul>
 
@@ -508,7 +521,7 @@
           <a href="/terms">Terms</a>
           <a href="/support">Support</a>
         </p>
-        <p style="margin-top: 1rem">&copy; 2025 SimpleHoops. Just what you need. Nothing else.</p>
+        <p style="margin-top: 1rem">&copy; 2025 Juuk. Just what you need. Nothing else.</p>
       </div>
     </footer>
   </body>
