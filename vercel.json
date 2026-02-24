@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/teams", "destination": "/teams.html" },
     { "source": "/thank-you", "destination": "/thank-you.html" },
     { "source": "/support", "destination": "/support.html" },
     { "source": "/privacy", "destination": "/privacy.html" },

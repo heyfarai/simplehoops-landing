@@ -165,7 +165,8 @@
             letter-spacing: 0.05em;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--text-primary);
         }
 
@@ -174,6 +175,7 @@
             font-size: 0.875rem;
             border-radius: 100px;
             color: var(--text-primary);
+            white-space: nowrap;
         }
         [data-theme="light"] .nav-links .btn { color: #000; }
 
@@ -1667,8 +1669,8 @@
         <div class="nav-container">
             <a href="/" class="logo"><img src="img/juuk-logo--light.png" alt="Juuk" height="32"></a>
             <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#pricing">Pricing</a>
+                <a href="/" class="active">Leagues</a>
+                <a href="/teams" style="white-space:nowrap">Teams & Clubs</a>
                 <a href="#" onclick="openDemoModal(); return false;" class="btn btn-primary">Book a Demo</a>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -1683,10 +1685,8 @@
     <div class="mobile-nav" id="mobileNav">
         <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">×</button>
         <div class="mobile-nav-links">
-            <a href="#features">juuk.League</a>
-            <a href="#features">juuk.Score</a>
-            <a href="#juukcast">juuk.Stream</a>
-            <a href="#pricing">Pricing</a>
+            <a href="/" class="active">Leagues</a>
+            <a href="/teams">Teams & Clubs</a>
             <a href="#" onclick="openDemoModal(); closeMobileNav(); return false;" class="btn btn-primary">Book a Demo</a>
         </div>
     </div>
@@ -1695,8 +1695,8 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Simple League Ops.<br>Stats Like the Pros.</h1>
-                <p class="subtitle">Pro-level league website. Live broadcasts. All-in-one platform. Dead simple. For iOS and Android.</p>
+                <h1>Juggling Excel, WordPress, Swish, Canva, and BallerTV?<br>There's a better way.</h1>
+                <p class="subtitle">One platform for your league website, scheduling, stats, streaming, and content. Stop juggling five apps.</p>
                 <!-- <div class="hero-cta">
                     <a href="#juukcast" class="btn btn-primary">See juuk.Stream Demo</a>
                     <a href="#features" class="btn btn-secondary">Explore Features</a>
@@ -1704,32 +1704,6 @@
             </div>
             <div class="hero-visual">
                 <img src="img/hoopscore-screenshot.png" alt="juuk.Score App Screenshot" class="hero-screenshot">
-            </div>
-        </div>
-    </section>
-
-    <!-- Real MVPs Section -->
-    <section class="real-mvps">
-        <div class="real-mvps-container">
-            <div class="real-mvps-header">
-                <h2>We built this for the real MVPs</h2>
-            </div>
-
-            <div class="letters-carousel">
-                <div class="letters-track" id="lettersTrack">
-                    <div class="letter-card">
-                        <div class="letter-greeting">Dear Coach Nicky,</div>
-                        <p class="letter-body">
-                            You spend all the coaching fees we pay you on more training equipment for the team. You drove to 20 different gyms to find us a place to practice. The last thing you wanted was to try figure out how to use Canva to make a logo, or to try build a website with Wix. So you had to ask your buddy, who didn't finish it in the end.
-                            <br><br>
-                            <strong>We built juuk for you</strong>, so that you can have a website that matches your effort and your goals. Without having to become an IT guy.
-                        </p>
-                        <p class="letter-sign-off">Thanks for all you do for your players.</p>
-                    </div>
-                </div>
-                <div class="letters-dots" id="lettersDots">
-                    <button class="letters-dot active" data-index="0"></button>
-                </div>
             </div>
         </div>
     </section>

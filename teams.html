@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juuk - Team & Club Management Software</title>
+    <meta name="description" content="Professional team website, live streaming, and stats tracking for basketball teams and clubs. Rosters, schedules, camps, tryouts — all in one platform.">
+    <link rel="canonical" href="https://juuk.ca/teams">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://juuk.ca/teams">
+    <meta property="og:title" content="Juuk - Team & Club Management Software">
+    <meta property="og:description" content="Professional team website, live streaming, and stats tracking for basketball teams and clubs.">
+    <meta property="og:image" content="https://juuk.ca/img/hoopscore-screenshot.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Juuk - Team & Club Management Software">
+    <meta name="twitter:description" content="Professional team website, live streaming, and stats tracking for basketball teams and clubs.">
+    <meta name="twitter:image" content="https://juuk.ca/img/hoopscore-screenshot.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/img/icon.png">
+    <link rel="apple-touch-icon" href="/img/icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B2C;
+            --primary-dark: #E85A1F;
+            --primary-glow: rgba(255, 107, 44, 0.35);
+            --bg: #08080a;
+            --bg-elevated: #0f0f12;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-solid: #111114;
+            --text-primary: #ededef;
+            --text-secondary: #8a8a8e;
+            --text-muted: #555559;
+            --accent-blue: #60A5FA;
+            --accent-green: #34D399;
+            --border: rgba(255, 255, 255, 0.06);
+            --border-gradient: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+            --glow-orange: radial-gradient(ellipse at 50% 0%, rgba(255, 107, 44, 0.4) 0%, transparent 60%);
+            --glow-blue: radial-gradient(ellipse at 50% 50%, rgba(96, 165, 250, 0.3) 0%, transparent 60%);
+        }
+
+        html { color-scheme: dark; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Schibsted Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Noise texture overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+        p { font-weight: 300; }
+
+        h1, h2, h3 {
+            font-family: 'Schibsted Grotesk', -apple-system, sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.08;
+        }
+        h1 { font-size: clamp(48px, 7vw, 96px); }
+        h2 { font-size: clamp(40px, 5vw, 64px); }
+        h3 { font-size: clamp(28px, 3.5vw, 48px); }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            padding: 0.5rem .5rem;
+            background: linear-gradient(rgba(15, 15, 18, 0.85), rgba(15, 15, 18, 0.85)) padding-box,
+                        linear-gradient(to right, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.08)) border-box;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 100px;
+            border: 1px solid transparent;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 0 0.5px rgba(255, 255, 255, 0.04);
+        }
+        .logo { display: flex; align-items: center; margin-left: 1rem; }
+        .logo img { height: 32px; width: auto; }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: color 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--text-primary); }
+        .nav-links .btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            border-radius: 100px;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 0 32px rgba(255, 107, 44, 0.55), 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 0 50px rgba(255, 107, 44, 0.65), 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .btn-secondary:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 10rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140%;
+            height: 80%;
+            background: radial-gradient(ellipse at 50% 20%, rgba(96, 165, 250, 0.35) 0%, rgba(96, 165, 250, 0.12) 30%, transparent 65%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hero-container {
+            max-width: 980px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content { margin-bottom: 4rem; }
+        .hero-content h1 {
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+        .hero-content .subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 6rem 0;
+            background: var(--bg-elevated);
+            position: relative;
+        }
+        .products::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.06), transparent);
+        }
+        .products-header {
+            text-align: center;
+            margin-bottom: 8rem;
+            padding: 4rem 2rem;
+        }
+        .products-header h2 { margin-bottom: 1rem; }
+        .products-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+        .product-section { margin-bottom: 5rem; }
+        .product-section:last-child { margin-bottom: 0; }
+        .product-title {
+            max-width: 1400px;
+            margin: 0 auto 2rem;
+            padding: 0 0;
+        }
+        .product-title h3 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .product-title h3 span { color: #b1b1b1; }
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .product-icon.sites { background: linear-gradient(135deg, #8B5CF6, #A78BFA); }
+        .product-icon.score { background: linear-gradient(135deg, #3B82F6, #60A5FA); }
+        .product-icon.cast { background: linear-gradient(135deg, #10B981, #34D399); }
+
+        /* Card Carousel */
+        .carousel-wrapper { position: relative; }
+        .carousel {
+            display: flex;
+            gap: 1.25rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 0.5rem 0 2rem;
+            scroll-padding-left: 2rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        @media (min-width: 1400px) {
+            .carousel { scroll-padding-left: calc((100vw - 1400px) / 2); }
+        }
+        .carousel::-webkit-scrollbar { display: none; }
+        .carousel::before, .carousel::after { content: ''; flex: 0 0 2rem; }
+        @media (min-width: 1400px) {
+            .carousel::before { flex: 0 0 calc((100vw - 1400px) / 2); }
+        }
+        .feature-card {
+            --card-width: 405px;
+            --card-height: 740px;
+            flex: 0 0 var(--card-width);
+            height: var(--card-height);
+            border-radius: 28px;
+            padding: 2.25rem;
+            display: flex;
+            flex-direction: column;
+            scroll-snap-align: start;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        @media (max-width: 1440px) {
+            .feature-card { --card-width: 372px; --card-height: 680px; }
+        }
+        @media (max-width: 1068px) {
+            .feature-card { --card-width: 344px; --card-height: 628px; }
+        }
+        @media (max-width: 734px) {
+            .feature-card { --card-width: 304px; --card-height: 562px; }
+        }
+        .feature-card:hover { transform: translateY(-4px); }
+        .feature-card.light {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--text-primary);
+        }
+        .feature-card.light:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        }
+        .feature-card.purple {
+            background: linear-gradient(145deg, #8B5CF6, #A78BFA);
+            color: white;
+        }
+        .feature-card.blue {
+            background: linear-gradient(145deg, #3B82F6, #60A5FA);
+            color: white;
+        }
+        .feature-card.green {
+            background: linear-gradient(145deg, #10B981, #34D399);
+            color: white;
+        }
+        .feature-card.dark {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: white;
+        }
+        .feature-card.orange {
+            background: linear-gradient(145deg, #FF6B2C, #FF8F5C);
+            color: white;
+        }
+        .card-content { flex: 0 0 auto; }
+        .card-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+        .card-description { font-size: 1.3rem; line-height: 1.5; opacity: 0.9; margin-bottom: 1.5rem; font-weight: 400; }
+        .feature-card.light .card-description { color: var(--text-secondary); opacity: 1; }
+        .card-visual { flex: 1; display: flex; align-items: flex-end; justify-content: center; margin-top: 1.5rem; }
+        .card-visual-content {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .carousel-nav {
+            max-width: 1400px;
+            margin: 1rem auto 0;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.5rem;
+        }
+        .carousel-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: all 0.2s;
+        }
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        @media (max-width: 768px) {
+            .carousel { padding: 0.5rem 1rem 2rem; gap: 1rem; }
+            .carousel-nav { padding: 0 1rem; }
+            .product-title { padding: 0 1rem; }
+        }
+
+        /* Feature Deep Dive Section */
+        .feature-section {
+            padding: 8rem 2rem;
+            background: var(--bg-elevated);
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-section::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 0%, rgba(139, 92, 246, 0.3) 0%, transparent 55%),
+                        radial-gradient(ellipse at 80% 80%, rgba(96, 165, 250, 0.18) 0%, transparent 50%);
+            z-index: 0;
+        }
+        .feature-section.alt::before {
+            background: radial-gradient(ellipse at 50% 0%, rgba(255, 107, 44, 0.35) 0%, transparent 55%),
+                        radial-gradient(ellipse at 20% 80%, rgba(96, 165, 250, 0.2) 0%, transparent 50%);
+        }
+        .feature-section.blue-glow::before {
+            background: radial-gradient(ellipse at 50% 0%, rgba(96, 165, 250, 0.3) 0%, transparent 55%),
+                        radial-gradient(ellipse at 20% 80%, rgba(255, 107, 44, 0.2) 0%, transparent 50%);
+        }
+        .feature-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .feature-content {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .feature-content h2 { margin-bottom: 1rem; }
+        .feature-content .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(139, 92, 246, 0.1);
+            color: #A78BFA;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+        .badge.orange {
+            background: rgba(255, 107, 44, 0.1);
+            color: var(--primary);
+            border-color: rgba(255, 107, 44, 0.2);
+        }
+        .badge.blue {
+            background: rgba(96, 165, 250, 0.1);
+            color: var(--accent-blue);
+            border-color: rgba(96, 165, 250, 0.2);
+        }
+
+        /* Flow Diagram */
+        .flow-diagram {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        .flow-step { text-align: center; position: relative; }
+        .flow-step::after {
+            content: '\2192';
+            position: absolute;
+            right: -2rem;
+            top: 3rem;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        .flow-step:last-child::after { display: none; }
+        .flow-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
+                        linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(139, 92, 246, 0.1)) border-box;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+            box-shadow: 0 0 50px rgba(139, 92, 246, 0.3);
+        }
+        .flow-icon.orange {
+            background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
+                        linear-gradient(135deg, rgba(255, 107, 44, 0.5), rgba(255, 107, 44, 0.1)) border-box;
+            box-shadow: 0 0 50px rgba(255, 107, 44, 0.35);
+        }
+        .flow-icon.blue {
+            background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
+                        linear-gradient(135deg, rgba(96, 165, 250, 0.5), rgba(96, 165, 250, 0.1)) border-box;
+            box-shadow: 0 0 50px rgba(96, 165, 250, 0.3);
+        }
+        .flow-step h4 { font-size: 1.125rem; margin-bottom: 0.5rem; font-weight: 600; }
+        .flow-step p { font-size: 0.875rem; color: var(--text-secondary); }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .feature-grid-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .feature-grid-item h4 {
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .feature-grid-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 6rem 2rem;
+            background: var(--bg-elevated);
+            position: relative;
+        }
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 60%;
+            background: radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.2) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .pricing h2 { text-align: center; margin-bottom: 3rem; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .pricing-card {
+            background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
+                        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)) border-box;
+            border: 1px solid transparent;
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
+                        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(139, 92, 246, 0.15)) border-box;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+        }
+        .pricing-card.featured {
+            background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
+                        linear-gradient(180deg, rgba(139, 92, 246, 0.5), rgba(139, 92, 246, 0.15)) border-box;
+            border: 1px solid transparent;
+            transform: scale(1.05);
+            box-shadow: 0 0 100px rgba(139, 92, 246, 0.3);
+        }
+        .pricing-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .pricing-description { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2rem; }
+        .price {
+            font-family: 'Schibsted Grotesk', sans-serif;
+            font-size: 3rem;
+            color: #A78BFA;
+            margin-bottom: 0.5rem;
+        }
+        .price-period { color: var(--text-secondary); font-size: 1rem; }
+        .pricing-features { list-style: none; margin: 2rem 0; }
+        .pricing-features li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+        .pricing-features li::before { content: '\2713'; color: var(--accent-green); font-weight: 700; }
+
+        /* CTA */
+        .cta {
+            padding: 8rem 2rem;
+            background: var(--bg);
+            text-align: center;
+            position: relative;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 60%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .cta h2 { margin-bottom: 1rem; }
+        .cta p { font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 2rem; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .cta-meta { margin-top: 2rem; color: var(--text-muted); font-size: 0.875rem; }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--bg-elevated);
+            border-top: 1px solid transparent;
+            background-image: linear-gradient(var(--bg-elevated), var(--bg-elevated)),
+                              linear-gradient(to right, transparent, rgba(255, 255, 255, 0.06), transparent);
+            background-origin: padding-box, border-box;
+            background-clip: padding-box, border-box;
+        }
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+        }
+        .footer-brand {
+            font-family: 'Schibsted Grotesk', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .footer-description { color: var(--text-secondary); font-size: 0.95rem; }
+        .footer-section h4 { margin-bottom: 1rem; font-weight: 600; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+        .footer-links a:hover { color: var(--primary); }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+            .pricing-card.featured { transform: scale(1); }
+            .flow-diagram { grid-template-columns: 1fr; }
+            .flow-step::after {
+                content: '\2193';
+                right: 50%;
+                top: auto;
+                bottom: -2rem;
+                transform: translateX(50%);
+            }
+            .feature-grid { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr; }
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            margin-right: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 18px;
+            height: 1.5px;
+            background: var(--text-primary);
+            margin: 2px 0;
+            transition: all 0.3s ease;
+        }
+        .mobile-nav {
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 8, 10, 0.97);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            z-index: 1001;
+            flex-direction: column;
+            padding: 80px 32px 32px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        .mobile-nav.active { display: flex; visibility: visible; opacity: 1; }
+        .mobile-nav.closing { display: flex; visibility: visible; opacity: 0; }
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 28px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: rotate(-90deg);
+            transition: opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s, color 0.2s;
+        }
+        .mobile-nav.active .mobile-nav-close { opacity: 1; transform: rotate(0deg); }
+        .mobile-nav-close:hover { color: var(--text-primary); }
+        .mobile-nav-links { display: flex; flex-direction: column; gap: 4px; }
+        .mobile-nav-links a {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 12px 0;
+            transition: color 0.2s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .mobile-nav.active .mobile-nav-links a { opacity: 1; transform: translateY(0); }
+        .mobile-nav.active .mobile-nav-links a:nth-child(1) { transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s, color 0.2s; }
+        .mobile-nav.active .mobile-nav-links a:nth-child(2) { transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s, color 0.2s; }
+        .mobile-nav.active .mobile-nav-links a:nth-child(3) { transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s, color 0.2s; }
+        .mobile-nav.active .mobile-nav-links a:nth-child(4) { transition: opacity 0.4s ease 0.25s, transform 0.4s ease 0.25s, color 0.2s; }
+        .mobile-nav-links a:hover { color: var(--text-secondary); }
+        .mobile-nav-links .btn { margin-top: 24px; text-align: center; font-size: 17px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero { padding-top: 6rem; }
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
+                        linear-gradient(160deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)) border-box;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 480px;
+            position: relative;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+        }
+        .modal h3 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .modal p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; font-weight: 500; margin-bottom: 0.25rem; font-size: 0.875rem; }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: rgba(255, 107, 44, 0.5);
+            box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.1);
+        }
+        .modal .btn { width: 100%; margin-top: 0.5rem; }
+
+        /* Lead Widget */
+        .lead-widget { position: fixed; bottom: 24px; right: 24px; z-index: 2000; }
+        .widget-button {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 14px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .widget-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        .widget-card {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 360px;
+            max-width: calc(100vw - 48px);
+            background: var(--bg-card-solid);
+            border-radius: 16px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .widget-card.active { display: flex; animation: widgetSlideUp 0.3s ease; }
+        @keyframes widgetSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .widget-header {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-primary);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .widget-header h3 { font-size: 1rem; font-weight: 700; margin: 0; }
+        .widget-close { background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer; padding: 0; line-height: 1; }
+        .widget-body { padding: 20px; }
+        .widget-progress { height: 4px; background: var(--bg-elevated); border-radius: 2px; margin-bottom: 20px; overflow: hidden; }
+        .widget-progress-bar { height: 100%; background: #A78BFA; transition: width 0.3s ease; }
+        .widget-step { display: none; }
+        .widget-step.active { display: block; }
+        .widget-question label { display: block; font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; color: var(--text-primary); }
+        .widget-options { display: flex; flex-direction: column; gap: 8px; }
+        .widget-option {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px 14px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            border-radius: 8px;
+            color: var(--text-primary);
+        }
+        .widget-option:hover { border-color: rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.05); }
+        .widget-option.selected { border-color: #A78BFA; background: #8B5CF6; color: #fff; }
+        .widget-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            transition: border-color 0.2s;
+        }
+        .widget-input:focus { outline: none; border-color: rgba(139, 92, 246, 0.5); box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1); }
+        .widget-submit {
+            width: 100%;
+            background: #8B5CF6;
+            color: #fff;
+            border: none;
+            padding: 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .widget-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+        .widget-submit:not(:disabled):hover { opacity: 0.9; }
+        @media (max-width: 480px) {
+            .lead-widget { bottom: 16px; right: 16px; left: 16px; }
+            .widget-card { width: 100%; right: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo"><img src="img/juuk-logo--light.png" alt="Juuk" height="32"></a>
+            <div class="nav-links">
+                <a href="/">Leagues</a>
+                <a href="/teams" class="active" style="white-space:nowrap">Teams & Clubs</a>
+                <a href="#" onclick="openDemoModal(); return false;" class="btn btn-primary">Book a Demo</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&times;</button>
+        <div class="mobile-nav-links">
+            <a href="/">Leagues</a>
+            <a href="/teams" class="active">Teams & Clubs</a>
+            <a href="#" onclick="openDemoModal(); closeMobileNav(); return false;" class="btn btn-primary">Book a Demo</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Wrestling with Wix?<br>It shouldn't be this hard.</h1>
+                <p class="subtitle">Wix, Squarespace, Weebly — none of them were built for teams. Juuk was. Website, streams, and stats in one place.</p>
+                <div class="hero-cta">
+                    <a href="#" onclick="openDemoModal(); return false;" class="btn btn-primary">Book a Demo</a>
+                    <a href="#features" class="btn btn-secondary">Explore Features</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="features">
+        <div class="products-header">
+            <h2>Stop duct-taping tools together.</h2>
+            <p>One platform. Website, streaming, stats. Done.</p>
+        </div>
+
+        <!-- juuk.Sites -->
+        <div class="product-section">
+            <div class="product-title">
+                <h3>
+                    <div class="product-icon sites">🌐</div>
+                    juuk.Sites
+                </h3>
+            </div>
+            <div class="carousel-wrapper">
+                <div class="carousel" id="carousel-sites">
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Your site. Not a template.</div>
+                            <p class="card-description">Rosters, schedules, results, streams — all live. No dragging boxes around a page builder.</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🌐</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Rosters that update themselves</div>
+                            <p class="card-description">Add a player once. Photos, positions, stats — all connected. No copy-pasting between apps.</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">👥</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Schedules. Always current.</div>
+                            <p class="card-description">Games, locations, opponents, results. Syncs with your league. Parents stop asking "when's the next game?"</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🗓️</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Streams on your site</div>
+                            <p class="card-description">juuk.Stream broadcasts embedded directly. Grandma watches from her couch.</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">📺</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Tryouts & camps. Online.</div>
+                            <p class="card-description">Post it. Collect registrations. Collect payment. No Google Forms and Venmo.</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🏀</div>
+                        </div>
+                    </div>
+                    <div class="feature-card purple">
+                        <div class="card-content">
+                            <div class="card-title">IG posts. Auto-generated.</div>
+                            <p class="card-description">Game ends. Posts and stories appear. Stats, highlights, recaps — ready to share.</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">📸</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="scrollCarousel('carousel-sites', -1)">&lsaquo;</button>
+                    <button class="carousel-btn" onclick="scrollCarousel('carousel-sites', 1)">&rsaquo;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- juuk.Stream -->
+        <div class="product-section">
+            <div class="product-title">
+                <h3>
+                    <img src="img/hoopcast-icon.png" alt="juuk.Stream" class="product-icon">
+                    juuk.Stream
+                </h3>
+            </div>
+            <div class="carousel-wrapper">
+                <div class="carousel" id="carousel-stream">
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">One-Click Live Broadcast</div>
+                            <p class="card-description">Score the game. Tap broadcast. You're live on YouTube in seconds. Parents and fans watch from anywhere.</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🎬</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Pro Overlays</div>
+                            <p class="card-description">Real-time scores, clocks, player stats. Looks like ESPN, not amateur hour.</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🎨</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Full Integration</div>
+                            <p class="card-description">Stats from juuk.Score flow automatically into the stream. No manual updates, no delays.</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🔗</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="scrollCarousel('carousel-stream', -1)">&lsaquo;</button>
+                    <button class="carousel-btn" onclick="scrollCarousel('carousel-stream', 1)">&rsaquo;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- juuk.Score -->
+        <div class="product-section">
+            <div class="product-title">
+                <h3>
+                    <img src="img/hoopscore-icon.png" alt="juuk.Score" class="product-icon">
+                    juuk.Score
+                </h3>
+            </div>
+            <div class="carousel-wrapper">
+                <div class="carousel" id="carousel-score">
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Capture Realtime Stats</div>
+                            <p class="card-description">Court zones, shot types, contested/open—capture it all with simple taps.</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🏀</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Live Sync</div>
+                            <p class="card-description">Stats sync to parents' phones, your team website, and juuk.Stream streams instantly.</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">⚡</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">AI Insights</div>
+                            <p class="card-description">Post-game analysis for coaches. Player trends, team patterns, actionable feedback.</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🧠</div>
+                        </div>
+                    </div>
+                    <div class="feature-card light">
+                        <div class="card-content">
+                            <div class="card-title">Built for Speed</div>
+                            <p class="card-description">Large buttons, edge-positioned controls. Designed for high-pressure moments.</p>
+                        </div>
+                        <div class="card-visual">
+                            <div class="card-visual-content">🚀</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="scrollCarousel('carousel-score', -1)">&lsaquo;</button>
+                    <button class="carousel-btn" onclick="scrollCarousel('carousel-score', 1)">&rsaquo;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IG Content Generation Feature -->
+    <section class="feature-section">
+        <div class="feature-container">
+            <div class="feature-content">
+                <span class="badge">juuk.Sites</span>
+                <h2>Content That Creates Itself</h2>
+                <p class="subtitle">After every game, juuk generates Instagram-ready posts and stories from your stats and results. Your team's social media stays fresh without the work.</p>
+            </div>
+
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="flow-icon">🏀</div>
+                    <h4>Game Ends</h4>
+                    <p>Stats captured in juuk.Score</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">✨</div>
+                    <h4>Content Generated</h4>
+                    <p>Posts & stories auto-created</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">📱</div>
+                    <h4>Share to IG</h4>
+                    <p>One tap to post or schedule</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.02); border-radius: 16px; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text-primary);">What Gets Generated</h3>
+                <div class="feature-grid">
+                    <div class="feature-grid-item">
+                        <h4>📊 Game Recap Posts</h4>
+                        <p>Score, top performers, and game highlights formatted for your feed</p>
+                    </div>
+                    <div class="feature-grid-item">
+                        <h4>🌟 Player Spotlight Stories</h4>
+                        <p>Individual player stats with branded templates for Instagram stories</p>
+                    </div>
+                    <div class="feature-grid-item">
+                        <h4>🔥 Season Stats Graphics</h4>
+                        <p>Weekly and season leaderboards your fans actually want to share</p>
+                    </div>
+                    <div class="feature-grid-item">
+                        <h4>📅 Schedule & Event Posts</h4>
+                        <p>Upcoming games, tryouts, and camps ready to post</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Day Feature -->
+    <section class="feature-section alt">
+        <div class="feature-container">
+            <div class="feature-content">
+                <span class="badge orange">juuk.Stream</span>
+                <h2>Game Day, Simplified</h2>
+                <p class="subtitle">Parents can't make it to every game. With juuk.Stream, they don't have to miss a moment. One tap and you're broadcasting live.</p>
+            </div>
+
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="flow-icon orange">📱</div>
+                    <h4>Score with juuk.Score</h4>
+                    <p>Track the game like you normally would</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon orange">🎬</div>
+                    <h4>Tap "Start Broadcast"</h4>
+                    <p>One button in juuk.Stream</p>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon orange">📺</div>
+                    <h4>Live on YouTube</h4>
+                    <p>Pro overlays with live stats</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="pricing-container">
+            <h2>Built for Teams</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <p class="pricing-description">For teams getting online</p>
+                    <div class="price">$29<span class="price-period">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Team website with juuk.Sites</li>
+                        <li>Roster management</li>
+                        <li>Schedule & game results</li>
+                        <li>juuk.Score stat tracking</li>
+                        <li>Basic player stats</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="#" onclick="openDemoModal(); return false;" class="btn btn-secondary" style="width: 100%;">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Pro</h3>
+                    <p class="pricing-description">For teams that stream and post</p>
+                    <div class="price">$79<span class="price-period">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Everything in Starter</li>
+                        <li><strong>juuk.Stream live broadcasting</strong></li>
+                        <li>Pro broadcast overlays</li>
+                        <li><strong>IG content generation</strong></li>
+                        <li>Advanced analytics</li>
+                        <li>Tryout & camp registration</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="#" onclick="openDemoModal(); return false;" class="btn btn-primary" style="width: 100%;">Book a Demo</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Club</h3>
+                    <p class="pricing-description">For multi-team organizations</p>
+                    <div class="price">Custom</div>
+                    <ul class="pricing-features">
+                        <li>Everything in Pro</li>
+                        <li>Multiple team sites</li>
+                        <li>Club-level branding</li>
+                        <li>Payment processing</li>
+                        <li>Custom integrations</li>
+                        <li>Dedicated account manager</li>
+                        <li>SLA guarantees</li>
+                    </ul>
+                    <a href="#" onclick="openDemoModal(); return false;" class="btn btn-secondary" style="width: 100%;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta" id="cta">
+        <div class="cta-container">
+            <h2>Ditch the page builder.</h2>
+            <p>Your team deserves a real platform. Not a Wix template with a basketball stock photo.</p>
+            <div class="cta-buttons">
+                <a href="#" onclick="openDemoModal(); return false;" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem;">Book a Demo</a>
+            </div>
+            <p class="cta-meta">juuk.Sites + juuk.Stream + juuk.Score</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-brand"><img src="img/icon.png" alt="Juuk" height="40"></div>
+                <p class="footer-description">The all-in-one platform for basketball teams and clubs. Professional websites, live streaming, and real-time stats.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul class="footer-links">
+                    <li><a href="/teams#features">juuk.Sites</a></li>
+                    <li><a href="/teams#features">juuk.Stream</a></li>
+                    <li><a href="/teams#features">juuk.Score</a></li>
+                    <li><a href="/teams#pricing">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="/">Leagues</a></li>
+                    <li><a href="/support">Support</a></li>
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Demo Modal -->
+    <div class="modal-overlay" id="demoModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3>Book a Demo</h3>
+            <p>Tell us about your team and we'll show you how Juuk can help.</p>
+            <form id="demoForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="league">Team / Organization</label>
+                    <input type="text" id="league" name="league" required>
+                </div>
+                <div class="form-group">
+                    <label for="teams">Number of Teams</label>
+                    <select id="teams" name="teams">
+                        <option value="1">1 team</option>
+                        <option value="2-5">2-5 teams</option>
+                        <option value="6-10">6-10 teams</option>
+                        <option value="10+">10+ teams (club)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Lead Widget -->
+    <div class="lead-widget">
+        <button class="widget-button" id="widgetToggle">
+            <span>Quick question...</span>
+            <span>💬</span>
+        </button>
+        <div class="widget-card" id="widgetCard">
+            <div class="widget-header">
+                <h3>Let's find the right fit</h3>
+                <button class="widget-close" id="widgetClose">&times;</button>
+            </div>
+            <div class="widget-body">
+                <div class="widget-progress">
+                    <div class="widget-progress-bar" id="widgetProgress" style="width: 25%"></div>
+                </div>
+
+                <!-- Step 1: Role -->
+                <div class="widget-step active" data-step="1">
+                    <div class="widget-question">
+                        <label>What's your role?</label>
+                        <div class="widget-options">
+                            <button class="widget-option" data-value="head-coach">Head coach</button>
+                            <button class="widget-option" data-value="assistant-coach">Assistant coach</button>
+                            <button class="widget-option" data-value="club-director">Club director</button>
+                            <button class="widget-option" data-value="parent">Team parent / manager</button>
+                            <button class="widget-option" data-value="exploring">Just exploring</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Interest -->
+                <div class="widget-step" data-step="2">
+                    <div class="widget-question">
+                        <label>What interests you most?</label>
+                        <div class="widget-options">
+                            <button class="widget-option" data-value="team-site">Team website</button>
+                            <button class="widget-option" data-value="streaming">Live game streaming</button>
+                            <button class="widget-option" data-value="stats">Stats & analytics</button>
+                            <button class="widget-option" data-value="social">Social media content</button>
+                            <button class="widget-option" data-value="everything">Everything</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Current State -->
+                <div class="widget-step" data-step="3">
+                    <div class="widget-question">
+                        <label>How does your team handle this now?</label>
+                        <div class="widget-options">
+                            <button class="widget-option" data-value="manual">No website / social media</button>
+                            <button class="widget-option" data-value="basic">Basic website (Wix, etc.)</button>
+                            <button class="widget-option" data-value="competitor">Using another platform</button>
+                            <button class="widget-option" data-value="new">New team / starting fresh</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Contact -->
+                <div class="widget-step" data-step="4">
+                    <div class="widget-question">
+                        <label>Where should we send info?</label>
+                        <input type="text" class="widget-input" id="widgetName" placeholder="Your name">
+                        <input type="email" class="widget-input" id="widgetEmail" placeholder="Email address">
+                        <button class="widget-submit" id="widgetSubmit" disabled>Get in Touch</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Nav
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+
+        function openMobileNav() {
+            mobileNav.style.display = 'flex';
+            requestAnimationFrame(() => { mobileNav.classList.add('active'); });
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileNav() {
+            mobileNav.classList.add('closing');
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                mobileNav.classList.remove('closing');
+                mobileNav.style.display = '';
+            }, 400);
+        }
+
+        hamburger.addEventListener('click', openMobileNav);
+        mobileNavClose.addEventListener('click', closeMobileNav);
+
+        document.querySelectorAll('.mobile-nav-links a[href^="#"]').forEach(link => {
+            link.addEventListener('click', closeMobileNav);
+        });
+
+        // Carousel
+        function scrollCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const cardWidth = carousel.querySelector('.feature-card').offsetWidth + 20;
+            carousel.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+        }
+
+        // Modal
+        function openDemoModal() {
+            document.getElementById('demoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('demoModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('demoModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        document.getElementById('demoForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            try {
+                const res = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        type: 'demo-teams',
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        league: document.getElementById('league').value,
+                        teams: document.getElementById('teams').value
+                    })
+                });
+                if (res.ok) {
+                    window.location.href = '/thank-you';
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (err) {
+                alert('Something went wrong. Please try again.');
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Lead Widget
+        const widgetData = { role: null, interest: null, currentState: null, name: null, email: null };
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        const widgetToggle = document.getElementById('widgetToggle');
+        const widgetCard = document.getElementById('widgetCard');
+        const widgetClose = document.getElementById('widgetClose');
+        const widgetProgress = document.getElementById('widgetProgress');
+        const widgetName = document.getElementById('widgetName');
+        const widgetEmail = document.getElementById('widgetEmail');
+        const widgetSubmit = document.getElementById('widgetSubmit');
+
+        widgetToggle.addEventListener('click', () => widgetCard.classList.toggle('active'));
+        widgetClose.addEventListener('click', () => widgetCard.classList.remove('active'));
+
+        document.querySelectorAll('.widget-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const step = this.closest('.widget-step');
+                const stepNumber = parseInt(step.dataset.step);
+                const value = this.dataset.value;
+
+                if (stepNumber === 1) widgetData.role = value;
+                else if (stepNumber === 2) widgetData.interest = value;
+                else if (stepNumber === 3) widgetData.currentState = value;
+
+                step.querySelectorAll('.widget-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+
+                setTimeout(() => goToStep(stepNumber + 1), 250);
+            });
+        });
+
+        function goToStep(stepNumber) {
+            if (stepNumber > totalSteps) return;
+            currentStep = stepNumber;
+            widgetProgress.style.width = (currentStep / totalSteps) * 100 + '%';
+            document.querySelectorAll('.widget-step').forEach(s => s.classList.remove('active'));
+            document.querySelector(`.widget-step[data-step="${stepNumber}"]`).classList.add('active');
+        }
+
+        function validateWidget() {
+            const nameValid = widgetName.value.trim().length > 0;
+            const emailValid = widgetEmail.value.includes('@');
+            widgetSubmit.disabled = !(nameValid && emailValid);
+        }
+
+        widgetName.addEventListener('input', validateWidget);
+        widgetEmail.addEventListener('input', validateWidget);
+
+        widgetSubmit.addEventListener('click', async function() {
+            widgetData.name = widgetName.value.trim();
+            widgetData.email = widgetEmail.value.trim();
+
+            const originalText = this.textContent;
+            this.textContent = 'Sending...';
+            this.disabled = true;
+
+            try {
+                const res = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ type: 'widget-teams', ...widgetData })
+                });
+                if (res.ok) {
+                    window.location.href = '/thank-you';
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (err) {
+                alert('Something went wrong. Please try again.');
+                this.textContent = originalText;
+                this.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
