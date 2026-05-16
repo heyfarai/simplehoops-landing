@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en" data-theme-lock>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>shuuk! 3x3 jam · Ottawa · July 11, 2026</title>
+<meta name="description" content="Ottawa's first basketball development day. Real talk. Real competition. One summer Saturday — outdoor 3x3 plus a midday indoor session for players, parents, and coaches."/>
+<link rel="canonical" href="https://shuuk.ca/jam"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://shuuk.ca/jam"/>
+<meta property="og:title" content="shuuk! 3x3 jam · Ottawa · July 11, 2026"/>
+<meta property="og:description" content="Ottawa's first basketball development day. Real talk. Real competition. One summer Saturday."/>
+<meta property="og:image" content="https://shuuk.ca/jam/assets/photo-hero.png"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="shuuk! 3x3 jam · Ottawa · July 11, 2026"/>
+<meta name="twitter:image" content="https://shuuk.ca/jam/assets/photo-hero.png"/>
+
+<link rel="icon" type="image/png" href="/img/icon.png"/>
+<link rel="apple-touch-icon" href="/img/icon.png"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Sigmar&family=Archivo+Black&family=Bowlby+One&family=Permanent+Marker&family=Caveat:wght@500;700&family=Rubik+Mono+One&family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Anton&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/public/styles/tokens.css">
+<link rel="stylesheet" href="/jam/jam.css?v=4"/>
+<link rel="stylesheet" href="/jam/jam-zine.css?v=4"/>
+
+<style>
+  html, body { margin: 0; padding: 0; background: var(--paper, #f6f3ec); }
+  body { font-family: "Space Grotesk", system-ui, sans-serif; }
+  h1, h2, h3, h4, h5, h6 { text-transform: uppercase; }
+  /* deck text is semantically h2 but reads as a sentence — keep sentence case */
+  .zn-cover-deck { text-transform: none; }
+  .jam-art { min-height: 100vh; width: 100%; height: auto; overflow: visible; }
+
+  /* event banner */
+  .evt-banner {
+    background: var(--ink, #0a0a0a);
+    color: white;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 18px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: center;
+  }
+  .evt-banner a { color: var(--pink, #EE028B); text-decoration: none; border-bottom: 1.5px solid var(--pink, #EE028B); padding-bottom: 1px; }
+  .evt-banner .dot { display: inline-block; width: 6px; height: 6px; border-radius: 999px; background: var(--pink, #EE028B); margin: 0 10px; vertical-align: middle; }
+
+  /* waitlist confirm modal */
+  .wl-modal { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; background: rgba(10,10,10,0.78); padding: 20px; }
+  .wl-modal.open { display: flex; }
+  .wl-modal-card {
+    background: var(--paper, #f6f3ec);
+    color: var(--ink, #0a0a0a);
+    width: 100%;
+    max-width: 460px;
+    border: 3px solid var(--ink, #0a0a0a);
+    box-shadow: 12px 12px 0 0 var(--pink, #EE028B);
+    padding: 32px 28px;
+    border-radius: 4px;
+    position: relative;
+  }
+  .wl-modal-card h3 { font-family: "Plein", sans-serif; font-size: 44px; line-height: 1; margin: 0 0 12px; letter-spacing: 0.005em; }
+  .wl-modal-card h3 .pink { color: var(--pink, #EE028B); }
+  .wl-modal-card p { margin: 0 0 18px; font-size: 18px; line-height: 1.55; }
+  .wl-modal-card .ok-row { display: flex; gap: 12px; margin-top: 12px; }
+  .wl-modal-card .ok-btn {
+    background: var(--ink, #0a0a0a); color: white; border: none;
+    font-family: "Outfit", sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 0;
+    padding: 12px 18px; cursor: pointer; border-radius: 4px;
+  }
+  .wl-modal-card .x { position: absolute; top: 10px; right: 14px; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--ink, #0a0a0a); }
+
+  /* HERO CTA pill */
+  .cta-pill {
+    display: inline-block;
+    background: var(--pink, #EE028B); color: white;
+    border: 2px solid var(--ink, #0a0a0a);
+    box-shadow: 4px 4px 0 0 var(--ink, #0a0a0a);
+    font-family: "Outfit", sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 0;
+    padding: 14px 22px; cursor: pointer; border-radius: 6px;
+    text-decoration: none; text-transform: none;
+    transition: transform 140ms ease-out, box-shadow 140ms ease-out;
+  }
+  .cta-pill:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 0 var(--ink, #0a0a0a); }
+  .cta-pill:active { transform: translate(0,0); box-shadow: 0 0 0 0 var(--ink, #0a0a0a); }
+  .cta-pill.ghost { background: transparent; color: var(--ink, #0a0a0a); }
+
+  .hero-details {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(0,0,0,0.7);
+    margin: 18px 0 0;
+  }
+  .urgency-line {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(0,0,0,0.6); margin-top: 12px;
+  }
+
+  /* SECTION shells (reuse zn but with extra space) */
+  .sect-pad { padding: 80px 56px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .sect-pad > * { width: 100%; } /* fill up to each child's inline max-width, then center */
+  @media (max-width: 768px) { .sect-pad { padding: 56px 24px; } }
+  .sect-h { font-family: "Plein", sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 64px); line-height: 1; margin: 0 0 20px; letter-spacing: -0.005em; color: var(--ink, #0a0a0a); }
+  /* SVG section headings — exported at common height, varying widths.
+     Scale by height to keep them visually consistent; cap by max-width on narrow screens. */
+  .heading-svg {
+    display: block; width: auto; height: clamp(72px, 10vw, 132px);
+    max-width: 100%; margin: 0;
+  }
+  .heading-svg.invert { filter: invert(1); }      /* for headings on dark backgrounds */
+  .heading-svg.tight  { margin-bottom: 14px; }    /* used inside .actv-h to sit close to its tag */
+  .sect-deck { font-family: "Outfit", sans-serif; font-size: 19px; line-height: 1.55; color: var(--ink, #0a0a0a); max-width: 720px; }
+  .sect-deck em { font-style: italic; background: var(--pink, #EE028B); color: white; padding: 0 6px; }
+  .kicker { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(0,0,0,0.55); margin-bottom: 14px; }
+
+  /* DIVISIONS table */
+  .div-table {
+    border: 2px solid var(--ink, #0a0a0a); background: white;
+    box-shadow: 12px 12px 0 0 var(--pink, #EE028B);
+    margin-top: 36px;
+  }
+  .div-table .row {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--ink, #0a0a0a);
+    padding: 18px 22px;
+    font-family: "Outfit", sans-serif; font-size: 17px;
+    align-items: baseline;
+  }
+  .div-table .row:last-child { border-bottom: none; }
+  .div-table .row.head {
+    background: var(--ink, #0a0a0a); color: white;
+    font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .div-table .age { font-family: "Plein", sans-serif; font-weight: 800; font-size: 32px; line-height: 1; color: var(--ink, #0a0a0a); }
+  .div-table .yr, .div-table .sz { font-weight: 500; }
+  .div-fine {
+    font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(0,0,0,0.65); margin-top: 22px;
+  }
+  .div-fee {
+    background: var(--paper, #f6f3ec); border: 2px solid var(--ink, #0a0a0a);
+    padding: 18px 22px; margin-top: 22px;
+    font-family: "Outfit", sans-serif; font-size: 16px; line-height: 1.5;
+  }
+  .div-fee strong { font-family: "Plein", sans-serif; font-size: 22px; }
+  @media (max-width: 680px) {
+    .div-table .row { grid-template-columns: 1fr 1fr; gap: 6px 14px; padding: 16px; }
+    .div-table .row.head .sz { display: none; }
+    .div-table .row .sz { grid-column: 1 / -1; font-size: 14px; color: rgba(0,0,0,0.65); }
+  }
+
+  /* DAY SCHEDULE — high-level swim-lane matrix
+     20 row tracks = 9:30 → 19:30 in 30-min slots.
+     Time labels and blocks pinned via grid-row: <line> on inline style. */
+  .sched-grid {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 80px minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+    grid-template-rows: auto repeat(20, minmax(20px, 1fr)) auto;
+    column-gap: 14px; row-gap: 4px;
+    min-height: 600px;
+    width: 100%;
+  }
+  .sched-head {
+    font-family: "Plein", sans-serif; font-weight: 800;
+    font-size: 18px; letter-spacing: 0;
+    color: rgba(0,0,0,0.30);
+    align-self: end; padding: 6px 0 14px;
+    text-transform: uppercase;
+  }
+  .sched-time {
+    font-family: "Plein", sans-serif; font-weight: 800;
+    font-size: 24px; letter-spacing: -0.005em;
+    color: var(--ink, #0a0a0a);
+    align-self: start; text-align: left;
+  }
+  .sched-time.minor { color: rgba(0,0,0,0.30); font-size: 18px; font-weight: 500; }
+  @media (max-width: 680px) { .sched-time.minor { font-size: 12px; } }
+  .sched-block {
+    background: rgba(0,0,0,0.10);
+    border-radius: 4px;
+    padding: 18px 20px;
+    display: flex; flex-direction: column;
+    align-items: flex-start; justify-content: center;
+    font-family: "Plein", sans-serif; font-weight: 800;
+    color: var(--ink, #0a0a0a);
+    font-size: 32px; letter-spacing: -0.005em; line-height: 1;
+    overflow: hidden;
+  }
+  .sched-block.knowledge { font-size: 24px; line-height: 1.1; justify-content: center; }
+  .sched-block.fun {
+    font-size: 22px; line-height: 1.45;
+    justify-content: center; align-items: flex-start;
+  }
+  .day-fine {
+    font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(0,0,0,0.6); margin-top: 28px;
+  }
+  @media (max-width: 680px) {
+    .sched-grid { grid-template-columns: 52px minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); column-gap: 8px; row-gap: 3px; min-height: 520px; }
+    .sched-head { font-size: 11px; padding: 4px 0 10px; }
+    .sched-time { font-size: 15px; }
+    .sched-block { font-size: 18px; padding: 10px 10px; }
+    .sched-block.knowledge { font-size: 14px; }
+    .sched-block.fun { font-size: 13px; line-height: 1.5; padding: 12px 10px; }
+  }
+
+  /* BALL KNOWLEDGE SESSION */
+  .bks-card {
+    background: var(--ink, #0a0a0a); color: white;
+    padding: 48px 44px; margin-top: 0;
+    border-radius: 6px; position: relative;
+  }
+  .bks-card .kicker { color: rgba(255,255,255,0.55); }
+  .bks-card .sect-h { color: white; }
+  .bks-card .sub {
+    font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--pink, #EE028B); margin-bottom: 18px;
+  }
+  .bks-card .body {
+    font-family: "Outfit", sans-serif; font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.85);
+    max-width: 680px;
+  }
+  .bks-sched { margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.18); }
+  .bks-sched .row {
+    display: grid; grid-template-columns: 100px 1fr 90px; gap: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    padding: 14px 0;
+    align-items: baseline;
+  }
+  .bks-sched .t { font-family: "Plein", sans-serif; font-weight: 800; font-size: 20px; color: var(--pink, #EE028B); }
+  .bks-sched .seg { font-family: "Outfit", sans-serif; font-size: 16px; color: white; }
+  .bks-sched .len { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-align: right; }
+  .bks-cap {
+    margin-top: 22px;
+    font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .bks-aud {
+    display: inline-block; background: var(--pink, #EE028B); color: white;
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 5px 9px; margin-top: 8px;
+  }
+  @media (max-width: 680px) {
+    .bks-card { padding: 32px 22px; }
+    .bks-sched .row { grid-template-columns: 70px 1fr; gap: 8px; }
+    .bks-sched .len { grid-column: 1 / -1; text-align: left; }
+  }
+
+  /* ACTIVATIONS */
+  .actv-h-row {
+    display: flex; align-items: baseline; gap: 16px; margin-top: 36px; margin-bottom: 14px;
+  }
+  .actv-h {
+    font-family: "Plein", sans-serif; font-weight: 800; font-size: 28px; color: var(--ink, #0a0a0a); margin: 0;
+  }
+  .actv-tag {
+    display: inline-block; background: var(--pink, #EE028B); color: white;
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 4px 8px; border-radius: 3px;
+  }
+  .actv-tag.alt { background: var(--ink, #0a0a0a); }
+  .actv-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .actv-card {
+    background: white; border: 2px solid var(--ink, #0a0a0a);
+    padding: 18px 18px 16px; border-radius: 4px;
+    box-shadow: 5px 5px 0 0 var(--ink, #0a0a0a);
+  }
+  .actv-card .nm { font-family: "Plein", sans-serif; font-weight: 800; font-size: 20px; line-height: 1.05; color: var(--ink, #0a0a0a); margin: 0 0 6px; }
+  .actv-card .ds { font-family: "Outfit", sans-serif; font-size: 14px; line-height: 1.45; color: rgba(0,0,0,0.75); margin: 0; }
+
+  /* LOCATION */
+  .loc-card {
+    background: var(--paper, #f6f3ec); border: 2px solid var(--ink, #0a0a0a);
+    padding: 36px 32px; margin-top: 28px; border-radius: 6px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    box-shadow: 12px 12px 0 0 var(--pink, #EE028B);
+  }
+  .loc-card .city {
+    font-family: "Plein", sans-serif; font-weight: 800;
+    font-size: clamp(40px, 6vw, 72px); line-height: 1; margin: 0 0 14px;
+    color: var(--ink, #0a0a0a);
+  }
+  .loc-card .city .pink { color: var(--pink, #EE028B); }
+  .loc-card .venue-sub {
+    font-family: "JetBrains Mono", monospace; font-size: 12px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(0,0,0,0.55); margin: 0 0 14px;
+  }
+  .loc-card .addr {
+    font-family: "Outfit", sans-serif; font-size: 18px; line-height: 1.45;
+    font-weight: 600; color: var(--ink, #0a0a0a);
+    margin: 0 0 14px; max-width: 380px;
+  }
+  .loc-card .note {
+    font-family: "Outfit", sans-serif; font-size: 15px; line-height: 1.5;
+    color: rgba(0,0,0,0.7); max-width: 380px; margin: 0 0 8px;
+  }
+  .loc-card .dir-link {
+    color: var(--pink, #EE028B); text-decoration: none;
+    border-bottom: 1.5px solid var(--pink, #EE028B);
+    font-weight: 600;
+  }
+  .loc-map {
+    border: 2px solid var(--ink, #0a0a0a); border-radius: 4px;
+    min-height: 280px; overflow: hidden; background: #ebe6dd;
+  }
+  @media (max-width: 768px) {
+    .loc-card { grid-template-columns: 1fr; padding: 28px 22px; }
+  }
+
+  /* FAQ */
+  .faq { margin-top: 28px; border-top: 2px solid var(--ink, #0a0a0a); }
+  .faq .qa { padding: 22px 0; border-bottom: 1px solid var(--ink, #0a0a0a); }
+  .faq .q {
+    font-family: "Plein", sans-serif; font-weight: 800; font-size: 22px;
+    color: var(--ink, #0a0a0a); margin: 0 0 8px;
+  }
+  .faq .a {
+    font-family: "Outfit", sans-serif; font-size: 17px; line-height: 1.55;
+    color: rgba(0,0,0,0.8); margin: 0;
+  }
+
+  /* REGISTRATION FORM */
+  .reg-card {
+    background: white; border: 2px solid var(--ink, #0a0a0a);
+    padding: 36px 32px; margin-top: 28px; border-radius: 6px;
+    box-shadow: 12px 12px 0 0 var(--pink, #EE028B);
+  }
+  .reg-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .reg-form .full { grid-column: 1 / -1; }
+  .reg-form label {
+    display: block; font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: rgba(0,0,0,0.65); margin-bottom: 6px;
+  }
+  .reg-form input, .reg-form select {
+    width: 100%;
+    background: var(--paper, #f6f3ec); color: var(--ink, #0a0a0a);
+    border: 2px solid var(--ink, #0a0a0a); padding: 12px 14px;
+    font-family: "Outfit", sans-serif; font-size: 16px;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .reg-form input::placeholder { color: rgba(0,0,0,0.4); }
+  .reg-form select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink, #0a0a0a) 50%), linear-gradient(135deg, var(--ink, #0a0a0a) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 36px; }
+  .reg-form button[type="submit"] {
+    grid-column: 1 / -1;
+    background: var(--pink, #EE028B); color: white; border: 2px solid var(--ink, #0a0a0a);
+    box-shadow: 4px 4px 0 0 var(--ink, #0a0a0a);
+    font-family: "Outfit", sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 0;
+    padding: 14px 22px; cursor: pointer; border-radius: 6px;
+    transition: transform 140ms ease-out, box-shadow 140ms ease-out;
+  }
+  .reg-form button[type="submit"]:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 0 var(--ink, #0a0a0a); }
+  .reg-form button[type="submit"]:active { transform: translate(0,0); box-shadow: 0 0 0 0 var(--ink, #0a0a0a); }
+  .reg-form button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: 4px 4px 0 0 var(--ink, #0a0a0a); }
+  .reg-foot {
+    margin-top: 22px;
+    font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(0,0,0,0.65); line-height: 1.6;
+  }
+  .reg-foot a { color: var(--pink, #EE028B); text-decoration: none; border-bottom: 1.5px solid var(--pink, #EE028B); }
+  .wl-error { color: #b00020; font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: 0.1em; margin-top: 10px; grid-column: 1 / -1; }
+
+  @media (max-width: 680px) {
+    .reg-form { grid-template-columns: 1fr; }
+    .reg-card { padding: 28px 22px; }
+  }
+
+  /* TEMP toggles */
+  .evt-banner { display: none; }
+</style>
+</head>
+<body>
+<div class="evt-banner">
+  <strong>SHUUK! 3x3 JAM</strong><span class="dot"></span>OTTAWA · JUL 11, 2026<span class="dot"></span><a href="#waitlist">JOIN THE WAITLIST</a>
+</div>
+
+<div class="jam-art zn var-a">
+
+  <!-- TOP -->
+  <header class="zn-top">
+    <div class="lg"><a href="/"><img src="/jam/assets/shuuk-logo.png" alt="shuuk!"/></a></div>
+    <nav>
+      <a class="act" href="#">3x3 jam</a>
+      <a href="#div">divisions</a>
+      <a href="#schedule">schedule</a>
+      <a href="#venue">where</a>
+    </nav>
+    <a class="reg" href="#waitlist">JOIN WAITLIST</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="zn-hero">
+    <div class="zn-hero-left">
+      <div>
+        <h1 class="" style="text-align: center;">
+          <img src="/img/3x3-mark.png" alt="shuuk! 3x3 jam" style="margin:auto; display:block; width: 100%; height: auto;">
+        </h1>
+      </div>
+
+    </div>
+
+    <div class="zn-hero-right">
+      <!-- <img src="/jam/assets/photo-hero.png" alt=""/> -->
+      <h2 class="zn-cover-deck">
+        <br/><br/><br/>
+        Parking lot 3x3 Hoops.<br/> 
+        Mini-Combine.<br/> 
+        Knowledge Sessions.<br/> 
+        Picnic & Food trucks.<br/> 
+        Family Fun.<br/> 
+      </h2>
+      <p class="hero-details">Saturday, July 11, 2026 <br/> 9:30 AM - 7:00 PM <br/> Masonic Centre, Walkley, Ottawa, ON</p>
+      <div>
+        <div class="zn-cover-cta">
+          <div class="hero-waitlist-wrap" style="flex:1;align-items:flex-start;">
+            <a href="#waitlist" class="cta-pill">Join the Waitlist</a>
+            <div class="urgency-line">U12 / U14 / U16 / Boys & Girls<br/>12 teams per division. Spots are limited.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVISIONS -->
+  <section id="div" class="sect-pad" style="background: white; border-top: 2px solid var(--ink, #0a0a0a); border-bottom: 2px solid var(--ink, #0a0a0a);">
+    <div style="max-width: 1040px;">
+      <div class="kicker">── divisions</div>
+      <h2 class="sect-h" style="margin: 0 0 16px;"><img class="heading-svg" src="/img/heading--hoops.svg" alt="Hoops"/></h2>
+      <p class="sect-deck" style="font-weight: 800; font-size: clamp(28px, 4vw, 48px); line-height: 1.05; max-width: none; text-transform: uppercase; font-family: 'Plein', sans-serif; letter-spacing: -0.005em; margin: 0 0 24px;">
+        <span style="color:var(--pink,#EE028B);">3 divisions</span>. <br/>
+        <span style="color:var(--pink,#EE028B);">12 teams</span> in each. <br/>
+        <span style="color:var(--pink,#EE028B);">4 players</span> per team. <br/>
+        <span style="color:var(--pink,#EE028B);">12 mins</span> a game. <br/>
+        <span style="color:var(--pink,#EE028B);">4 games</span> guaranteed.
+      </p>
+
+      <div class="div-table">
+        <div class="row head">
+          <div>Division</div>
+          <div class="yr">Birth Year</div>
+          <div class="sz">Team Size</div>
+        </div>
+        <div class="row">
+          <div class="age">U12</div>
+          <div class="yr">2014 and later</div>
+          <div class="sz">12 mins or first to 15pts</div>
+        </div>
+        <div class="row">
+          <div class="age">U14</div>
+          <div class="yr">2012–2013</div>
+          <div class="sz">3–4 players</div>
+        </div>
+        <div class="row">
+          <div class="age">U16</div>
+          <div class="yr">2010–2011</div>
+          <div class="sz">3–4 players</div>
+        </div>
+      </div>
+
+      <div class="div-fine">FIBA 3x3 rules · Outdoor courts · Bring your game.</div>
+
+      <div class="div-fee">
+        <strong>Entry fee: $TBD per team</strong><br/>
+        Includes full day access, indoor programming, and event swag.
+      </div>
+
+      <div style="margin-top: 28px;">
+        <a href="#waitlist" class="cta-pill">Join the Waitlist</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY SCHEDULE -->
+  <section id="schedule" class="sect-pad" style="background: var(--paper, #f6f3ec);">
+    <div style="max-width: 1040px;">
+      <h2 class="sect-h"><img class="heading-svg" src="/img/heading--schedule.svg" alt="Schedule"/></h2>
+
+      <div class="sched-grid" role="table" aria-label="Day schedule overview">
+        <!-- header row -->
+        <div></div>
+        <div class="sched-head">3x3 Hoops</div>
+        <div class="sched-head">Knowledge</div>
+        <div class="sched-head">Fun &amp; Games</div>
+
+        <!-- time labels (col 1) -->
+        <div class="sched-time" style="grid-row: 2;">9:30</div>
+        <div class="sched-time minor" style="grid-row: 3;">10:00</div>
+        <div class="sched-time" style="grid-row: 5;">11:00</div>
+        <div class="sched-time" style="grid-row: 7;">12:00</div>
+        <div class="sched-time minor" style="grid-row: 9;">13:00</div>
+        <div class="sched-time" style="grid-row: 11;">14:00</div>
+        <div class="sched-time minor" style="grid-row: 13;">15:00</div>
+        <div class="sched-time minor" style="grid-row: 15;">16:00</div>
+        <div class="sched-time" style="grid-row: 17;">17:00</div>
+        <div class="sched-time minor" style="grid-row: 19;">18:00</div>
+        <div class="sched-time minor" style="grid-row: 21;">19:00</div>
+        <div class="sched-time" style="grid-row: 22;">19:30</div>
+
+        <!-- 3x3 Hoops lane (col 2) -->
+        <div class="sched-block" style="grid-column: 2; grid-row: 2 / 7;">U12</div>
+        <div class="sched-block" style="grid-column: 2; grid-row: 7 / 11;">U14</div>
+        <div class="sched-block" style="grid-column: 2; grid-row: 11 / 17;">U16</div>
+
+        <!-- Knowledge lane (col 3) -->
+        <div class="sched-block knowledge" style="grid-column: 3; grid-row: 7 / 11;">
+          Knowledge<br/>Sessions
+        </div>
+
+        <!-- Fun &amp; Games lane (col 4) -->
+        <div class="sched-block fun" style="grid-column: 4; grid-row: 5 / 17;">
+          Combine<br/>Clinics<br/>Family fun<br/>Food trucks<br/>Picnic
+        </div>
+      </div>
+
+      <div class="day-fine">Food vendors on site all day · First aid on site all day · Washrooms on site.</div>
+    </div>
+  </section>
+
+  <!-- BALL KNOWLEDGE SESSION -->
+  <section id="indoor" class="sect-pad" style="background: var(--paper, #f6f3ec);">
+    <div style="max-width: 1040px;">
+      <div class="bks-card">
+        <div class="kicker">── ball knowledge session</div>
+        <h2 class="sect-h"><img class="heading-svg" src="/img/heading--knowledge.svg" alt="Knowledge — 23 things no one tells hoopers (and their families)"/></h2>
+        <div class="sub">Midday · Doors at 11:45 AM · Free with registration</div>
+        <p class="body">
+          Three short talks. One live podcast recording. Honest conversations about AAU, nutrition, mental health, and the drive home after a tough game. Sessions include coaches, current and former players, and a live recording of <strong>The Help Side Basketball Show</strong> — Ottawa's basketball podcast — with a guest announced closer to the date.
+        </p>
+        <p class="body" style="margin-top: 14px;">
+          This isn't a motivational seminar. It's the stuff players and parents wish someone had told them earlier.
+        </p>
+
+        <div class="bks-sched">
+          <div class="row"><div class="t">12:00</div><div class="seg">Talk 1 — AAU / the system</div><div class="len">15 min</div></div>
+          <div class="row"><div class="t">12:15</div><div class="seg">Talk 2 — Nutrition + physical development</div><div class="len">15 min</div></div>
+          <div class="row"><div class="t">12:30</div><div class="seg">Talk 3 — Mental health + identity</div><div class="len">15 min</div></div>
+          <div class="row"><div class="t">12:45</div><div class="seg">Special guest — live recorded session</div><div class="len">—</div></div>
+        </div>
+
+        <div class="bks-aud">For parents · coaches · players</div>
+        <div class="bks-cap">Indoor capacity: 120. First come, first seated.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVATIONS -->
+  <section id="activations" class="sect-pad" style="background: white; border-top: 2px solid var(--ink, #0a0a0a); border-bottom: 2px solid var(--ink, #0a0a0a)">
+    <div style="max-width: 1040px;; margin:auto">
+      <!-- For players -->
+      <div class="actv-h-row" style="align-items: center;">
+        <h3 class="actv-h" style="margin: 0;"><img class="heading-svg tight" src="/img/heading--combine.svg" alt="Combine — for players"/></h3>
+        <span class="actv-tag">SKILL · MEASURED</span>
+      </div>
+      <div class="actv-grid">
+        <div class="actv-card">
+          <h4 class="nm">Combine</h4>
+          <p class="ds">Standing vertical, max vertical, lane agility, 20m sprint, wingspan, standing reach.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">Handles Gauntlet</h4>
+          <p class="ds">Cone course + defender. Fastest clean time wins.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">Free Throw Clinic</h4>
+          <p class="ds">Coach-run, 15 minutes, 2× per day.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">Shot Clock Sprint</h4>
+          <p class="ds">12 seconds. Make as many as possible.</p>
+        </div>
+      </div>
+      <div class="kicker">── side action</div>
+      <h2 class="sect-h"><img class="heading-svg" src="/img/heading--side-quests.svg" alt="Side quests — stuff happening between games"/></h2>
+      <p class="sect-deck">Picnic energy. Family on the bleachers. Real basketball in the cracks.</p>
+
+      
+
+      <!-- For everyone -->
+      <div class="actv-h-row">
+        <h3 class="actv-h">For everyone</h3>
+        <span class="actv-tag alt">PLAYGROUND · ALL AGES</span>
+      </div>
+      <div class="actv-grid">
+        <div class="actv-card">
+          <h4 class="nm">Bump</h4>
+          <p class="ds">Every 3 games on Court 6. Non-trivial prize.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">H-O-R-S-E</h4>
+          <p class="ds">Open bracket. Recurring all day.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">Kids Shootout</h4>
+          <p class="ds">Lower rim. Ages 6–12. Once mid-day.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">Caterpillar Sprint</h4>
+          <p class="ds">2× per day. Head-to-head teams.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">Moms Only · Beat the Clock</h4>
+          <p class="ds">Once, mid-afternoon. Mom assist required.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">Beat the Clock</h4>
+          <p class="ds">Random spectator pulled. One arc shot.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">Half-Court Shot</h4>
+          <p class="ds">Wristband holder. 3× across the day.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">Handles Challenge</h4>
+          <p class="ds">Crowd challenges a court player.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">Player of the Hour</h4>
+          <p class="ds">Named hourly. On the TV feed. Sponsor presented.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">Spin the Court</h4>
+          <p class="ds">DJ wheel. Random court freezes.</p>
+        </div>
+        <div class="actv-card">
+          <h4 class="nm">The Bounty</h4>
+          <p class="ds">One player. $100. Posted at 10 AM.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="venue" class="sect-pad" style="background: var(--paper, #f6f3ec);">
+    <div style="max-width: 1040px;; margin:auto">
+      <div class="kicker">── where</div>
+      <h2 class="sect-h">Where.</h2>
+
+      <div class="loc-card">
+        <div>
+          <div class="city">Ottawa <span class="pink">Masonic</span> Centre</div>
+          <p class="venue-sub">Walkley · Ottawa</p>
+          <p class="addr">2140 Walkley Road<br/>Ottawa, Ontario · K1G 3V3</p>
+          <p class="note">Free parking on-site. Transit: OC Transpo #6, #40 · nearest station Billings Bridge.</p>
+          <p class="note"><a href="https://www.google.com/maps/dir/?api=1&destination=Ottawa+Masonic+Centre+2140+Walkley+Road,+Ottawa,+ON+K1G+3V3" target="_blank" rel="noopener" class="dir-link">Get directions →</a></p>
+        </div>
+        <div class="loc-map">
+          <iframe
+            src="https://www.google.com/maps?q=Ottawa+Masonic+Centre+2140+Walkley+Road,+Ottawa,+ON+K1G+3V3&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Map — Ottawa Masonic Centre, 2140 Walkley Road, Ottawa, ON K1G 3V3"
+            style="border:0; width:100%; height:100%; min-height:280px; display:block;"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR PARENTS FAQ -->
+  <section id="faq" class="sect-pad" style="background: white; border-top: 2px solid var(--ink, #0a0a0a); border-bottom: 2px solid var(--ink, #0a0a0a);">
+    <div style="max-width: 1040px;">
+      <div class="kicker">── for parents</div>
+      <h2 class="sect-h">A few things worth knowing.</h2>
+
+      <div class="faq">
+        <div class="qa">
+          <p class="q">Who is this for?</p>
+          <p class="a">Players born 2010 or later competing in U12, U14, or U16 divisions. Open to all skill levels — this is not an elite-only event.</p>
+        </div>
+        <div class="qa">
+          <p class="q">What does the entry fee cover?</p>
+          <p class="a">Full day access to outdoor competition and indoor programming, event swag, and access to food vendors on site. Food is not included.</p>
+        </div>
+        <div class="qa">
+          <p class="q">Is there seating for parents?</p>
+          <p class="a">Yes. Outdoor spectator areas are set up around the courts. The indoor session at midday seats 120 and is open to all registered families.</p>
+        </div>
+        <div class="qa">
+          <p class="q">What if it rains?</p>
+          <p class="a">We monitor the forecast closely. Registered teams will be notified by email of any schedule changes. A rain date is held the following day, Sunday July 12.</p>
+        </div>
+        <div class="qa">
+          <p class="q">Who is running this?</p>
+          <p class="a">shuuk! 3x3 jam is organized by shuuk!, with licensed first aid on site, full event insurance, and a City of Ottawa special event permit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="waitlist" class="sect-pad" style="background: var(--paper, #f6f3ec);">
+    <div style="max-width: 1040px;">
+      <div class="kicker">── reserve your spot</div>
+      <h2 class="sect-h">36 spots. <span style="color:var(--pink,#EE028B)">One day.</span> Don't wait.</h2>
+      <p class="sect-deck">
+        Join the waitlist now. We'll confirm your spot and send registration details as soon as they're open.
+      </p>
+
+      <div class="reg-card">
+        <form class="reg-form" data-wl-form data-source="reserve-form">
+          <div class="full">
+            <label for="teamName">Team name</label>
+            <input id="teamName" type="text" name="teamName" placeholder="e.g. Walkley Warriors" required/>
+          </div>
+          <div>
+            <label for="division">Division</label>
+            <select id="division" name="division" required>
+              <option value="">Select…</option>
+              <option value="U12">U12</option>
+              <option value="U14">U14</option>
+              <option value="U16">U16</option>
+            </select>
+          </div>
+          <div>
+            <label for="contactName">Contact name</label>
+            <input id="contactName" type="text" name="contactName" placeholder="Your name" required/>
+          </div>
+          <div>
+            <label for="email">Email address</label>
+            <input id="email" type="email" name="email" placeholder="you@example.com" required autocomplete="email"/>
+          </div>
+          <div>
+            <label for="phone">Phone number <span style="text-transform:none;letter-spacing:0;color:rgba(0,0,0,0.4)">(optional)</span></label>
+            <input id="phone" type="tel" name="phone" placeholder="(613) 555-0123" autocomplete="tel"/>
+          </div>
+          <button type="submit">Reserve Our Spot</button>
+          <div class="wl-error" style="display:none;" data-wl-error></div>
+        </form>
+
+        <div class="reg-foot">
+          Questions? Reach us at <a href="mailto:hello@shuuk.ca">hello@shuuk.ca</a><br/>
+          Follow updates: <a href="https://instagram.com/shuuk" target="_blank" rel="noopener">@shuuk</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="zn-foot">
+    <img src="/jam/assets/shuuk-logo.png" alt="shuuk!"/>
+    <div class="center">shuuk! 3x3 jam · Ottawa · July 11, 2026</div>
+    <div>@shuuk · shuuk.ca/jam · #shuukjam</div>
+  </footer>
+</div>
+
+<!-- Waitlist confirmation modal -->
+<div class="wl-modal" data-wl-modal aria-hidden="true" role="dialog">
+  <div class="wl-modal-card">
+    <button class="x" data-wl-close aria-label="Close">×</button>
+    <h3>you're <span class="pink">on the list.</span></h3>
+    <p>We've added <strong data-wl-team></strong> to the shuuk! 3x3 jam waitlist. Check your inbox at <strong data-wl-email></strong> — confirmation is on the way.</p>
+    <p style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(0,0,0,0.55); margin: 0;">
+      we'll email you when registration opens.
+    </p>
+    <div class="ok-row">
+      <button class="ok-btn" data-wl-close>got it →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const modal = document.querySelector('[data-wl-modal]');
+  const emailEl = modal.querySelector('[data-wl-email]');
+  const teamEl = modal.querySelector('[data-wl-team]');
+  function openModal({ email, teamName }) {
+    emailEl.textContent = email;
+    teamEl.textContent = teamName || 'your team';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.querySelectorAll('[data-wl-close]').forEach(b => b.addEventListener('click', closeModal));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+  document.querySelectorAll('[data-wl-form]').forEach(form => {
+    const errEl = form.querySelector('[data-wl-error]');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      const source = form.dataset.source || 'unknown';
+      const btn = form.querySelector('button[type="submit"]');
+      const originalLabel = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending…';
+      if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
+      try {
+        const res = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'waitlist',
+            event: 'shuuk-3x3-jam',
+            source,
+            email: (data.email || '').trim(),
+            teamName: (data.teamName || '').trim(),
+            division: data.division || '',
+            contactName: (data.contactName || '').trim(),
+            phone: (data.phone || '').trim(),
+          }),
+        });
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          throw new Error(body.error || 'Could not join waitlist');
+        }
+        form.reset();
+        openModal({ email: data.email, teamName: data.teamName });
+      } catch (err) {
+        if (errEl) { errEl.textContent = err.message + '. Try again or email hello@shuuk.ca'; errEl.style.display = 'block'; }
+      } finally {
+        btn.disabled = false; btn.textContent = originalLabel;
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

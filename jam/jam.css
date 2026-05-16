@@ -1,0 +1,227 @@
+/* ============================================================
+   shuuk 3x3 jam — shared tokens & primitives
+   ============================================================ */
+
+:root {
+  /* brand */
+  --pink: #EE028B;
+  --pink-deep: #CC0277;
+  --pink-soft: #FF99CC;
+  --teal: #2bd4d4;
+  --teal-deep: #18a6a6;
+  --yellow: #f5d424;
+  --ink: #0a0a0a;
+  --ink-2: #161616;
+  --paper: #f6f3ec;
+  --paper-2: #ece7d8;
+  --tape: #efe199;
+
+  /* type */
+  --f-display: "Plein", "Sigmar", "Archivo Black", system-ui, sans-serif;
+  --f-display-alt: "Archivo Black", "Bowlby One", system-ui, sans-serif;
+  --f-marker: "Permanent Marker", "Caveat", cursive;
+  --f-led: "Rubik Mono One", "Archivo Black", monospace;
+  --f-body: "Space Grotesk", "Inter Tight", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
+}
+
+/* ---- the artboard reset / shared ---- */
+.jam-art {
+  font-family: var(--f-body);
+  color: var(--ink);
+  background: var(--paper);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0;
+}
+.jam-art *, .jam-art *::before, .jam-art *::after { box-sizing: border-box; }
+.jam-art img { display: block; max-width: 100%; }
+
+/* ============================================================
+   Reusable graffiti primitives
+   ============================================================ */
+
+/* sticker — chunky white outline + heavy black drop shadow, like the logo */
+.sticker {
+  display: inline-block;
+  background: var(--pink);
+  color: white;
+  padding: 0.18em 0.5em 0.22em;
+  border-radius: 0.18em;
+  border: 4px solid white;
+  box-shadow:
+    -6px 7px 0 0 var(--ink),
+    -6px 7px 0 4px white,
+    -10px 11px 0 4px var(--ink);
+  font-family: var(--f-display);
+  letter-spacing: 0.005em;
+  line-height: 0.95;
+}
+.sticker.s-teal { background: var(--teal); }
+.sticker.s-yellow { background: var(--yellow); color: var(--ink); }
+.sticker.s-black { background: var(--ink); color: white; }
+.sticker.s-tight { padding: 0.08em 0.32em 0.12em; border-width: 3px;
+  box-shadow: 5px 5px 0 0 var(--ink), 5px 5px 0 3px white, 8px 8px 0 3px var(--ink); }
+
+/* tape strip */
+.tape {
+  position: absolute;
+  background: var(--tape);
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0 6px, rgba(0,0,0,0.04) 6px 12px),
+    linear-gradient(180deg, rgba(255,255,255,0.4), transparent 30%, transparent 70%, rgba(0,0,0,0.06));
+  border-left: 2px dashed rgba(0,0,0,0.06);
+  border-right: 2px dashed rgba(0,0,0,0.06);
+  box-shadow: 0 4px 14px -6px rgba(0,0,0,0.35);
+  pointer-events: none;
+}
+
+/* halftone dots */
+.halftone {
+  background-image: radial-gradient(var(--ink) 1.4px, transparent 1.6px);
+  background-size: 8px 8px;
+}
+.halftone.dense { background-size: 6px 6px; }
+.halftone.loose { background-size: 12px 12px; }
+.halftone.pink { background-image: radial-gradient(var(--pink) 1.4px, transparent 1.6px); }
+.halftone.white { background-image: radial-gradient(rgba(255,255,255,0.85) 1.4px, transparent 1.6px); }
+
+/* checker */
+.checker-yk {
+}
+.checker-pk {
+  background:
+    conic-gradient(from 0deg at 50% 50%, var(--pink) 0 25%, var(--ink) 0 50%, var(--pink) 0 75%, var(--ink) 0);
+  background-size: 28px 28px;
+}
+
+/* spray-paint scribble underline */
+.scribble {
+  position: relative;
+  display: inline-block;
+}
+.scribble::after {
+  content: "";
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  bottom: -0.06em;
+  height: 0.32em;
+  background:
+    radial-gradient(ellipse at 10% 50%, var(--pink) 0 28%, transparent 30%),
+    radial-gradient(ellipse at 30% 50%, var(--pink) 0 28%, transparent 30%),
+    radial-gradient(ellipse at 50% 50%, var(--pink) 0 28%, transparent 30%),
+    radial-gradient(ellipse at 70% 50%, var(--pink) 0 28%, transparent 30%),
+    radial-gradient(ellipse at 90% 50%, var(--pink) 0 28%, transparent 30%);
+  filter: blur(0.5px);
+  z-index: -1;
+  transform: rotate(-1deg);
+}
+.scribble.teal::after {
+  background:
+    radial-gradient(ellipse at 10% 50%, var(--teal) 0 28%, transparent 30%),
+    radial-gradient(ellipse at 30% 50%, var(--teal) 0 28%, transparent 30%),
+    radial-gradient(ellipse at 50% 50%, var(--teal) 0 28%, transparent 30%),
+    radial-gradient(ellipse at 70% 50%, var(--teal) 0 28%, transparent 30%),
+    radial-gradient(ellipse at 90% 50%, var(--teal) 0 28%, transparent 30%);
+}
+
+/* slash / strikethrough mark for crossouts */
+.slash {
+  position: relative;
+}
+.slash::before {
+  content:"";
+  position: absolute;
+  left: -6%;
+  right: -6%;
+  top: 50%;
+  height: 0.18em;
+  background: var(--pink);
+  transform: translateY(-50%) rotate(-6deg);
+  border-radius: 999px;
+}
+
+/* mono label / chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--f-mono);
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 6px 10px;
+  background: var(--ink);
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.chip.invert { background: white; color: var(--ink); border: 1.5px solid var(--ink); }
+.chip.pink { background: var(--pink); color: white; }
+.chip.teal { background: var(--teal); color: var(--ink); }
+.chip .dot { width: 6px; height: 6px; border-radius: 999px; background: currentColor; }
+
+/* big register pill button */
+.cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--pink);
+  color: white;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0;
+  padding: 18px 30px 20px;
+  border: 4px solid white;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow:
+    -6px 7px 0 0 var(--ink),
+    -6px 7px 0 4px white,
+    -10px 11px 0 4px var(--ink);
+  transition: transform .15s ease;
+  cursor: pointer;
+}
+.cta-pill:hover { transform: translate(2px, -2px); }
+.cta-pill .arr { width: 28px; height: 28px; display:inline-grid; place-items:center; background: white; color: var(--pink); border-radius: 999px; font-weight: 700; font-family: "Outfit", sans-serif; font-size: 18px; line-height: 1;}
+
+/* placeholder photo strip */
+.ph {
+  background: linear-gradient(135deg, #2a2a2a 0%, #444 100%);
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0 8px, transparent 8px 18px),
+    linear-gradient(135deg, #2a2a2a 0%, #444 100%);
+  display: grid;
+  place-items: center;
+  color: rgba(255,255,255,0.6);
+  font-family: var(--f-mono);
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* flame outline */
+.outline-text {
+  -webkit-text-stroke: 2px var(--ink);
+  color: transparent;
+}
+.outline-text.thick { -webkit-text-stroke: 3px var(--ink); }
+
+/* ============================================================
+   Density wash — toggled by tweaks (graffiti density)
+   We control how much of the chrome is shown via a CSS var:
+   --density: 0..1
+   ============================================================ */
+.jam-art { --density: 0.8; }
+.density-fade {
+  opacity: var(--density);
+  transition: opacity .25s ease;
+}
+.density-clip {
+  /* hide entirely below ~0.3 — handled in JSX */
+}
