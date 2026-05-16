@@ -1,22 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thanks! - Juuk</title>
+    <script src="/public/scripts/theme.js"></script>
+    <title>Thanks! - Shuuk</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/public/styles/tokens.css">
     <style>
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Plein', 'Outfit', Arial, sans-serif !important;
+        text-transform: uppercase;
+        font-weight: 800 !important;
+        letter-spacing: 0 !important;
+        line-height: 1.05;
+      }
+      .evt-bar {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
+        background: #0a0a0a; color: #fff;
+        display: flex; align-items: center; justify-content: center; gap: 14px;
+        padding: 8px 16px;
+        font-family: 'Outfit', monospace;
+        font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+        text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .evt-bar .evt-tag { background: #EE028B; padding: 4px 8px; font-weight: 700; letter-spacing: 0.12em; }
+      .evt-bar .evt-cta { color: #EE028B; border-bottom: 1.5px solid #EE028B; padding-bottom: 1px; }
+      .evt-bar:hover .evt-cta { color: white; border-bottom-color: white; }
+      @media (max-width: 600px) {
+        .evt-bar { font-size: 10px; gap: 8px; padding: 7px 10px; }
+        .evt-bar .evt-meta { display: none; }
+        .evt-bar .evt-tag { padding: 3px 6px; }
+      }
       :root {
         --bg: #0d0d0d;
         --text: #f5f5f5;
         --text-muted: #a3a3a3;
       }
+      [data-theme="light"] {
+        --bg: #FFFFFF;
+        --text: #1A1A1A;
+        --text-muted: #666666;
+      }
       html { color-scheme: dark; }
+      html[data-theme="light"] { color-scheme: light; }
       * {
         margin: 0;
         padding: 0;
@@ -24,7 +56,7 @@
       }
 
       body {
-        font-family: "Schibsted Grotesk", Arial, sans-serif;
+        font-family: "Outfit", Arial, sans-serif;
         line-height: 1.1;
         color: var(--text);
         background: var(--bg);
@@ -78,6 +110,7 @@
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.1em;
+        border: 1px solid var(--ink, #0a0a0a);
         transition: all 0.2s ease;
       }
 
@@ -87,6 +120,11 @@
     </style>
   </head>
   <body>
+    <a href="/jam" class="evt-bar">
+      <span class="evt-tag">SHUUK 3X3 JAM</span>
+      <span class="evt-meta">Ottawa · July 11, 2026</span>
+      <span class="evt-cta">Join the waitlist →</span>
+    </a>
     <div class="container">
       <h1>Got You.</h1>
       <p>We'll be in touch soon with early access.</p>

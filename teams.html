@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juuk - Team & Club Management Software</title>
+    <script src="/public/scripts/theme.js"></script>
+    <title>Shuuk - Team & Club Management Software</title>
     <meta name="description" content="Professional team website, live streaming, and stats tracking for basketball teams and clubs. Rosters, schedules, camps, tryouts — all in one platform.">
-    <link rel="canonical" href="https://juuk.ca/teams">
+    <link rel="canonical" href="https://shuuk.ca/teams">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://juuk.ca/teams">
-    <meta property="og:title" content="Juuk - Team & Club Management Software">
+    <meta property="og:url" content="https://shuuk.ca/teams">
+    <meta property="og:title" content="Shuuk - Team & Club Management Software">
     <meta property="og:description" content="Professional team website, live streaming, and stats tracking for basketball teams and clubs.">
-    <meta property="og:image" content="https://juuk.ca/img/hoopscore-screenshot.png">
+    <meta property="og:image" content="https://shuuk.ca/img/hoopscore-screenshot.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Juuk - Team & Club Management Software">
+    <meta name="twitter:title" content="Shuuk - Team & Club Management Software">
     <meta name="twitter:description" content="Professional team website, live streaming, and stats tracking for basketball teams and clubs.">
-    <meta name="twitter:image" content="https://juuk.ca/img/hoopscore-screenshot.png">
+    <meta name="twitter:image" content="https://shuuk.ca/img/hoopscore-screenshot.png">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/img/icon.png">
@@ -26,12 +27,35 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/styles/tokens.css">
     <style>
+
+        /* Permanent event banner */
+        .evt-bar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
+            background: #0a0a0a; color: white;
+            display: flex; align-items: center; justify-content: center; gap: 14px;
+            padding: 8px 16px;
+            font-family: 'JetBrains Mono', 'Outfit', monospace;
+            font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+            text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .evt-bar .evt-tag { background: #EE028B; padding: 4px 8px; font-weight: 700; letter-spacing: 0.12em; }
+        .evt-bar .evt-cta { color: #EE028B; border-bottom: 1.5px solid #EE028B; padding-bottom: 1px; }
+        .evt-bar:hover .evt-cta { color: white; border-bottom-color: white; }
+        @media (max-width: 600px) {
+            .evt-bar { font-size: 10px; gap: 8px; padding: 7px 10px; }
+            .evt-bar .evt-meta { display: none; }
+            .evt-bar .evt-tag { padding: 3px 6px; }
+        }
+        body { padding-top: 38px; }
+        nav { top: calc(1rem + 24px) !important; }
+
         :root {
-            --primary: #FF6B2C;
-            --primary-dark: #E85A1F;
-            --primary-glow: rgba(255, 107, 44, 0.35);
+            --primary: #EE028B;
+            --primary-dark: #CC0277;
+            --primary-glow: rgba(238, 2, 139, 0.35);
             --bg: #08080a;
             --bg-elevated: #0f0f12;
             --bg-card: rgba(255, 255, 255, 0.03);
@@ -43,16 +67,29 @@
             --accent-green: #34D399;
             --border: rgba(255, 255, 255, 0.06);
             --border-gradient: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
-            --glow-orange: radial-gradient(ellipse at 50% 0%, rgba(255, 107, 44, 0.4) 0%, transparent 60%);
+            --glow-orange: radial-gradient(ellipse at 50% 0%, rgba(238, 2, 139, 0.4) 0%, transparent 60%);
             --glow-blue: radial-gradient(ellipse at 50% 50%, rgba(96, 165, 250, 0.3) 0%, transparent 60%);
+        }
+        [data-theme="light"] {
+            --bg: #FFFFFF;
+            --bg-elevated: #F5F5F5;
+            --bg-card: rgba(0, 0, 0, 0.02);
+            --bg-card-solid: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --accent-blue: #3B82F6;
+            --accent-green: #10B981;
+            --border: rgba(0, 0, 0, 0.08);
         }
 
         html { color-scheme: dark; }
+        html[data-theme="light"] { color-scheme: light; }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Schibsted Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text-primary);
             line-height: 1.6;
@@ -73,15 +110,24 @@
         }
         p { font-weight: 300; }
 
-        h1, h2, h3 {
-            font-family: 'Schibsted Grotesk', -apple-system, sans-serif;
-            font-weight: 900;
-            letter-spacing: -0.02em;
-            line-height: 1.08;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plein', 'Outfit', -apple-system, sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.005em;
+            line-height: 1.02;
+            text-wrap: balance;
+            text-transform: uppercase;
         }
-        h1 { font-size: clamp(48px, 7vw, 96px); }
-        h2 { font-size: clamp(40px, 5vw, 64px); }
-        h3 { font-size: clamp(28px, 3.5vw, 48px); }
+        h1 { font-size: clamp(44px, 7vw, 92px); line-height: 0.98; }
+        h2 { font-size: clamp(36px, 5vw, 60px); line-height: 1; }
+        h3 { font-size: clamp(26px, 3.5vw, 44px); line-height: 1.04; }
+
+        @media (max-width: 480px) {
+            h1, h2, h3, h4, h5, h6 { letter-spacing: 0; word-spacing: -0.05em; }
+            h1 { font-size: clamp(40px, 11vw, 56px); }
+            h2 { font-size: clamp(32px, 8vw, 44px); }
+            h3 { font-size: clamp(24px, 6vw, 34px); }
+        }
 
         /* Navigation */
         nav {
@@ -104,8 +150,27 @@
             border: 1px solid transparent;
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 0 0.5px rgba(255, 255, 255, 0.04);
         }
-        .logo { display: flex; align-items: center; margin-left: 1rem; }
-        .logo img { height: 32px; width: auto; }
+        [data-theme="light"] .nav-container {
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+        [data-theme="light"] .nav-links .btn { color: #000; }
+        /* Sticker logo */
+        .logo { display: flex; align-items: center; margin-left: 1rem; position: relative; z-index: 2; }
+        .logo img {
+            height: 80px; width: auto;
+            margin: -40px 0 -34px -40px;
+            transform: rotate(-3deg); transform-origin: center;
+            filter: drop-shadow(2px 4px 0 rgba(0,0,0,0.18));
+            transition: transform 140ms ease-out;
+        }
+        .logo:hover img { transform: rotate(-1.5deg) translate(-1px, -1px); }
+        @media (max-width: 768px) {
+            nav { width: calc(100vw - 54px); }
+            .nav-container { justify-content: space-between; gap: 0.5rem; }
+            .logo img { height: 72px; width: auto; }
+        }
         .nav-links { display: flex; gap: 1.5rem; align-items: center; }
         .nav-links a {
             color: var(--text-secondary);
@@ -115,53 +180,64 @@
             transition: color 0.2s;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            white-space: nowrap;
         }
-        .nav-links a:hover,
-        .nav-links a.active { color: var(--text-primary); }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--brand-pink, #EE028B); }
+        .mobile-nav-links a.active { color: var(--brand-pink, #EE028B); }
         .nav-links .btn {
             padding: 0.5rem 1rem;
             font-size: 0.875rem;
             border-radius: 100px;
             color: var(--text-primary);
             white-space: nowrap;
+            border-color: transparent; /* nav-button exception: stay borderless */
         }
 
-        /* Buttons */
+        /* Buttons — DESIGN.md lift-and-shadow pattern */
         .btn {
             padding: 0.75rem 1.5rem;
             border-radius: 100px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: transform 140ms ease-out, box-shadow 140ms ease-out, background 140ms ease-out, color 140ms ease-out;
             cursor: pointer;
-            border: none;
+            border: 1px solid transparent;
             font-size: 0.95rem;
             display: inline-block;
         }
         .btn-primary {
             background: var(--primary);
             color: white;
-            box-shadow: 0 0 32px rgba(255, 107, 44, 0.55), 0 4px 16px rgba(0, 0, 0, 0.3);
+            border-color: var(--ink, #0a0a0a);
         }
         .btn-primary:hover {
             background: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 0 50px rgba(255, 107, 44, 0.65), 0 4px 20px rgba(0, 0, 0, 0.3);
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0 0 var(--ink, #0a0a0a);
         }
+        .btn-primary:active { transform: translate(0, 0); box-shadow: none; }
         .btn-secondary {
             background: transparent;
             color: var(--text-primary);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-color: var(--ink, #0a0a0a);
         }
         .btn-secondary:hover {
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: var(--text-primary);
             color: var(--text-primary);
             background: rgba(255, 255, 255, 0.04);
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0 0 var(--text-primary);
+        }
+        .btn-secondary:active { transform: translate(0, 0); box-shadow: none; }
+        .btn:disabled, .btn[aria-disabled="true"] {
+            opacity: 0.3; cursor: not-allowed;
+            transform: none !important; box-shadow: none !important;
         }
 
         /* Hero */
         .hero {
-            padding: 10rem 2rem 6rem;
+            padding: 12rem 2rem 6rem;
             position: relative;
             overflow: hidden;
         }
@@ -279,19 +355,26 @@
         @media (min-width: 1400px) {
             .carousel::before { flex: 0 0 calc((100vw - 1400px) / 2); }
         }
+        /* DESIGN.md card-outline-shadow — applied to carousel cards */
         .feature-card {
             --card-width: 405px;
             --card-height: 740px;
             flex: 0 0 var(--card-width);
             height: var(--card-height);
-            border-radius: 28px;
+            border-radius: var(--rounded-lg, 8px);
             padding: 2.25rem;
             display: flex;
             flex-direction: column;
             scroll-snap-align: start;
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            background: var(--bg-filled, #FFFFFF);
+            color: var(--ink, #0a0a0a);
+            border: 1px solid var(--ink, #0a0a0a);
+            box-shadow: var(--shadow-hard-sm, 4px 4px 0 0 #0a0a0a);
+            transition:
+              transform 140ms ease-out,
+              box-shadow 140ms ease-out;
         }
         @media (max-width: 1440px) {
             .feature-card { --card-width: 372px; --card-height: 680px; }
@@ -302,37 +385,21 @@
         @media (max-width: 734px) {
             .feature-card { --card-width: 304px; --card-height: 562px; }
         }
-        .feature-card:hover { transform: translateY(-4px); }
-        .feature-card.light {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: var(--text-primary);
+        .feature-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: var(--shadow-hard-lg, 8px 8px 0 0 #0a0a0a);
         }
-        .feature-card.light:hover {
-            border-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        .feature-card:active {
+            transform: translate(0, 0);
+            box-shadow: var(--shadow-hard-sm, 4px 4px 0 0 #0a0a0a);
         }
-        .feature-card.purple {
-            background: linear-gradient(145deg, #8B5CF6, #A78BFA);
-            color: white;
-        }
-        .feature-card.blue {
-            background: linear-gradient(145deg, #3B82F6, #60A5FA);
-            color: white;
-        }
-        .feature-card.green {
-            background: linear-gradient(145deg, #10B981, #34D399);
-            color: white;
-        }
+
+        /* Variants — color now lives in accent stripe, not background */
         .feature-card.dark {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: white;
+            background: var(--ink, #0a0a0a);
+            color: var(--bg-filled, #FFFFFF);
         }
-        .feature-card.orange {
-            background: linear-gradient(145deg, #FF6B2C, #FF8F5C);
-            color: white;
-        }
+        .feature-card.purple { border-top: 6px solid var(--brand-pink, #EE028B); }
         .card-content { flex: 0 0 auto; }
         .card-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
         .card-description { font-size: 1.3rem; line-height: 1.5; opacity: 0.9; margin-bottom: 1.5rem; font-weight: 400; }
@@ -372,7 +439,7 @@
         }
         .carousel-btn:hover {
             background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--ink, #0a0a0a);
         }
         @media (max-width: 768px) {
             .carousel { padding: 0.5rem 1rem 2rem; gap: 1rem; }
@@ -400,12 +467,12 @@
             z-index: 0;
         }
         .feature-section.alt::before {
-            background: radial-gradient(ellipse at 50% 0%, rgba(255, 107, 44, 0.35) 0%, transparent 55%),
+            background: radial-gradient(ellipse at 50% 0%, rgba(238, 2, 139, 0.35) 0%, transparent 55%),
                         radial-gradient(ellipse at 20% 80%, rgba(96, 165, 250, 0.2) 0%, transparent 50%);
         }
         .feature-section.blue-glow::before {
             background: radial-gradient(ellipse at 50% 0%, rgba(96, 165, 250, 0.3) 0%, transparent 55%),
-                        radial-gradient(ellipse at 20% 80%, rgba(255, 107, 44, 0.2) 0%, transparent 50%);
+                        radial-gradient(ellipse at 20% 80%, rgba(238, 2, 139, 0.2) 0%, transparent 50%);
         }
         .feature-container {
             max-width: 1400px;
@@ -436,9 +503,9 @@
             border: 1px solid rgba(139, 92, 246, 0.2);
         }
         .badge.orange {
-            background: rgba(255, 107, 44, 0.1);
+            background: rgba(238, 2, 139, 0.1);
             color: var(--primary);
-            border-color: rgba(255, 107, 44, 0.2);
+            border-color: rgba(238, 2, 139, 0.2);
         }
         .badge.blue {
             background: rgba(96, 165, 250, 0.1);
@@ -475,17 +542,14 @@
             justify-content: center;
             font-size: 2rem;
             margin: 0 auto 1rem;
-            box-shadow: 0 0 50px rgba(139, 92, 246, 0.3);
         }
         .flow-icon.orange {
             background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
-                        linear-gradient(135deg, rgba(255, 107, 44, 0.5), rgba(255, 107, 44, 0.1)) border-box;
-            box-shadow: 0 0 50px rgba(255, 107, 44, 0.35);
+                        linear-gradient(135deg, rgba(238, 2, 139, 0.5), rgba(238, 2, 139, 0.1)) border-box;
         }
         .flow-icon.blue {
             background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
                         linear-gradient(135deg, rgba(96, 165, 250, 0.5), rgba(96, 165, 250, 0.1)) border-box;
-            box-shadow: 0 0 50px rgba(96, 165, 250, 0.3);
         }
         .flow-step h4 { font-size: 1.125rem; margin-bottom: 0.5rem; font-weight: 600; }
         .flow-step p { font-size: 0.875rem; color: var(--text-secondary); }
@@ -566,7 +630,7 @@
         .pricing-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
         .pricing-description { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2rem; }
         .price {
-            font-family: 'Schibsted Grotesk', sans-serif;
+            font-family: 'Outfit', sans-serif;
             font-size: 3rem;
             color: #A78BFA;
             margin-bottom: 0.5rem;
@@ -629,7 +693,7 @@
             gap: 4rem;
         }
         .footer-brand {
-            font-family: 'Schibsted Grotesk', sans-serif;
+            font-family: 'Outfit', sans-serif;
             font-size: 1.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
@@ -707,6 +771,7 @@
             opacity: 0;
             transition: opacity 0.4s ease, visibility 0.4s ease;
         }
+        [data-theme="light"] .mobile-nav { background: rgba(255, 255, 255, 0.97); }
         .mobile-nav.active { display: flex; visibility: visible; opacity: 1; }
         .mobile-nav.closing { display: flex; visibility: visible; opacity: 0; }
         .mobile-nav-close {
@@ -745,13 +810,14 @@
         .mobile-nav.active .mobile-nav-links a:nth-child(2) { transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s, color 0.2s; }
         .mobile-nav.active .mobile-nav-links a:nth-child(3) { transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s, color 0.2s; }
         .mobile-nav.active .mobile-nav-links a:nth-child(4) { transition: opacity 0.4s ease 0.25s, transform 0.4s ease 0.25s, color 0.2s; }
+        .mobile-nav.active .mobile-nav-links a:nth-child(5) { transition: opacity 0.4s ease 0.30s, transform 0.4s ease 0.30s, color 0.2s; }
         .mobile-nav-links a:hover { color: var(--text-secondary); }
         .mobile-nav-links .btn { margin-top: 24px; text-align: center; font-size: 17px; }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: flex; }
-            .hero { padding-top: 6rem; }
+            .hero { padding-top: 8rem; }
         }
 
         /* Modal */
@@ -805,8 +871,8 @@
         }
         .form-group input:focus, .form-group select:focus {
             outline: none;
-            border-color: rgba(255, 107, 44, 0.5);
-            box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.1);
+            border-color: rgba(238, 2, 139, 0.5);
+            box-shadow: 0 0 0 3px rgba(238, 2, 139, 0.1);
         }
         .modal .btn { width: 100%; margin-top: 0.5rem; }
 
@@ -833,14 +899,14 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
             background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--ink, #0a0a0a);
         }
         .widget-card {
             position: absolute;
             bottom: 70px;
             right: 0;
             width: 360px;
-            max-width: calc(100vw - 48px);
+            max-width: calc(100vw - 32px);
             background: var(--bg-card-solid);
             border-radius: 16px;
             box-shadow: 0 16px 48px rgba(0,0,0,0.5);
@@ -883,7 +949,7 @@
             border-radius: 8px;
             color: var(--text-primary);
         }
-        .widget-option:hover { border-color: rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.05); }
+        .widget-option:hover { border-color: var(--ink, #0a0a0a); background: rgba(255, 255, 255, 0.05); }
         .widget-option.selected { border-color: #A78BFA; background: #8B5CF6; color: #fff; }
         .widget-input {
             width: 100%;
@@ -919,13 +985,22 @@
     </style>
 </head>
 <body>
+    <!-- Permanent event banner -->
+    <a href="/jam" class="evt-bar">
+        <span class="evt-tag">SHUUK 3X3 JAM</span>
+        <span class="evt-meta">Ottawa · July 11, 2026</span>
+        <span class="evt-cta">Join the waitlist →</span>
+    </a>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="/" class="logo"><img src="img/juuk-logo--light.png" alt="Juuk" height="32"></a>
+            <a href="/" class="logo"><img src="img/shuuk-logo--light.png" alt="Shuuk" height="32"></a>
             <div class="nav-links">
                 <a href="/">Leagues</a>
                 <a href="/teams" class="active" style="white-space:nowrap">Teams & Clubs</a>
+                <a href="/tournaments">Tournaments</a>
+                <a href="/jam">3x3 Jam</a>
                 <a href="#" onclick="openDemoModal(); return false;" class="btn btn-primary">Book a Demo</a>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -942,6 +1017,8 @@
         <div class="mobile-nav-links">
             <a href="/">Leagues</a>
             <a href="/teams" class="active">Teams & Clubs</a>
+            <a href="/tournaments">Tournaments</a>
+            <a href="/jam">3x3 Jam</a>
             <a href="#" onclick="openDemoModal(); closeMobileNav(); return false;" class="btn btn-primary">Book a Demo</a>
         </div>
     </div>
@@ -950,8 +1027,8 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Wrestling with Wix?<br>It shouldn't be this hard.</h1>
-                <p class="subtitle">Wix, Squarespace, Weebly — none of them were built for teams. Juuk was. Website, streams, and stats in one place.</p>
+                <h1>Your team.<br>Not a template.</h1>
+                <p class="subtitle">Wix, Squarespace, Weebly — none of them were built for teams. Shuuk was. Website, streams, and stats in one place.</p>
                 <div class="hero-cta">
                     <a href="#" onclick="openDemoModal(); return false;" class="btn btn-primary">Book a Demo</a>
                     <a href="#features" class="btn btn-secondary">Explore Features</a>
@@ -967,12 +1044,12 @@
             <p>One platform. Website, streaming, stats. Done.</p>
         </div>
 
-        <!-- juuk.Sites -->
+        <!-- shuuk.Sites -->
         <div class="product-section">
             <div class="product-title">
                 <h3>
                     <div class="product-icon sites">🌐</div>
-                    juuk.Sites
+                    shuuk.Sites
                 </h3>
             </div>
             <div class="carousel-wrapper">
@@ -1007,7 +1084,7 @@
                     <div class="feature-card light">
                         <div class="card-content">
                             <div class="card-title">Streams on your site</div>
-                            <p class="card-description">juuk.Stream broadcasts embedded directly. Grandma watches from her couch.</p>
+                            <p class="card-description">shuuk.Stream broadcasts embedded directly. Grandma watches from her couch.</p>
                         </div>
                         <div class="card-visual">
                             <div class="card-visual-content">📺</div>
@@ -1039,12 +1116,12 @@
             </div>
         </div>
 
-        <!-- juuk.Stream -->
+        <!-- shuuk.Stream -->
         <div class="product-section">
             <div class="product-title">
                 <h3>
-                    <img src="img/hoopcast-icon.png" alt="juuk.Stream" class="product-icon">
-                    juuk.Stream
+                    <img src="img/hoopcast-icon.png" alt="shuuk.Stream" class="product-icon">
+                    shuuk.Stream
                 </h3>
             </div>
             <div class="carousel-wrapper">
@@ -1070,7 +1147,7 @@
                     <div class="feature-card light">
                         <div class="card-content">
                             <div class="card-title">Full Integration</div>
-                            <p class="card-description">Stats from juuk.Score flow automatically into the stream. No manual updates, no delays.</p>
+                            <p class="card-description">Stats from shuuk.Score flow automatically into the stream. No manual updates, no delays.</p>
                         </div>
                         <div class="card-visual">
                             <div class="card-visual-content">🔗</div>
@@ -1084,12 +1161,12 @@
             </div>
         </div>
 
-        <!-- juuk.Score -->
+        <!-- shuuk.Score -->
         <div class="product-section">
             <div class="product-title">
                 <h3>
-                    <img src="img/hoopscore-icon.png" alt="juuk.Score" class="product-icon">
-                    juuk.Score
+                    <img src="img/hoopscore-icon.png" alt="shuuk.Score" class="product-icon">
+                    shuuk.Score
                 </h3>
             </div>
             <div class="carousel-wrapper">
@@ -1106,7 +1183,7 @@
                     <div class="feature-card light">
                         <div class="card-content">
                             <div class="card-title">Live Sync</div>
-                            <p class="card-description">Stats sync to parents' phones, your team website, and juuk.Stream streams instantly.</p>
+                            <p class="card-description">Stats sync to parents' phones, your team website, and shuuk.Stream streams instantly.</p>
                         </div>
                         <div class="card-visual">
                             <div class="card-visual-content">⚡</div>
@@ -1143,16 +1220,16 @@
     <section class="feature-section">
         <div class="feature-container">
             <div class="feature-content">
-                <span class="badge">juuk.Sites</span>
+                <span class="badge">shuuk.Sites</span>
                 <h2>Content That Creates Itself</h2>
-                <p class="subtitle">After every game, juuk generates Instagram-ready posts and stories from your stats and results. Your team's social media stays fresh without the work.</p>
+                <p class="subtitle">After every game, shuuk generates Instagram-ready posts and stories from your stats and results. Your team's social media stays fresh without the work.</p>
             </div>
 
             <div class="flow-diagram">
                 <div class="flow-step">
                     <div class="flow-icon">🏀</div>
                     <h4>Game Ends</h4>
-                    <p>Stats captured in juuk.Score</p>
+                    <p>Stats captured in shuuk.Score</p>
                 </div>
                 <div class="flow-step">
                     <div class="flow-icon">✨</div>
@@ -1194,21 +1271,21 @@
     <section class="feature-section alt">
         <div class="feature-container">
             <div class="feature-content">
-                <span class="badge orange">juuk.Stream</span>
+                <span class="badge orange">shuuk.Stream</span>
                 <h2>Game Day, Simplified</h2>
-                <p class="subtitle">Parents can't make it to every game. With juuk.Stream, they don't have to miss a moment. One tap and you're broadcasting live.</p>
+                <p class="subtitle">Parents can't make it to every game. With shuuk.Stream, they don't have to miss a moment. One tap and you're broadcasting live.</p>
             </div>
 
             <div class="flow-diagram">
                 <div class="flow-step">
                     <div class="flow-icon orange">📱</div>
-                    <h4>Score with juuk.Score</h4>
+                    <h4>Score with shuuk.Score</h4>
                     <p>Track the game like you normally would</p>
                 </div>
                 <div class="flow-step">
                     <div class="flow-icon orange">🎬</div>
                     <h4>Tap "Start Broadcast"</h4>
-                    <p>One button in juuk.Stream</p>
+                    <p>One button in shuuk.Stream</p>
                 </div>
                 <div class="flow-step">
                     <div class="flow-icon orange">📺</div>
@@ -1229,10 +1306,10 @@
                     <p class="pricing-description">For teams getting online</p>
                     <div class="price">$29<span class="price-period">/month</span></div>
                     <ul class="pricing-features">
-                        <li>Team website with juuk.Sites</li>
+                        <li>Team website with shuuk.Sites</li>
                         <li>Roster management</li>
                         <li>Schedule & game results</li>
-                        <li>juuk.Score stat tracking</li>
+                        <li>shuuk.Score stat tracking</li>
                         <li>Basic player stats</li>
                         <li>Email support</li>
                     </ul>
@@ -1245,7 +1322,7 @@
                     <div class="price">$79<span class="price-period">/month</span></div>
                     <ul class="pricing-features">
                         <li>Everything in Starter</li>
-                        <li><strong>juuk.Stream live broadcasting</strong></li>
+                        <li><strong>shuuk.Stream live broadcasting</strong></li>
                         <li>Pro broadcast overlays</li>
                         <li><strong>IG content generation</strong></li>
                         <li>Advanced analytics</li>
@@ -1282,7 +1359,7 @@
             <div class="cta-buttons">
                 <a href="#" onclick="openDemoModal(); return false;" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem;">Book a Demo</a>
             </div>
-            <p class="cta-meta">juuk.Sites + juuk.Stream + juuk.Score</p>
+            <p class="cta-meta">shuuk.Sites + shuuk.Stream + shuuk.Score</p>
         </div>
     </section>
 
@@ -1290,15 +1367,15 @@
     <footer>
         <div class="footer-container">
             <div>
-                <div class="footer-brand"><img src="img/icon.png" alt="Juuk" height="40"></div>
+                <div class="footer-brand"><img src="img/icon.png" alt="Shuuk" height="40"></div>
                 <p class="footer-description">The all-in-one platform for basketball teams and clubs. Professional websites, live streaming, and real-time stats.</p>
             </div>
             <div class="footer-section">
                 <h4>Product</h4>
                 <ul class="footer-links">
-                    <li><a href="/teams#features">juuk.Sites</a></li>
-                    <li><a href="/teams#features">juuk.Stream</a></li>
-                    <li><a href="/teams#features">juuk.Score</a></li>
+                    <li><a href="/teams#features">shuuk.Sites</a></li>
+                    <li><a href="/teams#features">shuuk.Stream</a></li>
+                    <li><a href="/teams#features">shuuk.Score</a></li>
                     <li><a href="/teams#pricing">Pricing</a></li>
                 </ul>
             </div>
@@ -1319,7 +1396,7 @@
         <div class="modal">
             <button class="modal-close" onclick="closeModal()">&times;</button>
             <h3>Book a Demo</h3>
-            <p>Tell us about your team and we'll show you how Juuk can help.</p>
+            <p>Tell us about your team and we'll show you how Shuuk can help.</p>
             <form id="demoForm">
                 <div class="form-group">
                     <label for="name">Name</label>

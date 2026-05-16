@@ -1,0 +1,238 @@
+/* ==========================================================================
+   shuuk design tokens — generated from DESIGN.md
+   Source: Gumroad Design System (Community Beta) → remixed for shuuk
+   Spec: https://github.com/google-labs-code/design.md
+   ========================================================================== */
+
+/* Plein — display face (local, self-hosted) */
+@font-face {
+  font-family: 'Plein';
+  src: url('../fonts/plein/Plein-Regular.woff2') format('woff2'),
+       url('../fonts/plein/Plein-Regular.woff') format('woff');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Plein';
+  src: url('../fonts/plein/Plein-Medium.woff2') format('woff2'),
+       url('../fonts/plein/Plein-Medium.woff') format('woff');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Plein';
+  src: url('../fonts/plein/Plein-Bold.woff2') format('woff2'),
+       url('../fonts/plein/Plein-Bold.woff') format('woff');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Plein';
+  src: url('../fonts/plein/Plein-Black.woff2') format('woff2'),
+       url('../fonts/plein/Plein-Black.woff') format('woff');
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* -- Brand ------------------------------------------------------------- */
+  --brand-pink: #EE028B;
+  --brand-pink-subtle: #FBE5F0;
+  --brand-pink-deep: #CC0277;
+  --brand-pink-light: #FF4FA8;
+
+  /* -- Surfaces (light) -------------------------------------------------- */
+  --bg-body: #F4F4F0;
+  --bg-filled: #FFFFFF;
+  --bg-paper: #F6F3EC;
+  --bg-backdrop: rgba(0, 0, 0, 0.5);
+
+  /* -- Surfaces (dark) --------------------------------------------------- */
+  --bg-body-dark: #08080A;
+  --bg-filled-dark: #0F0F12;
+
+  /* -- Ink + foreground -------------------------------------------------- */
+  --ink: #0A0A0A;
+  --ink-soft: #242423;
+  --text-primary: #000000;
+  --text-secondary: #78716C;
+  --text-muted: #808080;
+  --text-inverse: #FFFFFF;
+  --text-disabled: #B2B2B2;
+  --text-placeholder: #808080;
+
+  /* -- Neutrals (light scale) ------------------------------------------- */
+  --neutral-100: #E5E5E5;
+  --neutral-200: #CCCCCC;
+  --neutral-300: #B2B2B2;
+  --neutral-500: #808080;
+  --neutral-1000: #000000;
+  --neutral-a10: rgba(0, 0, 0, 0.10);
+  --neutral-a20: rgba(0, 0, 0, 0.20);
+  --neutral-a30: rgba(0, 0, 0, 0.30);
+  --neutral-a50: rgba(0, 0, 0, 0.50);
+
+  /* -- Neutrals (dark scale, inverted) ---------------------------------- */
+  --neutral-dark-100: #131313;
+  --neutral-dark-200: #2C2C2C;
+  --neutral-dark-300: #424242;
+  --neutral-dark-350: #4D4D4D;
+  --neutral-dark-500: #6F6F6F;
+  --neutral-dark-1000: #DDDDDD;
+  --neutral-dark-a10: rgba(221, 221, 221, 0.10);
+  --neutral-dark-a20: rgba(221, 221, 221, 0.20);
+  --neutral-dark-a30: rgba(221, 221, 221, 0.30);
+  --neutral-dark-a35: rgba(221, 221, 221, 0.35);
+  --neutral-dark-a50: rgba(221, 221, 221, 0.50);
+
+  /* -- Semantic accent -------------------------------------------------- */
+  --accent: var(--brand-pink);
+  --accent-subtle: var(--brand-pink-subtle);
+
+  /* -- Semantic feedback ------------------------------------------------ */
+  --success: #23A094;
+  --success-subtle: #D3F3F0;
+  --warning: #FFC900;
+  --warning-subtle: #FDF4D0;
+  --info: #90A8ED;
+  --info-subtle: #E9EEFA;
+  --danger: #DC341E;
+  --danger-subtle: #F8D6D2;
+
+  /* -- Borders ---------------------------------------------------------- */
+  --border: var(--neutral-200);
+  --border-strong: var(--ink);
+
+  /* -- Type families ---------------------------------------------------- */
+  --font-display: 'Plein', 'Outfit', -apple-system, sans-serif;
+  --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+
+  /* -- Type scale ------------------------------------------------------- */
+  --type-display-size: 40px;
+  --type-display-lh: 48px;
+  --type-h2-size: 24px;
+  --type-h2-lh: 31.2px;
+  --type-h3-size: 20px;
+  --type-h3-lh: 28px;
+  --type-h3-lh-bold: 26px;
+  --type-body-size: 16px;
+  --type-body-lh: 22.4px;
+  --type-small-size: 14px;
+  --type-small-lh: 18.2px;
+  --type-caption-size: 12px;
+  --type-caption-lh: 14.4px;
+  --type-caption-tracking: 0.18em;
+
+  /* -- Radius ----------------------------------------------------------- */
+  --rounded-sm: 4px;
+  --rounded-lg: 8px;
+  --rounded-pill: 100px;
+  --rounded-full: 9999px;
+
+  /* -- Spacing (4px base) ----------------------------------------------- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* -- Brutalist shadows (the signature primitive) --------------------- */
+  --shadow-hard-sm: 4px 4px 0 0 var(--ink);
+  --shadow-hard-lg: 8px 8px 0 0 var(--ink);
+  --shadow-hard-pink: 12px 12px 0 0 var(--brand-pink);
+  --shadow-sticker:
+    7px 7px 0 0 var(--ink),
+    7px 7px 0 4px #FFFFFF,
+    11px 11px 0 4px var(--ink);
+
+  /* -- Breakpoints (referenced via @media; exposed for JS consumers) --- */
+  --bp-mobile: 640px;
+  --bp-tablet: 1024px;
+  --bp-desktop: 1280px;
+}
+
+/* ==========================================================================
+   Dark theme overrides
+   ========================================================================== */
+[data-theme="dark"] {
+  --bg-body: var(--bg-body-dark);
+  --bg-filled: var(--bg-filled-dark);
+  --text-primary: #EDEDEF;
+  --text-secondary: #8A8A8E;
+  --text-muted: #555559;
+  --text-inverse: #000000;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   Card primitives (DESIGN.md Components > Cards)
+   The outlined card pattern, ported from Gumroad. Two variants:
+   - .card-outline      : flat, border only. Static content.
+   - .card-outline-shadow: outline + hard-offset shadow + lift hover.
+                          For interactive / linkable cards.
+   ========================================================================== */
+.card-outline {
+  background: var(--bg-filled);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-6);
+}
+
+.card-outline-shadow {
+  background: var(--bg-filled);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-hard-sm);
+  transition:
+    transform 140ms ease-out,
+    box-shadow 140ms ease-out;
+}
+.card-outline-shadow:hover,
+a.card-outline-shadow:hover,
+button.card-outline-shadow:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-hard-lg);
+}
+.card-outline-shadow:active {
+  transform: translate(0, 0);
+  box-shadow: var(--shadow-hard-sm);
+}
+
+/* ==========================================================================
+   Global focus ring (DESIGN.md Components > Focus)
+   2px pink solid outline, 2px offset. Survives overflow:hidden.
+   Applies to anything keyboard-focusable. Pages may override per element.
+   ========================================================================== */
+:where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--brand-pink);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   TEMP: hide event banner — comment out this block to bring it back
+   ========================================================================== */
+.evt-bar { display: none !important; }
+body { padding-top: 0 !important; }
+nav { top: 1rem !important; }
+
+/* ==========================================================================
+   Reduced motion (DESIGN.md Motion)
+   Mandatory per spec — kills lift transitions, keeps the visual final state.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

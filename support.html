@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Support | Juuk</title>
+    <script src="/public/scripts/theme.js"></script>
+    <title>Support | Shuuk</title>
     <meta
       name="description"
-      content="Get help with Juuk basketball team management software. Contact support, FAQs, and troubleshooting."
+      content="Get help with Shuuk basketball team management software. Contact support, FAQs, and troubleshooting."
     />
-    <link rel="canonical" href="https://juuk.ca/support" />
+    <link rel="canonical" href="https://shuuk.ca/support" />
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
@@ -19,10 +20,37 @@
       crossorigin
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/public/styles/tokens.css">
     <style>
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Plein', 'Outfit', Arial, sans-serif !important;
+        font-weight: 800 !important;
+        letter-spacing: 0 !important;
+        line-height: 1.05;
+        text-transform: uppercase;
+      }
+      .evt-bar {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
+        background: #0a0a0a; color: #fff;
+        display: flex; align-items: center; justify-content: center; gap: 14px;
+        padding: 8px 16px;
+        font-family: 'Outfit', monospace;
+        font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+        text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .evt-bar .evt-tag { background: #EE028B; padding: 4px 8px; font-weight: 700; letter-spacing: 0.12em; }
+      .evt-bar .evt-cta { color: #EE028B; border-bottom: 1.5px solid #EE028B; padding-bottom: 1px; }
+      .evt-bar:hover .evt-cta { color: white; border-bottom-color: white; }
+      @media (max-width: 600px) {
+        .evt-bar { font-size: 10px; gap: 8px; padding: 7px 10px; }
+        .evt-bar .evt-meta { display: none; }
+        .evt-bar .evt-tag { padding: 3px 6px; }
+      }
+      body { padding-top: 38px; }
+      .nav { top: calc(1rem + 24px) !important; }
       :root {
         --bg: #0d0d0d;
         --text: #f5f5f5;
@@ -31,7 +59,16 @@
         --border: rgba(255, 255, 255, 0.1);
         --nav-bg: rgba(22, 22, 22, 0.95);
       }
+      [data-theme="light"] {
+        --bg: #FFFFFF;
+        --text: #1A1A1A;
+        --text-muted: #666666;
+        --card: #F5F5F5;
+        --border: rgba(0, 0, 0, 0.08);
+        --nav-bg: rgba(255, 255, 255, 0.92);
+      }
       html { color-scheme: dark; }
+      html[data-theme="light"] { color-scheme: light; }
       * {
         margin: 0;
         padding: 0;
@@ -39,7 +76,7 @@
       }
 
       body {
-        font-family: "Schibsted Grotesk", Arial, sans-serif;
+        font-family: "Outfit", Arial, sans-serif;
         line-height: 1.6;
         color: var(--text);
         background: var(--bg);
@@ -236,9 +273,14 @@
     </style>
   </head>
   <body>
+    <a href="/jam" class="evt-bar">
+      <span class="evt-tag">SHUUK 3X3 JAM</span>
+      <span class="evt-meta">Ottawa · July 11, 2026</span>
+      <span class="evt-cta">Join the waitlist →</span>
+    </a>
     <!-- Navigation -->
     <nav class="nav">
-      <a href="/" class="nav-logo">Juuk</a>
+      <a href="/" class="nav-logo">Shuuk</a>
     </nav>
 
     <div class="container">
@@ -260,19 +302,19 @@
         <div class="contact-card">
           <h3>Email Support</h3>
           <p>For general questions, technical issues, or account help.</p>
-          <a href="mailto:support@juuk.ca">support@juuk.ca</a>
+          <a href="mailto:support@shuuk.ca">support@shuuk.ca</a>
         </div>
 
         <div class="contact-card">
           <h3>Privacy & Data</h3>
           <p>Questions about privacy, data deletion, or account information.</p>
-          <a href="mailto:privacy@juuk.ca">privacy@juuk.ca</a>
+          <a href="mailto:privacy@shuuk.ca">privacy@shuuk.ca</a>
         </div>
 
         <div class="contact-card">
           <h3>Bug Reports</h3>
           <p>Found a bug or experiencing technical difficulties?</p>
-          <a href="mailto:bugs@juuk.ca">bugs@juuk.ca</a>
+          <a href="mailto:bugs@shuuk.ca">bugs@shuuk.ca</a>
         </div>
       </div>
 
@@ -338,7 +380,7 @@
           Refund policies depend on how you subscribed. For subscriptions purchased through
           the Apple App Store or Google Play Store, refunds are handled by Apple or Google
           according to their policies. For web subscriptions through Stripe, contact us at
-          <a href="mailto:support@juuk.ca">support@juuk.ca</a> within 7 days
+          <a href="mailto:support@shuuk.ca">support@shuuk.ca</a> within 7 days
           of purchase.
         </p>
       </div>
@@ -357,7 +399,7 @@
         <p>
           To delete your account, go to Settings > Account > Delete Account. This will
           permanently remove your account and all associated data within 30 days. You can
-          also email <a href="mailto:privacy@juuk.ca">privacy@juuk.ca</a>
+          also email <a href="mailto:privacy@shuuk.ca">privacy@shuuk.ca</a>
           to request account deletion.
         </p>
       </div>
@@ -382,7 +424,7 @@
           <li>Check your internet connection</li>
         </ul>
         <p>
-          If the problem persists, email <a href="mailto:bugs@juuk.ca">bugs@juuk.ca</a>
+          If the problem persists, email <a href="mailto:bugs@shuuk.ca">bugs@shuuk.ca</a>
           with details about the issue, including your device type and what you were doing
           when the problem occurred.
         </p>
@@ -391,17 +433,17 @@
       <div class="faq-item">
         <h3>Do you support leagues and tournaments?</h3>
         <p>
-          Yes! Juuk includes features for league administrators to manage multiple
+          Yes! Shuuk includes features for league administrators to manage multiple
           teams, schedules, standings, and games. Contact us at
-          <a href="mailto:support@juuk.ca">support@juuk.ca</a> if you're
-          interested in using Juuk for your league or tournament.
+          <a href="mailto:support@shuuk.ca">support@shuuk.ca</a> if you're
+          interested in using Shuuk for your league or tournament.
         </p>
       </div>
 
       <div class="faq-item">
         <h3>What platforms do you support?</h3>
         <p>
-          Juuk is available on:
+          Shuuk is available on:
         </p>
         <ul>
           <li>iOS (iPhone and iPad) - iOS 15.0 and later</li>
@@ -414,7 +456,7 @@
       <div class="highlight-box">
         <p>
           <strong>Have an idea for a new feature?</strong> We'd love to hear it! Email your
-          suggestions to <a href="mailto:feedback@juuk.ca">feedback@juuk.ca</a>.
+          suggestions to <a href="mailto:feedback@shuuk.ca">feedback@shuuk.ca</a>.
           We review all feature requests and prioritize based on user needs.
         </p>
       </div>
@@ -422,12 +464,12 @@
       <h2>Report Abuse or Safety Concerns</h2>
       <div class="faq-item">
         <p>
-          Juuk is designed for youth sports, and we take safety seriously. If you
+          Shuuk is designed for youth sports, and we take safety seriously. If you
           encounter inappropriate behavior, content, or have safety concerns, please report
           it immediately:
         </p>
         <p>
-          <strong>Email:</strong> <a href="mailto:abuse@juuk.ca">abuse@juuk.ca</a>
+          <strong>Email:</strong> <a href="mailto:abuse@shuuk.ca">abuse@shuuk.ca</a>
         </p>
         <p>
           We investigate all reports promptly and take appropriate action, including account
@@ -438,15 +480,15 @@
       <h2>Additional Resources</h2>
       <ul>
         <li><a href="/privacy">Privacy Policy</a> - How we handle your information</li>
-        <li><a href="/terms">Terms of Service</a> - Rules for using Juuk</li>
-        <li><a href="/">Home</a> - Learn more about Juuk</li>
+        <li><a href="/terms">Terms of Service</a> - Rules for using Shuuk</li>
+        <li><a href="/">Home</a> - Learn more about Shuuk</li>
       </ul>
 
       <div class="response-box">
         <h3>Still Need Help?</h3>
         <p>
           Can't find what you're looking for? Send us an email at
-          <a href="mailto:support@juuk.ca">support@juuk.ca</a> and we'll
+          <a href="mailto:support@shuuk.ca">support@shuuk.ca</a> and we'll
           get back to you as soon as possible. Please include as much detail as you can
           about your question or issue.
         </p>
@@ -462,7 +504,7 @@
           <a href="/terms">Terms</a>
           <a href="/support">Support</a>
         </p>
-        <p style="margin-top: 1rem">&copy; 2025 Juuk. Just what you need. Nothing else.</p>
+        <p style="margin-top: 1rem">&copy; 2025 Shuuk. Just what you need. Nothing else.</p>
       </div>
     </footer>
   </body>

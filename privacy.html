@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy | Juuk</title>
+    <script src="/public/scripts/theme.js"></script>
+    <title>Privacy Policy | Shuuk</title>
     <meta
       name="description"
-      content="Privacy policy for Juuk basketball team management software."
+      content="Privacy policy for Shuuk basketball team management software."
     />
-    <link rel="canonical" href="https://juuk.ca/privacy" />
+    <link rel="canonical" href="https://shuuk.ca/privacy" />
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
@@ -19,10 +20,37 @@
       crossorigin
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/public/styles/tokens.css">
     <style>
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Plein', 'Outfit', Arial, sans-serif !important;
+        text-transform: uppercase;
+        font-weight: 800 !important;
+        letter-spacing: 0 !important;
+        line-height: 1.05;
+      }
+      .evt-bar {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
+        background: #0a0a0a; color: #fff;
+        display: flex; align-items: center; justify-content: center; gap: 14px;
+        padding: 8px 16px;
+        font-family: 'Outfit', monospace;
+        font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+        text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .evt-bar .evt-tag { background: #EE028B; padding: 4px 8px; font-weight: 700; letter-spacing: 0.12em; }
+      .evt-bar .evt-cta { color: #EE028B; border-bottom: 1.5px solid #EE028B; padding-bottom: 1px; }
+      .evt-bar:hover .evt-cta { color: white; border-bottom-color: white; }
+      @media (max-width: 600px) {
+        .evt-bar { font-size: 10px; gap: 8px; padding: 7px 10px; }
+        .evt-bar .evt-meta { display: none; }
+        .evt-bar .evt-tag { padding: 3px 6px; }
+      }
+      body { padding-top: 38px; }
+      .nav { top: 38px !important; }
       :root {
         --bg: #0d0d0d;
         --text: #f5f5f5;
@@ -31,7 +59,16 @@
         --border: rgba(255, 255, 255, 0.1);
         --nav-bg: rgba(22, 22, 22, 0.95);
       }
+      [data-theme="light"] {
+        --bg: #FFFFFF;
+        --text: #1A1A1A;
+        --text-muted: #666666;
+        --card: #F5F5F5;
+        --border: rgba(0, 0, 0, 0.08);
+        --nav-bg: rgba(255, 255, 255, 0.92);
+      }
       html { color-scheme: dark; }
+      html[data-theme="light"] { color-scheme: light; }
       * {
         margin: 0;
         padding: 0;
@@ -39,7 +76,7 @@
       }
 
       body {
-        font-family: "Schibsted Grotesk", Arial, sans-serif;
+        font-family: "Outfit", Arial, sans-serif;
         line-height: 1.6;
         color: var(--text);
         background: var(--bg);
@@ -199,9 +236,14 @@
     </style>
   </head>
   <body>
+    <a href="/jam" class="evt-bar">
+      <span class="evt-tag">SHUUK 3X3 JAM</span>
+      <span class="evt-meta">Ottawa · July 11, 2026</span>
+      <span class="evt-cta">Join the waitlist →</span>
+    </a>
     <!-- Navigation -->
     <nav class="nav">
-      <a href="/" class="nav-logo">Juuk</a>
+      <a href="/" class="nav-logo">Shuuk</a>
     </nav>
 
     <div class="container">
@@ -209,14 +251,14 @@
       <p class="last-updated">Last updated: January 24, 2025</p>
 
       <p>
-        Juuk develops simple, focused basketball team management software.
+        Shuuk develops simple, focused basketball team management software.
         This privacy policy explains how we collect, use, and protect your information
         when you use our apps and services.
       </p>
 
       <h2>Who We Are</h2>
       <p>
-        Juuk creates team communication and league management software for youth
+        Shuuk creates team communication and league management software for youth
         basketball organizations. We build tools that coaches, team managers, and league
         directors use to organize their teams and leagues without the bloat of traditional
         sports management platforms.
@@ -225,7 +267,7 @@
       <h2>What Information We Collect</h2>
 
       <h3>When You Use Our Apps</h3>
-      <p>Depending on which Juuk app you use, we may collect:</p>
+      <p>Depending on which Shuuk app you use, we may collect:</p>
       <ul>
         <li>Your name and email address (for account creation and authentication)</li>
         <li>Team names and basic team information</li>
@@ -331,7 +373,7 @@
         <li><strong>Opt out of communications:</strong> Unsubscribe from non-essential emails</li>
       </ul>
       <p>
-        To exercise these rights, contact us at <a href="mailto:privacy@juuk.ca">privacy@juuk.ca</a>
+        To exercise these rights, contact us at <a href="mailto:privacy@shuuk.ca">privacy@shuuk.ca</a>
         or use the settings within the app.
       </p>
 
@@ -370,7 +412,7 @@
 
       <h2>International Users</h2>
       <p>
-        Juuk is based in the United States. If you use our services from outside the
+        Shuuk is based in the United States. If you use our services from outside the
         U.S., your information will be transferred to and processed in the United States.
         By using our services, you consent to this transfer.
       </p>
@@ -389,7 +431,7 @@
           If you have questions about this privacy policy or how we handle your information:
         </p>
         <p>
-          <strong>Email:</strong> <a href="mailto:privacy@juuk.ca">privacy@juuk.ca</a><br />
+          <strong>Email:</strong> <a href="mailto:privacy@shuuk.ca">privacy@shuuk.ca</a><br />
           <strong>Support:</strong> <a href="/support">Visit our support page</a>
         </p>
       </div>
@@ -415,7 +457,7 @@
           <a href="/terms">Terms</a>
           <a href="/support">Support</a>
         </p>
-        <p style="margin-top: 1rem">&copy; 2025 Juuk. Just what you need. Nothing else.</p>
+        <p style="margin-top: 1rem">&copy; 2025 Shuuk. Just what you need. Nothing else.</p>
       </div>
     </footer>
   </body>

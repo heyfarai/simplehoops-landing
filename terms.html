@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terms of Service | Juuk</title>
+    <script src="/public/scripts/theme.js"></script>
+    <title>Terms of Service | Shuuk</title>
     <meta
       name="description"
-      content="Terms of service for Juuk basketball team management software."
+      content="Terms of service for Shuuk basketball team management software."
     />
-    <link rel="canonical" href="https://juuk.ca/terms" />
+    <link rel="canonical" href="https://shuuk.ca/terms" />
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
@@ -19,10 +20,37 @@
       crossorigin
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/public/styles/tokens.css">
     <style>
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Plein', 'Outfit', Arial, sans-serif !important;
+        text-transform: uppercase;
+        font-weight: 800 !important;
+        letter-spacing: 0 !important;
+        line-height: 1.05;
+      }
+      .evt-bar {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
+        background: #0a0a0a; color: #fff;
+        display: flex; align-items: center; justify-content: center; gap: 14px;
+        padding: 8px 16px;
+        font-family: 'Outfit', monospace;
+        font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+        text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .evt-bar .evt-tag { background: #EE028B; padding: 4px 8px; font-weight: 700; letter-spacing: 0.12em; }
+      .evt-bar .evt-cta { color: #EE028B; border-bottom: 1.5px solid #EE028B; padding-bottom: 1px; }
+      .evt-bar:hover .evt-cta { color: white; border-bottom-color: white; }
+      @media (max-width: 600px) {
+        .evt-bar { font-size: 10px; gap: 8px; padding: 7px 10px; }
+        .evt-bar .evt-meta { display: none; }
+        .evt-bar .evt-tag { padding: 3px 6px; }
+      }
+      body { padding-top: 38px; }
+      .nav { top: calc(1rem + 24px) !important; }
       :root {
         --bg: #0d0d0d;
         --text: #f5f5f5;
@@ -31,7 +59,16 @@
         --border: rgba(255, 255, 255, 0.1);
         --nav-bg: rgba(22, 22, 22, 0.95);
       }
+      [data-theme="light"] {
+        --bg: #FFFFFF;
+        --text: #1A1A1A;
+        --text-muted: #666666;
+        --card: #F5F5F5;
+        --border: rgba(0, 0, 0, 0.08);
+        --nav-bg: rgba(255, 255, 255, 0.92);
+      }
       html { color-scheme: dark; }
+      html[data-theme="light"] { color-scheme: light; }
       * {
         margin: 0;
         padding: 0;
@@ -39,7 +76,7 @@
       }
 
       body {
-        font-family: "Schibsted Grotesk", Arial, sans-serif;
+        font-family: "Outfit", Arial, sans-serif;
         line-height: 1.6;
         color: var(--text);
         background: var(--bg);
@@ -186,9 +223,14 @@
     </style>
   </head>
   <body>
+    <a href="/jam" class="evt-bar">
+      <span class="evt-tag">SHUUK 3X3 JAM</span>
+      <span class="evt-meta">Ottawa · July 11, 2026</span>
+      <span class="evt-cta">Join the waitlist →</span>
+    </a>
     <!-- Navigation -->
     <nav class="nav">
-      <a href="/" class="nav-logo">Juuk</a>
+      <a href="/" class="nav-logo">Shuuk</a>
     </nav>
 
     <div class="container">
@@ -197,15 +239,15 @@
 
       <div class="highlight-box">
         <p>
-          <strong>Welcome to Juuk.</strong> These terms govern your use of our apps
-          and services. By using Juuk, you agree to these terms. If you don't agree,
+          <strong>Welcome to Shuuk.</strong> These terms govern your use of our apps
+          and services. By using Shuuk, you agree to these terms. If you don't agree,
           please don't use our services.
         </p>
       </div>
 
       <h2>1. Acceptance of Terms</h2>
       <p>
-        By accessing or using any Juuk application, website, or service (collectively,
+        By accessing or using any Shuuk application, website, or service (collectively,
         "Services"), you agree to be bound by these Terms of Service and our Privacy Policy.
         If you're using our Services on behalf of an organization, you agree to these terms
         on behalf of that organization.
@@ -213,7 +255,7 @@
 
       <h2>2. Description of Services</h2>
       <p>
-        Juuk provides basketball team management and communication software, including:
+        Shuuk provides basketball team management and communication software, including:
       </p>
       <ul>
         <li>Team communication tools</li>
@@ -250,7 +292,7 @@
 
       <h2>4. Acceptable Use</h2>
       <p>
-        When using Juuk, you agree NOT to:
+        When using Shuuk, you agree NOT to:
       </p>
       <ul>
         <li>Violate any laws or regulations</li>
@@ -268,7 +310,7 @@
       <div class="important-box">
         <h3>Zero Tolerance for Abuse</h3>
         <p>
-          Juuk is designed for youth sports. We have zero tolerance for any behavior
+          Shuuk is designed for youth sports. We have zero tolerance for any behavior
           that endangers children, including predatory behavior, bullying, or inappropriate
           content. Violations will result in immediate account termination and reporting to
           authorities where appropriate.
@@ -313,7 +355,7 @@
       <p>
         You retain ownership of any content you post, upload, or share through our Services
         (team names, player information, messages, etc.). By posting content, you grant
-        Juuk a license to use, store, and display that content solely to provide our Services.
+        Shuuk a license to use, store, and display that content solely to provide our Services.
       </p>
 
       <h3>Content Responsibilities</h3>
@@ -336,8 +378,8 @@
 
       <h3>Our Rights</h3>
       <p>
-        The Juuk Services, including all software, designs, trademarks, and content
-        (excluding user content), are owned by Juuk and protected by copyright,
+        The Shuuk Services, including all software, designs, trademarks, and content
+        (excluding user content), are owned by Shuuk and protected by copyright,
         trademark, and other intellectual property laws.
       </p>
 
@@ -406,7 +448,7 @@
 
       <h2>12. Limitation of Liability</h2>
       <p>
-        To the maximum extent permitted by law, Juuk and its affiliates, officers,
+        To the maximum extent permitted by law, Shuuk and its affiliates, officers,
         employees, and agents will not be liable for any indirect, incidental, special,
         consequential, or punitive damages, including loss of profits, data, or goodwill.
       </p>
@@ -421,7 +463,7 @@
 
       <h2>13. Indemnification</h2>
       <p>
-        You agree to indemnify and hold harmless Juuk from any claims, losses, damages,
+        You agree to indemnify and hold harmless Shuuk from any claims, losses, damages,
         liabilities, and expenses (including legal fees) arising from:
       </p>
       <ul>
@@ -436,12 +478,12 @@
       <h3>Governing Law</h3>
       <p>
         These terms are governed by the laws of the United States and the state where
-        Juuk is registered, without regard to conflict of law principles.
+        Shuuk is registered, without regard to conflict of law principles.
       </p>
 
       <h3>Informal Resolution</h3>
       <p>
-        If you have a dispute with us, please contact us first at <a href="mailto:support@juuk.ca">support@juuk.ca</a>
+        If you have a dispute with us, please contact us first at <a href="mailto:support@shuuk.ca">support@shuuk.ca</a>
         so we can try to resolve it informally.
       </p>
 
@@ -468,7 +510,7 @@
       <h3>Entire Agreement</h3>
       <p>
         These terms, together with our Privacy Policy, constitute the entire agreement
-        between you and Juuk regarding our Services.
+        between you and Shuuk regarding our Services.
       </p>
 
       <h3>Severability</h3>
@@ -494,7 +536,7 @@
         If you have questions about these terms, please contact us:
       </p>
       <ul>
-        <li><strong>Email:</strong> <a href="mailto:legal@juuk.ca">legal@juuk.ca</a></li>
+        <li><strong>Email:</strong> <a href="mailto:legal@shuuk.ca">legal@shuuk.ca</a></li>
         <li><strong>Support:</strong> <a href="/support">Visit our support page</a></li>
       </ul>
 
@@ -521,7 +563,7 @@
           <a href="/terms">Terms</a>
           <a href="/support">Support</a>
         </p>
-        <p style="margin-top: 1rem">&copy; 2025 Juuk. Just what you need. Nothing else.</p>
+        <p style="margin-top: 1rem">&copy; 2025 Shuuk. Just what you need. Nothing else.</p>
       </div>
     </footer>
   </body>

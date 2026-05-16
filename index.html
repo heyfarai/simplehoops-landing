@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juuk - Basketball League Management Software</title>
+    <script src="/public/scripts/theme.js"></script>
+    <title>Shuuk - Basketball League Management Software</title>
     <meta name="description" content="All-in-one platform for basketball leagues. Manage schedules, track stats, build your website, and stream games like the pros.">
-    <link rel="canonical" href="https://juuk.ca/">
+    <link rel="canonical" href="https://shuuk.ca/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://juuk.ca/">
-    <meta property="og:title" content="Juuk - Basketball League Management Software">
+    <meta property="og:url" content="https://shuuk.ca/">
+    <meta property="og:title" content="Shuuk - Basketball League Management Software">
     <meta property="og:description" content="All-in-one platform for basketball leagues. Manage schedules, track stats, build your website, and stream games like the pros.">
-    <meta property="og:image" content="https://juuk.ca/img/hoopscore-screenshot.png">
+    <meta property="og:image" content="https://shuuk.ca/img/hoopscore-screenshot.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Juuk - Basketball League Management Software">
+    <meta name="twitter:title" content="Shuuk - Basketball League Management Software">
     <meta name="twitter:description" content="All-in-one platform for basketball leagues. Manage schedules, track stats, build your website, and stream games like the pros.">
-    <meta name="twitter:image" content="https://juuk.ca/img/hoopscore-screenshot.png">
+    <meta name="twitter:image" content="https://shuuk.ca/img/hoopscore-screenshot.png">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/img/icon.png">
@@ -26,12 +27,35 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/styles/tokens.css">
     <style>
+
+        /* Permanent event banner */
+        .evt-bar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
+            background: #0a0a0a; color: white;
+            display: flex; align-items: center; justify-content: center; gap: 14px;
+            padding: 8px 16px;
+            font-family: 'JetBrains Mono', 'Outfit', monospace;
+            font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+            text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .evt-bar .evt-tag { background: #EE028B; padding: 4px 8px; font-weight: 700; letter-spacing: 0.12em; }
+        .evt-bar .evt-cta { color: #EE028B; border-bottom: 1.5px solid #EE028B; padding-bottom: 1px; }
+        .evt-bar:hover .evt-cta { color: white; border-bottom-color: white; }
+        @media (max-width: 600px) {
+            .evt-bar { font-size: 10px; gap: 8px; padding: 7px 10px; }
+            .evt-bar .evt-meta { display: none; }
+            .evt-bar .evt-tag { padding: 3px 6px; }
+        }
+        body { padding-top: 38px; }
+        nav { top: calc(1rem + 24px) !important; }
+
         :root {
-            --primary: #FF6B2C;
-            --primary-dark: #E85A1F;
-            --primary-glow: rgba(255, 107, 44, 0.35);
+            --primary: #EE028B;
+            --primary-dark: #CC0277;
+            --primary-glow: rgba(238, 2, 139, 0.35);
             --bg: #08080a;
             --bg-elevated: #0f0f12;
             --bg-card: rgba(255, 255, 255, 0.03);
@@ -43,7 +67,7 @@
             --accent-green: #34D399;
             --border: rgba(255, 255, 255, 0.06);
             --border-gradient: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
-            --glow-orange: radial-gradient(ellipse at 50% 0%, rgba(255, 107, 44, 0.4) 0%, transparent 60%);
+            --glow-orange: radial-gradient(ellipse at 50% 0%, rgba(238, 2, 139, 0.4) 0%, transparent 60%);
             --glow-blue: radial-gradient(ellipse at 50% 50%, rgba(96, 165, 250, 0.3) 0%, transparent 60%);
         }
         [data-theme="light"] {
@@ -73,7 +97,7 @@
         }
 
         body {
-            font-family: 'Schibsted Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text-primary);
             line-height: 1.6;
@@ -95,20 +119,29 @@
         p {
             font-weight: 300;
         }
-        /* Typography - Apple-style responsive type ramp */
-        h1, h2, h3 {
-            font-family: 'Schibsted Grotesk', -apple-system, sans-serif;
-            font-weight: 900;
-            letter-spacing: -0.02em;
-            line-height: 1.08;
+        /* Typography - Panchang display headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plein', 'Outfit', -apple-system, sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.005em;
+            line-height: 1.02;
+            text-wrap: balance;
+            text-transform: uppercase;
         }
 
-        /* Display - 96px → 48px */
-        h1 { font-size: clamp(48px, 7vw, 96px); }
-        /* Headline - 64px → 40px */
-        h2 { font-size: clamp(40px, 5vw, 64px); }
-        /* Title - 48px → 28px */
-        h3 { font-size: clamp(28px, 3.5vw, 48px); }
+        /* Display - 96px → 44px (slightly smaller min for Panchang's display letterforms) */
+        h1 { font-size: clamp(44px, 7vw, 92px); line-height: 0.98; }
+        /* Headline - 60px → 36px */
+        h2 { font-size: clamp(36px, 5vw, 60px); line-height: 1; }
+        /* Title - 44px → 26px */
+        h3 { font-size: clamp(26px, 3.5vw, 44px); line-height: 1.04; }
+
+        @media (max-width: 480px) {
+            h1, h2, h3, h4, h5, h6 { letter-spacing: 0; word-spacing: -0.05em; }
+            h1 { font-size: clamp(40px, 11vw, 56px); }
+            h2 { font-size: clamp(32px, 8vw, 44px); }
+            h3 { font-size: clamp(24px, 6vw, 34px); }
+        }
 
         /* Navigation - Floating pill style */
         nav {
@@ -138,15 +171,30 @@
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
         }
 
+        /* Sticker logo — overhangs pill bounds top, bottom, and left */
         .logo {
             display: flex;
             align-items: center;
             margin-left: 1rem;
+            position: relative;
+            z-index: 2;
         }
-
         .logo img {
-            height: 32px;
+            height: 80px;
             width: auto;
+            margin: -40px 0 -34px -40px;
+            transform: rotate(-3deg);
+            transform-origin: center;
+            filter: drop-shadow(2px 4px 0 rgba(0,0,0,0.18));
+            transition: transform 140ms ease-out;
+        }
+        .logo:hover img {
+            transform: rotate(-1.5deg) translate(-1px, -1px);
+        }
+        @media (max-width: 768px) {
+            nav { width: calc(100vw - 54px); }
+            .nav-container { justify-content: space-between; gap: 0.5rem; }
+            .logo img { height: 72px; width: auto; }
         }
 
         .nav-links {
@@ -163,11 +211,17 @@
             transition: color 0.2s;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            white-space: nowrap;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a:hover {
             color: var(--text-primary);
+        }
+        .nav-links a.active {
+            color: var(--brand-pink, #EE028B);
+        }
+        .mobile-nav-links a.active {
+            color: var(--brand-pink, #EE028B);
         }
 
         .nav-links .btn {
@@ -176,48 +230,69 @@
             border-radius: 100px;
             color: var(--text-primary);
             white-space: nowrap;
+            border-color: transparent; /* nav-button exception: stay borderless */
         }
         [data-theme="light"] .nav-links .btn { color: #000; }
 
+        /* Buttons — DESIGN.md lift-and-shadow pattern */
         .btn {
             padding: 0.75rem 1.5rem;
             border-radius: 100px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: transform 140ms ease-out, box-shadow 140ms ease-out, background 140ms ease-out, color 140ms ease-out;
             cursor: pointer;
-            border: none;
+            border: 1px solid transparent;
             font-size: 0.95rem;
             display: inline-block;
+            box-shadow: 0 0 0 0 transparent;
         }
 
         .btn-primary {
             background: var(--primary);
             color: white;
-            box-shadow: 0 0 32px rgba(255, 107, 44, 0.55), 0 4px 16px rgba(0, 0, 0, 0.3);
+            border-color: var(--ink, #0a0a0a);
         }
 
         .btn-primary:hover {
             background: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 0 50px rgba(255, 107, 44, 0.65), 0 4px 20px rgba(0, 0, 0, 0.3);
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0 0 var(--ink, #0a0a0a);
+        }
+        .btn-primary:active {
+            transform: translate(0, 0);
+            box-shadow: none;
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--text-primary);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-color: var(--ink, #0a0a0a);
         }
 
         .btn-secondary:hover {
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: var(--text-primary);
             color: var(--text-primary);
             background: rgba(255, 255, 255, 0.04);
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0 0 var(--text-primary);
+        }
+        .btn-secondary:active {
+            transform: translate(0, 0);
+            box-shadow: none;
+        }
+
+        .btn:disabled,
+        .btn[aria-disabled="true"] {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
         }
 
         /* Hero Section */
         .hero {
-            padding: 10rem 2rem 6rem;
+            padding: 12rem 2rem 6rem;
             position: relative;
             overflow: hidden;
         }
@@ -230,7 +305,7 @@
             transform: translateX(-50%);
             width: 140%;
             height: 80%;
-            background: radial-gradient(ellipse at 50% 20%, rgba(255, 107, 44, 0.4) 0%, rgba(255, 107, 44, 0.15) 30%, transparent 65%);
+            background: radial-gradient(ellipse at 50% 20%, rgba(238, 2, 139, 0.4) 0%, rgba(238, 2, 139, 0.15) 30%, transparent 65%);
             pointer-events: none;
             z-index: 0;
         }
@@ -279,7 +354,7 @@
             width: 100%;
             max-width: 900px;
             border-radius: 24px;
-            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5), 0 0 160px rgba(255, 107, 44, 0.3);
+            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5), 0 0 160px rgba(238, 2, 139, 0.3);
             border: 1px transparent rgba(220, 142, 7, 0.551);
         }
 
@@ -320,7 +395,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem;
-            background: rgba(255, 107, 44, 0.08);
+            background: rgba(238, 2, 139, 0.08);
             border-left: 3px solid var(--primary);
             border-radius: 4px;
         }
@@ -331,7 +406,7 @@
         }
 
         .stat-value {
-            font-family: 'Schibsted Grotesk', sans-serif;
+            font-family: 'Outfit', sans-serif;
             font-size: 1.5rem;
             color: var(--primary);
         }
@@ -402,7 +477,7 @@
 
         .letter-card {
             background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
-                        linear-gradient(160deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(255, 107, 44, 0.1) 100%) border-box;
+                        linear-gradient(160deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(238, 2, 139, 0.1) 100%) border-box;
             border: 1px solid transparent;
             border-radius: 20px;
             padding: 2.5rem 3rem;
@@ -411,7 +486,7 @@
         }
 
         .letter-greeting {
-            font-family: 'Schibsted Grotesk', sans-serif;
+            font-family: 'Outfit', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1.25rem;
@@ -532,7 +607,7 @@
             font-size: 1.5rem;
         }
 
-        .product-icon.league { background: linear-gradient(135deg, #FF6B2C, #FF8F5C); }
+        .product-icon.league { background: linear-gradient(135deg, #EE028B, #FF4FA8); }
         .product-icon.score { background: linear-gradient(135deg, #3B82F6, #60A5FA); }
         .product-icon.cast { background: linear-gradient(135deg, #10B981, #34D399); }
 
@@ -575,19 +650,26 @@
             }
         }
 
+        /* DESIGN.md card-outline-shadow — applied to carousel cards */
         .feature-card {
             --card-width: 405px;
             --card-height: 740px;
             flex: 0 0 var(--card-width);
             height: var(--card-height);
-            border-radius: 28px;
+            border-radius: var(--rounded-lg, 8px);
             padding: 2.25rem;
             display: flex;
             flex-direction: column;
             scroll-snap-align: start;
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            background: var(--bg-filled, #FFFFFF);
+            color: var(--ink, #0a0a0a);
+            border: 1px solid var(--ink, #0a0a0a);
+            box-shadow: var(--shadow-hard-sm, 4px 4px 0 0 #0a0a0a);
+            transition:
+              transform 140ms ease-out,
+              box-shadow 140ms ease-out;
         }
 
         @media (max-width: 1440px) {
@@ -612,55 +694,22 @@
         }
 
         .feature-card:hover {
-            transform: translateY(-4px);
+            transform: translate(-4px, -4px);
+            box-shadow: var(--shadow-hard-lg, 8px 8px 0 0 #0a0a0a);
+        }
+        .feature-card:active {
+            transform: translate(0, 0);
+            box-shadow: var(--shadow-hard-sm, 4px 4px 0 0 #0a0a0a);
         }
 
-        /* Card color themes */
-        .feature-card.light {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: var(--text-primary);
-        }
-
-        .feature-card.light:hover {
-            border-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .feature-card.orange {
-            background: linear-gradient(145deg, #FF6B2C, #FF8F5C);
-            color: white;
-        }
-
-        .feature-card.blue {
-            background: linear-gradient(145deg, #3B82F6, #60A5FA);
-            color: white;
-        }
-
-        .feature-card.green {
-            background: linear-gradient(145deg, #10B981, #34D399);
-            color: white;
-        }
-
-        .feature-card.purple {
-            background: linear-gradient(145deg, #8B5CF6, #A78BFA);
-            color: white;
-        }
-
+        /* Variants — color now lives in accent strip + visual, not background */
         .feature-card.dark {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: white;
+            background: var(--ink, #0a0a0a);
+            color: var(--bg-filled, #FFFFFF);
+            border-color: var(--ink, #0a0a0a);
         }
-
-        .feature-card.coral {
-            background: linear-gradient(145deg, #F97316, #FB923C);
-            color: white;
-        }
-
-        .feature-card.teal {
-            background: linear-gradient(145deg, #14B8A6, #2DD4BF);
-            color: white;
+        .feature-card.purple {
+            border-top: 6px solid var(--brand-pink, #EE028B);
         }
 
         .card-content {
@@ -757,7 +806,7 @@
 
         .carousel-btn:hover {
             background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--ink, #0a0a0a);
             color: var(--text-primary);
         }
 
@@ -828,7 +877,7 @@
 
         .comparison-col.new {
             background: linear-gradient(rgba(15, 15, 18, 1), rgba(15, 15, 18, 1)) padding-box,
-                        linear-gradient(135deg, rgba(255, 107, 44, 0.4) 0%, rgba(96, 165, 250, 0.2) 100%) border-box;
+                        linear-gradient(135deg, rgba(238, 2, 139, 0.4) 0%, rgba(96, 165, 250, 0.2) 100%) border-box;
             border: 1px solid transparent;
             position: relative;
         }
@@ -838,7 +887,7 @@
             position: absolute;
             inset: 0;
             border-radius: 12px;
-            background: linear-gradient(135deg, rgba(255, 107, 44, 0.06) 0%, rgba(96, 165, 250, 0.04) 100%);
+            background: linear-gradient(135deg, rgba(238, 2, 139, 0.06) 0%, rgba(96, 165, 250, 0.04) 100%);
             pointer-events: none;
         }
 
@@ -863,15 +912,15 @@
             font-size: 1.25rem;
         }
 
-        /* juuk.Stream Feature Section */
-        .juukcast-feature {
+        /* shuuk.Stream Feature Section */
+        .shuukcast-feature {
             padding: 8rem 2rem;
             background: var(--bg-elevated);
             position: relative;
             overflow: hidden;
         }
 
-        .juukcast-feature::before {
+        .shuukcast-feature::before {
             content: '';
             position: absolute;
             top: -30%;
@@ -879,24 +928,24 @@
             transform: translateX(-50%);
             width: 120%;
             height: 100%;
-            background: radial-gradient(ellipse at 50% 0%, rgba(255, 107, 44, 0.35) 0%, transparent 55%),
+            background: radial-gradient(ellipse at 50% 0%, rgba(238, 2, 139, 0.35) 0%, transparent 55%),
                         radial-gradient(ellipse at 80% 80%, rgba(96, 165, 250, 0.18) 0%, transparent 50%);
             z-index: 0;
         }
 
-        .juukcast-feature + .juukcast-feature::before {
+        .shuukcast-feature + .shuukcast-feature::before {
             background: radial-gradient(ellipse at 50% 0%, rgba(96, 165, 250, 0.3) 0%, transparent 55%),
-                        radial-gradient(ellipse at 20% 80%, rgba(255, 107, 44, 0.2) 0%, transparent 50%);
+                        radial-gradient(ellipse at 20% 80%, rgba(238, 2, 139, 0.2) 0%, transparent 50%);
         }
 
-        .juukcast-container {
+        .shuukcast-container {
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
 
-        .juukcast-content {
+        .shuukcast-content {
             text-align: center;
             margin-bottom: 4rem;
         }
@@ -904,20 +953,20 @@
         .badge {
             display: inline-block;
             padding: 0.5rem 1rem;
-            background: rgba(255, 107, 44, 0.1);
+            background: rgba(238, 2, 139, 0.1);
             color: var(--primary);
             border-radius: 20px;
             font-size: 0.875rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            border: 1px solid rgba(255, 107, 44, 0.2);
+            border: 1px solid rgba(238, 2, 139, 0.2);
         }
 
-        .juukcast-content h2 {
+        .shuukcast-content h2 {
             margin-bottom: 1rem;
         }
 
-        .juukcast-content .subtitle {
+        .shuukcast-content .subtitle {
             font-size: 1.25rem;
             color: var(--text-secondary);
             max-width: 700px;
@@ -953,7 +1002,7 @@
             width: 80px;
             height: 80px;
             background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
-                        linear-gradient(135deg, rgba(255, 107, 44, 0.5), rgba(255, 107, 44, 0.1)) border-box;
+                        linear-gradient(135deg, rgba(238, 2, 139, 0.5), rgba(238, 2, 139, 0.1)) border-box;
             border: 2px solid transparent;
             border-radius: 50%;
             display: flex;
@@ -961,7 +1010,6 @@
             justify-content: center;
             font-size: 2rem;
             margin: 0 auto 1rem;
-            box-shadow: 0 0 50px rgba(255, 107, 44, 0.35);
         }
 
         .flow-step h4 {
@@ -998,7 +1046,7 @@
             margin: 0 auto;
             padding: 3rem;
             background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
-                        linear-gradient(160deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02), rgba(255, 107, 44, 0.15)) border-box;
+                        linear-gradient(160deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02), rgba(238, 2, 139, 0.15)) border-box;
             border-radius: 16px;
             border: 1px solid transparent;
         }
@@ -1034,7 +1082,7 @@
         }
 
         .stat-number {
-            font-family: 'Schibsted Grotesk', sans-serif;
+            font-family: 'Outfit', sans-serif;
             font-size: 3rem;
             color: var(--primary);
         }
@@ -1059,7 +1107,7 @@
             transform: translateX(-50%);
             width: 80%;
             height: 60%;
-            background: radial-gradient(ellipse at 50% 50%, rgba(255, 107, 44, 0.25) 0%, transparent 60%);
+            background: radial-gradient(ellipse at 50% 50%, rgba(238, 2, 139, 0.25) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -1093,16 +1141,16 @@
         .pricing-card:hover {
             transform: translateY(-8px);
             background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
-                        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 107, 44, 0.15)) border-box;
+                        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(238, 2, 139, 0.15)) border-box;
             box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
         }
 
         .pricing-card.featured {
             background: linear-gradient(var(--bg-card-solid), var(--bg-card-solid)) padding-box,
-                        linear-gradient(180deg, rgba(255, 107, 44, 0.5), rgba(255, 107, 44, 0.15)) border-box;
+                        linear-gradient(180deg, rgba(238, 2, 139, 0.5), rgba(238, 2, 139, 0.15)) border-box;
             border: 1px solid transparent;
             transform: scale(1.05);
-            box-shadow: 0 0 100px rgba(255, 107, 44, 0.35);
+            box-shadow: 0 0 100px rgba(238, 2, 139, 0.35);
         }
 
         .pricing-card h3 {
@@ -1117,7 +1165,7 @@
         }
 
         .price {
-            font-family: 'Schibsted Grotesk', sans-serif;
+            font-family: 'Outfit', sans-serif;
             font-size: 3rem;
             color: var(--primary);
             margin-bottom: 0.5rem;
@@ -1163,7 +1211,7 @@
             transform: translateX(-50%);
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at 50% 60%, rgba(255, 107, 44, 0.35) 0%, transparent 50%);
+            background: radial-gradient(ellipse at 50% 60%, rgba(238, 2, 139, 0.35) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -1217,7 +1265,7 @@
         }
 
         .footer-brand {
-            font-family: 'Schibsted Grotesk', sans-serif;
+            font-family: 'Outfit', sans-serif;
             font-size: 1.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
@@ -1449,7 +1497,7 @@
             }
 
             .hero {
-                padding-top: 6rem;
+                padding-top: 8rem;
             }
 
             .stats-row {
@@ -1521,8 +1569,8 @@
         }
         .form-group input:focus, .form-group select:focus {
             outline: none;
-            border-color: rgba(255, 107, 44, 0.5);
-            box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.1);
+            border-color: rgba(238, 2, 139, 0.5);
+            box-shadow: 0 0 0 3px rgba(238, 2, 139, 0.1);
         }
         .modal .btn { width: 100%; margin-top: 0.5rem; }
 
@@ -1554,14 +1602,14 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
             background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--ink, #0a0a0a);
         }
         .widget-card {
             position: absolute;
             bottom: 70px;
             right: 0;
             width: 360px;
-            max-width: calc(100vw - 48px);
+            max-width: calc(100vw - 32px);
             background: var(--bg-card-solid);
             border-radius: 16px;
             box-shadow: 0 16px 48px rgba(0,0,0,0.5);
@@ -1628,8 +1676,8 @@
             border-radius: 8px;
             color: var(--text-primary);
         }
-        .widget-option:hover { border-color: rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.05); }
-        .widget-option.selected { border-color: var(--primary); background: var(--primary); color: #fff; }
+        .widget-option:hover { border-color: var(--ink, #0a0a0a); background: rgba(255, 255, 255, 0.05); }
+        .widget-option.selected { border-color: var(--ink, #0a0a0a); background: var(--primary); color: #fff; }
         .widget-input {
             width: 100%;
             padding: 12px 14px;
@@ -1642,7 +1690,7 @@
             color: var(--text-primary);
             transition: border-color 0.2s;
         }
-        .widget-input:focus { outline: none; border-color: rgba(255, 107, 44, 0.5); box-shadow: 0 0 0 3px rgba(255, 107, 44, 0.1); }
+        .widget-input:focus { outline: none; border-color: rgba(238, 2, 139, 0.5); box-shadow: 0 0 0 3px rgba(238, 2, 139, 0.1); }
         .widget-submit {
             width: 100%;
             background: var(--primary);
@@ -1664,13 +1712,22 @@
     </style>
 </head>
 <body>
+    <!-- Permanent event banner -->
+    <a href="/jam" class="evt-bar">
+        <span class="evt-tag">SHUUK 3X3 JAM</span>
+        <span class="evt-meta">Ottawa · July 11, 2026</span>
+        <span class="evt-cta">Join the waitlist →</span>
+    </a>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="/" class="logo"><img src="img/juuk-logo--light.png" alt="Juuk" height="32"></a>
+            <a href="/" class="logo"><img src="img/shuuk-logo--light.png" alt="Shuuk" height="32"></a>
             <div class="nav-links">
                 <a href="/" class="active">Leagues</a>
                 <a href="/teams" style="white-space:nowrap">Teams & Clubs</a>
+                <a href="/tournaments">Tournaments</a>
+                <a href="/jam">3x3 Jam</a>
                 <a href="#" onclick="openDemoModal(); return false;" class="btn btn-primary">Book a Demo</a>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -1687,6 +1744,8 @@
         <div class="mobile-nav-links">
             <a href="/" class="active">Leagues</a>
             <a href="/teams">Teams & Clubs</a>
+            <a href="/tournaments">Tournaments</a>
+            <a href="/jam">3x3 Jam</a>
             <a href="#" onclick="openDemoModal(); closeMobileNav(); return false;" class="btn btn-primary">Book a Demo</a>
         </div>
     </div>
@@ -1695,17 +1754,74 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Juggling Excel, WordPress, Swish, Canva, and BallerTV?<br>There's a better way.</h1>
-                <p class="subtitle">One platform for your league website, scheduling, stats, streaming, and content. Stop juggling five apps.</p>
+                <h1>One platform.<br>Five tools fewer.</h1>
+                <p class="subtitle">Website, schedules, stats, streams, content — for basketball leagues. Stop juggling Excel, WordPress, Swish, Canva, and BallerTV.</p>
                 <!-- <div class="hero-cta">
-                    <a href="#juukcast" class="btn btn-primary">See juuk.Stream Demo</a>
+                    <a href="#shuukcast" class="btn btn-primary">See shuuk.Stream Demo</a>
                     <a href="#features" class="btn btn-secondary">Explore Features</a>
                 </div> -->
             </div>
             <div class="hero-visual">
-                <img src="img/hoopscore-screenshot.png" alt="juuk.Score App Screenshot" class="hero-screenshot">
+                <img src="img/hoopscore-screenshot.png" alt="shuuk.Score App Screenshot" class="hero-screenshot">
             </div>
         </div>
+    </section>
+
+    <!-- Jam event feature -->
+    <section style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+        <a href="/jam" style="
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 0;
+            background: #f6f3ec;
+            color: #0a0a0a;
+            text-decoration: none;
+            border: 1px solid #0a0a0a;
+            box-shadow: 12px 12px 0 0 #EE028B;
+            overflow: hidden;
+            border-radius: 8px;
+            min-height: 360px;
+        " class="jam-feature-card">
+            <div style="padding: 36px 40px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
+                <div>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(0,0,0,0.55); margin-bottom: 18px;">
+                        Saturday July 11, 2026
+                    </div>
+                    <h2 style="margin: 0 0 16px;">
+                        <img src="/img/3x3-mark.png" alt="shuuk! 3x3 jam '26" style="display:block; height: clamp(80px, 12vw, 132px); width: auto;">
+                    </h2>
+                    <p style="font-family: 'Outfit', sans-serif; font-size: 19px; line-height: 1.4; color: #0a0a0a; max-width: 460px; margin: 0; font-weight: 600;">
+                        Ottawa's first basketball development day. Outdoor 3x3 + a midday indoor session for players, parents, and coaches. <span style="background:#EE028B;color:white;padding:0 6px;">Join the waitlist.</span>
+                    </p>
+                </div>
+                <div style="display: flex; gap: 28px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(0,0,0,0.7);">
+                    <span><strong style="display:block;font-family:'Plein',sans-serif;font-weight:800;font-size:18px;letter-spacing:0;color:#0a0a0a;margin-top:2px;">SAT · 07.11</strong>WHEN</span>
+                    <span><strong style="display:block;font-family:'Plein',sans-serif;font-weight:800;font-size:18px;letter-spacing:0;color:#0a0a0a;margin-top:2px;">WALKLEY · OTT</strong>WHERE</span>
+                    <span><strong style="display:block;font-family:'Plein',sans-serif;font-weight:800;font-size:18px;letter-spacing:0;color:#0a0a0a;margin-top:2px;">$TBD/TEAM</strong>ENTRY</span>
+                    <span style="background:#EE028B;color:white;padding:8px 14px;border-radius:999px;align-self:center;font-weight:700;letter-spacing:0.12em;">join waitlist →</span>
+                </div>
+            </div>
+            <div style="background: #1a1a1a url('/jam/assets/photo-hero.png') center/cover; position: relative;">
+                <div style="position: absolute; top: 16px; left: 16px; background: #EE028B; color: white; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; padding: 6px 10px;">
+                    FEATURE · COVER
+                </div>
+            </div>
+        </a>
+        <style>
+            .jam-feature-card { transition: transform 140ms ease-out, box-shadow 140ms ease-out; }
+            .jam-feature-card:hover {
+                transform: translate(-4px, -4px);
+                box-shadow: 16px 16px 0 0 #EE028B;
+            }
+            .jam-feature-card:active {
+                transform: translate(0, 0);
+                box-shadow: 12px 12px 0 0 #EE028B;
+            }
+            @media (max-width: 768px) {
+                .jam-feature-card { grid-template-columns: 1fr !important; }
+                .jam-feature-card > div:last-child { min-height: 220px; }
+            }
+        </style>
     </section>
 
     <!-- Products Section -->
@@ -1714,12 +1830,11 @@
             <h2>Three Tools. One Ecosystem.</h2>
         </div>
 
-        <!-- juuk.League -->
+        <!-- shuuk.League -->
         <div class="product-section">
             <div class="product-title">
                 <h3>
-                    <div class="product-icon league">🏆</div>
-                    juuk.League
+                    League site
                 </h3>
             </div>
             <div class="carousel-wrapper">
@@ -1792,12 +1907,11 @@
             </div>
         </div>
 
-        <!-- juuk.Score -->
+        <!-- shuuk.Score -->
         <div class="product-section">
             <div class="product-title">
                 <h3>
-                    <img src="img/hoopscore-icon.png" alt="juuk.Score" class="product-icon">
-                    juuk.Score
+                    League stats
                 </h3>
             </div>
             <div class="carousel-wrapper">
@@ -1815,7 +1929,7 @@
                     <div class="feature-card light">
                         <div class="card-content">
                             <div class="card-title">Live Sync</div>
-                            <p class="card-description">Stats sync to fans' phones, coaches' tablets, and juuk.Stream streams instantly.</p>
+                            <p class="card-description">Stats sync to fans' phones, coaches' tablets, and shuuk.Stream streams instantly.</p>
                             <button class="card-cta" onclick="openModal('sync')">Learn more →</button>
                         </div>
                         <div class="card-visual">
@@ -1851,12 +1965,11 @@
             </div>
         </div>
 
-        <!-- juuk.Stream -->
+        <!-- shuuk.Stream -->
         <div class="product-section">
             <div class="product-title">
                 <h3>
-                    <img src="img/hoopcast-icon.png" alt="juuk.Stream" class="product-icon">
-                    juuk.Stream
+                    League streaming
                 </h3>
             </div>
             <div class="carousel-wrapper">
@@ -1884,7 +1997,7 @@
                     <div class="feature-card light">
                         <div class="card-content">
                             <div class="card-title">Full Integration</div>
-                            <p class="card-description">Stats from juuk.Score flow automatically. No manual updates, no delays.</p>
+                            <p class="card-description">Stats from shuuk.Score flow automatically. No manual updates, no delays.</p>
                             <button class="card-cta" onclick="openModal('integration')">Learn more →</button>
                         </div>
                         <div class="card-visual">
@@ -1913,7 +2026,7 @@
     <!-- Before/After Comparison -->
     <section class="comparison">
         <div class="comparison-container">
-            <h2>The Old Way vs. Juuk</h2>
+            <h2>The Old Way vs. Shuuk</h2>
             <div class="comparison-grid">
                 <div class="comparison-col old">
                     <h3>The Old Way</h3>
@@ -1947,7 +2060,7 @@
                     </div>
                 </div>
                 <div class="comparison-col new">
-                    <h3>Juuk</h3>
+                    <h3>Shuuk</h3>
                     <div class="comparison-item">
                         <span class="comparison-icon">🌐</span>
                         <span><strong>Professional league website</strong></span>
@@ -1966,7 +2079,7 @@
                     </div>
                     <div class="comparison-item">
                         <span class="comparison-icon">📹</span>
-                        <span><strong>One-click juuk.Stream streaming</strong></span>
+                        <span><strong>One-click shuuk.Stream streaming</strong></span>
                     </div>
                     <div class="comparison-item">
                         <span class="comparison-icon">📊</span>
@@ -1982,9 +2095,9 @@
     </section>
 
     <!-- League Website & Apps Feature -->
-    <section class="juukcast-feature">
-        <div class="juukcast-container">
-            <div class="juukcast-content">
+    <section class="shuukcast-feature">
+        <div class="shuukcast-container">
+            <div class="shuukcast-content">
                 <h2>Your League. Your Brand. Your Apps.</h2>
                 <p class="subtitle">Every league gets a professional website. Enterprise leagues get their own branded iOS and Android apps in the app stores.</p>
             </div>
@@ -2003,7 +2116,7 @@
                 <div class="flow-step">
                     <div class="flow-icon">🎯</div>
                     <h4>Real-Time Updates</h4>
-                    <p>Stats sync instantly from juuk.Score to website and apps</p>
+                    <p>Stats sync instantly from shuuk.Score to website and apps</p>
                 </div>
                 <div class="flow-step">
                     <div class="flow-icon">🏆</div>
@@ -2017,7 +2130,7 @@
                 <div class="comparison-grid" style="margin-top: 2rem;">
                     <div style="padding: 1.5rem;">
                         <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Live Game Center</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Watch juuk.Stream streams with live stats overlay, right on your league site</p>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Watch shuuk.Stream streams with live stats overlay, right on your league site</p>
                     </div>
                     <div style="padding: 1.5rem;">
                         <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Real-Time Standings</h4>
@@ -2044,10 +2157,10 @@
         </div>
     </section>
 
-    <!-- juuk.Stream Feature Deep Dive -->
-    <section class="juukcast-feature" id="juukcast">
-        <div class="juukcast-container">
-            <div class="juukcast-content">
+    <!-- shuuk.Stream Feature Deep Dive -->
+    <section class="shuukcast-feature" id="shuukcast">
+        <div class="shuukcast-container">
+            <div class="shuukcast-content">
                 <span class="badge">NEW FEATURE</span>
                 <h2>Game Day, Simplified</h2>
                 <p class="subtitle">You want to stream games. But coordinating equipment, overlays, stats, and streaming platforms turns game day into tech support day. Not anymore.</p>
@@ -2056,13 +2169,13 @@
             <div class="flow-diagram">
                 <div class="flow-step">
                     <div class="flow-icon">📱</div>
-                    <h4>Score with juuk.Score</h4>
+                    <h4>Score with shuuk.Score</h4>
                     <p>Track the game like you normally would</p>
                 </div>
                 <div class="flow-step">
                     <div class="flow-icon">🎬</div>
                     <h4>Tap "Start Broadcast"</h4>
-                    <p>One button in juuk.Stream</p>
+                    <p>One button in shuuk.Stream</p>
                 </div>
                 <div class="flow-step">
                     <div class="flow-icon">📊</div>
@@ -2113,8 +2226,8 @@
                     <ul class="pricing-features">
                         <li>Up to 15 teams</li>
                         <li><strong>League website included</strong></li>
-                        <li>juuk.League operations</li>
-                        <li>juuk.Score tracking</li>
+                        <li>shuuk.League operations</li>
+                        <li>shuuk.Score tracking</li>
                         <li>Basic statistics</li>
                         <li>Mobile apps for fans</li>
                         <li>Email support</li>
@@ -2129,7 +2242,7 @@
                     <ul class="pricing-features">
                         <li>Up to 50 teams</li>
                         <li><strong>Pro league website</strong></li>
-                        <li><strong>juuk.Stream streaming</strong></li>
+                        <li><strong>shuuk.Stream streaming</strong></li>
                         <li>Broadcast-quality overlays</li>
                         <li>Advanced analytics</li>
                         <li>AI content generation</li>
@@ -2167,7 +2280,7 @@
             <h2>Ready to Level Up Your League?</h2>
             <p>Join NCHC and leagues that are already streaming like the pros.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem; display: none;">See juuk.Stream Demo</a>
+                <a href="#" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem; display: none;">See shuuk.Stream Demo</a>
                 <a href="#" onclick="openDemoModal(); return false;" class="btn btn-secondary" style="font-size: 1.125rem; padding: 1rem 2rem;">Book a Demo</a>
             </div>
             <p class="cta-meta">Used by NCHC • 50+ teams • All-in-one platform</p>
@@ -2178,15 +2291,15 @@
     <footer>
         <div class="footer-container">
             <div>
-                <div class="footer-brand"><img src="img/icon.png" alt="Juuk" height="40"></div>
+                <div class="footer-brand"><img src="img/icon.png" alt="Shuuk" height="40"></div>
                 <p class="footer-description">The all-in-one platform for basketball league operations, professional websites, digital scorekeeping, and broadcast-quality streaming.</p>
             </div>
             <div class="footer-section">
                 <h4>Product</h4>
                 <ul class="footer-links">
-                    <li><a href="#features">juuk.League</a></li>
-                    <li><a href="#features">juuk.Score</a></li>
-                    <li><a href="#juukcast">juuk.Stream</a></li>
+                    <li><a href="#features">shuuk.League</a></li>
+                    <li><a href="#features">shuuk.Score</a></li>
+                    <li><a href="#shuukcast">shuuk.Stream</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                 </ul>
             </div>
@@ -2206,7 +2319,7 @@
         <div class="modal">
             <button class="modal-close" onclick="closeModal()">&times;</button>
             <h3>Book a Demo</h3>
-            <p>Tell us about your league and we'll show you how Juuk can help.</p>
+            <p>Tell us about your league and we'll show you how Shuuk can help.</p>
             <form id="demoForm">
                 <div class="form-group">
                     <label for="name">Name</label>
