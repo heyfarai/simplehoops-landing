@@ -5,7 +5,7 @@ description: >
   Visual identity for shuuk — basketball league, team, and tournament
   software. Forked from Gumroad's open design system (community beta), with
   brand identity swapped to shuuk pink (#EE028B), display type changed to
-  Panchang, and brutalist hard-shadow primitives kept intact (they match the
+  Plein, and brutalist hard-shadow primitives kept intact (they match the
   3x3 jam zine aesthetic).
 
 colors:
@@ -70,37 +70,37 @@ colors:
 
 typography:
   display:
-    fontFamily: "Panchang, 'Outfit', sans-serif"
+    fontFamily: "Plein, 'Outfit', sans-serif"
     fontSize: "40px"
     fontWeight: 800
     lineHeight: "48px"
     letterSpacing: "-0.005em"
   display-bold:
-    fontFamily: "Panchang, 'Outfit', sans-serif"
+    fontFamily: "Plein, 'Outfit', sans-serif"
     fontSize: "40px"
     fontWeight: 700
     lineHeight: "48px"
     letterSpacing: "-0.005em"
   heading-2:
-    fontFamily: "Panchang, 'Outfit', sans-serif"
+    fontFamily: "Plein, 'Outfit', sans-serif"
     fontSize: "24px"
     fontWeight: 800
     lineHeight: "31.2px"
     letterSpacing: "0em"
   heading-2-bold:
-    fontFamily: "Panchang, 'Outfit', sans-serif"
+    fontFamily: "Plein, 'Outfit', sans-serif"
     fontSize: "24px"
     fontWeight: 700
     lineHeight: "31.2px"
     letterSpacing: "0em"
   heading-3:
-    fontFamily: "Panchang, 'Outfit', sans-serif"
+    fontFamily: "Plein, 'Outfit', sans-serif"
     fontSize: "20px"
     fontWeight: 800
     lineHeight: "28px"
     letterSpacing: "0em"
   heading-3-bold:
-    fontFamily: "Panchang, 'Outfit', sans-serif"
+    fontFamily: "Plein, 'Outfit', sans-serif"
     fontSize: "20px"
     fontWeight: 700
     lineHeight: "26px"
@@ -388,7 +388,7 @@ The visual identity carries two voices that share the same primitives:
 
 - **Marketing surfaces** (home, teams, tournaments): dark-mode default,
   saturated **shuuk pink** (`#EE028B`) on near-black, glassmorphic floating
-  navigation, **Panchang** display headings paired with Outfit body.
+  navigation, **Plein** display headings paired with Outfit body.
 - **Event surfaces** (the 3x3 jam, future event landings): paper background
   (`#F6F3EC`), brutalist hard-offset drop shadows (`-6px 7px 0 0` in ink),
   hot pink stickers, **JetBrains Mono** all-caps labels with wide tracking.
@@ -429,8 +429,9 @@ for hover overlays and dimmed backdrops rather than picking a flat gray.
 
 ## Typography
 
-**Display family**: Panchang (regular weight only — there is no italic
-or alternate weight, so we vary visual weight via size, not stroke).
+**Display family**: Plein (4 weights: Regular 400, Medium 500, Bold 700,
+Black 900 — self-hosted from `public/fonts/plein/`). No italic, so we vary
+visual weight via stroke (font-weight) primarily and size for hierarchy.
 Used for `h1`–`h6` and any sticker-style heading on event surfaces.
 
 **Body family**: Outfit (400/500/600/700). Used for paragraphs,
@@ -444,7 +445,7 @@ The scale has 13 tokens covering 6 sizes × 1–2 weights + a caption tier.
 This is more than the DESIGN.md typical floor of 9 levels and at the
 upper bound of the typical 9–15 range — driven by needing both regular
 and bold for body/heading-2/heading-3 to support inline emphasis without
-italics (Panchang lacks an italic).
+italics (Plein has no italic; emphasis comes from font-weight).
 
 ## Layout
 
@@ -476,8 +477,8 @@ design systems.
 |---|---|---|
 | `shadow-hard-sm` | `4px 4px 0 0 var(--ink)` | Inputs, small cards, dropdowns, default button hover |
 | `shadow-hard-lg` | `8px 8px 0 0 var(--ink)` | Major cards, modals, primary button hover |
-| `shadow-hard-pink` | `-10px 12px 0 0 var(--brand-pink)` | Featured cards (jam, event CTA) |
-| `shadow-sticker` | `-6px 7px 0 0 var(--ink), -6px 7px 0 4px white, -10px 11px 0 4px var(--ink)` | Sticker-style chips and pill buttons (event surfaces only) |
+| `shadow-hard-pink` | `12px 12px 0 0 var(--color-brand-pink)` | Featured cards (jam, event CTA) |
+| `shadow-sticker` | `7px 7px 0 0 var(--color-ink), 7px 7px 0 4px white, 11px 11px 0 4px var(--color-ink)` | Sticker-style chips and pill buttons (event surfaces only) |
 
 There is no `shadow-md`. If you reach for one, use `shadow-hard-sm` or
 re-think the elevation hierarchy.
@@ -774,7 +775,7 @@ block** on any page.
 
 - Use `brand-pink` for one CTA per fold, not three. The color works because
   it's rare in the layout, not because it's everywhere.
-- Pair Panchang with Outfit body. Don't introduce a third sans.
+- Pair Plein with Outfit body. Don't introduce a third sans.
 - Use the lift-and-shadow hover on every button and every interactive
   card. Consistent affordance is the system's voice.
 - Use brutalist shadows on event surfaces and on featured cards. They
@@ -790,7 +791,7 @@ block** on any page.
 - Don't use soft drop shadows (`0 4px 24px rgba(0,0,0,0.1)`-style). They
   read as generic SaaS and undercut the brutalist primitives.
 - Don't add blur radius to shadows. Hard-offset only.
-- Don't use Panchang for body text. The font has no italic, awkward
+- Don't use Plein for body text. The font has no italic, awkward
   small-size kerning, and reads as a banner font under 18px.
 - Don't introduce a new accent color. If you need a second emphasis,
   use `ink` (the black) or stretch the existing semantic palette
@@ -821,6 +822,5 @@ durations, and z-index scale extracted from Gumroad's open-source repo
 Brand identity (pink, display + body type families) replaced for shuuk;
 semantic structure, neutrals, shadow primitives, breakpoints, the
 lift-and-shadow hover pattern, the 140ms transition duration, and the
-z-index scale all kept as-is. The `cva`/`class-variance-authority`
-implementation pattern is referenced but not adopted — shuuk uses plain
-HTML/CSS, not React + Tailwind.
+z-index scale all kept as-is. shuuk uses Next.js 15 + Tailwind v4
+(CSS-first, `@theme` tokens) with hand-rolled React components.
