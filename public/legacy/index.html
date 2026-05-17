@@ -99,7 +99,7 @@
         body {
             font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
-            color: var(--text-primary);
+            color: var(--color-text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -204,7 +204,7 @@
         }
 
         .nav-links a {
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             text-decoration: none;
             font-size: 0.875rem;
             font-weight: 600;
@@ -215,20 +215,20 @@
         }
 
         .nav-links a:hover {
-            color: var(--text-primary);
+            color: var(--color-text-primary);
         }
         .nav-links a.active {
-            color: var(--brand-pink, #EE028B);
+            color: var(--color-brand-pink, #EE028B);
         }
         .mobile-nav-links a.active {
-            color: var(--brand-pink, #EE028B);
+            color: var(--color-brand-pink, #EE028B);
         }
 
         .nav-links .btn {
             padding: 0.5rem 1rem;
             font-size: 0.875rem;
             border-radius: 100px;
-            color: var(--text-primary);
+            color: var(--color-text-primary);
             white-space: nowrap;
             border-color: transparent; /* nav-button exception: stay borderless */
         }
@@ -251,13 +251,13 @@
         .btn-primary {
             background: var(--primary);
             color: white;
-            border-color: var(--ink, #0a0a0a);
+            border-color: var(--color-ink, #0a0a0a);
         }
 
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translate(-4px, -4px);
-            box-shadow: 4px 4px 0 0 var(--ink, #0a0a0a);
+            box-shadow: 4px 4px 0 0 var(--color-ink, #0a0a0a);
         }
         .btn-primary:active {
             transform: translate(0, 0);
@@ -266,16 +266,16 @@
 
         .btn-secondary {
             background: transparent;
-            color: var(--text-primary);
-            border-color: var(--ink, #0a0a0a);
+            color: var(--color-text-primary);
+            border-color: var(--color-ink, #0a0a0a);
         }
 
         .btn-secondary:hover {
-            border-color: var(--text-primary);
-            color: var(--text-primary);
+            border-color: var(--color-text-primary);
+            color: var(--color-text-primary);
             background: rgba(255, 255, 255, 0.04);
             transform: translate(-4px, -4px);
-            box-shadow: 4px 4px 0 0 var(--text-primary);
+            box-shadow: 4px 4px 0 0 var(--color-text-primary);
         }
         .btn-secondary:active {
             transform: translate(0, 0);
@@ -329,7 +329,7 @@
 
         .hero-content .subtitle {
             font-size: clamp(1.125rem, 2vw, 1.5rem);
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             margin-bottom: 2.5rem;
             max-width: 600px;
             margin-left: auto;
@@ -360,7 +360,7 @@
 
         .dashboard-mockup {
             background: var(--bg-card);
-            border: 1px solid var(--border);
+            border: 1px solid var(--color-border);
             border-radius: 16px;
             padding: 1.5rem;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -377,7 +377,7 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: var(--text-muted);
+            background: var(--color-text-muted);
         }
 
         .mockup-content {
@@ -402,7 +402,7 @@
 
         .stat-label {
             font-size: 0.875rem;
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
         }
 
         .stat-value {
@@ -490,17 +490,17 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1.25rem;
-            color: var(--text-primary);
+            color: var(--color-text-primary);
         }
 
         .letter-body {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
         }
 
         .letter-body strong {
-            color: var(--text-primary);
+            color: var(--color-text-primary);
             font-weight: 600;
         }
 
@@ -523,7 +523,7 @@
             height: 10px;
             border-radius: 50%;
             border: none;
-            background: var(--border);
+            background: var(--color-border);
             cursor: pointer;
             padding: 0;
             transition: background 0.3s, transform 0.3s;
@@ -569,7 +569,7 @@
 
         .products-header p {
             font-size: 1.25rem;
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
         }
 
         .product-section {
@@ -656,16 +656,16 @@
             --card-height: 740px;
             flex: 0 0 var(--card-width);
             height: var(--card-height);
-            border-radius: var(--rounded-lg, 8px);
+            border-radius: var(--radius-lg, 8px);
             padding: 2.25rem;
             display: flex;
             flex-direction: column;
             scroll-snap-align: start;
             position: relative;
             overflow: hidden;
-            background: var(--bg-filled, #FFFFFF);
-            color: var(--ink, #0a0a0a);
-            border: 1px solid var(--ink, #0a0a0a);
+            background: var(--color-bg-filled, #FFFFFF);
+            color: var(--color-ink, #0a0a0a);
+            border: 1px solid var(--color-ink, #0a0a0a);
             box-shadow: var(--shadow-hard-sm, 4px 4px 0 0 #0a0a0a);
             transition:
               transform 140ms ease-out,
@@ -704,12 +704,12 @@
 
         /* Variants — color now lives in accent strip + visual, not background */
         .feature-card.dark {
-            background: var(--ink, #0a0a0a);
-            color: var(--bg-filled, #FFFFFF);
-            border-color: var(--ink, #0a0a0a);
+            background: var(--color-ink, #0a0a0a);
+            color: var(--color-bg-filled, #FFFFFF);
+            border-color: var(--color-ink, #0a0a0a);
         }
         .feature-card.purple {
-            border-top: 6px solid var(--brand-pink, #EE028B);
+            border-top: 6px solid var(--color-brand-pink, #EE028B);
         }
 
         .card-content {
@@ -732,7 +732,7 @@
         }
 
         .feature-card.light .card-description {
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             opacity: 1;
         }
 
@@ -795,7 +795,7 @@
             border-radius: 50%;
             border: 1px solid rgba(255, 255, 255, 0.08);
             background: rgba(255, 255, 255, 0.04);
-            color: var(--text-primary);
+            color: var(--color-text-primary);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -806,8 +806,8 @@
 
         .carousel-btn:hover {
             background: rgba(255, 255, 255, 0.08);
-            border-color: var(--ink, #0a0a0a);
-            color: var(--text-primary);
+            border-color: var(--color-ink, #0a0a0a);
+            color: var(--color-text-primary);
         }
 
         .carousel-btn:disabled {
@@ -898,7 +898,7 @@
 
         .comparison-item {
             padding: 1rem 0;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid var(--color-border);
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -968,7 +968,7 @@
 
         .shuukcast-content .subtitle {
             font-size: 1.25rem;
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             max-width: 700px;
             margin: 0 auto 2rem;
         }
@@ -1020,7 +1020,7 @@
 
         .flow-step p {
             font-size: 0.875rem;
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
         }
 
         /* Social Proof */
@@ -1056,7 +1056,7 @@
             line-height: 1.6;
             margin-bottom: 2rem;
             font-style: italic;
-            color: var(--text-primary);
+            color: var(--color-text-primary);
         }
 
         .testimonial-author {
@@ -1065,7 +1065,7 @@
         }
 
         .testimonial-role {
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             font-size: 0.95rem;
         }
 
@@ -1088,7 +1088,7 @@
         }
 
         .stat-description {
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             font-size: 0.95rem;
         }
 
@@ -1159,7 +1159,7 @@
         }
 
         .pricing-description {
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             font-size: 0.95rem;
             margin-bottom: 2rem;
         }
@@ -1172,7 +1172,7 @@
         }
 
         .price-period {
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             font-size: 1rem;
         }
 
@@ -1228,7 +1228,7 @@
 
         .cta p {
             font-size: 1.25rem;
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             margin-bottom: 2rem;
         }
 
@@ -1241,7 +1241,7 @@
 
         .cta-meta {
             margin-top: 2rem;
-            color: var(--text-muted);
+            color: var(--color-text-muted);
             font-size: 0.875rem;
         }
 
@@ -1272,7 +1272,7 @@
         }
 
         .footer-description {
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             font-size: 0.95rem;
         }
 
@@ -1290,7 +1290,7 @@
         }
 
         .footer-links a {
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             text-decoration: none;
             transition: color 0.2s;
             font-size: 0.95rem;
@@ -1387,7 +1387,7 @@
             display: block;
             width: 18px;
             height: 1.5px;
-            background: var(--text-primary);
+            background: var(--color-text-primary);
             margin: 2px 0;
             transition: all 0.3s ease;
         }
@@ -1431,7 +1431,7 @@
             border: none;
             cursor: pointer;
             font-size: 28px;
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1446,7 +1446,7 @@
         }
 
         .mobile-nav-close:hover {
-            color: var(--text-primary);
+            color: var(--color-text-primary);
         }
 
         .mobile-nav-links {
@@ -1458,7 +1458,7 @@
         .mobile-nav-links a {
             font-size: 28px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--color-text-primary);
             text-decoration: none;
             padding: 12px 0;
             transition: color 0.2s;
@@ -1478,7 +1478,7 @@
         .mobile-nav.active .mobile-nav-links a:nth-child(5) { transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s, color 0.2s; }
 
         .mobile-nav-links a:hover {
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
         }
 
         .mobile-nav-links .btn {
@@ -1534,7 +1534,7 @@
             margin-bottom: 0.5rem;
         }
         .modal p {
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             margin-bottom: 1.5rem;
         }
         .modal-close {
@@ -1545,7 +1545,7 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--text-muted);
+            color: var(--color-text-muted);
         }
         .form-group {
             margin-bottom: 1rem;
@@ -1564,7 +1564,7 @@
             font-size: 1rem;
             font-family: inherit;
             background: rgba(255, 255, 255, 0.04);
-            color: var(--text-primary);
+            color: var(--color-text-primary);
             transition: border-color 0.2s;
         }
         .form-group input:focus, .form-group select:focus {
@@ -1583,7 +1583,7 @@
         }
         .widget-button {
             background: rgba(255, 255, 255, 0.08);
-            color: var(--text-primary);
+            color: var(--color-text-primary);
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 14px 20px;
             font-size: 0.95rem;
@@ -1602,7 +1602,7 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
             background: rgba(255, 255, 255, 0.12);
-            border-color: var(--ink, #0a0a0a);
+            border-color: var(--color-ink, #0a0a0a);
         }
         .widget-card {
             position: absolute;
@@ -1625,7 +1625,7 @@
         }
         .widget-header {
             background: rgba(255, 255, 255, 0.06);
-            color: var(--text-primary);
+            color: var(--color-text-primary);
             padding: 16px 20px;
             display: flex;
             justify-content: space-between;
@@ -1636,7 +1636,7 @@
         .widget-close {
             background: none;
             border: none;
-            color: var(--text-secondary);
+            color: var(--color-text-secondary);
             font-size: 1.5rem;
             cursor: pointer;
             padding: 0;
@@ -1662,7 +1662,7 @@
             font-size: 0.95rem;
             font-weight: 600;
             margin-bottom: 12px;
-            color: var(--text-primary);
+            color: var(--color-text-primary);
         }
         .widget-options { display: flex; flex-direction: column; gap: 8px; }
         .widget-option {
@@ -1674,10 +1674,10 @@
             transition: all 0.2s ease;
             text-align: left;
             border-radius: 8px;
-            color: var(--text-primary);
+            color: var(--color-text-primary);
         }
-        .widget-option:hover { border-color: var(--ink, #0a0a0a); background: rgba(255, 255, 255, 0.05); }
-        .widget-option.selected { border-color: var(--ink, #0a0a0a); background: var(--primary); color: #fff; }
+        .widget-option:hover { border-color: var(--color-ink, #0a0a0a); background: rgba(255, 255, 255, 0.05); }
+        .widget-option.selected { border-color: var(--color-ink, #0a0a0a); background: var(--primary); color: #fff; }
         .widget-input {
             width: 100%;
             padding: 12px 14px;
@@ -1687,7 +1687,7 @@
             font-family: inherit;
             margin-bottom: 10px;
             background: rgba(255, 255, 255, 0.04);
-            color: var(--text-primary);
+            color: var(--color-text-primary);
             transition: border-color 0.2s;
         }
         .widget-input:focus { outline: none; border-color: rgba(238, 2, 139, 0.5); box-shadow: 0 0 0 3px rgba(238, 2, 139, 0.1); }
@@ -2126,31 +2126,31 @@
             </div>
 
             <div style="margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.02); border-radius: 16px; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
-                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text-primary);">What's Included in Your League Website</h3>
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--color-text-primary);">What's Included in Your League Website</h3>
                 <div class="comparison-grid" style="margin-top: 2rem;">
                     <div style="padding: 1.5rem;">
                         <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Live Game Center</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Watch shuuk.Stream streams with live stats overlay, right on your league site</p>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem;">Watch shuuk.Stream streams with live stats overlay, right on your league site</p>
                     </div>
                     <div style="padding: 1.5rem;">
                         <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Real-Time Standings</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Automatically updated from game results, no manual entry needed</p>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem;">Automatically updated from game results, no manual entry needed</p>
                     </div>
                     <div style="padding: 1.5rem;">
                         <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Player Stats & Leaders</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Points, rebounds, assists—all tracked and displayed beautifully</p>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem;">Points, rebounds, assists—all tracked and displayed beautifully</p>
                     </div>
                     <div style="padding: 1.5rem;">
                         <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Team Pages</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Each team gets their own page with roster, schedule, and stats</p>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem;">Each team gets their own page with roster, schedule, and stats</p>
                     </div>
                     <div style="padding: 1.5rem;">
                         <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Schedule & Registration</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Teams can view upcoming games and register directly from the site</p>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem;">Teams can view upcoming games and register directly from the site</p>
                     </div>
                     <div style="padding: 1.5rem;">
                         <h4 style="margin-bottom: 1rem; font-weight: 600;">✓ Custom Domain</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Use your own domain name (yourleague.com) for professional branding</p>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem;">Use your own domain name (yourleague.com) for professional branding</p>
                     </div>
                 </div>
             </div>
