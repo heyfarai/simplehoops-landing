@@ -15,7 +15,7 @@ interface EditorialNavProps {
   logoSrc: string;
   logoAlt?: string;
   logoHref?: string;
-  navItems: NavItem[];
+  navItems: readonly NavItem[];
   ctaHref: string;
   ctaLabel: string;
   className?: string;
