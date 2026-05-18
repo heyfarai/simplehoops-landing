@@ -10,13 +10,13 @@ const EVERYONE = [
   { nm: 'H-O-R-S-E', ds: 'Open bracket. Recurring all day.' },
   { nm: 'Kids Shootout', ds: 'Lower rim. Ages 6–12. Once mid-day.' },
   { nm: 'Caterpillar Sprint', ds: '2× per day. Head-to-head teams.' },
-  { nm: 'Moms Only · Beat the Clock', ds: 'Once, mid-afternoon. Mom assist required.' },
+  // { nm: 'Moms Only · Beat the Clock', ds: 'Once, mid-afternoon. Mom assist required.' },
   { nm: 'Beat the Clock', ds: 'Random spectator pulled. One arc shot.' },
   { nm: 'Half-Court Shot', ds: 'Wristband holder. 3× across the day.' },
   { nm: 'Handles Challenge', ds: 'Crowd challenges a court player.' },
   { nm: 'Player of the Hour', ds: 'Named hourly. On the TV feed. Sponsor presented.' },
-  { nm: 'Spin the Court', ds: 'DJ wheel. Random court freezes.' },
-  { nm: 'The Bounty', ds: 'One player. $100. Posted at 10 AM.' },
+  // { nm: 'Spin the Court', ds: 'DJ wheel. Random court freezes.' },
+  // { nm: 'The Bounty', ds: 'One player. $100. Posted at 10 AM.' },
 ];
 
 function Card({ nm, ds }: { nm: string; ds: string }) {

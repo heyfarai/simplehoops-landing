@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/button';
+
 export function Venue() {
   return (
     <section id="venue" className="bg-bg-paper px-6 py-16 md:py-40 min-h-screen flex items-center">
@@ -23,14 +25,9 @@ export function Venue() {
               Free parking on-site. Transit: OC Transpo #6, #40 · nearest station Billings Bridge.
             </p>
             <p className="font-body text-sm">
-              <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Ottawa+Masonic+Centre+2140+Walkley+Road,+Ottawa,+ON+K1G+3V3"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand-pink underline"
-              >
+            <Button variant="primary" href="https://www.google.com/maps/dir/?api=1&destination=Ottawa+Masonic+Centre+2140+Walkley+Road,+Ottawa,+ON+K1G+3V3" className="flex-none whitespace-nowrap">
                 Get directions →
-              </a>
+              </Button>
             </p>
           </div>
           <div className="min-h-[280px]">
