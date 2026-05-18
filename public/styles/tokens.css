@@ -183,7 +183,10 @@
   --color-text-muted: #555559;
   --color-text-inverse: #000000;
   --color-border: rgba(255, 255, 255, 0.08);
+
+  --card-height: 480px !important;
 }
+
 
 /* ==========================================================================
    Card primitives (DESIGN.md Components > Cards)
@@ -231,13 +234,6 @@ button.card-outline-shadow:hover {
 }
 
 /* ==========================================================================
-   TEMP: hide event banner — comment out this block to bring it back
-   ========================================================================== */
-.evt-bar { display: none !important; }
-body { padding-top: 0 !important; }
-nav { top: 1rem !important; }
-
-/* ==========================================================================
    Reduced motion (DESIGN.md Motion)
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
@@ -247,4 +243,19 @@ nav { top: 1rem !important; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+.evt-bar { 
+  display: none !important;
+}
+nav {
+  top: 2rem !important;
+}
+.logo img {
+  height: 48px !important
+}
+.card-visual {
+}
+.product-section {
+  max-width: 1040px !important;
+  margin:auto !important;
 }

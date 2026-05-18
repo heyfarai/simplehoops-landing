@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/public/scripts/theme.js"></script>
+    <script src="/scripts/theme.js"></script>
     <title>Shuuk - Team & Club Management Software</title>
     <meta name="description" content="Professional team website, live streaming, and stats tracking for basketball teams and clubs. Rosters, schedules, camps, tryouts — all in one platform.">
     <link rel="canonical" href="https://shuuk.ca/teams">
@@ -28,15 +28,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/public/styles/tokens.css">
+    <link rel="stylesheet" href="/styles/tokens.css">
     <style>
 
         /* Permanent event banner */
         .evt-bar {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
             background: #0a0a0a; color: white;
             display: flex; align-items: center; justify-content: center; gap: 14px;
-            padding: 8px 16px;
+            padding: 16px 16px;
             font-family: 'JetBrains Mono', 'Outfit', monospace;
             font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
             text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -49,8 +48,6 @@
             .evt-bar .evt-meta { display: none; }
             .evt-bar .evt-tag { padding: 3px 6px; }
         }
-        body { padding-top: 38px; }
-        nav { top: calc(1rem + 24px) !important; }
 
         :root {
             --primary: #EE028B;
@@ -131,10 +128,10 @@
 
         /* Navigation */
         nav {
-            position: fixed;
+            position: sticky;
             top: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
+            width: fit-content;
+            margin: 0 auto;
             z-index: 1000;
         }
         .nav-container {
@@ -160,7 +157,7 @@
         .logo { display: flex; align-items: center; margin-left: 1rem; position: relative; z-index: 2; }
         .logo img {
             height: 80px; width: auto;
-            margin: -40px 0 -34px -40px;
+            margin: 0;
             transform: rotate(-3deg); transform-origin: center;
             filter: drop-shadow(2px 4px 0 rgba(0,0,0,0.18));
             transition: transform 140ms ease-out;
@@ -249,7 +246,6 @@
             transform: translateX(-50%);
             width: 140%;
             height: 80%;
-            background: radial-gradient(ellipse at 50% 20%, rgba(96, 165, 250, 0.35) 0%, rgba(96, 165, 250, 0.12) 30%, transparent 65%);
             pointer-events: none;
             z-index: 0;
         }
@@ -285,7 +281,7 @@
         /* Products Section */
         .products {
             padding: 6rem 0;
-            background: var(--bg-elevated);
+            /* background: var(--bg-elevated); */
             position: relative;
         }
         .products::before {
@@ -299,7 +295,6 @@
         }
         .products-header {
             text-align: center;
-            margin-bottom: 8rem;
             padding: 4rem 2rem;
         }
         .products-header h2 { margin-bottom: 1rem; }
@@ -343,12 +338,12 @@
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             padding: 0.5rem 0 2rem;
-            scroll-padding-left: 2rem;
+            /* scroll-padding-left: 2rem; */
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
         }
         @media (min-width: 1400px) {
-            .carousel { scroll-padding-left: calc((100vw - 1400px) / 2); }
+            /* .carousel { scroll-padding-left: calc((100vw - 1400px) / 2); } */
         }
         .carousel::-webkit-scrollbar { display: none; }
         .carousel::before, .carousel::after { content: ''; flex: 0 0 2rem; }
@@ -450,9 +445,10 @@
         /* Feature Deep Dive Section */
         .feature-section {
             padding: 8rem 2rem;
-            background: var(--bg-elevated);
             position: relative;
             overflow: hidden;
+            max-width: 1040px;
+            margin: auto
         }
         .feature-section::before {
             content: '';
@@ -462,17 +458,11 @@
             transform: translateX(-50%);
             width: 120%;
             height: 100%;
-            background: radial-gradient(ellipse at 50% 0%, rgba(139, 92, 246, 0.3) 0%, transparent 55%),
-                        radial-gradient(ellipse at 80% 80%, rgba(96, 165, 250, 0.18) 0%, transparent 50%);
             z-index: 0;
         }
         .feature-section.alt::before {
-            background: radial-gradient(ellipse at 50% 0%, rgba(238, 2, 139, 0.35) 0%, transparent 55%),
-                        radial-gradient(ellipse at 20% 80%, rgba(96, 165, 250, 0.2) 0%, transparent 50%);
         }
         .feature-section.blue-glow::before {
-            background: radial-gradient(ellipse at 50% 0%, rgba(96, 165, 250, 0.3) 0%, transparent 55%),
-                        radial-gradient(ellipse at 20% 80%, rgba(238, 2, 139, 0.2) 0%, transparent 50%);
         }
         .feature-container {
             max-width: 1400px;
@@ -580,8 +570,9 @@
         /* Pricing */
         .pricing {
             padding: 6rem 2rem;
-            background: var(--bg-elevated);
             position: relative;
+            max-width: 1040px;
+            margin: auto;
         }
         .pricing::before {
             content: '';
@@ -591,11 +582,10 @@
             transform: translateX(-50%);
             width: 80%;
             height: 60%;
-            background: radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.2) 0%, transparent 60%);
             pointer-events: none;
         }
         .pricing-container {
-            max-width: 1200px;
+            max-width: 1040px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -661,7 +651,6 @@
             transform: translateX(-50%);
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at 50% 60%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
             pointer-events: none;
         }
         .cta-container {
@@ -988,7 +977,7 @@
     <!-- Permanent event banner -->
     <a href="/jam" class="evt-bar">
         <span class="evt-tag">SHUUK 3X3 JAM</span>
-        <span class="evt-meta">Ottawa · July 11, 2026</span>
+        <span class="evt-meta">Ottawa · July 18, 2026</span>
         <span class="evt-cta">Join the waitlist →</span>
     </a>
 
@@ -1044,12 +1033,11 @@
             <p>One platform. Website, streaming, stats. Done.</p>
         </div>
 
-        <!-- shuuk.Sites -->
+        <!-- shuuk! -->
         <div class="product-section">
             <div class="product-title">
                 <h3>
-                    <div class="product-icon sites">🌐</div>
-                    shuuk.Sites
+                    Sites
                 </h3>
             </div>
             <div class="carousel-wrapper">
@@ -1084,7 +1072,7 @@
                     <div class="feature-card light">
                         <div class="card-content">
                             <div class="card-title">Streams on your site</div>
-                            <p class="card-description">shuuk.Stream broadcasts embedded directly. Grandma watches from her couch.</p>
+                            <p class="card-description">shuuk! broadcasts embedded directly. Grandma watches from her couch.</p>
                         </div>
                         <div class="card-visual">
                             <div class="card-visual-content">📺</div>
@@ -1116,12 +1104,11 @@
             </div>
         </div>
 
-        <!-- shuuk.Stream -->
+        <!-- shuuk! -->
         <div class="product-section">
             <div class="product-title">
                 <h3>
-                    <img src="img/hoopcast-icon.png" alt="shuuk.Stream" class="product-icon">
-                    shuuk.Stream
+                    Stream
                 </h3>
             </div>
             <div class="carousel-wrapper">
@@ -1165,8 +1152,7 @@
         <div class="product-section">
             <div class="product-title">
                 <h3>
-                    <img src="img/hoopscore-icon.png" alt="shuuk.Score" class="product-icon">
-                    shuuk.Score
+                    Score
                 </h3>
             </div>
             <div class="carousel-wrapper">
@@ -1183,7 +1169,7 @@
                     <div class="feature-card light">
                         <div class="card-content">
                             <div class="card-title">Live Sync</div>
-                            <p class="card-description">Stats sync to parents' phones, your team website, and shuuk.Stream streams instantly.</p>
+                            <p class="card-description">Stats sync to parents' phones, your team website, and shuuk! streams instantly.</p>
                         </div>
                         <div class="card-visual">
                             <div class="card-visual-content">⚡</div>
@@ -1220,7 +1206,7 @@
     <section class="feature-section">
         <div class="feature-container">
             <div class="feature-content">
-                <span class="badge">shuuk.Sites</span>
+                <span class="badge">Sites</span>
                 <h2>Content That Creates Itself</h2>
                 <p class="subtitle">After every game, shuuk generates Instagram-ready posts and stories from your stats and results. Your team's social media stays fresh without the work.</p>
             </div>
@@ -1271,9 +1257,9 @@
     <section class="feature-section alt">
         <div class="feature-container">
             <div class="feature-content">
-                <span class="badge orange">shuuk.Stream</span>
+                <span class="badge orange">shuuk!</span>
                 <h2>Game Day, Simplified</h2>
-                <p class="subtitle">Parents can't make it to every game. With shuuk.Stream, they don't have to miss a moment. One tap and you're broadcasting live.</p>
+                <p class="subtitle">Parents can't make it to every game. With shuuk!, they don't have to miss a moment. One tap and you're broadcasting live.</p>
             </div>
 
             <div class="flow-diagram">
@@ -1285,7 +1271,7 @@
                 <div class="flow-step">
                     <div class="flow-icon orange">🎬</div>
                     <h4>Tap "Start Broadcast"</h4>
-                    <p>One button in shuuk.Stream</p>
+                    <p>One button in shuuk!</p>
                 </div>
                 <div class="flow-step">
                     <div class="flow-icon orange">📺</div>
@@ -1306,7 +1292,7 @@
                     <p class="pricing-description">For teams getting online</p>
                     <div class="price">$29<span class="price-period">/month</span></div>
                     <ul class="pricing-features">
-                        <li>Team website with shuuk.Sites</li>
+                        <li>Team website with shuuk!</li>
                         <li>Roster management</li>
                         <li>Schedule & game results</li>
                         <li>shuuk.Score stat tracking</li>
@@ -1322,7 +1308,7 @@
                     <div class="price">$79<span class="price-period">/month</span></div>
                     <ul class="pricing-features">
                         <li>Everything in Starter</li>
-                        <li><strong>shuuk.Stream live broadcasting</strong></li>
+                        <li><strong>shuuk! live broadcasting</strong></li>
                         <li>Pro broadcast overlays</li>
                         <li><strong>IG content generation</strong></li>
                         <li>Advanced analytics</li>
@@ -1359,7 +1345,7 @@
             <div class="cta-buttons">
                 <a href="#" onclick="openDemoModal(); return false;" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem;">Book a Demo</a>
             </div>
-            <p class="cta-meta">shuuk.Sites + shuuk.Stream + shuuk.Score</p>
+            <p class="cta-meta">shuuk! + shuuk! + shuuk.Score</p>
         </div>
     </section>
 
@@ -1373,8 +1359,8 @@
             <div class="footer-section">
                 <h4>Product</h4>
                 <ul class="footer-links">
-                    <li><a href="/teams#features">shuuk.Sites</a></li>
-                    <li><a href="/teams#features">shuuk.Stream</a></li>
+                    <li><a href="/teams#features">shuuk!</a></li>
+                    <li><a href="/teams#features">shuuk!</a></li>
                     <li><a href="/teams#features">shuuk.Score</a></li>
                     <li><a href="/teams#pricing">Pricing</a></li>
                 </ul>
