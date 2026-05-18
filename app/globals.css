@@ -7,7 +7,7 @@
    ========================================================================== */
 @theme {
   /* Brand */
-  --color-brand-pink: #EE028B;
+  --color-brand-pink: #f7057a;
   --color-brand-pink-subtle: #FBE5F0;
   --color-brand-pink-deep: #CC0277;
   --color-brand-pink-light: #FF4FA8;
@@ -67,6 +67,7 @@
 
   /* Type families — injected by next/font in app/layout.tsx */
   --font-display: 'Plein', 'Outfit', -apple-system, sans-serif;
+  --font-heading: 'Quizlo', 'Plein', 'Outfit', -apple-system, sans-serif;
   --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
 
@@ -142,6 +143,31 @@
    At rest: no transform, no shadow. On hover: translate up-left, gain shadow.
    On active: reset. Apply with `hover-lift` className alongside a shadow utility.
    ========================================================================== */
+/* ==========================================================================
+   Brutalist text extrusion. Pink text + stacked ink shadow marching down-right.
+   Use on display headings to match the brutalist visual primitive of the
+   shadow-hard-* utilities. Apply alongside font-display + font-black.
+   ========================================================================== */
+@utility text-extrude {
+  font-family: var(--font-heading);
+  text-shadow:
+    1px 1px 0 var(--color-ink),
+    2px 2px 0 var(--color-ink),
+    3px 3px 0 var(--color-ink),
+    4px 4px 0 var(--color-ink),
+    5px 5px 0 var(--color-ink),
+    6px 6px 0 var(--color-ink),
+    7px 7px 0 var(--color-ink),
+    8px 8px 0 var(--color-ink),
+    9px 9px 0 var(--color-ink),
+    10px 10px 0 var(--color-ink),
+    11px 11px 0 var(--color-ink),
+    12px 12px 0 var(--color-ink),
+    13px 13px 0 var(--color-ink),
+    14px 14px 0 var(--color-ink)
+
+}
+
 @utility hover-lift {
   transition:
     transform 140ms ease-out,

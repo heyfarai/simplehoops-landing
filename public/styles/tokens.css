@@ -33,6 +33,14 @@
   font-weight: 900; font-style: normal; font-display: swap;
 }
 
+/* Quizlo — heading face (local, self-hosted). Single weight. */
+@font-face {
+  font-family: 'Quizlo';
+  src: url('../fonts/Quizlo.otf') format('opentype'),
+       url('../fonts/Quizlo.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
 :root {
   /* -- Brand ------------------------------------------------------------- */
   --color-brand-pink: #EE028B;
@@ -104,6 +112,7 @@
 
   /* -- Type families ---------------------------------------------------- */
   --font-display: 'Plein', 'Outfit', -apple-system, sans-serif;
+  --font-heading: 'Quizlo', 'Plein', 'Outfit', -apple-system, sans-serif;
   --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
 

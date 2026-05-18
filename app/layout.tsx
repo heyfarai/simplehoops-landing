@@ -14,6 +14,14 @@ const plein = localFont({
   display: 'swap',
 });
 
+const quizlo = localFont({
+  src: [
+    { path: '../public/fonts/Quizlo.otf', weight: '400', style: 'normal' },
+  ],
+  variable: '--font-heading',
+  display: 'swap',
+});
+
 const outfit = Outfit({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
@@ -42,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plein.variable} ${outfit.variable} ${jetbrainsMono.variable}`}
+      className={`${plein.variable} ${quizlo.variable} ${outfit.variable} ${jetbrainsMono.variable}`}
     >
       <body>{children}</body>
     </html>
