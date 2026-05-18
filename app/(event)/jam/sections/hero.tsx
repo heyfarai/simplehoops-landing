@@ -21,20 +21,22 @@ export function Hero() {
         Food trucks.<br />
         </h2>
         <p className="font-mono font-bold text-base uppercase tracking-[0.05em] text-ink/70">
-          Saturday, July 11, 2026
+          Saturday, July 18, 2026
           <br />
-          9:30 AM &mdash; 7:00 PM
-          <br />
-          Masonic Centre, Walkley, Ottawa
+            U12 / U14 / U16 / Boys &amp; Girls
+            <br />
+            Spots are limited.
+            <br />
+            <span className="font-bold text-brand-pink underline">$240</span> per team.
         </p>
         <div className="flex flex-col gap-3">
           <Button variant="primary" href="#waitlist" className="mt-4 w-fit">
             Join the Waitlist
           </Button>
           <div className="font-mono font-bold text-base uppercase tracking-[0.05em] text-ink/70 mt-6">
-            U12 / U14 / U16 / Boys &amp; Girls
-            <br />
-            Spots are limited.
+          9:30 AM &mdash; 7:00 PM
+          <br />
+          Masonic Centre, Walkley, Ottawa
           </div>
         </div>
       </div>

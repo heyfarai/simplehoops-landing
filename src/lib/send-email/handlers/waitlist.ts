@@ -6,7 +6,7 @@ export async function handleWaitlist(data: WaitlistPayload) {
   const event = data.event || 'shuuk-3x3-jam';
   const eventLabel =
     event === 'juuk-3x3-jam' || event === 'shuuk-3x3-jam'
-      ? 'shuuk! 3x3 jam · Ottawa · July 11, 2026'
+      ? 'shuuk! 3x3 jam · Ottawa · July 18, 2026'
       : event;
   const source = data.source || 'unknown';
   const email = String(data.email || '').trim();
@@ -47,7 +47,7 @@ export async function handleWaitlist(data: WaitlistPayload) {
 
 We'll confirm your spot and send registration details as soon as they open.
 
-Saturday, July 11, 2026
+Saturday, July 18, 2026
 2140 Walkley Road, Ottawa, Ontario K1G 3V3
 U12 / U14 / U16 · 12 teams per division
 Outdoor 3x3 + midday indoor session — 23 Things No One Tells Hoopers
@@ -98,7 +98,7 @@ shuuk.ca/jam`;
   <div style="background:white;border:2px solid #0a0a0a;box-shadow:8px 8px 0 0 #EE028B;padding:20px 24px;margin:0 0 32px;">
     <p style="margin:0 0 10px;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-family:'JetBrains Mono','Courier New',monospace;color:rgba(0,0,0,0.5);">The rundown</p>
     <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;">
-      ${rundownItem('When', 'Saturday, July 11, 2026', 'Gates 8:00 AM · Finals 6:30 PM · Awards 7:30 PM')}
+      ${rundownItem('When', 'Saturday, July 18, 2026', 'Gates 8:00 AM · Finals 6:30 PM · Awards 7:30 PM')}
       ${rundownItem('Where', 'Ottawa Masonic Centre', '2140 Walkley Road, Ottawa, ON K1G 3V3')}
       ${rundownItem('Format', 'U12 / U14 / U16 · 12 teams per division', 'Outdoor 3x3 + midday indoor session')}
     </table>

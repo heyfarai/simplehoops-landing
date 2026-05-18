@@ -12,7 +12,7 @@ import { Footer } from './sections/footer';
 export const metadata: Metadata = {
   title: 'SHUUK! 3x3 JAM — Ottawa · Jul 11, 2026',
   description:
-    'Outdoor 3x3 + midday indoor session. U12 / U14 / U16. 12 teams per division. Saturday July 11, 2026, Ottawa.',
+    'Outdoor 3x3 + midday indoor session. U12 / U14 / U16. 12 teams per division. Saturday July 18, 2026, Ottawa.',
   openGraph: {
     images: ['/jam/photo-hero.png'],
   },
