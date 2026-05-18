@@ -32,41 +32,31 @@ export function Activations() {
   return (
     <section
       id="activations"
-      className="bg-bg-filled border-y-2 border-ink px-6 py-16 md:py-24"
+      className="bg-bg-filled border-y-2 border-ink px-6 py-16 md:py-40 min-h-screen flex items-center"
     >
-      <div className="max-w-[1040px] mx-auto">
-        <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
-          <h3>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/img/heading--combine.svg"
-              alt="Combine — for players"
-              className="h-[clamp(48px,7vw,96px)]"
-            />
-          </h3>
-          <span className="bg-brand-pink text-text-inverse font-mono text-xs uppercase tracking-[0.18em] px-3 py-2">
-            SKILL · MEASURED
-          </span>
+      <div className="max-w-[1040px] mx-auto w-full">
+        <div className="flex items-center justify-between mb-6 flex-wrap gap-3 ">
+        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(72px,12vw,140px)] mb-8">
+          mini-combine
+        </h2>
         </div>
+        <p className="font-display font-extrabold text-[clamp(28px,4vw,48px)] uppercase mb-6 max-w-none tracking-tight leading-[1.5]">
+          <span className="font-light">Max Vertical.</span> Sprint. Touch.<br />
+          <span className="font-light">Skills</span> on the clock.
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {COMBINE.map((a) => (
             <Card key={a.nm} {...a} />
           ))}
         </div>
 
-        <div className="font-mono text-xs uppercase tracking-[0.18em] text-ink/55 mt-12 mb-3">
-          ── side action
-        </div>
-        <h2 className="mb-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/img/heading--side-quests.svg"
-            alt="Side quests — stuff happening between games"
-            className="h-[clamp(72px,10vw,132px)]"
-          />
+      <div className="mt-40">
+        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(72px,12vw,140px)] mb-8">
+          side quests
         </h2>
-        <p className="font-body text-base md:text-lg mb-6 max-w-2xl">
-          Picnic energy. Family on the bleachers. Real basketball in the cracks.
+        <p className="font-display font-extrabold text-[clamp(28px,4vw,48px)] uppercase mb-6 max-w-none tracking-tight leading-[1.5]">
+          <span className="font-light">BUMP.</span> 1v1. Player of the Hour.<br />
+          <span className="font-light">Prizes</span> all day.
         </p>
 
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
@@ -80,6 +70,7 @@ export function Activations() {
             <Card key={a.nm} {...a} />
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

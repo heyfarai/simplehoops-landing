@@ -1,23 +1,19 @@
 const FAQ = [
   {
     q: 'Who is this for?',
-    a: 'Players born 2010 or later competing in U12, U14, or U16 divisions. Open to all skill levels — this is not an elite-only event.',
+    a: 'Competitive teams players born 2010 or later playing in U12, U14, or U16 divisions.',
   },
   {
     q: 'What does the entry fee cover?',
     a: 'Full day access to outdoor competition and indoor programming, event swag, and access to food vendors on site. Food is not included.',
   },
   {
-    q: 'Is there seating for parents?',
-    a: 'Yes. Outdoor spectator areas are set up around the courts. The indoor session at midday seats 120 and is open to all registered families.',
+    q: 'Is there parking?',
+    a: 'Yes. Free parking on-site. Transit: OC Transpo #6, #40 · nearest station Billings Bridge.',
   },
   {
     q: 'What if it rains?',
     a: 'We monitor the forecast closely. Registered teams will be notified by email of any schedule changes. A rain date is held the following day, Sunday July 12.',
-  },
-  {
-    q: 'Who is running this?',
-    a: 'shuuk! 3x3 jam is organized by shuuk!, with licensed first aid on site, full event insurance, and a City of Ottawa special event permit.',
   },
 ];
 
@@ -25,14 +21,14 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="bg-bg-filled border-y-2 border-ink px-6 py-16 md:py-24"
+      className="bg-bg-filled border-y-2 border-ink px-6 py-16 md:py-40 min-h-screen flex items-center"
     >
-      <div className="max-w-[1040px] mx-auto">
+      <div className="max-w-[1040px] mx-auto w-full">
         <div className="font-mono text-xs uppercase tracking-[0.18em] text-ink/55 mb-3">
-          ── for parents
+          Frequently Asked Questions
         </div>
-        <h2 className="font-display font-extrabold text-4xl md:text-6xl mb-8">
-          A few things worth knowing.
+        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(72px,12vw,140px)] mb-8">
+          questions?
         </h2>
 
         <div className="border-t-2 border-ink">

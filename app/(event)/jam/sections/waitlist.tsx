@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, type FormEvent } from 'react';
+import { Button } from '@/components/ui/button';
 
 interface SubmittedSummary {
   teamName: string;
@@ -53,18 +54,22 @@ export function Waitlist() {
 
   return (
     <>
-      <section id="waitlist" className="bg-bg-paper px-6 py-16 md:py-24">
-        <div className="max-w-[1040px] mx-auto">
+      <section id="waitlist" className="bg-bg-paper px-6 py-16 md:py-40 min-h-screen flex items-center">
+        <div className="max-w-[1040px] mx-auto w-full">
           <div className="font-mono text-xs uppercase tracking-[0.18em] text-ink/55 mb-3">
-            ── reserve your spot
+            Reserve your spot
           </div>
-          <h2 className="font-display font-extrabold text-4xl md:text-6xl mb-4">
-            36 spots. <span className="text-brand-pink">One day.</span> Don&apos;t wait.
+          <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(72px,12vw,140px)] mb-8">
+          save a spot. 
           </h2>
+          <p className="font-display font-extrabold text-[clamp(28px,4vw,48px)] leading-[1.05] uppercase mb-6 max-w-none tracking-tight leading-[1.5]">
+            <span className="font-light">Don't</span> Miss out.<br />
+          </p>
           <p className="font-body text-base md:text-lg mb-8 max-w-2xl">
             Join the waitlist now. We&apos;ll confirm your spot and send registration details
             as soon as they&apos;re open.
           </p>
+          <p className='mb-12 font-bold text-base md:text-lg'>Full team registration will require payment</p>
 
           <div className="bg-bg-paper border-[3px] border-ink shadow-hard-pink rounded-sm p-8 md:p-10">
             <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={onSubmit}>
@@ -80,6 +85,7 @@ export function Waitlist() {
                   name="teamName"
                   type="text"
                   required
+                  autoComplete="organization"
                   placeholder="e.g. Walkley Warriors"
                   className="w-full bg-bg-paper border-2 border-ink rounded-sm px-4 py-3 font-body text-base"
                 />
@@ -115,6 +121,7 @@ export function Waitlist() {
                   name="contactName"
                   type="text"
                   required
+                  autoComplete="name"
                   placeholder="Your name"
                   className="w-full bg-bg-paper border-2 border-ink rounded-sm px-4 py-3 font-body text-base"
                 />
@@ -154,15 +161,18 @@ export function Waitlist() {
                 />
               </div>
               <div className="md:col-span-2">
-                <button
+                <Button
+                  variant="primary"
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-brand-pink text-text-inverse border-2 border-ink rounded-sm px-6 py-3 font-body font-bold text-base shadow-hard-sm hover-lift hover:shadow-hard-lg disabled:opacity-50"
+                  aria-busy={isSubmitting}
                 >
                   {isSubmitting ? 'Sending…' : 'Reserve Our Spot'}
-                </button>
+                </Button>
                 {error && (
-                  <div className="mt-3 font-body text-sm text-danger">{error}</div>
+                  <div role="alert" aria-live="polite" className="mt-3 font-body text-sm text-danger">
+                    {error}
+                  </div>
                 )}
               </div>
             </form>
@@ -177,7 +187,7 @@ export function Waitlist() {
               <a
                 href="https://instagram.com/shuuk"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 className="text-brand-pink underline"
               >
                 @shuuk
@@ -213,6 +223,7 @@ function WaitlistModal({
     <div
       role="dialog"
       aria-modal="true"
+      aria-labelledby="waitlist-success-title"
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-bg-backdrop p-4"
       onClick={(e) => {
         if (e.target === e.currentTarget) close();
@@ -221,12 +232,15 @@ function WaitlistModal({
       <div className="bg-bg-paper border-[3px] border-ink shadow-hard-pink rounded-sm p-8 md:p-10 max-w-[440px] w-full relative">
         <button
           onClick={close}
-          aria-label="Close"
+          aria-label="Close confirmation"
           className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center font-body text-2xl leading-none"
         >
           ×
         </button>
-        <h3 className="font-display font-extrabold text-3xl md:text-4xl mb-4">
+        <h3
+          id="waitlist-success-title"
+          className="font-display font-extrabold text-3xl md:text-4xl mb-4"
+        >
           you&apos;re <span className="text-brand-pink">on the list.</span>
         </h3>
         <p className="font-body text-base mb-4">

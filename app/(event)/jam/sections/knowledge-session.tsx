@@ -1,38 +1,34 @@
 const TALKS = [
-  { time: '12:00', topic: 'Talk 1 — AAU / the system', len: '15 min' },
-  { time: '12:15', topic: 'Talk 2 — Nutrition + physical development', len: '15 min' },
-  { time: '12:30', topic: 'Talk 3 — Mental health + identity', len: '15 min' },
-  { time: '12:45', topic: 'Special guest — live recorded session', len: '—' },
+  { time: '12:00', topic: 'Talk 1 — TBC', len: '15 min' },
+  { time: '12:15', topic: 'Talk 2 — TBC', len: '15 min' },
+  { time: '12:30', topic: 'Talk 3 — TBC', len: '15 min' },
+  { time: '12:45', topic: 'Special guest', len: '45 min' },
 ];
 
 export function KnowledgeSession() {
   return (
-    <section id="indoor" className="bg-bg-paper px-6 py-16 md:py-24">
-      <div className="max-w-[1040px] mx-auto">
+    <section id="indoor" className="bg-bg-paper px-6 py-16 md:py-40 min-h-screen flex items-center">
+      <div className="max-w-[1040px] mx-auto w-full">
+        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(72px,12vw,140px)] mb-20">
+          IQ sessions
+        </h2>
+        <p className="font-display font-extrabold text-[clamp(28px,4vw,48px)] uppercase mb-6 max-w-none tracking-tight ">
+          <span className="font-light">23 Things</span> Every Hooper Should Know<br />
+          <span className="font-bold text-lg tracking-[0.05em] -mb-10">(But nobody really tells them)</span><br />
+        </p>
         <div className="bg-ink text-text-inverse border-[3px] border-ink shadow-hard-pink p-8 md:p-12 rounded-sm">
-          <div className="font-mono text-xs uppercase tracking-[0.18em] text-white/55 mb-3">
-            ── ball knowledge session
-          </div>
-          <h2 className="mb-4">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/img/heading--knowledge.svg"
-              alt="Knowledge — 23 things no one tells hoopers (and their families)"
-              className="h-[clamp(72px,10vw,132px)] invert"
-            />
-          </h2>
           <div className="font-mono text-xs uppercase tracking-[0.18em] text-brand-pink mb-4">
             Midday · Doors at 11:45 AM · Free with registration
           </div>
-          <p className="font-body text-base md:text-lg mb-4">
-            Three short talks. One live podcast recording. Honest conversations about AAU,
-            nutrition, mental health, and the drive home after a tough game. Sessions include
-            coaches, current and former players, and a live recording of{' '}
-            <strong>The Help Side Basketball Show</strong> — Ottawa&apos;s basketball podcast —
-            with a guest announced closer to the date.
+          <p className="font-body text-base md:text-xl mb-4">
+            Honest conversations about <span className="font-bold">practice, picking teams,
+            nutrition, mental health, and the drive home </span> after a tough game.    
           </p>
-          <p className="font-body text-base md:text-lg">
-            This isn&apos;t a motivational seminar. It&apos;s the stuff players and parents wish
+            <p className="font-body text-base md:text-xl">Experts include
+            coaches, current and former players. A Very Special Guest TBA.</p>
+       
+          <p className="font-body text-base md:text-xl"><br/>
+            This isn&apos;t a motivational seminar. <br/><br/> It&apos;s the stuff players and parents wish
             someone had told them earlier.
           </p>
 
