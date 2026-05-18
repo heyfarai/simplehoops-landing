@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/public/scripts/theme.js"></script>
+    <script src="/scripts/theme.js"></script>
     <title>Shuuk - Tournament Software for Basketball</title>
     <meta name="description" content="Run a tournament without the spreadsheet hell. Online registration, brackets, live stats, streaming, and websites — for a single weekend or a season-long circuit.">
     <link rel="canonical" href="https://shuuk.ca/tournaments">
@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/public/styles/tokens.css">
+    <link rel="stylesheet" href="/styles/tokens.css">
     <style>
 
         :root {
@@ -54,7 +54,7 @@
             color: var(--color-text-primary);
             line-height: 1.6;
             overflow-x: hidden;
-            padding-top: 38px;
+
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -79,10 +79,9 @@
 
         /* Banner */
         .evt-bar {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
             background: #0a0a0a; color: white;
             display: flex; align-items: center; justify-content: center; gap: 14px;
-            padding: 8px 16px;
+            padding: 16px 16px;
             font-family: 'JetBrains Mono', 'Outfit', monospace;
             font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
             text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -98,10 +97,10 @@
 
         /* Nav */
         nav {
-            position: fixed;
-            top: calc(1rem + 24px);
-            left: 50%;
-            transform: translateX(-50%);
+            position: sticky;
+            top: 1rem;
+            width: fit-content;
+            margin: 0 auto;
             z-index: 1000;
         }
         .nav-container {
@@ -125,7 +124,7 @@
         .logo { display: flex; align-items: center; margin-left: 1rem; position: relative; z-index: 2; }
         .logo img {
             height: 80px; width: auto;
-            margin: -40px 0 -34px -40px;
+            margin: 0;
             transform: rotate(-3deg); transform-origin: center;
             filter: drop-shadow(2px 4px 0 rgba(0,0,0,0.18));
             transition: transform 140ms ease-out;
@@ -233,7 +232,7 @@
         /* Hero */
         .hero {
             padding: 10rem 2rem 4rem;
-            max-width: 1200px;
+            max-width: 1040px;
             margin: 0 auto;
             text-align: center;
         }
@@ -274,8 +273,7 @@
 
         /* Features */
         .features {
-            max-width: 1200px; margin: 6rem auto;
-            padding: 0 2rem;
+            max-width: 1040px; margin: 6rem auto;
         }
         .features-header { text-align: center; margin-bottom: 3rem; }
         .features-header h2 { margin-bottom: 1rem; }
@@ -326,7 +324,7 @@
 
         /* Flagship event proof */
         .flagship {
-            max-width: 1200px; margin: 6rem auto;
+            max-width: 1040px; margin: 6rem auto;
             padding: 0 2rem;
         }
         .flagship-card {
@@ -456,7 +454,7 @@
 <body>
     <a href="/jam" class="evt-bar">
         <span class="evt-tag">SHUUK 3X3 JAM</span>
-        <span class="evt-meta">Ottawa · July 11, 2026</span>
+        <span class="evt-meta">Ottawa · July 18, 2026</span>
         <span class="evt-cta">Join the waitlist →</span>
     </a>
 
@@ -551,7 +549,7 @@
         <a href="/jam" class="flagship-card">
             <div class="flagship-left">
                 <div>
-                    <div class="flagship-tag">Saturday July 11, 2026</div>
+                    <div class="flagship-tag">Saturday July 18, 2026</div>
                     <h2 class="flagship-h" style="margin:0 0 16px;"><img src="/img/3x3-mark.png" alt="shuuk! 3x3 jam '26" style="display:block; height: clamp(80px, 12vw, 132px); width: auto;"></h2>
                     <p class="flagship-deck">We run our own development day on the platform. U12, U14, U16. Outdoor 3x3 plus a midday indoor session for players, parents, and coaches. <em>This is what the platform does.</em></p>
                 </div>
