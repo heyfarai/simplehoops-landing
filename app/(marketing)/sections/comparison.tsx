@@ -1,3 +1,5 @@
+import { Card } from '@/components/ui/card';
+
 const BEFORE = [
   'WordPress site that breaks every plugin update',
   'Excel sheet that one person knows how to edit',
@@ -49,10 +51,9 @@ function Column({
 }) {
   const isBright = tone === 'bright';
   return (
-    <div
-      className={`border-[3px] border-ink p-8 md:p-10 ${
-        isBright ? 'bg-ink text-text-inverse shadow-hard-pink' : 'bg-bg-filled text-ink'
-      }`}
+    <Card
+      variant={isBright ? 'bold-ink' : 'bold-filled'}
+      className={isBright ? 'p-8 md:p-10 shadow-hard-pink' : 'p-8 md:p-10'}
     >
       <h3
         className={`font-mono text-[11px] font-bold uppercase tracking-[0.18em] mb-5 ${
@@ -73,6 +74,6 @@ function Column({
           </li>
         ))}
       </ul>
-    </div>
+    </Card>
   );
 }

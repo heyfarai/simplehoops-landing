@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
 
 const FEATURES = [
   {
@@ -42,10 +43,7 @@ export function Features() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {FEATURES.map((f) => (
-            <article
-              key={f.badge}
-              className="border-[3px] border-ink bg-bg-filled p-8 flex flex-col gap-5"
-            >
+            <Card key={f.badge} as="article" variant="bold-filled">
               <Badge variant="default">{f.badge}</Badge>
               <h3 className="font-display font-black uppercase text-2xl text-ink leading-tight">
                 {f.title}
@@ -58,7 +56,7 @@ export function Features() {
                   </li>
                 ))}
               </ul>
-            </article>
+            </Card>
           ))}
         </div>
       </div>

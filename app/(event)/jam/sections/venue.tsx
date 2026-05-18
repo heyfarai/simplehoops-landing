@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 
 export function Venue() {
   return (
@@ -8,7 +9,7 @@ export function Venue() {
           Off Walkley. <br/> In Ottawa.
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 bg-bg-paper border-[3px] border-ink shadow-hard-pink rounded-sm overflow-hidden">
+        <Card variant="feature" className="p-0 gap-0 overflow-hidden">
           <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-ink">
             <div className="font-display font-extrabold text-4xl md:text-5xl leading-tight mb-3">
               Ottawa Masonic Centre
@@ -39,7 +40,7 @@ export function Venue() {
               className="border-0 w-full h-full min-h-[280px] block"
             />
           </div>
-        </div>
+        </Card>
       </div>
     </section>
   );

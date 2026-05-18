@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
 
 const GENERATED = [
   { kind: 'Recap post', detail: 'Final score, top performer, photo grid' },
@@ -29,7 +30,7 @@ export function ContentEngine() {
           </ol>
         </div>
 
-        <div className="bg-bg-paper text-ink border-[3px] border-ink shadow-hard-pink p-8">
+        <Card variant="paper" className="p-8">
           <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-ink/60 mb-5">
             What gets generated
           </p>
@@ -41,7 +42,7 @@ export function ContentEngine() {
               </li>
             ))}
           </ul>
-        </div>
+        </Card>
       </div>
     </section>
   );

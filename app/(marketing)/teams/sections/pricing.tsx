@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 
 interface Tier {
   name: string;
@@ -62,14 +63,11 @@ export function Pricing() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {TIERS.map((t) => (
-            <article
+            <Card
               key={t.name}
-              className={
-                'border-[3px] border-ink p-8 flex flex-col gap-5 ' +
-                (t.featured
-                  ? 'bg-brand-pink text-text-inverse shadow-hard-lg md:-translate-y-2'
-                  : 'bg-bg-filled text-ink')
-              }
+              as="article"
+              variant={t.featured ? 'bold-pink' : 'bold-filled'}
+              className={t.featured ? 'shadow-hard-lg md:-translate-y-2' : undefined}
             >
               <span className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] opacity-70">
                 {t.name}
@@ -102,7 +100,7 @@ export function Pricing() {
               >
                 {t.cta}
               </Button>
-            </article>
+            </Card>
           ))}
         </div>
       </div>

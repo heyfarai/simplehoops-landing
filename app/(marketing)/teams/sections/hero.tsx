@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 export function Hero() {
   return (
     <section className="bg-bg-body px-6 py-16 md:py-24 border-b border-ink">
-      <div className="max-w-5xl mx-auto flex flex-col gap-7">
+      <div className="max-w-6xl mx-auto flex flex-col gap-7">
         <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-ink/60">
           For: Coaches / Team Managers / Club Directors
         </p>
