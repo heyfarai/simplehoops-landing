@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   @theme — design tokens. Mirrors public/styles/tokens.css.
+   @theme — design tokens. Single source of truth.
    Variable names follow Tailwind v4 conventions so they generate utility
    classes (bg-brand-pink, text-ink, p-4, rounded-sm, etc.).
    ========================================================================== */
