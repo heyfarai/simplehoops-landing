@@ -65,6 +65,15 @@ export function Products() {
           </p>
         </div>
 
+        <div className="mb-14">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/img/three-tools.png"
+            alt="shuuk's three tools in action — live scoring on iPad, a tournament app card, and a league site with embedded broadcast and standings"
+            className="block w-full h-auto"
+          />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {PRODUCTS.map((p) => (
             <Card key={p.badge} as="article" variant={p.variant}>
