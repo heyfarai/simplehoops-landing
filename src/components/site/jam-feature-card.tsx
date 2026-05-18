@@ -20,14 +20,11 @@ export function JamFeatureCard() {
           <img
             src="/img/3x3-mark.png"
             alt="shuuk! 3x3 jam '26"
-            className="block h-20 md:h-32 w-auto"
+            className=""
           />
           <p className="font-body text-ink/80 text-base md:text-lg max-w-prose">
-            Ottawa&apos;s first basketball development day. Outdoor 3x3 + a
-            midday indoor session for players, parents, and coaches.{' '}
-            <span className="bg-brand-pink text-text-inverse px-2 py-0.5 font-bold">
-              Join the waitlist.
-            </span>
+            Outdoor 3x3 + a
+            IQ sessions for players, parents, and coaches.{' '}
           </p>
           <span className="bg-brand-pink text-text-inverse px-4 py-2 rounded-pill font-mono text-xs font-bold uppercase tracking-[0.12em] w-fit self-start">
             Join waitlist →

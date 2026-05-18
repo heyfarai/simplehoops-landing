@@ -1,11 +1,12 @@
 import { Badge } from '@/components/ui/badge';
+import { Card, type CardVariant } from '@/components/ui/card';
 
 interface Product {
   badge: string;
   title: string;
   blurb: string;
   features: string[];
-  variant: 'paper' | 'ink' | 'pink';
+  variant: Extract<CardVariant, 'bold-paper' | 'bold-ink' | 'bold-pink'>;
 }
 
 const PRODUCTS: Product[] = [
@@ -20,7 +21,7 @@ const PRODUCTS: Product[] = [
       'Tryouts + camp registration',
       'IG-ready content out of the box',
     ],
-    variant: 'paper',
+    variant: 'bold-paper',
   },
   {
     badge: 'Stream',
@@ -31,7 +32,7 @@ const PRODUCTS: Product[] = [
       'Lower-thirds, scorebug, replays',
       'Embedded on your team site',
     ],
-    variant: 'ink',
+    variant: 'bold-ink',
   },
   {
     badge: 'Score',
@@ -43,15 +44,9 @@ const PRODUCTS: Product[] = [
       'Auto game recaps + social posts',
       'Export anywhere — CSV, Hudl, etc.',
     ],
-    variant: 'pink',
+    variant: 'bold-pink',
   },
 ];
-
-const VARIANT_CLASSES: Record<Product['variant'], string> = {
-  paper: 'bg-bg-paper text-ink border-[3px] border-ink',
-  ink: 'bg-ink text-text-inverse border-[3px] border-ink',
-  pink: 'bg-brand-pink text-text-inverse border-[3px] border-ink',
-};
 
 export function Products() {
   return (
@@ -70,10 +65,7 @@ export function Products() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {PRODUCTS.map((p) => (
-            <article
-              key={p.badge}
-              className={`${VARIANT_CLASSES[p.variant]} p-8 flex flex-col gap-5`}
-            >
+            <Card key={p.badge} as="article" variant={p.variant}>
               <span className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] opacity-70 w-fit border border-current px-2 py-1 rounded-sm">
                 shuuk.{p.badge}
               </span>
@@ -89,7 +81,7 @@ export function Products() {
                   </li>
                 ))}
               </ul>
-            </article>
+            </Card>
           ))}
         </div>
       </div>

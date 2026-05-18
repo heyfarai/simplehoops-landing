@@ -1,3 +1,5 @@
+import { Card } from '@/components/ui/card';
+
 const TALKS = [
   { time: '12:00', topic: 'Talk 1 — TBC', len: '15 min' },
   { time: '12:15', topic: 'Talk 2 — TBC', len: '15 min' },
@@ -16,7 +18,7 @@ export function KnowledgeSession() {
           <span className="font-light">23 Things</span> Every Hooper Should Know<br />
           <span className="font-bold text-lg tracking-[0.05em] -mb-10">(But nobody really tells them)</span><br />
         </p>
-        <div className="bg-ink text-text-inverse border-[3px] border-ink shadow-hard-pink p-8 md:p-12 rounded-sm">
+        <Card variant="paper" className="bg-ink text-text-inverse p-8 md:p-12">
           <div className="font-mono text-xs uppercase tracking-[0.18em] text-brand-pink mb-4">
             Midday · Doors at 11:45 AM · Free with registration
           </div>
@@ -53,7 +55,7 @@ export function KnowledgeSession() {
           <div className="font-mono text-xs uppercase tracking-[0.18em] text-white/55 mt-3">
             Indoor capacity: 120. First come, first seated.
           </div>
-        </div>
+        </Card>
       </div>
     </section>
   );

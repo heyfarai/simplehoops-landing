@@ -1,3 +1,5 @@
+import { Card } from '@/components/ui/card';
+
 const PAIN = [
   {
     lede: 'Sixteen-team draws printed at 7am',
@@ -30,10 +32,7 @@ export function Pain() {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {PAIN.map((p) => (
-            <article
-              key={p.lede}
-              className="border-[3px] border-ink bg-bg-filled p-7 flex flex-col gap-3"
-            >
+            <Card key={p.lede} as="article" variant="bold-filled" className="p-7 gap-3">
               <span aria-hidden="true" className="font-display font-black text-3xl text-brand-pink">
                 ✕
               </span>
@@ -41,7 +40,7 @@ export function Pain() {
                 {p.lede}
               </h3>
               <p className="font-body text-base text-ink/70">{p.body}</p>
-            </article>
+            </Card>
           ))}
         </div>
       </div>

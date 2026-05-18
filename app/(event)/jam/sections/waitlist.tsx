@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, type FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 
 interface SubmittedSummary {
   teamName: string;
@@ -71,7 +72,7 @@ export function Waitlist() {
           </p>
           <p className='mb-12 font-bold text-base md:text-lg'>Full team registration will require payment</p>
 
-          <div className="bg-bg-paper border-[3px] border-ink shadow-hard-pink rounded-sm p-8 md:p-10">
+          <Card variant="paper" className="p-8 md:p-10">
             <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={onSubmit}>
               <div className="md:col-span-2">
                 <label
@@ -193,7 +194,7 @@ export function Waitlist() {
                 @shuuk
               </a>
             </div>
-          </div>
+          </Card>
         </div>
       </section>
 
@@ -229,7 +230,7 @@ function WaitlistModal({
         if (e.target === e.currentTarget) close();
       }}
     >
-      <div className="bg-bg-paper border-[3px] border-ink shadow-hard-pink rounded-sm p-8 md:p-10 max-w-[440px] w-full relative">
+      <Card variant="paper" className="p-8 md:p-10 max-w-[440px] w-full relative">
         <button
           onClick={close}
           aria-label="Close confirmation"
@@ -258,7 +259,7 @@ function WaitlistModal({
             got it →
           </button>
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

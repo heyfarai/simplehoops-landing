@@ -18,15 +18,14 @@ export default function Page() {
     <>
       <Hero />
 
+      <Products />
+      <Comparison />
+      <Pricing />
       <section className="bg-bg-body px-6 py-20 border-b border-ink">
         <div className="max-w-5xl mx-auto">
           <JamFeatureCard />
         </div>
       </section>
-
-      <Products />
-      <Comparison />
-      <Pricing />
 
       <section className="bg-ink text-text-inverse px-6 py-24 md:py-32 text-center border-b border-ink">
         <div className="max-w-3xl mx-auto flex flex-col items-center gap-7">

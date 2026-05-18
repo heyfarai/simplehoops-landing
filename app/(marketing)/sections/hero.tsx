@@ -9,8 +9,9 @@ export function Hero() {
             For: Leagues / Clubs / Tournaments
           </p>
           <h1 className="font-display font-black uppercase text-[clamp(44px,7vw,84px)] leading-[0.95] text-ink">
-            One platform.<br />
-            Five tools fewer.
+            Sites.
+            Stats.
+            Streaming. 
           </h1>
           <p className="font-body text-lg md:text-xl text-ink/70 max-w-prose">
             Website, schedules, stats, streams, content — for basketball leagues.
@@ -30,7 +31,7 @@ export function Hero() {
           <img
             src="/img/hoopscore-screenshot.png"
             alt="shuuk.Score app — live game stats on mobile"
-            className="block w-full max-w-[520px] mx-auto border-[3px] border-ink shadow-hard-pink"
+            className="block w-full max-w-[520px] mx-auto"
           />
         </div>
       </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Card } from '@/components/ui/card';
 
 export const metadata: Metadata = {
   title: 'Support — Shuuk',
@@ -25,98 +26,98 @@ export default function SupportPage() {
 
         <h2 className="font-display font-black uppercase text-2xl md:text-3xl text-ink mt-12 mb-4">Contact Us</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-10">
-          <div className="border-[3px] border-ink bg-bg-filled p-6 text-center">
+          <Card variant="bold-filled" className="p-6 text-center">
             <h3 className="font-display font-bold uppercase text-lg mb-3">Email Support</h3>
             <p className="font-body text-sm text-ink/80 mb-3">For general questions, technical issues, or account help.</p>
             <a className="text-brand-pink underline" href="mailto:support@shuuk.ca">support@shuuk.ca</a>
-          </div>
+          </Card>
 
-          <div className="border-[3px] border-ink bg-bg-filled p-6 text-center">
+          <Card variant="bold-filled" className="p-6 text-center">
             <h3 className="font-display font-bold uppercase text-lg mb-3">Privacy &amp; Data</h3>
             <p className="font-body text-sm text-ink/80 mb-3">Questions about privacy, data deletion, or account information.</p>
             <a className="text-brand-pink underline" href="mailto:privacy@shuuk.ca">privacy@shuuk.ca</a>
-          </div>
+          </Card>
 
-          <div className="border-[3px] border-ink bg-bg-filled p-6 text-center">
+          <Card variant="bold-filled" className="p-6 text-center">
             <h3 className="font-display font-bold uppercase text-lg mb-3">Bug Reports</h3>
             <p className="font-body text-sm text-ink/80 mb-3">Found a bug or experiencing technical difficulties?</p>
             <a className="text-brand-pink underline" href="mailto:bugs@shuuk.ca">bugs@shuuk.ca</a>
-          </div>
+          </Card>
         </div>
 
         <h2 className="font-display font-black uppercase text-2xl md:text-3xl text-ink mt-12 mb-4">Frequently Asked Questions</h2>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">How do I create a team?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed">
             After creating your account, tap the &quot;Create Team&quot; button in the app. Enter your team name, select your division or league, and start adding players to your roster. You&apos;ll become the team administrator automatically.
           </p>
-        </div>
+        </Card>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">How do I add players to my roster?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed">
             Go to your team page and tap &quot;Manage Roster.&quot; You can add players by entering their name and jersey number. For league play, your roster may need approval from the league administrator.
           </p>
-        </div>
+        </Card>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">Can I manage multiple teams?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed">
             Yes! You can create and manage multiple teams from a single account. Simply create additional teams from your dashboard. Each team will have its own roster and settings.
           </p>
-        </div>
+        </Card>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">How do I invite team members?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed">
             From your team page, tap &quot;Invite Members&quot; and share the team code or link with parents and players. They can join by entering the code in the app or clicking the invitation link.
           </p>
-        </div>
+        </Card>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">What if I forget my password?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed">
             On the login screen, tap &quot;Forgot Password&quot; and enter your email address. We&apos;ll send you a secure link to reset your password. If you don&apos;t receive the email, check your spam folder or contact support.
           </p>
-        </div>
+        </Card>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">How do subscriptions work?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed">
             We offer free basic features and optional paid subscriptions for advanced features. Subscriptions are billed monthly or annually and renew automatically. You can cancel anytime through your account settings or through Apple/Google subscriptions settings.
           </p>
-        </div>
+        </Card>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">Can I get a refund?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed">
             Refund policies depend on how you subscribed. For subscriptions purchased through the Apple App Store or Google Play Store, refunds are handled by Apple or Google according to their policies. For web subscriptions through Stripe, contact us at <a className="text-brand-pink underline hover:no-underline" href="mailto:support@shuuk.ca">support@shuuk.ca</a> within 7 days of purchase.
           </p>
-        </div>
+        </Card>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">Is my data private and secure?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed">
             Yes. We take data security seriously. All data is encrypted in transit and at rest. We never sell your information to third parties. Read our <a className="text-brand-pink underline hover:no-underline" href="/privacy">Privacy Policy</a> for complete details.
           </p>
-        </div>
+        </Card>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">How do I delete my account?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed">
             To delete your account, go to Settings &gt; Account &gt; Delete Account. This will permanently remove your account and all associated data within 30 days. You can also email <a className="text-brand-pink underline hover:no-underline" href="mailto:privacy@shuuk.ca">privacy@shuuk.ca</a> to request account deletion.
           </p>
-        </div>
+        </Card>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">Can I export my team data?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed">
             Yes. You can export your team rosters, schedules, and game data from your team settings page. Click &quot;Export Data&quot; and choose your preferred format (CSV or PDF).
           </p>
-        </div>
+        </Card>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">The app isn&apos;t working properly. What should I do?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed mb-5">
             First, try these basic troubleshooting steps:
@@ -130,16 +131,16 @@ export default function SupportPage() {
           <p className="font-body text-base text-ink/80 leading-relaxed">
             If the problem persists, email <a className="text-brand-pink underline hover:no-underline" href="mailto:bugs@shuuk.ca">bugs@shuuk.ca</a> with details about the issue, including your device type and what you were doing when the problem occurred.
           </p>
-        </div>
+        </Card>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">Do you support leagues and tournaments?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed">
             Yes! Shuuk includes features for league administrators to manage multiple teams, schedules, standings, and games. Contact us at <a className="text-brand-pink underline hover:no-underline" href="mailto:support@shuuk.ca">support@shuuk.ca</a> if you&apos;re interested in using Shuuk for your league or tournament.
           </p>
-        </div>
+        </Card>
 
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <h3 className="font-display font-bold uppercase text-lg text-ink mb-3">What platforms do you support?</h3>
           <p className="font-body text-base text-ink/80 leading-relaxed mb-5">
             Shuuk is available on:
@@ -149,7 +150,7 @@ export default function SupportPage() {
             <li>Android - Android 8.0 and later</li>
             <li>Web browsers (desktop and mobile)</li>
           </ul>
-        </div>
+        </Card>
 
         <h2 className="font-display font-black uppercase text-2xl md:text-3xl text-ink mt-12 mb-4">Feature Requests</h2>
         <div className="border-l-4 border-brand-pink bg-bg-paper px-6 py-5 my-8">
@@ -159,7 +160,7 @@ export default function SupportPage() {
         </div>
 
         <h2 className="font-display font-black uppercase text-2xl md:text-3xl text-ink mt-12 mb-4">Report Abuse or Safety Concerns</h2>
-        <div className="border-[3px] border-ink bg-bg-filled p-6 mb-4">
+        <Card variant="bold-filled" className="p-6 mb-4">
           <p className="font-body text-base text-ink/80 leading-relaxed mb-5">
             Shuuk is designed for youth sports, and we take safety seriously. If you encounter inappropriate behavior, content, or have safety concerns, please report it immediately:
           </p>
@@ -169,7 +170,7 @@ export default function SupportPage() {
           <p className="font-body text-base text-ink/80 leading-relaxed">
             We investigate all reports promptly and take appropriate action, including account suspension or termination and reporting to authorities when necessary.
           </p>
-        </div>
+        </Card>
 
         <h2 className="font-display font-black uppercase text-2xl md:text-3xl text-ink mt-12 mb-4">Additional Resources</h2>
         <ul className="font-body text-base text-ink/80 list-disc pl-6 mb-6 space-y-2">
