@@ -44,8 +44,20 @@ const variantClasses: Record<ButtonVariant, string> = {
     'hover:shadow-[6px_6px_0_0_var(--color-ink)] md:hover:shadow-[8px_8px_0_0_var(--color-ink)]',
   default:
     'font-body font-bold bg-bg-filled text-ink border border-ink rounded-sm hover-lift hover:shadow-hard-sm',
+  /**
+   * Unfilled twin of `primary`. Same fonts, proportions, radius, border, and
+   * shadow as primary — only the fill is transparent and the text is ink.
+   * Self-sized — the `size` prop is ignored when variant="outline".
+   */
   outline:
-    'font-body font-bold bg-transparent text-ink border border-ink rounded-sm hover:bg-ink hover:text-text-inverse hover-lift hover:shadow-hard-sm',
+    'bg-transparent text-ink border-2 border-ink ' +
+    'rounded-[10px] md:rounded-[14px] ' +
+    'font-display font-black uppercase tracking-[0.02em] ' +
+    'text-base md:text-lg leading-none ' +
+    'px-4 md:px-6 py-[12px] ' +
+    'shadow-[2px_2px_0_0_var(--color-ink)] md:shadow-[4px_4px_0_0_var(--color-ink)] ' +
+    'hover-lift ' +
+    'hover:shadow-[6px_6px_0_0_var(--color-ink)] md:hover:shadow-[8px_8px_0_0_var(--color-ink)]',
   secondary:
     'font-body font-bold bg-bg-filled text-ink border border-ink rounded-pill hover-lift hover:shadow-hard-sm',
   icon:
@@ -72,7 +84,7 @@ export function Button({
   const cls = cn(
     base,
     variantClasses[variant],
-    variant !== 'primary' && sizeClasses[size],
+    variant !== 'primary' && variant !== 'outline' && sizeClasses[size],
     className,
   );
 
