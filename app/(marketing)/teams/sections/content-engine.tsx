@@ -10,7 +10,7 @@ const GENERATED = [
 
 export function ContentEngine() {
   return (
-    <section className="bg-ink text-text-inverse px-6 py-20 md:py-28 border-b border-ink">
+    <section className="bg-ink text-text-inverse px-6 py-20 md:py-28">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-14 items-start">
         <div>
           <Badge variant="accent">Sites + Score + Stream</Badge>

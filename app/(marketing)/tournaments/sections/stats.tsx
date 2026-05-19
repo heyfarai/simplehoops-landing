@@ -7,7 +7,7 @@ const STATS = [
 
 export function Stats() {
   return (
-    <section className="bg-ink text-text-inverse px-6 py-16 md:py-24 border-b border-ink">
+    <section className="bg-ink text-text-inverse px-6 py-16 md:py-24">
       <div className="max-w-6xl mx-auto">
         <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-text-inverse/60 mb-8 text-center">
           What a shuuk-run tournament looks like

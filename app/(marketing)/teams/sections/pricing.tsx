@@ -52,7 +52,7 @@ const TIERS: Tier[] = [
 
 export function Pricing() {
   return (
-    <section className="bg-bg-body px-6 py-20 md:py-28 border-b border-ink">
+    <section className="px-6 py-20 md:py-28">
       <div className="max-w-6xl mx-auto">
         <h2 className="font-display font-black uppercase text-4xl md:text-6xl leading-[0.95] text-ink mb-3 text-center">
           Pricing

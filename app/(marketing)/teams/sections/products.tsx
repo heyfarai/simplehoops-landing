@@ -12,7 +12,7 @@ interface Product {
 const PRODUCTS: Product[] = [
   {
     badge: 'Site',
-    title: 'Pro team site in an afternoon',
+    title: 'Pro team site in a few clicks',
     blurb: 'Bio, roster, schedule, results, news, photos. Connected to live data — no manual updates.',
     features: [
       'Brand colors, logo, custom URL',
@@ -50,9 +50,9 @@ const PRODUCTS: Product[] = [
 
 export function Products() {
   return (
-    <section id="products" className="bg-bg-body px-6 py-20 md:py-28 border-b border-ink">
+    <section id="products" className="px-6 py-20 md:py-28">
       <div className="max-w-6xl mx-auto">
-        <div className="max-w-3xl mb-14">
+        <div className="mb-20 text-center">
           <Badge variant="default">The platform</Badge>
           <h2 className="font-display font-black uppercase text-4xl md:text-6xl leading-[0.95] text-ink mt-5 mb-4">
             Stop duct-taping<br />tools together.

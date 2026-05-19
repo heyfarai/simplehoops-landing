@@ -20,7 +20,7 @@ export default function TeamsPage() {
       <ContentEngine />
       <Pricing />
 
-      <section className="bg-ink text-text-inverse px-6 py-24 md:py-32 text-center border-b border-ink">
+      <section className="bg-ink text-text-inverse px-6 py-24 md:py-32 text-center">
         <div className="max-w-3xl mx-auto flex flex-col items-center gap-7">
           <h2 className="font-display font-black uppercase text-5xl md:text-7xl leading-[0.95]">
             Ditch the<br />page builder.
