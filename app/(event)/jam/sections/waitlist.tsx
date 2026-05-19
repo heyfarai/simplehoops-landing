@@ -186,12 +186,12 @@ export function Waitlist() {
               <br />
               Follow updates:{' '}
               <a
-                href="https://instagram.com/shuuk"
+                href="https://instagram.com/getshuuk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-brand-pink underline"
               >
-                @shuuk
+                @getshuuk
               </a>
             </div>
           </Card>

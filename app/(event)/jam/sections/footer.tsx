@@ -4,7 +4,7 @@ export function Footer() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/jam/shuuk-logo.png" alt="shuuk!" className="h-10 w-auto" />
       <div className="text-center">shuuk! 3x3 jam · Ottawa · July 18, 2026</div>
-      <div className="md:text-right">@shuuk · shuuk.ca/jam · #shuukjam</div>
+      <div className="md:text-right">@getshuuk · shuuk.ca/jam · #shuukjam</div>
     </footer>
   );
 }
