@@ -7,9 +7,23 @@ import { DemoForm } from '@/components/site/demo-form';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Shuuk — Team & club management software',
+  title: 'Team & club management software',
   description:
     'Professional team website, live streaming, and stats tracking for basketball teams and clubs. Rosters, schedules, camps, tryouts — all in one platform.',
+  alternates: { canonical: '/teams' },
+  openGraph: {
+    url: 'https://shuuk.ca/teams',
+    title: 'Shuuk — Team & club management software',
+    description:
+      'Pro team sites, live streaming, and stats tracking for basketball teams and clubs. Rosters, schedules, camps, tryouts — one platform.',
+    images: [{ url: '/img/shuuk-OG.jpg', width: 1200, height: 630, alt: 'Shuuk — Stats. Streaming. Sites. All in one.' }],
+  },
+  twitter: {
+    title: 'Shuuk — Team & club management software',
+    description:
+      'Pro team sites, live streaming, and stats tracking for basketball teams and clubs.',
+    images: ['/img/shuuk-OG.jpg'],
+  },
 };
 
 export default function TeamsPage() {

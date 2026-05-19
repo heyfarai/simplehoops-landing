@@ -8,9 +8,23 @@ import { DemoForm } from '@/components/site/demo-form';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Shuuk — Tournament software for basketball',
+  title: 'Tournament software for basketball',
   description:
     'Run a tournament without spreadsheet hell. Online registration, brackets, live stats, streaming, and websites — for a single weekend or a season-long circuit.',
+  alternates: { canonical: '/tournaments' },
+  openGraph: {
+    url: 'https://shuuk.ca/tournaments',
+    title: 'Shuuk — Tournament software for basketball',
+    description:
+      'Online registration, brackets, live stats, streaming, websites. Run a one-weekend showcase or a season circuit.',
+    images: [{ url: '/img/shuuk-OG.jpg', width: 1200, height: 630, alt: 'Shuuk — Stats. Streaming. Sites. All in one.' }],
+  },
+  twitter: {
+    title: 'Shuuk — Tournament software for basketball',
+    description:
+      'Online registration, brackets, live stats, streaming, websites. Run a one-weekend showcase or a season circuit.',
+    images: ['/img/shuuk-OG.jpg'],
+  },
 };
 
 export default function TournamentsPage() {

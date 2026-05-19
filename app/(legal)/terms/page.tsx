@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — Shuuk',
-  description: 'Terms of service for Shuuk basketball team management software.',
+  title: 'Terms of Service',
+  description: 'Terms governing your use of Shuuk basketball team and league software.',
+  alternates: { canonical: '/terms' },
+  openGraph: { url: 'https://shuuk.ca/terms', title: 'Terms of Service | Shuuk' },
+  twitter: { title: 'Terms of Service | Shuuk' },
 };
 
 export default function TermsPage() {

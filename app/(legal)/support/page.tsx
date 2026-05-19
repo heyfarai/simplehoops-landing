@@ -2,13 +2,46 @@ import type { Metadata } from 'next';
 import { Card } from '@/components/ui/card';
 
 export const metadata: Metadata = {
-  title: 'Support — Shuuk',
-  description: 'Get help with Shuuk basketball team management software. Contact support, FAQs, and troubleshooting.',
+  title: 'Support',
+  description: 'Help, FAQs, and troubleshooting for Shuuk basketball team management software. Contact support@shuuk.ca for direct help.',
+  alternates: { canonical: '/support' },
+  openGraph: { url: 'https://shuuk.ca/support', title: 'Support | Shuuk' },
+  twitter: { title: 'Support | Shuuk' },
+};
+
+const FAQS = [
+  { q: 'How do I create a team?', a: "After creating your account, tap the \"Create Team\" button in the app. Enter your team name, select your division or league, and start adding players to your roster. You'll become the team administrator automatically." },
+  { q: 'How do I add players to my roster?', a: 'Go to your team page and tap "Manage Roster." You can add players by entering their name and jersey number. For league play, your roster may need approval from the league administrator.' },
+  { q: 'Can I manage multiple teams?', a: 'Yes! You can create and manage multiple teams from a single account. Simply create additional teams from your dashboard. Each team will have its own roster and settings.' },
+  { q: 'How do I invite team members?', a: 'From your team page, tap "Invite Members" and share the team code or link with parents and players. They can join by entering the code in the app or clicking the invitation link.' },
+  { q: 'What if I forget my password?', a: "On the login screen, tap \"Forgot Password\" and enter your email address. We'll send you a secure link to reset your password. If you don't receive the email, check your spam folder or contact support." },
+  { q: 'How do subscriptions work?', a: 'We offer free basic features and optional paid subscriptions for advanced features. Subscriptions are billed monthly or annually and renew automatically. You can cancel anytime through your account settings or through Apple/Google subscriptions settings.' },
+  { q: 'Can I get a refund?', a: 'Refund policies depend on how you subscribed. For subscriptions purchased through the Apple App Store or Google Play Store, refunds are handled by Apple or Google according to their policies. For web subscriptions through Stripe, contact us at support@shuuk.ca within 7 days of purchase.' },
+  { q: 'Is my data private and secure?', a: 'Yes. We take data security seriously. All data is encrypted in transit and at rest. We never sell your information to third parties. Read our Privacy Policy for complete details.' },
+  { q: 'How do I delete my account?', a: 'To delete your account, go to Settings > Account > Delete Account. This will permanently remove your account and all associated data within 30 days. You can also email privacy@shuuk.ca to request account deletion.' },
+  { q: 'Can I export my team data?', a: 'Yes. You can export your team rosters, schedules, and game data from your team settings page. Click "Export Data" and choose your preferred format (CSV or PDF).' },
+  { q: "The app isn't working properly. What should I do?", a: 'First, try these basic troubleshooting steps: Close the app completely and reopen it; Check that you have the latest version from the App Store or Google Play; Restart your device; Check your internet connection. If the problem persists, email bugs@shuuk.ca with details about the issue, including your device type and what you were doing when the problem occurred.' },
+  { q: 'Do you support leagues and tournaments?', a: "Yes! Shuuk includes features for league administrators to manage multiple teams, schedules, standings, and games. Contact us at support@shuuk.ca if you're interested in using Shuuk for your league or tournament." },
+  { q: 'What platforms do you support?', a: 'Shuuk is available on: iOS (iPhone and iPad) - iOS 15.0 and later; Android - Android 8.0 and later; Web browsers (desktop and mobile).' },
+];
+
+const FAQ_JSONLD = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
 };
 
 export default function SupportPage() {
   return (
     <article className="bg-bg-body px-6 py-16 md:py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSONLD) }}
+      />
       <div className="max-w-3xl mx-auto">
         <h1 className="font-display font-black uppercase text-4xl md:text-6xl leading-[0.95] text-ink mb-4">
           Support

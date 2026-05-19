@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Shuuk',
-  description: 'Privacy policy for Shuuk basketball team management software.',
+  title: 'Privacy Policy',
+  description: 'How Shuuk collects, uses, and protects information across our basketball team and league software.',
+  alternates: { canonical: '/privacy' },
+  openGraph: { url: 'https://shuuk.ca/privacy', title: 'Privacy Policy | Shuuk' },
+  twitter: { title: 'Privacy Policy | Shuuk' },
 };
 
 export default function PrivacyPage() {

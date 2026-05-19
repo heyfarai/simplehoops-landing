@@ -8,9 +8,23 @@ import { DemoForm } from '@/components/site/demo-form';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Shuuk — Basketball league software',
+  title: { absolute: 'Shuuk — Basketball league software' },
   description:
-    'All-in-one platform for basketball leagues. Sites, schedules, stats, streaming, and content — without the spreadsheet hell.',
+    'All-in-one platform for basketball leagues. Branded sites, drag-and-drop schedules, live stats, pro streaming, auto-published recaps. Replace the WordPress install and the spreadsheet.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    url: 'https://shuuk.ca/',
+    title: 'Shuuk — Basketball league software',
+    description:
+      'All-in-one platform for basketball leagues. Branded sites, drag-and-drop schedules, live stats, pro streaming.',
+    images: [{ url: '/img/shuuk-OG.jpg', width: 1200, height: 630, alt: 'Shuuk — Stats. Streaming. Sites. All in one.' }],
+  },
+  twitter: {
+    title: 'Shuuk — Basketball league software',
+    description:
+      'All-in-one platform for basketball leagues. Branded sites, drag-and-drop schedules, live stats, pro streaming.',
+    images: ['/img/shuuk-OG.jpg'],
+  },
 };
 
 export default function Page() {

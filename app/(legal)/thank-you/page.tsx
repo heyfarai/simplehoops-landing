@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Thanks — Shuuk',
+  title: 'Thanks',
   description: "We've got your message. We'll be in touch shortly.",
+  robots: { index: false, follow: false },
 };
 
 export default function ThankYouPage() {
