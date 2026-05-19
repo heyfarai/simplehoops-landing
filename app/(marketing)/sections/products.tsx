@@ -6,6 +6,8 @@ interface Product {
   title: string;
   blurb: string;
   features: string[];
+  image: string;
+  imageAlt: string;
   variant: Extract<CardVariant, 'bold-paper' | 'bold-ink' | 'bold-pink'>;
 }
 
@@ -15,12 +17,13 @@ const PRODUCTS: Product[] = [
     title: 'Your league, on the web',
     blurb: 'Branded league site with schedule, standings, rosters, and stories. No theme to wrestle. No plugin to update.',
     features: [
-      'Drag-and-drop schedule builder',
       'Auto-published standings + recaps',
       'Roster collection forms',
       'Integrated payments + ticketing',
       'White-label mobile apps',
     ],
+    image: '/img/img-site.png',
+    imageAlt: 'Branded league site with schedule and standings',
     variant: 'bold-paper',
   },
   {
@@ -33,6 +36,8 @@ const PRODUCTS: Product[] = [
       'AI insights + game recaps',
       'Single source of truth, no double entry',
     ],
+    image: '/img/img-stats.png',
+    imageAlt: 'Courtside iPad app capturing live game stats',
     variant: 'bold-ink',
   },
   {
@@ -45,46 +50,40 @@ const PRODUCTS: Product[] = [
       'Sponsor & ad inserts',
       'Free for fans, monetisable for you',
     ],
+    image: '/img/img-stream.png',
+    imageAlt: 'Live broadcast with scorebug and pro overlays',
     variant: 'bold-pink',
   },
 ];
 
 export function Products() {
   return (
-    <section id="products" className="bg-bg-body px-6 py-20 md:py-28 border-b border-ink">
+    <section id="products" className="px-6 py-20 md:py-28">
       <div className="max-w-6xl mx-auto">
-        <div className="max-w-3xl mb-14">
+        <div className=" mb-20 text-center">
           <Badge variant="default">The platform</Badge>
-          <h2 className="font-display font-black uppercase text-4xl md:text-6xl leading-[0.95] text-ink mt-5 mb-4">
-            Three tools.<br />One ecosystem.
+          <h2 className="font-display font-black uppercase text-4xl md:text-6xl leading-[0.95] text-ink mt-5 mb-6">
+            Pro-level presentation.<br />For Rec League budgets.
           </h2>
-          <p className="font-body text-lg text-ink/70">
-            Each tool stands alone. Together they replace the spreadsheet,
-            the WordPress install, the stat sheet, the broadcast rig, and
-            the content team you don&apos;t have.
-          </p>
-        </div>
-
-        <div className="mb-14">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/img/three-tools.png"
-            alt="shuuk's three tools in action — live scoring on iPad, a tournament app card, and a league site with embedded broadcast and standings"
-            className="block w-full h-auto"
-          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {PRODUCTS.map((p) => (
-            <Card key={p.badge} as="article" variant={p.variant}>
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] opacity-70 w-fit border border-current px-2 py-1 rounded-sm">
+            <Card key={p.badge} as="article" variant={p.variant} className="items-center text-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={p.image}
+                alt={p.imageAlt}
+                className="block h-auto w-[calc(100%+4rem)] -mx-8 self-stretch mx-auto"
+              />
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] opacity-70 border border-current px-2 py-1 rounded-sm">
                 shuuk.{p.badge}
               </span>
               <h3 className="font-display font-black uppercase text-2xl md:text-3xl leading-tight">
                 {p.title}
               </h3>
               <p className="font-body text-base opacity-80 leading-relaxed">{p.blurb}</p>
-              <ul className="flex flex-col gap-2 mt-2 font-body text-sm">
+              <ul className="flex flex-col items-center gap-2 mt-2 font-body text-sm">
                 {p.features.map((f) => (
                   <li key={f} className="flex gap-2">
                     <span aria-hidden="true">▸</span>
