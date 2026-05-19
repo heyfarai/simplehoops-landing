@@ -2,14 +2,14 @@ import { Button } from '@/components/ui/button';
 
 export function Hero() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-[3fr_2fr] min-h-screen border-b border-ink pb-20 md:py-0">
+    <section className="grid grid-cols-1 md:grid-cols-[2fr_2fr] min-h-screen border-b border-ink pb-20 md:py-0">
       <div className="flex flex-col justify-center px-8 md:px-0 py-8">
-        <h1 className="text-right">
+        <h1 className="flex justify-end">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/img/3x3-mark.png"
             alt="shuuk! 3x3 jam"
-            className="mx-auto block w-full max-w-[320px] md:max-w-[540px]"
+            className="w-full max-w-[320px] md:max-w-[540px]"
           />
         </h1>
       </div>
