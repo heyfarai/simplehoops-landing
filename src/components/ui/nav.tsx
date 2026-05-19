@@ -54,7 +54,7 @@ export function EditorialNav({
     <>
       <header
         className={cn(
-          'flex items-center justify-between gap-4 bg-bg-paper border-b border-ink px-4 sm:px-8 lg:px-14 py-4 sm:py-5',
+          'flex items-center justify-between gap-4 bg-bg-body px-4 sm:px-8 lg:px-14 py-4 sm:py-5',
           className,
         )}
       >
