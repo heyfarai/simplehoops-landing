@@ -9,12 +9,12 @@ const TALKS = [
 
 export function KnowledgeSession() {
   return (
-    <section id="indoor" className="bg-bg-paper px-6 py-16 md:py-40 min-h-screen flex items-center">
+    <section id="indoor" className="px-6 py-16 md:py-40 min-h-screen flex items-center">
       <div className="max-w-[1040px] mx-auto w-full">
-        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(72px,12vw,140px)] mb-20">
+        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(44px,12vw,140px)] mb-20">
           IQ sessions
         </h2>
-        <p className="font-display font-extrabold text-[clamp(28px,4vw,48px)] uppercase mb-6 max-w-none tracking-tight ">
+        <p className="font-display font-extrabold text-[clamp(20px,4vw,48px)] uppercase mb-6 max-w-none tracking-tight ">
           <span className="font-light">23 Things</span> Every Hooper Should Know<br />
           <span className="font-bold text-lg tracking-[0.05em] -mb-10">(But nobody really tells them)</span><br />
         </p>

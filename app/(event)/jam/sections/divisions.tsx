@@ -10,13 +10,13 @@ export function Divisions() {
   return (
     <section
       id="div"
-      className="bg-bg-filled border-y-2 border-ink px-6 py-16 md:py-32 min-h-screen flex items-center"
+      className="px-6 py-16 md:py-32 min-h-screen flex items-center"
     >
       <div className="max-w-[1040px] mx-auto w-full">
-        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(72px,12vw,140px)] mb-8">
+        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(44px,12vw,140px)] mb-8">
           madd hoops
         </h2>
-        <p className="font-display font-extrabold text-[clamp(28px,4vw,48px)] leading-[1.05] uppercase mb-6 max-w-none tracking-tight leading-[1.5]">
+        <p className="font-display font-extrabold text-[clamp(20px,4vw,48px)] leading-[1.05] uppercase mb-6 max-w-none tracking-tight leading-[1.5]">
           <span className="font-light">72 teams</span> Boys. Girls.<br />
           <span className="font-light">12 mins</span> per game.<br />
           <span className="font-light">4 players</span> per team.<br />

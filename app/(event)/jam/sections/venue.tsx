@@ -3,9 +3,9 @@ import { Card } from '@/components/ui/card';
 
 export function Venue() {
   return (
-    <section id="venue" className="bg-bg-paper px-6 py-16 md:py-40 min-h-screen flex items-center">
+    <section id="venue" className="px-6 py-16 md:py-40 min-h-screen flex items-center">
       <div className="max-w-[1040px] mx-auto w-full">
-        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(72px,12vw,140px)] mb-20">
+        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(44px,12vw,140px)] mb-20">
           Off Walkley. <br/> In Ottawa.
         </h2>
 

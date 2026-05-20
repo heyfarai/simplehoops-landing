@@ -55,15 +55,15 @@ export function Waitlist() {
 
   return (
     <>
-      <section id="waitlist" className="bg-bg-paper px-6 py-16 md:py-40 min-h-screen flex items-center">
+      <section id="waitlist" className="px-6 py-16 md:py-40 min-h-screen flex items-center">
         <div className="max-w-[1040px] mx-auto w-full">
           <div className="font-mono text-xs uppercase tracking-[0.18em] text-ink/55 mb-3">
             Reserve your spot
           </div>
-          <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(72px,12vw,140px)] mb-8">
+          <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(44px,12vw,140px)] mb-8">
           save a spot. 
           </h2>
-          <p className="font-display font-extrabold text-[clamp(28px,4vw,48px)] leading-[1.05] uppercase mb-6 max-w-none tracking-tight leading-[1.5]">
+          <p className="font-display font-extrabold text-[clamp(20px,4vw,48px)] leading-[1.05] uppercase mb-6 max-w-none tracking-tight leading-[1.5]">
             <span className="font-light">Don't</span> Miss out.<br />
           </p>
           <p className="font-body text-base md:text-lg mb-8 max-w-2xl">

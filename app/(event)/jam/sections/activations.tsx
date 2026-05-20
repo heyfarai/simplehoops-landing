@@ -32,15 +32,15 @@ export function Activations() {
   return (
     <section
       id="activations"
-      className="bg-bg-filled border-y-2 border-ink px-6 py-16 md:py-40 min-h-screen flex items-center"
+      className="px-6 py-16 md:py-40 min-h-screen flex items-center"
     >
       <div className="max-w-[1040px] mx-auto w-full">
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3 ">
-        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(72px,12vw,140px)] mb-8">
+        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(44px,12vw,140px)] mb-8">
           mini-combine
         </h2>
         </div>
-        <p className="font-display font-extrabold text-[clamp(28px,4vw,48px)] uppercase mb-6 max-w-none tracking-tight leading-[1.5]">
+        <p className="font-display font-extrabold text-[clamp(20px,4vw,48px)] uppercase mb-6 max-w-none tracking-tight leading-[1.5]">
           <span className="font-light">Max Vertical.</span> Sprint. Touch.<br />
           <span className="font-light">Skills</span> on the clock.
         </p>
@@ -51,10 +51,10 @@ export function Activations() {
         </div>
 
       <div className="mt-40">
-        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(72px,12vw,140px)] mb-8">
+        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(44px,12vw,140px)] mb-8">
           side quests
         </h2>
-        <p className="font-display font-extrabold text-[clamp(28px,4vw,48px)] uppercase mb-6 max-w-none tracking-tight leading-[1.5]">
+        <p className="font-display font-extrabold text-[clamp(20px,4vw,48px)] uppercase mb-6 max-w-none tracking-tight leading-[1.5]">
           <span className="font-light">BUMP.</span> 1v1. Player of the Hour.<br />
           <span className="font-light">Prizes</span> all day.
         </p>

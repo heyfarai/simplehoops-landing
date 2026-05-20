@@ -21,13 +21,13 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="bg-bg-filled border-y-2 border-ink px-6 py-16 md:py-40 min-h-screen flex items-center"
+      className="px-6 py-16 md:py-40 min-h-screen flex items-center"
     >
       <div className="max-w-[1040px] mx-auto w-full">
         <div className="font-mono text-xs uppercase tracking-[0.18em] text-ink/55 mb-3">
           Frequently Asked Questions
         </div>
-        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(72px,12vw,140px)] mb-8">
+        <h2 className="text-extrude text-brand-pink leading-[0.85] tracking-tight text-[clamp(44px,12vw,140px)] mb-8">
           questions?
         </h2>
 
