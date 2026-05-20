@@ -41,3 +41,6 @@ playwright/.cache/
 .agents/
 .claude/
 skills-lock.json
+
+# Heavy media — host on R2 (assets.juuk.site)
+public/video/
