@@ -19,6 +19,8 @@ interface EditorialNavProps {
   ctaHref: string;
   ctaLabel: string;
   className?: string;
+  /** When true, header uses a top-down ink→transparent gradient and inverse text — for overlaying a media hero. */
+  transparent?: boolean;
 }
 
 /**
@@ -33,6 +35,7 @@ export function EditorialNav({
   ctaHref,
   ctaLabel,
   className,
+  transparent = false,
 }: EditorialNavProps) {
   const [open, setOpen] = useState(false);
   const close = useCallback(() => setOpen(false), []);
@@ -54,7 +57,10 @@ export function EditorialNav({
     <>
       <header
         className={cn(
-          'flex items-center justify-between gap-4 bg-bg-body px-4 sm:px-8 lg:px-14 py-4 sm:py-5',
+          'flex items-center justify-between gap-4 px-4 sm:px-8 lg:px-14 py-4 sm:py-5',
+          transparent
+            ? 'bg-gradient-to-b from-ink/50 to-transparent'
+            : 'bg-bg-body',
           className,
         )}
       >
@@ -73,7 +79,10 @@ export function EditorialNav({
               href={item.href}
               aria-current={item.active ? 'page' : undefined}
               className={cn(
-                'text-ink/55 hover:text-ink transition-colors whitespace-nowrap',
+                'transition-colors whitespace-nowrap',
+                transparent
+                  ? 'text-text-inverse/75 hover:text-text-inverse'
+                  : 'text-ink/55 hover:text-ink',
                 item.active &&
                   'text-brand-pink border-b-2 border-brand-pink pb-1 -mb-1',
               )}
@@ -93,7 +102,12 @@ export function EditorialNav({
             aria-label="Open menu"
             aria-expanded={open}
             aria-controls="mobile-nav-menu"
-            className="md:hidden flex-none w-10 h-10 flex items-center justify-center border border-ink rounded-sm bg-bg-filled hover-lift hover:shadow-hard-sm"
+            className={cn(
+              'md:hidden flex-none w-10 h-10 flex items-center justify-center rounded-sm hover-lift hover:shadow-hard-sm',
+              transparent
+                ? 'border border-text-inverse text-text-inverse bg-text-inverse/10'
+                : 'border border-ink bg-bg-filled',
+            )}
           >
             <svg
               width="20"

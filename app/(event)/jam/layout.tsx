@@ -15,8 +15,12 @@ const NAV_PROPS = {
 
 export default function JamLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="bg-bg-paper text-ink min-h-screen font-body">
-      <EditorialNav {...NAV_PROPS} />
+    <div className="relative bg-bg-paper text-ink min-h-screen font-body overflow-x-hidden">
+      <EditorialNav
+        {...NAV_PROPS}
+        transparent
+        className="absolute top-0 left-0 right-0 z-20"
+      />
       <StickyNav {...NAV_PROPS} />
       {children}
     </div>
