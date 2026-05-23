@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
+import { TurnstileWidget } from '@/components/site/turnstile-widget';
 import { cn } from '@/lib/cn';
 
 type FormType = 'demo' | 'demo-teams';
@@ -36,10 +37,20 @@ export function DemoForm({
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [token, setToken] = useState<string | null>(null);
+  const hasTurnstile = !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const onToken = useCallback((t: string) => setToken(t), []);
+  const onExpire = useCallback(() => setToken(null), []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
+
+    if (hasTurnstile && !token) {
+      setError('Please complete the verification before submitting.');
+      return;
+    }
+
     setSubmitting(true);
 
     const form = e.currentTarget;
@@ -50,6 +61,8 @@ export function DemoForm({
       email: String(fd.get('email') || '').trim(),
       league: String(fd.get('league') || '').trim(),
       teams: String(fd.get('teams') || '').trim(),
+      hp: String(fd.get('hp') || ''),
+      turnstileToken: token ?? undefined,
     };
 
     try {
@@ -112,6 +125,17 @@ export function DemoForm({
               ]}
             />
           )}
+
+          <input
+            type="text"
+            name="hp"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute left-[-9999px] top-auto w-px h-px overflow-hidden"
+          />
+
+          <TurnstileWidget onToken={onToken} onExpire={onExpire} className="mt-2" />
 
           {error && (
             <div
