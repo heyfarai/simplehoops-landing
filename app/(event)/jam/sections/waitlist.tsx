@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, type FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { TurnstileWidget } from '@/components/site/turnstile-widget';
 
 interface SubmittedSummary {
   teamName: string;
@@ -13,11 +14,21 @@ export function Waitlist() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState<SubmittedSummary | null>(null);
+  const [token, setToken] = useState<string | null>(null);
+  const hasTurnstile = !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const onToken = useCallback((t: string) => setToken(t), []);
+  const onExpire = useCallback(() => setToken(null), []);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (isSubmitting) return;
     setError(null);
+
+    if (hasTurnstile && !token) {
+      setError('Please complete the verification before submitting.');
+      return;
+    }
+
     setIsSubmitting(true);
 
     const form = e.currentTarget;
@@ -31,6 +42,8 @@ export function Waitlist() {
       contactName: String(data.get('contactName') || '').trim(),
       email: String(data.get('email') || '').trim(),
       phone: String(data.get('phone') || '').trim(),
+      hp: String(data.get('hp') || ''),
+      turnstileToken: token ?? undefined,
     };
 
     try {
@@ -161,7 +174,17 @@ export function Waitlist() {
                   className="w-full bg-bg-paper border-2 border-ink rounded-sm px-4 py-3 font-body text-base"
                 />
               </div>
+              <input
+                type="text"
+                name="hp"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute left-[-9999px] top-auto w-px h-px overflow-hidden"
+              />
+
               <div className="md:col-span-2">
+                <TurnstileWidget onToken={onToken} onExpire={onExpire} className="mb-4" />
                 <Button
                   variant="primary"
                   type="submit"
