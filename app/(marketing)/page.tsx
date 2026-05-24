@@ -8,21 +8,21 @@ import { DemoForm } from '@/components/site/demo-form';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Shuuk — Basketball league software' },
+  title: { absolute: 'Shuuk — Sites with live stats and streaming. All-in-one.' },
   description:
-    'All-in-one platform for basketball leagues. Branded sites, drag-and-drop schedules, live stats, pro streaming, auto-published recaps. Replace the WordPress install and the spreadsheet.',
+    'Sites with live stats and streaming, all-in-one. For leagues, teams, clubs, and tournaments. The easiest way to get the elite look. Get shuuk!',
   alternates: { canonical: '/' },
   openGraph: {
     url: 'https://shuuk.ca/',
-    title: 'Shuuk — Basketball league software',
+    title: 'Shuuk — Sites with live stats and streaming. All-in-one.',
     description:
-      'All-in-one platform for basketball leagues. Branded sites, drag-and-drop schedules, live stats, pro streaming.',
-    images: [{ url: '/img/shuuk-OG.jpg', width: 1200, height: 630, alt: 'Shuuk — Stats. Streaming. Sites. All in one.' }],
+      'Sites with live stats and streaming, all-in-one. For leagues, teams, clubs, and tournaments. Get shuuk!',
+    images: [{ url: '/img/shuuk-OG.jpg', width: 1200, height: 630, alt: 'Shuuk — Sites with live stats and streaming. All-in-one.' }],
   },
   twitter: {
-    title: 'Shuuk — Basketball league software',
+    title: 'Shuuk — Sites with live stats and streaming. All-in-one.',
     description:
-      'All-in-one platform for basketball leagues. Branded sites, drag-and-drop schedules, live stats, pro streaming.',
+      'Sites with live stats and streaming, all-in-one. For leagues, teams, clubs, and tournaments. Get shuuk!',
     images: ['/img/shuuk-OG.jpg'],
   },
 };
@@ -43,7 +43,7 @@ export default function Page() {
       <section className="bg-ink text-text-inverse px-6 py-24 md:py-32 text-center border-b border-ink">
         <div className="max-w-3xl mx-auto flex flex-col items-center gap-7">
           <h2 className="font-display font-black uppercase text-5xl md:text-7xl leading-[0.95]">
-            Run your league<br />the way you wanted to.
+            Site, live stats,<br />streaming. <span className="text-brand-pink">All-in-one.</span>
           </h2>
           <p className="font-body text-lg text-text-inverse/70 max-w-prose">
             Twenty minutes with us and you&apos;ll see if shuuk fits. No deck, no

@@ -25,10 +25,10 @@ export function Comparison() {
     <section className="px-6 py-20 md:py-28">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="font-display font-black uppercase text-4xl md:text-6xl leading-[0.95] text-ink mb-3 text-center">
-          The old way.<br />And the better way.
+          The old way.<br />And the shuuk way.
         </h2>
         <p className="font-body text-lg text-ink/70  mb-14 text-center mx-auto md:mx-0">
-          We&apos;ve all run leagues this way. There&apos;s a less painful version.
+          Site, live stats, and streaming — all-in-one. The stack your league, team, club, or tournament should&apos;ve had years ago.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

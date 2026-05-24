@@ -8,21 +8,21 @@ import { DemoForm } from '@/components/site/demo-form';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Tournament software for basketball',
+  title: 'Sites with live stats and streaming. All-in-one. For tournaments.',
   description:
-    'Run a tournament without spreadsheet hell. Online registration, brackets, live stats, streaming, and websites — for a single weekend or a season-long circuit.',
+    'Sites with live stats and streaming for tournaments, all-in-one. Online registration, brackets, and a website for a one-weekend showcase or a season-long circuit. Get shuuk!',
   alternates: { canonical: '/tournaments' },
   openGraph: {
     url: 'https://shuuk.ca/tournaments',
-    title: 'Shuuk — Tournament software for basketball',
+    title: 'Shuuk — Sites with live stats and streaming. All-in-one. For tournaments.',
     description:
-      'Online registration, brackets, live stats, streaming, websites. Run a one-weekend showcase or a season circuit.',
-    images: [{ url: '/img/shuuk-OG.jpg', width: 1200, height: 630, alt: 'Shuuk — Stats. Streaming. Sites. All in one.' }],
+      'Sites with live stats and streaming for tournaments, all-in-one. Registration, brackets, website — one weekend or a season circuit.',
+    images: [{ url: '/img/shuuk-OG.jpg', width: 1200, height: 630, alt: 'Shuuk — Sites with live stats and streaming. All-in-one.' }],
   },
   twitter: {
-    title: 'Shuuk — Tournament software for basketball',
+    title: 'Shuuk — Sites with live stats and streaming. All-in-one. For tournaments.',
     description:
-      'Online registration, brackets, live stats, streaming, websites. Run a one-weekend showcase or a season circuit.',
+      'Sites with live stats and streaming for tournaments, all-in-one. Registration, brackets, website.',
     images: ['/img/shuuk-OG.jpg'],
   },
 };

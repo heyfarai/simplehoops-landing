@@ -57,7 +57,7 @@ export function Pricing() {
           Pricing
         </h2>
         <p className="font-body text-lg text-ink/70 text-center mb-14">
-          Pick a plan. Switch any time. No setup fees.
+          Site, live stats, and streaming all-in-one — every plan. Switch any time. No setup fees.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
