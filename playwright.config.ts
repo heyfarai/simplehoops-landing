@@ -1,4 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'node:url';
+
+// load .env.local into the test process so helpers like jamSeedConfigured()
+// can read SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY. only the test process —
+// Next reads its own envs separately on the dev/start server.
+// (repo is "type": "module" so __dirname is unavailable; use import.meta.url)
+dotenv.config({ path: fileURLToPath(new URL('.env.local', import.meta.url)) });
 
 export default defineConfig({
   testDir: './tests/e2e',
