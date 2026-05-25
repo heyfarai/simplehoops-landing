@@ -8,6 +8,8 @@ import { TurnstileWidget } from '@/components/site/turnstile-widget';
 interface SubmittedSummary {
   teamName: string;
   email: string;
+  code: string | null;
+  capReached: boolean;
 }
 
 export function Waitlist() {
@@ -55,7 +57,16 @@ export function Waitlist() {
       if (!res.ok) {
         throw new Error('submit_failed');
       }
-      setSubmitted({ teamName: payload.teamName, email: payload.email });
+      const json = (await res.json().catch(() => ({}))) as {
+        code?: string | null;
+        capReached?: boolean;
+      };
+      setSubmitted({
+        teamName: payload.teamName,
+        email: payload.email,
+        code: json.code ?? null,
+        capReached: !!json.capReached,
+      });
       form.reset();
     } catch {
       setError(
@@ -271,9 +282,28 @@ function WaitlistModal({
           We&apos;ve added <strong>{summary.teamName}</strong> to the shuuk! 3x3 jam waitlist.
           Check your inbox at <strong>{summary.email}</strong> — confirmation is on the way.
         </p>
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink/55 mb-6">
-          we&apos;ll email you when registration opens.
-        </p>
+        {summary.code ? (
+          <div className="mb-6 bg-ink text-text-inverse border-2 border-ink p-4 shadow-hard-sm">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-brand-cyan mb-1">
+              your $25-off code
+            </p>
+            <p className="font-mono text-2xl font-bold tracking-wide select-all">
+              {summary.code}
+            </p>
+            <p className="font-body text-xs text-text-inverse/70 mt-2">
+              Use it at checkout. One-time use. We&apos;ve also emailed it to you.
+            </p>
+          </div>
+        ) : summary.capReached ? (
+          <p className="font-body text-sm mb-6 p-3 bg-bg-paper border-2 border-ink">
+            <strong>Early-bird codes are out</strong> — you&apos;re still on the list.
+            Registration opens next week at $275.
+          </p>
+        ) : (
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink/55 mb-6">
+            we&apos;ll email you when registration opens.
+          </p>
+        )}
         <div className="flex justify-end">
           <button
             onClick={close}
