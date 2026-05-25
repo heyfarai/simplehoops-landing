@@ -63,7 +63,7 @@ export function Hero() {
             <br />
             Spots are limited.
             <br />
-            <span className="font-bold text-brand-pink underline">$240</span> per team.
+            <span className="font-bold text-brand-pink underline">$250</span> per team.
           </p>
           <div className="flex flex-col gap-3">
             <Button variant="primary" href="#waitlist" className="mt-4 w-fit">

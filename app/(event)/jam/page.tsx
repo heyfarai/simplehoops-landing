@@ -76,7 +76,7 @@ const EVENT_JSONLD = {
   offers: {
     '@type': 'Offer',
     url: 'https://shuuk.ca/jam#waitlist',
-    price: '240',
+    price: '250',
     priceCurrency: 'CAD',
     availability: 'https://schema.org/InStock',
     validFrom: '2026-01-01',

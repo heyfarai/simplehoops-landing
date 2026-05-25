@@ -41,7 +41,7 @@ export function Divisions() {
 
 
         <div className="font-body text-lg mt-4">
-          <strong>Entry fee: $240 per team</strong>
+          <strong>Entry fee: $250 per team</strong>
           <br />
           Includes: <br />
           <ul className="list-disc list-inside">

@@ -341,7 +341,7 @@ function WaitlistModal({
         ) : summary.capReached ? (
           <p className="font-body text-sm mb-6 p-3 bg-bg-paper border-2 border-ink">
             <strong>Early-bird codes are out</strong> — you&apos;re still on the list.
-            Registration opens next week at $275.
+            Registration opens next week at $250.
           </p>
         ) : (
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink/55 mb-6">

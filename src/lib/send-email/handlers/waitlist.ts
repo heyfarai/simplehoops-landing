@@ -66,7 +66,7 @@ ${codeOpsHtml}`;
   const codeUserText = code
     ? `\n\nYOUR $25-OFF CODE: ${code}\nUse it at checkout when registration opens. One-time use. First 20 codes only.\n`
     : capReached
-      ? `\n\nWaitlist is full for the early-bird codes — but you're still on the list. Registration opens next week at $275.\n`
+      ? `\n\nWaitlist is full for the early-bird codes — but you're still on the list. Registration opens next week at $250.\n`
       : '';
   const userText = `${greetingTeam}is on the waitlist for ${eventLabel}.${codeUserText}
 We'll confirm your spot and send registration details as soon as they open.
@@ -103,7 +103,7 @@ shuuk.ca/jam`;
     : capReached
       ? `
   <div style="background:#f6f3ec;border:2px solid #0a0a0a;padding:18px 22px;margin:0 0 24px;">
-    <p style="margin:0;font-size:14px;line-height:1.5;color:rgba(0,0,0,0.8);"><strong>Early-bird codes are out.</strong> You&rsquo;re still on the list — registration opens next week at $275.</p>
+    <p style="margin:0;font-size:14px;line-height:1.5;color:rgba(0,0,0,0.8);"><strong>Early-bird codes are out.</strong> You&rsquo;re still on the list — registration opens next week at $250.</p>
   </div>`
       : '';
 
