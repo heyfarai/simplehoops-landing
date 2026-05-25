@@ -1,13 +1,12 @@
 import { NextResponse } from 'next/server';
 import type { WaitlistPayload } from '../types';
 import { OPS_EMAIL, escapeHtml, isValidEmail, sendOne } from '../transport';
+import { issueJamWaitlistCode, type IssueResult } from '@/lib/jam/issue-code';
 
 export async function handleWaitlist(data: WaitlistPayload) {
   const event = data.event || 'shuuk-3x3-jam';
-  const eventLabel =
-    event === 'juuk-3x3-jam' || event === 'shuuk-3x3-jam'
-      ? 'shuuk! 3x3 jam · Ottawa · July 18, 2026'
-      : event;
+  const isJam = event === 'juuk-3x3-jam' || event === 'shuuk-3x3-jam';
+  const eventLabel = isJam ? 'shuuk! 3x3 jam · Ottawa · July 18, 2026' : event;
   const source = data.source || 'unknown';
   const email = String(data.email || '').trim();
   const teamName = String(data.teamName || '').trim();
@@ -19,14 +18,31 @@ export async function handleWaitlist(data: WaitlistPayload) {
     return NextResponse.json({ error: 'Valid email required' }, { status: 400 });
   }
 
+  // jam-only: try to issue a $25-off code (first 20 signups). degrades to
+  // no-code when SUPABASE_* env vars are unset; everything else unchanged.
+  const issueResult: IssueResult = isJam
+    ? await issueJamWaitlistCode({ email, contactName, phone })
+    : { code: null, reason: 'unconfigured' };
+  const code = issueResult.code;
+  const capReached = issueResult.reason === 'cap_reached';
+
   const isTeamSignup = !!(teamName || division || contactName);
 
+  const codeOpsLine = code
+    ? `Code: ${code} (${issueResult.reason})`
+    : capReached
+      ? 'Code: NONE — cap of 20 reached'
+      : issueResult.reason === 'unconfigured'
+        ? 'Code: NONE — juuk not configured'
+        : 'Code: NONE';
+  const codeOpsHtml = `<p><strong>${escapeHtml(codeOpsLine)}</strong></p>`;
+
   const opsSubject = isTeamSignup
-    ? `Waitlist: ${event} — ${teamName || email} (${division || 'no div'})`
-    : `Waitlist: ${event} — ${email}`;
+    ? `Waitlist: ${event} — ${teamName || email} (${division || 'no div'})${code ? ` [${code}]` : ''}`
+    : `Waitlist: ${event} — ${email}${code ? ` [${code}]` : ''}`;
   const opsText = isTeamSignup
-    ? `New team waitlist signup\nEvent: ${event}\nTeam: ${teamName}\nDivision: ${division}\nContact: ${contactName}\nEmail: ${email}\nPhone: ${phone || '—'}\nSource: ${source}`
-    : `New waitlist signup\nEvent: ${event}\nEmail: ${email}\nSource: ${source}`;
+    ? `New team waitlist signup\nEvent: ${event}\nTeam: ${teamName}\nDivision: ${division}\nContact: ${contactName}\nEmail: ${email}\nPhone: ${phone || '—'}\nSource: ${source}\n${codeOpsLine}`
+    : `New waitlist signup\nEvent: ${event}\nEmail: ${email}\nSource: ${source}\n${codeOpsLine}`;
   const opsHtml = isTeamSignup
     ? `<h2>New team waitlist signup</h2>
 <p><strong>Event:</strong> ${escapeHtml(event)}</p>
@@ -35,16 +51,24 @@ export async function handleWaitlist(data: WaitlistPayload) {
 <p><strong>Contact:</strong> ${escapeHtml(contactName)}</p>
 <p><strong>Email:</strong> ${escapeHtml(email)}</p>
 <p><strong>Phone:</strong> ${escapeHtml(phone) || '—'}</p>
-<p><strong>Source:</strong> ${escapeHtml(source)}</p>`
+<p><strong>Source:</strong> ${escapeHtml(source)}</p>
+${codeOpsHtml}`
     : `<h2>New waitlist signup</h2>
 <p><strong>Event:</strong> ${escapeHtml(event)}</p>
 <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-<p><strong>Source:</strong> ${escapeHtml(source)}</p>`;
+<p><strong>Source:</strong> ${escapeHtml(source)}</p>
+${codeOpsHtml}`;
 
-  const userSubject = `you're on the list — ${eventLabel}`;
+  const userSubject = code
+    ? `your code is ${code} — ${eventLabel}`
+    : `you're on the list — ${eventLabel}`;
   const greetingTeam = teamName ? `${teamName} ` : '';
-  const userText = `${greetingTeam}is on the waitlist for ${eventLabel}.
-
+  const codeUserText = code
+    ? `\n\nYOUR $25-OFF CODE: ${code}\nUse it at checkout when registration opens. One-time use. First 20 codes only.\n`
+    : capReached
+      ? `\n\nWaitlist is full for the early-bird codes — but you're still on the list. Registration opens next week at $250.\n`
+      : '';
+  const userText = `${greetingTeam}is on the waitlist for ${eventLabel}.${codeUserText}
 We'll confirm your spot and send registration details as soon as they open.
 
 Saturday, July 18, 2026
@@ -68,6 +92,21 @@ shuuk.ca/jam`;
   <p style="margin:0 0 4px;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-family:'JetBrains Mono','Courier New',monospace;color:rgba(0,0,0,0.5);">Waitlisted</p>
   <p style="margin:0 0 18px;font-size:24px;line-height:1.15;font-weight:800;color:#0a0a0a;">${escapeHtml(email)}</p>`;
 
+  const codeBlock = code
+    ? `
+  <!-- $25-off code block — the whole reason for the Week 1 funnel -->
+  <div style="background:#0a0a0a;color:white;padding:22px 24px;margin:0 0 24px;border:2px solid #0a0a0a;box-shadow:8px 8px 0 0 #00D4FF;">
+    <p style="margin:0 0 6px;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-family:'JetBrains Mono','Courier New',monospace;color:#00D4FF;">your $25-off code</p>
+    <p style="margin:0 0 8px;font-family:'JetBrains Mono','Courier New',monospace;font-size:28px;font-weight:700;letter-spacing:0.04em;color:white;user-select:all;">${escapeHtml(code)}</p>
+    <p style="margin:0;font-size:12px;line-height:1.4;color:rgba(255,255,255,0.7);">Use it at checkout when registration opens. One-time use. First 20 only.</p>
+  </div>`
+    : capReached
+      ? `
+  <div style="background:#f6f3ec;border:2px solid #0a0a0a;padding:18px 22px;margin:0 0 24px;">
+    <p style="margin:0;font-size:14px;line-height:1.5;color:rgba(0,0,0,0.8);"><strong>Early-bird codes are out.</strong> You&rsquo;re still on the list — registration opens next week at $250.</p>
+  </div>`
+      : '';
+
   const rundownItem = (label: string, primary: string, secondary?: string) => `
     <tr>
       <td style="padding:14px 0;border-top:1px solid rgba(0,0,0,0.10);">
@@ -90,6 +129,9 @@ shuuk.ca/jam`;
 
   <!-- team confirmation block -->
   ${teamBlock}
+
+  <!-- prominent code block (or standby copy) -->
+  ${codeBlock}
 
   <!-- prose follow-up -->
   <p style="font-size:16px;line-height:1.55;margin:0 0 28px;color:rgba(0,0,0,0.78);">We&rsquo;ll confirm your spot and send registration details as soon as they open.</p>
@@ -132,5 +174,9 @@ shuuk.ca/jam`;
   } catch (err) {
     console.error('User confirmation email failed:', err);
   }
-  return NextResponse.json({ success: true });
+  return NextResponse.json({
+    success: true,
+    code,
+    capReached,
+  });
 }

@@ -8,6 +8,12 @@ import { Venue } from './sections/venue';
 import { Faq } from './sections/faq';
 import { Waitlist } from './sections/waitlist';
 import { Footer } from './sections/footer';
+import { getJamWaitlistStatus } from '@/lib/jam/status';
+
+// re-check the discount-code count once a minute. cheap enough at our traffic
+// and lets the page flip from "$25 off" → "save a spot" within 60s of the 20th
+// code being claimed.
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: { absolute: 'shuuk! 3x3 jam — Ottawa · Saturday July 18, 2026' },
@@ -70,7 +76,7 @@ const EVENT_JSONLD = {
   offers: {
     '@type': 'Offer',
     url: 'https://shuuk.ca/jam#waitlist',
-    price: '240',
+    price: '250',
     priceCurrency: 'CAD',
     availability: 'https://schema.org/InStock',
     validFrom: '2026-01-01',
@@ -78,7 +84,14 @@ const EVENT_JSONLD = {
   sport: 'Basketball',
 };
 
-export default function JamPage() {
+export default async function JamPage() {
+  const waitlistStatus = await getJamWaitlistStatus();
+  // "sold out" is a confirmed-zero state, distinct from "we couldn't reach juuk."
+  // unconfigured/error fall through to the original "save a spot" copy.
+  const codesSoldOut =
+    !waitlistStatus.unconfigured &&
+    !waitlistStatus.error &&
+    waitlistStatus.codesRemaining === 0;
   return (
     <>
       <script
@@ -92,7 +105,12 @@ export default function JamPage() {
       <Activations />
       <Venue />
       <Faq />
-      <Waitlist />
+      <Waitlist
+        codesAvailable={waitlistStatus.codesAvailable}
+        codesSoldOut={codesSoldOut}
+        codesRemaining={waitlistStatus.codesRemaining}
+        codesTotal={waitlistStatus.codesTotal}
+      />
       <Footer />
     </>
   );

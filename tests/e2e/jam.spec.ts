@@ -15,8 +15,25 @@ test('/jam waitlist form submits and opens modal', async ({ page }) => {
   await page.getByLabel(/team name/i).fill('Test Hoops');
   await page.getByLabel(/division/i).selectOption('U14');
   await page.getByLabel(/contact name/i).fill('Test Coach');
-  await page.getByLabel(/email address/i).fill('test@example.com');
-  await page.getByRole('button', { name: /reserve our spot/i }).click();
+  // fixed email so re-runs hit the idempotent "already_issued" path and don't
+  // burn through the 20-code pool in local dev.
+  await page.getByLabel(/email address/i).fill('e2e-formtest@example.com');
+  // wait for Turnstile to actually resolve a token (always-pass key returns
+  // one nearly instantly, but the React callback that sets form state has to
+  // run too). poll window.turnstile.getResponse() — the documented public API.
+  await page.waitForFunction(
+    () => {
+      const ts = (window as unknown as { turnstile?: { getResponse?: () => string | undefined } })
+        .turnstile;
+      const v = ts?.getResponse?.();
+      return typeof v === 'string' && v.length > 0;
+    },
+    null,
+    { timeout: 10_000 },
+  );
+  // small grace for React to flush the setToken state update before submit
+  await page.waitForTimeout(150);
+  await page.getByRole('button', { name: /join waitlist/i }).click();
   await expect(page.getByRole('dialog')).toBeVisible({ timeout: 10_000 });
   await expect(page.getByRole('dialog')).toContainText('Test Hoops');
 });
