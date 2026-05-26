@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import type { WaitlistPayload } from '../types';
 import { OPS_EMAIL, escapeHtml, isValidEmail, sendOne } from '../transport';
 import { issueJamWaitlistCode, type IssueResult } from '@/lib/jam/issue-code';
@@ -25,6 +26,13 @@ export async function handleWaitlist(data: WaitlistPayload) {
     : { code: null, reason: 'unconfigured' };
   const code = issueResult.code;
   const capReached = issueResult.reason === 'cap_reached';
+
+  // bust the /jam ISR cache when a fresh code is issued OR cap is reached —
+  // both events change what getJamWaitlistStatus() will return. without this
+  // the page can show stale "Only X left" for up to revalidate=60s.
+  if (isJam && (issueResult.reason === 'issued' || capReached)) {
+    revalidatePath('/jam');
+  }
 
   const isTeamSignup = !!(teamName || division || contactName);
 
